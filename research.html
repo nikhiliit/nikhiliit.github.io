@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Nikhil Sharma's Portfolio</title>
+    <!-- Main styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Transition styles -->
+    <link rel="stylesheet" href="css/transitions.css">
+    <!-- Fonts and icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Research-specific styles -->
+    <style>
+        .research-area {
+            margin-bottom: 50px;
+        }
+        
+        .research-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .research-title i {
+            font-size: 24px;
+        }
+        
+        .publication-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow-color);
+        }
+        
+        .publication-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        
+        .publication-authors {
+            font-size: 14px;
+            color: var(--muted-color);
+            margin-bottom: 15px;
+        }
+        
+        .publication-journal {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        .publication-year {
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+        
+        .publication-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .publication-badge {
+            display: inline-block;
+            font-size: 13px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            background: rgba(72, 49, 212, 0.1);
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .publication-badge:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .publication-abstract {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            color: var(--muted-color);
+            font-size: 14px;
+            display: none;
+        }
+        
+        .collaboration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .collaboration-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+        
+        .collaboration-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--shadow-color);
+        }
+        
+        .collaboration-image {
+            height: 140px;
+            overflow: hidden;
+        }
+        
+        .collaboration-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .collaboration-card:hover .collaboration-image img {
+            transform: scale(1.1);
+        }
+        
+        .collaboration-content {
+            padding: 20px;
+        }
+        
+        .collaboration-institution {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        
+        .collaboration-with {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .collaboration-date {
+            font-size: 14px;
+            color: var(--muted-color);
+            margin-bottom: 10px;
+        }
+        
+        .collaboration-topic {
+            color: var(--muted-color);
+            margin-bottom: 15px;
+        }
+        
+        .publication-toggle {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-size: 14px;
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .publication-toggle:hover {
+            color: var(--secondary-color);
+        }
+        
+        .research-metrics {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .metric-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--shadow-color);
+        }
+        
+        .metric-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .metric-label {
+            color: var(--muted-color);
+            text-align: center;
+        }
+        
+        .metric-icon {
+            font-size: 24px;
+            margin-bottom: 15px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(72, 49, 212, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .metric-card:hover .metric-icon {
+            background: var(--primary-color);
+            color: white;
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="cube-container">
+                <div class="cube">
+                    <div class="cube-face cube-face-front"><span>N</span></div>
+                    <div class="cube-face cube-face-back"><span>N</span></div>
+                    <div class="cube-face cube-face-right"><span>N</span></div>
+                    <div class="cube-face cube-face-left"><span>N</span></div>
+                    <div class="cube-face cube-face-top"><span>N</span></div>
+                    <div class="cube-face cube-face-bottom"><span>N</span></div>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="preloader-text">Please wait<span class="dot-animation"><span>.</span><span>.</span><span>.</span></span></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Nikhil</div>
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="research.html" class="active">Research</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="theme-toggle">
+                        <i class="fas fa-sun"></i>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggle">
+                            <span class="slider round"></span>
+                        </label>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Research Hero Section -->
+        <section class="page-hero parallax-bg">
+            <div class="container">
+                <div class="page-hero-content fade-in">
+                    <h1>My <span class="name-highlight">Research</span></h1>
+                    <p>Exploring AI, Multimodal Learning, Computer Vision, and Bioinformatics</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Metrics Section -->
+        <section class="research-metrics-section">
+            <div class="container">
+                <div class="research-metrics fade-in">
+                    <div class="metric-card card-3d-effect">
+                        <div class="metric-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="metric-number">15+</div>
+                        <div class="metric-label">Publications</div>
+                    </div>
+                    
+                    <div class="metric-card card-3d-effect">
+                        <div class="metric-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="metric-number">5+</div>
+                        <div class="metric-label">Research Collaborations</div>
+                    </div>
+                    
+                    <div class="metric-card card-3d-effect">
+                        <div class="metric-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="metric-number">2+</div>
+                        <div class="metric-label">Research Awards</div>
+                    </div>
+                    
+                    <div class="metric-card card-3d-effect">
+                        <div class="metric-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="metric-number">4+</div>
+                        <div class="metric-label">Research Domains</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Areas Section -->
+        <section class="research-areas">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="highlight-text">Research Areas</h2>
+                </div>
+                
+                <!-- Computer Vision Research -->
+                <div class="research-area slide-in-left">
+                    <h3 class="research-title"><i class="fas fa-eye"></i> Computer Vision</h3>
+                    
+                    <div class="publication-card">
+                        <div class="publication-title">SSDL: Sensor-to-Skeleton Diffusion Model with Lipschitz Regularization for Human Activity Recognition</div>
+                        <div class="publication-authors">N Sharma, C Sun, Z Zhao, AHH Ngu, H Latapie, Y Yan</div>
+                        <div class="publication-journal">MMM 2025</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">Diffusion Models</span>
+                            <span class="publication-badge">Human Activity Recognition</span>
+                            <span class="publication-badge">Skeleton Frames</span>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                        </div>
+                        <div class="publication-abstract">
+                            This research introduces a novel sensor-to-skeleton diffusion model that utilizes Lipschitz regularization for improved human activity recognition, combining sensory data with skeletal frame generation.
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card">
+                        <div class="publication-title">Skin lesion segmentation using deep convolutional networks</div>
+                        <div class="publication-authors">P Arora, N Sharma, P Bhatt, A Saxena</div>
+                        <div class="publication-journal">Concepts and Real-Time Applications of Deep Learning, 2021</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">Medical Imaging</span>
+                            <span class="publication-badge">CNN</span>
+                            <span class="publication-badge">Segmentation</span>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                        </div>
+                        <div class="publication-abstract">
+                            This study explores the application of deep convolutional networks for accurate segmentation of skin lesions, contributing to enhanced medical diagnostic capabilities.
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card">
+                        <div class="publication-title">Residual dense U-net for segmentation of lung CT images infected with COVID-19</div>
+                        <div class="publication-authors">A Srivastava, N Sharma, S Gupta, S Chandra</div>
+                        <div class="publication-journal">Advanced Computing: IACC 2020, 2021</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">COVID-19</span>
+                            <span class="publication-badge">CT Imaging</span>
+                            <span class="publication-badge">U-Net</span>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                        </div>
+                        <div class="publication-abstract">
+                            In this work, we developed a residual dense U-net architecture to effectively segment lung CT images of patients infected with COVID-19, aiding in diagnosis and treatment planning.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bioinformatics Research -->
+                <div class="research-area slide-in-right">
+                    <h3 class="research-title"><i class="fas fa-dna"></i> Bioinformatics & Medical Imaging</h3>
+                    
+                    <div class="publication-card">
+                        <div class="publication-title">3D segmentation of whole lung and metastatic lung nodules using adaptive region-growing and shape-based morphology</div>
+                        <div class="publication-authors">EB Kayal, S Ganguly, A Sasi, DS Dheeksha, M Saini, S Sharma, S Gupta, N Sharma, K Rangarajan, S Bakhshi, D Kandasamy, A Mehndiratta</div>
+                        <div class="publication-journal">Journal of Computer Assisted Tomography, 2024</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">3D Segmentation</span>
+                            <span class="publication-badge">Lung Nodules</span>
+                            <span class="publication-badge">Medical Imaging</span>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                        </div>
+                        <div class="publication-abstract">
+                            This study presents an innovative approach for 3D segmentation of whole lung and metastatic lung nodules using adaptive region-growing and shape-based morphology, enhancing diagnostic capabilities in medical imaging.
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card">
+                        <div class="publication-title">T1 mapping as a surrogate marker of chemotherapy response evaluation in patients with osteosarcoma</div>
+                        <div class="publication-authors">EB Kayal, N Sharma, R Sharma, S Bakhshi, D Kandasamy, A Mehndiratta</div>
+                        <div class="publication-journal">European Journal of Radiology, 2022</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">T1 Mapping</span>
+                            <span class="publication-badge">Osteosarcoma</span>
+                            <span class="publication-badge">Chemotherapy</span>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                        </div>
+                        <div class="publication-abstract">
+                            This research investigates the use of T1 mapping as a surrogate marker for evaluating chemotherapy response in patients with osteosarcoma, providing a non-invasive assessment method for treatment efficacy.
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card">
+                        <div class="publication-title">Whole genome analysis of more than 10,000 SARS-CoV-2 virus unveils global genetic diversity and target region of NSP6</div>
+                        <div class="publication-authors">I Saha, N Ghosh, N Sharma, D Maity, K Mitra</div>
+                        <div class="publication-journal">Briefings in Bioinformatics, 2021</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">SARS-CoV-2</span>
+                            <span class="publication-badge">Genomics</span>
+                            <span class="publication-badge">NSP6</span>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                        </div>
+                        <div class="publication-abstract">
+                            This comprehensive study analyzes the genomic sequences of over 10,000 SARS-CoV-2 viruses, revealing global genetic diversity patterns and identifying NSP6 as a significant target region with implications for therapeutic development.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Collaborations Section -->
+        <section class="collaborations parallax-bg">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="highlight-text">Research Collaborations</h2>
+                </div>
+                
+                <div class="collaboration-grid stagger-animation">
+                    <div class="collaboration-card">
+                        <div class="collaboration-image">
+                            <img src="images/stanford.png" alt="Stanford University">
+                        </div>
+                        <div class="collaboration-content">
+                            <div class="collaboration-institution">Stanford University</div>
+                            <div class="collaboration-with">Dr. Mehrdad Shamloo</div>
+                            <div class="collaboration-date">Ongoing</div>
+                            <div class="collaboration-topic">Collaboration on mouse behavior analysis via multi-modality approaches using computer vision and machine learning techniques.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="collaboration-card">
+                        <div class="collaboration-image">
+                            <img src="images/umich.png" alt="University of Michigan">
+                        </div>
+                        <div class="collaboration-content">
+                            <div class="collaboration-institution">University of Michigan</div>
+                            <div class="collaboration-with">Dr. Bo Duan</div>
+                            <div class="collaboration-date">Ongoing</div>
+                            <div class="collaboration-topic">Behavioral analysis and related studies using advanced AI methods for research data interpretation.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="collaboration-card">
+                        <div class="collaboration-image">
+                            <img src="images/iit_delhi.jpg" alt="IIT Delhi">
+                        </div>
+                        <div class="collaboration-content">
+                            <div class="collaboration-institution">IIT Delhi</div>
+                            <div class="collaboration-with">Dr. Amit Mehndiratta</div>
+                            <div class="collaboration-date">June 2019 - April 2021</div>
+                            <div class="collaboration-topic">T1 mapping as a surrogate marker of chemotherapy response evaluation in patients with osteosarcoma.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta parallax-bg">
+            <div class="container">
+                <div class="cta-content scale-in">
+                    <h2>Interested in research collaboration?</h2>
+                    <p>Let's discuss potential research opportunities and explore new ideas together.</p>
+                    <a href="contact.html" class="btn btn-animated">Contact Me</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+          <div class="social-links">
+            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/nikhiliit" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://scholar.google.com/citations?user=Von4NncAAAAJ&hl=en" target="_blank"><i class="fab fa-google"></i></a>
+          </div>
+          <p class="footer-text">&copy; 2025 Nikhil. All Rights Reserved.</p>
+        </div>
+      </footer>
+
+    <!-- Common Scripts -->
+<script src="js/loader.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/theme-switcher.js"></script>
+<script src="js/mouse-effects.js"></script>
+<script src="js/scroll-animations.js"></script>
+<script src="js/section-dividers.js"></script>
+<script src="js/text-effects.js"></script>
+<script src="js/preloader.js"></script>
+<script src="js/interactive-cards.js"></script>
+<script src="js/parallax.js"></script>
+
+<!-- Research-specific script -->
+<script>
+    // Toggle abstract visibility
+    function toggleAbstract(button) {
+        const card = button.closest('.publication-card');
+        const abstract = card.querySelector('.publication-abstract');
+        const isVisible = abstract.style.display === 'block';
+        
+        // Toggle display
+        abstract.style.display = isVisible ? 'none' : 'block';
+        
+        // Update button text
+        button.innerHTML = isVisible ? 
+            '<i class="fas fa-plus-circle"></i> Show Abstract' : 
+            '<i class="fas fa-minus-circle"></i> Hide Abstract';
+    }
+    
+    // Filter publications by tag
+    function filterPublications(tag) {
+        const allCards = document.querySelectorAll('.publication-card');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        // Update active filter button
+        filterButtons.forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-filter') === tag);
+        });
+        
+        // Show all if filter is "all"
+        if (tag === 'all') {
+            allCards.forEach(card => {
+                card.style.display = 'block';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 10);
+            });
+            return;
+        }
+        
+        // Filter cards
+        allCards.forEach(card => {
+            const tags = card.querySelector('.publication-tags').textContent.toLowerCase();
+            const matchesFilter = tags.includes(tag.toLowerCase());
+            
+            if (matchesFilter) {
+                card.style.display = 'block';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 10);
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
+        });
+    }
+</script>
+</body>
+</html>

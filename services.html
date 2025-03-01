@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Services - Nikhil's Portfolio</title>
+    <!-- Main styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Transition styles -->
+    <link rel="stylesheet" href="css/transitions.css">
+    <!-- Fonts and icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="cube-container">
+                <div class="cube">
+                    <div class="cube-face cube-face-front"><span>N</span></div>
+                    <div class="cube-face cube-face-back"><span>N</span></div>
+                    <div class="cube-face cube-face-right"><span>N</span></div>
+                    <div class="cube-face cube-face-left"><span>N</span></div>
+                    <div class="cube-face cube-face-top"><span>N</span></div>
+                    <div class="cube-face cube-face-bottom"><span>N</span></div>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="preloader-text">Please wait<span class="dot-animation"><span>.</span><span>.</span><span>.</span></span></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Nikhil</div>
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html" class="active">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="theme-toggle">
+                        <i class="fas fa-sun"></i>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggle">
+                            <span class="slider round"></span>
+                        </label>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Services Hero Section -->
+        <section class="page-hero parallax-bg">
+            <div class="container">
+                <div class="page-hero-content fade-in">
+                    <h1>My <span class="name-highlight">Services</span></h1>
+                    <p>Professional solutions tailored to meet your needs</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="services-intro fade-in">
+                    <p>I offer specialized AI solutions and research services designed to transform data into actionable insights and innovative applications. With expertise in multimodal learning, computer vision, and machine learning, I deliver tailored solutions for complex challenges.</p>
+                </div>
+                <div class="services-grid stagger-animation">
+                    <div class="service-card card-3d-effect">
+                        <div class="service-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>AI Research & Development</h3>
+                        <p>I conduct cutting-edge research in artificial intelligence domains, focusing on multimodal learning, foundation models, and computer vision applications.</p>
+                        <ul class="service-features">
+                            <li>State-of-the-art model development</li>
+                            <li>Algorithm optimization</li>
+                            <li>Research-backed solutions</li>
+                            <li>Publication-quality work</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card card-3d-effect">
+                        <div class="service-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>Computer Vision Solutions</h3>
+                        <p>I develop advanced computer vision applications that extract meaningful insights from visual data for various industries and research fields.</p>
+                        <ul class="service-features">
+                            <li>Object detection & tracking</li>
+                            <li>Image segmentation</li>
+                            <li>Pose estimation</li>
+                            <li>Activity recognition</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card card-3d-effect">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>AI Model Development</h3>
+                        <p>I build custom AI models tailored to your specific needs, ensuring optimal performance, scalability, and interpretability.</p>
+                        <ul class="service-features">
+                            <li>Machine learning pipelines</li>
+                            <li>Deep learning architectures</li>
+                            <li>Multimodal systems</li>
+                            <li>End-to-end solutions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card card-3d-effect">
+                        <div class="service-icon">
+                            <i class="fas fa-dna"></i>
+                        </div>
+                        <h3>Bioinformatics & Medical AI</h3>
+                        <p>I apply AI techniques to biological and medical data, enabling advanced analysis and insights for healthcare and research applications.</p>
+                        <ul class="service-features">
+                            <li>Genomic data analysis</li>
+                            <li>Medical image processing</li>
+                            <li>Biomarker discovery</li>
+                            <li>Treatment response prediction</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card card-3d-effect">
+                        <div class="service-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3>AI Consulting & Training</h3>
+                        <p>I provide expert guidance on AI strategy, implementation, and offer specialized training to empower your team with AI knowledge.</p>
+                        <ul class="service-features">
+                            <li>Technical workshops</li>
+                            <li>Implementation strategy</li>
+                            <li>Technology evaluation</li>
+                            <li>Custom training programs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card card-3d-effect">
+                        <div class="service-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>Research Collaboration</h3>
+                        <p>I partner with academic institutions, research labs, and companies on collaborative research projects in AI and related fields.</p>
+                        <ul class="service-features">
+                            <li>Joint paper publication</li>
+                            <li>Experimental design</li>
+                            <li>Technical implementation</li>
+                            <li>Result analysis & validation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Process Section -->
+        <section class="process parallax-bg">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="highlight-text">My Work Process</h2>
+                </div>
+                <div class="process-steps">
+                    <div class="process-step slide-in-left">
+                        <div class="process-step-number">1</div>
+                        <div class="process-step-content">
+                            <h3>Requirement Analysis</h3>
+                            <p>I begin by thoroughly understanding your requirements, goals, and challenges to ensure the solution addresses your specific needs.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step slide-in-right">
+                        <div class="process-step-number">2</div>
+                        <div class="process-step-content">
+                            <h3>Planning & Design</h3>
+                            <p>I create a detailed plan and design the solution architecture, considering scalability, performance, and user experience.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step slide-in-left">
+                        <div class="process-step-number">3</div>
+                        <div class="process-step-content">
+                            <h3>Development</h3>
+                            <p>I implement the solution using best practices and industry standards, with regular updates to keep you informed of progress.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step slide-in-right">
+                        <div class="process-step-number">4</div>
+                        <div class="process-step-content">
+                            <h3>Testing & Quality Assurance</h3>
+                            <p>I conduct thorough testing to ensure the solution is bug-free, secure, and meets all the specified requirements.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step slide-in-left">
+                        <div class="process-step-number">5</div>
+                        <div class="process-step-content">
+                            <h3>Deployment & Support</h3>
+                            <p>I deploy the solution and provide ongoing support and maintenance to ensure its continued success.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta parallax-bg">
+            <div class="container">
+                <div class="cta-content scale-in">
+                    <h2>Ready to start your project?</h2>
+                    <p>Contact me today to discuss how I can help you achieve your goals.</p>
+                    <a href="contact.html" class="btn btn-animated">Get Started</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+          <div class="social-links">
+            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/nikhiliit" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://scholar.google.com/citations?user=Von4NncAAAAJ&hl=en" target="_blank"><i class="fab fa-google"></i></a>
+          </div>
+          <p class="footer-text">&copy; 2025 Nikhil. All Rights Reserved.</p>
+        </div>
+      </footer>
+
+    <!-- Common Scripts -->
+    <script src="js/loader.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/theme-switcher.js"></script>
+    <script src="js/mouse-effects.js"></script>
+    <script src="js/scroll-animations.js"></script>
+    <script src="js/section-dividers.js"></script>
+    <script src="js/text-effects.js"></script>
+    <script src="js/preloader.js"></script>
+    <script src="js/interactive-cards.js"></script>
+    <script src="js/parallax.js"></script>
+</body>
+</html>
