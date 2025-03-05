@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Projects - Nikhil Sharma's Portfolio</title>
+    <!-- Main styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Transition styles -->
+    <link rel="stylesheet" href="css/transitions.css">
+    <!-- Fonts and icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="cube-container">
+                <div class="cube">
+                    <div class="cube-face cube-face-front"><span>N</span></div>
+                    <div class="cube-face cube-face-back"><span>N</span></div>
+                    <div class="cube-face cube-face-right"><span>N</span></div>
+                    <div class="cube-face cube-face-left"><span>N</span></div>
+                    <div class="cube-face cube-face-top"><span>N</span></div>
+                    <div class="cube-face cube-face-bottom"><span>N</span></div>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="preloader-text">Please wait<span class="dot-animation"><span>.</span><span>.</span><span>.</span></span></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Nikhil</div>
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="theme-toggle">
+                        <i class="fas fa-sun"></i>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggle">
+                            <span class="slider round"></span>
+                        </label>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Portfolio Hero Section -->
+        <section class="page-hero parallax-bg">
+            <div class="container">
+                <div class="page-hero-content fade-in">
+                    <h1>AI <span class="name-highlight">Projects</span></h1>
+                    <p>Showcasing my work in artificial intelligence, multimodal learning, and computer vision</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Demos Section -->
+    
+
+        <!-- Portfolio Filter Section -->
+        <section class="portfolio-filter">
+            <div class="container">
+                <div class="filter-buttons fade-in">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="computer-vision">Computer Vision</button>
+                    <button class="filter-btn" data-filter="medical-ai">Medical AI</button>
+                    <button class="filter-btn" data-filter="multimodal">Multimodal Learning</button>
+                    <button class="filter-btn" data-filter="bioinformatics">Bioinformatics</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Grid Section -->
+        <section class="portfolio" id="portfolio">
+            <div class="container">
+                <div class="portfolio-grid stagger-animation">
+                    <!-- Project 1 -->
+                    <div class="portfolio-item card-3d-effect" id="project1" data-category="computer-vision,multimodal">
+                        <img src="images/fig2_model-1.png" alt="Sensor-to-Skeleton Diffusion Model" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <h3>Sensor-to-Skeleton Diffusion Model</h3>
+                            <a href="#" class="portfolio-link view-details" data-project="project1">View Details</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="portfolio-item card-3d-effect" id="project2" data-category="medical-ai,computer-vision">
+                        <img src="images/fig3.png" alt="3D Lung Segmentation" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <h3>3D Lung Nodule Segmentation</h3>
+                            <a href="#" class="portfolio-link view-details" data-project="project2">View Details</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="portfolio-item card-3d-effect" id="project3" data-category="bioinformatics">
+                        <img src="images/fig4.png" alt="SARS-CoV-2 Genomic Analysis" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <h3>SARS-CoV-2 Genomic Analysis</h3>
+                            <a href="#" class="portfolio-link view-details" data-project="project3">View Details</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="portfolio-item card-3d-effect" id="project4" data-category="medical-ai">
+                        <img src="images/fig5.png" alt="T1 Mapping for Chemotherapy" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <h3>T1 Mapping for Treatment Evaluation</h3>
+                            <a href="#" class="portfolio-link view-details" data-project="project4">View Details</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 7 -->
+                    <div class="portfolio-item card-3d-effect" id="project7" data-category="multimodal">
+                        <img src="images/fig7.png" alt="Mouse Behavior Analysis" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <h3>Mouse Behavior Analysis</h3>
+                            <a href="#" class="portfolio-link view-details" data-project="project7">View Details</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 8 -->
+                    <div class="portfolio-item card-3d-effect" id="project8" data-category="computer-vision,multimodal">
+                        <img src="images/fig6.png" alt="COVID-19 CT Segmentation" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <h3>COVID-19 CT Image Segmentation</h3>
+                            <a href="#" class="portfolio-link view-details" data-project="project8">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Modal (hidden by default) -->
+        <div class="project-modal" id="projectModal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="modal-body">
+                    <!-- This content will be dynamically populated with JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Details (hidden, used for modal content) -->
+        <div class="project-details" style="display: none;">
+            <!-- Project 1 Details -->
+            <div id="project1-details">
+                <h2 class="highlight-text">Sensor-to-Skeleton Diffusion Model</h2>
+                <div class="project-info-grid">
+                    <!-- <div class="project-images">
+                        <div class="project-main-image">
+                            <img src="https://via.placeholder.com/800x500?text=Skeleton+Generation" alt="Sensor-to-Skeleton Diffusion Model">
+                        </div>
+                        <div class="project-thumbnail-grid">
+                            <img src="https://via.placeholder.com/200x150?text=Variant+1" alt="Thumbnail 1">
+                            <img src="https://via.placeholder.com/200x150?text=Variant+2" alt="Thumbnail 2">
+                            <img src="https://via.placeholder.com/200x150?text=Variant+3" alt="Thumbnail 3">
+                        </div>
+                    </div> -->
+                    <div class="project-description">
+                        <p>A novel approach for generating human skeleton frames from sensor data using diffusion models with Lipschitz regularization for improved human activity recognition.</p>
+                        <h3>Project Details</h3>
+                        <ul>
+                            <li><strong>Collaboration:</strong> Cisco Research & Texas State University</li>
+                            <li><strong>Date:</strong> Nov 2023 - April 2024</li>
+                            <li><strong>Publication:</strong> MMM 2025</li>
+                        </ul>
+                        <h3>Technologies Used</h3>
+                        <ul class="tech-tags">
+                            <li>PyTorch</li>
+                            <li>Diffusion Models</li>
+                            <li>Python</li>
+                            <li>Lipschitz Regularization</li>
+                            <li>Sensor Data Processing</li>
+                        </ul>
+                        <h3>Key Features</h3>
+                        <ul>
+                            <li>Novel sensor-to-skeleton diffusion approach</li>
+                            <li>Improved stability with Lipschitz regularization</li>
+                            <li>Enhanced human activity recognition accuracy</li>
+                            <li>Low sensor data requirements</li>
+                            <li>Real-time capable implementation</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="#ai-demos" class="btn btn-animated">View Demo</a>
+                            <a href="research.html" class="btn btn-outline btn-animated">Research Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 Details -->
+            <div id="project2-details">
+                <h2 class="highlight-text">3D Lung Nodule Segmentation</h2>
+                <div class="project-info-grid">
+                    <!-- <div class="project-images">
+                        <div class="project-main-image">
+                            <img src="https://via.placeholder.com/800x500?text=3D+Lung+Segmentation" alt="3D Lung Segmentation">
+                        </div>
+                        <div class="project-thumbnail-grid">
+                            <img src="https://via.placeholder.com/200x150?text=Nodule+1" alt="Thumbnail 1">
+                            <img src="https://via.placeholder.com/200x150?text=Nodule+2" alt="Thumbnail 2">
+                            <img src="https://via.placeholder.com/200x150?text=Nodule+3" alt="Thumbnail 3">
+                        </div>
+                    </div> -->
+                    <div class="project-description">
+                        <p>Advanced 3D segmentation techniques for identifying and analyzing metastatic lung nodules in medical images using adaptive region-growing and shape-based morphology.</p>
+                        <h3>Project Details</h3>
+                        <ul>
+                            <li><strong>Collaboration:</strong> Multiple research institutions</li>
+                            <li><strong>Date:</strong> 2023-2024</li>
+                            <li><strong>Publication:</strong> Journal of Computer Assisted Tomography, 2024</li>
+                        </ul>
+                        <h3>Technologies Used</h3>
+                        <ul class="tech-tags">
+                            <li>Medical Image Processing</li>
+                            <li>3D Segmentation</li>
+                            <li>Deep Learning</li>
+                            <li>Python</li>
+                            <li>Region Growing Algorithm</li>
+                        </ul>
+                        <h3>Key Features</h3>
+                        <ul>
+                            <li>3D whole lung segmentation</li>
+                            <li>Metastatic nodule detection</li>
+                            <li>Adaptive region-growing algorithm</li>
+                            <li>Shape-based morphology analysis</li>
+                            <li>Clinical validation</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="research.html" class="btn btn-animated">Research Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 Details -->
+            <div id="project3-details">
+                <h2 class="highlight-text">SARS-CoV-2 Genomic Analysis</h2>
+                <div class="project-info-grid">
+                    <!-- <div class="project-images">
+                        <div class="project-main-image">
+                            <img src="https://via.placeholder.com/800x500?text=Genomic+Analysis" alt="SARS-CoV-2 Genomic Analysis">
+                        </div>
+                        <div class="project-thumbnail-grid">
+                            <img src="https://via.placeholder.com/200x150?text=Genomic+Data+1" alt="Thumbnail 1">
+                            <img src="https://via.placeholder.com/200x150?text=Genomic+Data+2" alt="Thumbnail 2">
+                            <img src="https://via.placeholder.com/200x150?text=Genomic+Data+3" alt="Thumbnail 3">
+                        </div>
+                    </div> -->
+                    <div class="project-description">
+                        <p>Comprehensive analysis of over 10,000 SARS-CoV-2 genomes to identify genetic diversity and potential therapeutic targets, resulting in multiple high-impact publications.</p>
+                        <h3>Project Details</h3>
+                        <ul>
+                            <li><strong>Collaboration:</strong> NITTR-Kolkata, India</li>
+                            <li><strong>Date:</strong> June 2019 - April 2021</li>
+                            <li><strong>Publications:</strong> 10+ journals including Briefings in Bioinformatics</li>
+                        </ul>
+                        <h3>Technologies Used</h3>
+                        <ul class="tech-tags">
+                            <li>Bioinformatics</li>
+                            <li>Genomic Analysis</li>
+                            <li>Python</li>
+                            <li>R</li>
+                            <li>Machine Learning</li>
+                        </ul>
+                        <h3>Key Findings</h3>
+                        <ul>
+                            <li>Identification of global genetic diversity patterns</li>
+                            <li>Discovery of NSP6 as a significant target region</li>
+                            <li>Characterization of SARS-CoV-2 clades</li>
+                            <li>Analysis of virus-human protein interactions</li>
+                            <li>T-cell and B-cell epitope identification</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="research.html" class="btn btn-animated">Research Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Project Details -->
+            <div id="project4-details">
+                <h2 class="highlight-text">T1 Mapping for Treatment Evaluation</h2>
+                <div class="project-info-grid">
+                    <!-- <div class="project-images">
+                        <div class="project-main-image">
+                            <img src="https://via.placeholder.com/800x500?text=T1+Mapping" alt="T1 Mapping">
+                        </div>
+                        <div class="project-thumbnail-grid">
+                            <img src="https://via.placeholder.com/200x150?text=T1+Map+1" alt="Thumbnail 1">
+                            <img src="https://via.placeholder.com/200x150?text=T1+Map+2" alt="Thumbnail 2">
+                            <img src="https://via.placeholder.com/200x150?text=T1+Map+3" alt="Thumbnail 3">
+                        </div>
+                    </div> -->
+                    <div class="project-description">
+                        <p>Developed T1 mapping techniques for non-invasive evaluation of chemotherapy response in patients with osteosarcoma, resulting in an ISMRM Best Paper Award.</p>
+                        <h3>Project Details</h3>
+                        <ul>
+                            <li><strong>Collaboration:</strong> IIT-Delhi, India</li>
+                            <li><strong>Date:</strong> June 2019 - April 2021</li>
+                            <li><strong>Publication:</strong> European Journal of Radiology, 2022</li>
+                        </ul>
+                        <h3>Technologies Used</h3>
+                        <ul class="tech-tags">
+                            <li>Medical Imaging</li>
+                            <li>MRI Analysis</li>
+                            <li>T1 Mapping</li>
+                            <li>MATLAB</li>
+                            <li>Statistical Analysis</li>
+                        </ul>
+                        <h3>Key Outcomes</h3>
+                        <ul>
+                            <li>Novel T1 mapping methodology</li>
+                            <li>Non-invasive chemotherapy response evaluation</li>
+                            <li>Validated on osteosarcoma patients</li>
+                            <li>ISMRM Best Paper Award 2020</li>
+                            <li>Potential clinical application</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="research.html" class="btn btn-animated">Research Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="project5-details">
+                <h2 class="highlight-text">Autonomous Face Detection System</h2>
+                <div class="project-info-grid">
+                    <!-- <div class="project-images">
+                        <div class="project-main-image">
+                            <img src="https://via.placeholder.com/800x500?text=Face+Detection" alt="Face Detection">
+                        </div>
+                        <div class="project-thumbnail-grid">
+                            <img src="https://via.placeholder.com/200x150?text=Face+1" alt="Thumbnail 1">
+                            <img src="https://via.placeholder.com/200x150?text=Face+2" alt="Thumbnail 2">
+                            <img src="https://via.placeholder.com/200x150?text=Face+3" alt="Thumbnail 3">
+                        </div>
+                    </div> -->
+                    <div class="project-description">
+                        <p>Developed an autonomous face detection system for the "Chabee" product during my work at Matdun Labs, implementing real-time face detection algorithms with high accuracy.</p>
+                        <h3>Project Details</h3>
+                        <ul>
+                            <li><strong>Company:</strong> Matdun Labs, Hyderabad</li>
+                            <li><strong>Date:</strong> 2021-2023</li>
+                            <li><strong>Role:</strong> Technical Lead</li>
+                        </ul>
+                        <h3>Technologies Used</h3>
+                        <ul class="tech-tags">
+                            <li>Computer Vision</li>
+                            <li>OpenCV</li>
+                            <li>Python</li>
+                            <li>Deep Learning</li>
+                            <li>Real-time Processing</li>
+                        </ul>
+                        <h3>Key Features</h3>
+                        <ul>
+                            <li>Real-time face detection</li>
+                            <li>Multi-angle face recognition</li>
+                            <li>Low computational requirements</li>
+                            <li>High accuracy in varied lighting</li>
+                            <li>Commercial product integration</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-animated disabled">Commercial Product</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="project6-details">
+                <h2 class="highlight-text">Skin Lesion Segmentation</h2>
+                <div class="project-info-grid">
+                    <!-- <div class="project-images">
+                        <div class="project-main-image">
+                            <img src="https://via.placeholder.com/800x500?text=Skin+Lesion" alt="Skin Lesion Segmentation">
+                        </div>
+                        <div class="project-thumbnail-grid">
+                            <img src="https://via.placeholder.com/200x150?text=Lesion+1" alt="Thumbnail 1">
+                            <img src="https://via.placeholder.com/200x150?text=Lesion+2" alt="Thumbnail 2">
+                            <img src="https://via.placeholder.com/200x150?text=Lesion+3" alt="Thumbnail 3">
+                        </div>
+                    </div> -->
+                    <div class="project-description">
+                        <p>Developed deep convolutional network approaches for accurate segmentation of skin lesions in medical images, contributing to enhanced diagnostic capabilities.</p>
+                        <h3>Project Details</h3>
+                        <ul>
+                            <li><strong>Date:</strong> 2021</li>
+                            <li><strong>Publication:</strong> Concepts and Real-Time Applications of Deep Learning</li>
+                            <li><strong>Collaborators:</strong> P Arora, P Bhatt, A Saxena</li>
+                        </ul>
+                        <h3>Technologies Used</h3>
+                        <ul class="tech-tags">
+                            <li>Deep Learning</li>
+                            <li>Convolutional Neural Networks</li>
+                            <li>Medical Image Analysis</li>
+                            <li>PyTorch</li>
+                            <li>Image Segmentation</li>
+                        </ul>
+                        <h3>Key Features</h3>
+                        <ul>
+                            <li>Automatic skin lesion boundary detection</li>
+                            <li>High segmentation accuracy</li>
+                            <li>Adaptive to various lesion types</li>
+                            <li>Supporting diagnostic decision making</li>
+                            <li>Efficient preprocessing pipeline</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="research.html" class="btn btn-animated">Research Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="project7-details">
+                <h2 class="highlight-text">Mouse Behavior Analysis</h2>
+                <div class="project-info-grid">
+                    <!-- <div class="project-images">
+                        <div class="project-main-image">
+                            <img src="https://via.placeholder.com/800x500?text=Mouse+Behavior" alt="Mouse Behavior Analysis">
+                        </div>
+                        <div class="project-thumbnail-grid">
+                            <img src="https://via.placeholder.com/200x150?text=Behavior+1" alt="Thumbnail 1">
+                            <img src="https://via.placeholder.com/200x150?text=Behavior+2" alt="Thumbnail 2">
+                            <img src="https://via.placeholder.com/200x150?text=Behavior+3" alt="Thumbnail 3">
+                        </div>
+                    </div> -->
+                    <div class="project-description">
+                        <p>Ongoing collaboration with Stanford University on mouse behavior analysis via multi-modality approaches, combining video analysis with other sensor data for comprehensive behavior understanding.</p>
+                        <h3>Project Details</h3>
+                        <ul>
+                            <li><strong>Collaboration:</strong> Dr. Mehrdad Shamloo, Stanford University</li>
+                            <li><strong>Date:</strong> Current (Ongoing)</li>
+                            <li><strong>Status:</strong> Active Research</li>
+                        </ul>
+                        <h3>Technologies Used</h3>
+                        <ul class="tech-tags">
+                            <li>Multimodal Learning</li>
+                            <li>Computer Vision</li>
+                            <li>Behavioral Analysis</li>
+                            <li>PyTorch</li>
+                            <li>Time Series Analysis</li>
+                        </ul>
+                        <h3>Key Components</h3>
+                        <ul>
+                            <li>Video-based pose estimation</li>
+                            <li>Multimodal data integration</li>
+                            <li>Behavioral pattern recognition</li>
+                            <li>Temporal behavioral analysis</li>
+                            <li>Advanced feature extraction</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="research.html" class="btn btn-animated">Research Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="project8-details">
+                <h2 class="highlight-text">COVID-19 CT Image Segmentation</h2>
+                <div class="project-info-grid">
+                    <!-- <div class="project-images">
+                        <div class="project-main-image">
+                            <img src="https://via.placeholder.com/800x500?text=COVID+CT" alt="COVID-19 CT Segmentation">
+                        </div>
+                        <div class="project-thumbnail-grid">
+                            <img src="https://via.placeholder.com/200x150?text=CT+1" alt="Thumbnail 1">
+                            <img src="https://via.placeholder.com/200x150?text=CT+2" alt="Thumbnail 2">
+                            <img src="https://via.placeholder.com/200x150?text=CT+3" alt="Thumbnail 3">
+                        </div>
+                    </div> -->
+                    <div class="project-description">
+                        <p>Developed a residual dense U-net architecture for effective segmentation of lung CT images from patients infected with COVID-19, aiding in diagnosis and treatment planning.</p>
+                        <h3>Project Details</h3>
+                        <ul>
+                            <li><strong>Collaboration:</strong> A Srivastava, S Gupta, S Chandra</li>
+                            <li><strong>Date:</strong> 2020-2021</li>
+                            <li><strong>Publication:</strong> Advanced Computing: IACC 2020, 2021</li>
+                        </ul>
+                        <h3>Technologies Used</h3>
+                        <ul class="tech-tags">
+                            <li>Deep Learning</li>
+                            <li>U-Net Architecture</li>
+                            <li>Residual Dense Connections</li>
+                            <li>CT Image Analysis</li>
+                            <li>Medical Imaging</li>
+                        </ul>
+                        <h3>Key Features</h3>
+                        <ul>
+                            <li>Accurate COVID-19 affected region segmentation</li>
+                            <li>Enhanced feature extraction with residual connections</li>
+                            <li>Improved boundary delineation</li>
+                            <li>Robust to various infection patterns</li>
+                            <li>Diagnostic support capabilities</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="research.html" class="btn btn-animated">Research Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Skills Section -->
+        <section class="technical-skills parallax-bg">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="highlight-text">AI & Technical Skills</h2>
+                </div>
+                
+                <div class="skills-categories stagger-animation">
+                    <div class="skill-category card-3d-effect">
+                        <div class="skill-category-header">
+                            <div class="skill-category-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>Deep Learning</h3>
+                        </div>
+                        <div class="skill-category-tags">
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">CNN</span>
+                            <span class="skill-tag">RNN</span>
+                            <span class="skill-tag">Transformers</span>
+                            <span class="skill-tag">GANs</span>
+                            <span class="skill-tag">Diffusion Models</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category card-3d-effect">
+                        <div class="skill-category-header">
+                            <div class="skill-category-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h3>Computer Vision</h3>
+                        </div>
+                        <div class="skill-category-tags">
+                            <span class="skill-tag">OpenCV</span>
+                            <span class="skill-tag">Image Segmentation</span>
+                            <span class="skill-tag">Object Detection</span>
+                            <span class="skill-tag">Pose Estimation</span>
+                            <span class="skill-tag">Action Recognition</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category card-3d-effect">
+                        <div class="skill-category-header">
+                            <div class="skill-category-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h3>Programming</h3>
+                        </div>
+                        <div class="skill-category-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">MATLAB</span>
+                            <span class="skill-tag">R</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Git</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category card-3d-effect">
+                        <div class="skill-category-header">
+                            <div class="skill-category-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <h3>Medical AI</h3>
+                        </div>
+                        <div class="skill-category-tags">
+                            <span class="skill-tag">Medical Imaging</span>
+                            <span class="skill-tag">MRI Analysis</span>
+                            <span class="skill-tag">CT Segmentation</span>
+                            <span class="skill-tag">Diagnostic AI</span>
+                            <span class="skill-tag">DICOM Processing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta parallax-bg">
+            <div class="container">
+                <div class="cta-content scale-in">
+                    <h2>Let's build AI-powered solutions together</h2>
+                    <p>Collaborate on cutting-edge AI research and development projects</p>
+                    <a href="contact.html" class="btn btn-animated">Contact Me</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+          <div class="social-links">
+            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/nikhiliit" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://scholar.google.com/citations?user=Von4NncAAAAJ&hl=en" target="_blank"><i class="fab fa-google"></i></a>
+          </div>
+          <p class="footer-text">&copy; 2025 Nikhil. All Rights Reserved.</p>
+        </div>
+      </footer>
+
+    <!-- Common Scripts -->
+    <script src="js/loader.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/theme-switcher.js"></script>
+    <script src="js/mouse-effects.js"></script>
+    <script src="js/scroll-animations.js"></script>
+    <script src="js/section-dividers.js"></script>
+    <script src="js/text-effects.js"></script>
+    <script src="js/preloader.js"></script>
+    <script src="js/interactive-cards.js"></script>
+    <script src="js/parallax.js"></script>
+    <script src="js/portfolio.js"></script>
+
+    <!-- Additional Portfolio Styles -->
+    <style>
+        /* Technical Skills Section Styles */
+        .technical-skills {
+            background: rgba(240, 240, 240, 0.3);
+            padding: 80px 0;
+        }
+        
+        [data-theme="dark"] .technical-skills {
+            background: rgba(30, 30, 30, 0.3);
+        }
+        
+        .skills-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+        
+        .skill-category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .skill-category-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(72, 49, 212, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 20px;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover .skill-category-icon {
+            background: var(--primary-color);
+            color: white;
+            transform: rotate(360deg);
+        }
+        
+        .skill-category h3 {
+            margin: 0;
+            color: var(--text-color);
+        }
+        
+        .skill-category-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background: rgba(72, 49, 212, 0.1);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+    </style>
+
+    <!-- React SDK and Components for AI Demo -->
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/konva@8/konva.min.js"></script>
+    <script src="https://unpkg.com/react-konva@17/umd/react-konva.production.min.js"></script>
+
+    <!-- Skeleton Visualization Component -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const demoContainer = document.getElementById('skeleton-demo-container');
+            if (!demoContainer) return;
+            
+            // Skeleton keypoints (simplified COCO format)
+            const sampleSkeletons = [
+                // Walking pose 1
+                [
+                    [90, 50], [90, 100], [70, 125], [60, 175], [50, 225], // Head, neck, left shoulder, left elbow, left wrist
+                    [110, 125], [120, 175], [130, 225], // Right shoulder, right elbow, right wrist
+                    [90, 150], // Hip center
+                    [70, 200], [60, 250], [50, 300], // Left hip, left knee, left ankle
+                    [110, 200], [120, 250], [130, 300], // Right hip, right knee, right ankle
+                    [80, 40], [100, 40] // Left eye, right eye
+                ],
+                // Walking pose 2
+                [
+                    [90, 50], [90, 100], [70, 125], [50, 160], [60, 200], // Head, neck, left shoulder, left elbow, left wrist
+                    [110, 125], [130, 160], [120, 200], // Right shoulder, right elbow, right wrist
+                    [90, 150], // Hip center
+                    [70, 200], [50, 250], [70, 300], // Left hip, left knee, left ankle
+                    [110, 200], [130, 250], [110, 300], // Right hip, right knee, right ankle
+                    [80, 40], [100, 40] // Left eye, right eye
+                ],
+                // Walking pose 3
+                [
+                    [90, 50], [90, 100], [70, 125], [80, 170], [90, 210], // Head, neck, left shoulder, left elbow, left wrist
+                    [110, 125], [100, 170], [90, 210], // Right shoulder, right elbow, right wrist
+                    [90, 150], // Hip center
+                    [70, 200], [80, 250], [90, 300], // Left hip, left knee, left ankle
+                    [110, 200], [100, 250], [90, 300], // Right hip, right knee, right ankle
+                    [80, 40], [100, 40] // Left eye, right eye
+                ]
+            ];
+            
+            // Define the skeleton connections
+            const skeletonConnections = [
+                [0, 1], // Head to neck
+                [1, 2], [2, 3], [3, 4], // Left arm
+                [1, 5], [5, 6], [6, 7], // Right arm
+                [1, 8], // Neck to hip center
+                [8, 9], [9, 10], [10, 11], // Left leg
+                [8, 12], [12, 13], [13, 14], // Right leg
+                [0, 15], [0, 16], [15, 16] // Eyes and connection between eyes
+            ];
+            
+            // Create a simple skeleton visualization component
+            const SkeletonDemo = () => {
+                const [skeletonIndex, setSkeletonIndex] = React.useState(0);
+                const [isAnimating, setIsAnimating] = React.useState(false);
+                const [scale, setScale] = React.useState(1);
+                
+                // Animation interval reference
+                const animationRef = React.useRef(null);
+                
+                // Setup animation
+                React.useEffect(() => {
+                    if (isAnimating) {
+                        animationRef.current = setInterval(() => {
+                            setSkeletonIndex(prev => (prev + 1) % sampleSkeletons.length);
+                        }, 500);
+                    } else if (animationRef.current) {
+                        clearInterval(animationRef.current);
+                    }
+                    
+                    return () => {
+                        if (animationRef.current) {
+                            clearInterval(animationRef.current);
+                        }
+                    };
+                }, [isAnimating]);
+                
+                // Create container style
+                const containerStyle = {
+                    backgroundColor: '#f8f9fa',
+                    padding: '20px',
+                    borderRadius: '10px',
+                    boxShadow: '0 5px 15px rgba(0,0,0,0.1)',
+                    marginBottom: '20px'
+                };
+                
+                // Control panel style
+                const controlStyle = {
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '15px'
+                };
+                
+                // Button style
+                const buttonStyle = {
+                    backgroundColor: '#4831D4',
+                    color: 'white',
+                    border: 'none',
+                    padding: '8px 15px',
+                    borderRadius: '5px',
+                    cursor: 'pointer',
+                    marginRight: '10px',
+                    fontFamily: 'Poppins, sans-serif'
+                };
+                
+                // Canvas style
+                const canvasStyle = {
+                    border: '1px solid #ddd',
+                    borderRadius: '5px',
+                    backgroundColor: 'white'
+                };
+                
+                return React.createElement('div', { style: containerStyle },
+                    // Control panel
+                    React.createElement('div', { style: controlStyle },
+                        React.createElement('h3', { style: { margin: 0 } }, 'Skeleton Animation'),
+                        React.createElement('div', null,
+                            React.createElement('button', { 
+                                style: buttonStyle,
+                                onClick: () => setIsAnimating(!isAnimating)
+                            }, isAnimating ? 'Pause' : 'Animate'),
+                            React.createElement('button', { 
+                                style: {...buttonStyle, backgroundColor: '#6045FF'},
+                                onClick: () => setScale(prev => Math.min(prev + 0.1, 2))
+                            }, 'Zoom In'),
+                            React.createElement('button', { 
+                                style: {...buttonStyle, backgroundColor: '#6045FF'},
+                                onClick: () => setScale(prev => Math.max(prev - 0.1, 0.5))
+                            }, 'Zoom Out')
+                        )
+                    ),
+                    
+                    // SVG Canvas for rendering skeleton
+                    React.createElement('svg', {
+                        width: 400,
+                        height: 350,
+                        style: canvasStyle,
+                        viewBox: '0 0 400 350',
+                        preserveAspectRatio: 'xMidYMid meet'
+                    },
+                        // Background
+                        React.createElement('rect', {
+                            width: 400,
+                            height: 350,
+                            fill: 'white'
+                        }),
+                        
+                        // Draw connections
+                        ...skeletonConnections.map((connection, i) => {
+                            const start = sampleSkeletons[skeletonIndex][connection[0]];
+                            const end = sampleSkeletons[skeletonIndex][connection[1]];
+                            
+                            return React.createElement('line', {
+                                key: `line-${i}`,
+                                x1: start[0],
+                                y1: start[1],
+                                x2: end[0],
+                                y2: end[1],
+                                stroke: '#4831D4',
+                                strokeWidth: 4,
+                                strokeLinecap: 'round'
+                            });
+                        }),
+                        
+                        // Draw keypoints
+                        ...sampleSkeletons[skeletonIndex].map((point, i) => 
+                            React.createElement('circle', {
+                                key: `point-${i}`,
+                                cx: point[0],
+                                cy: point[1],
+                                r: 5,
+                                fill: '#6045FF',
+                                stroke: 'white',
+                                strokeWidth: 2
+                            })
+                        ),
+                        
+                        // Add title
+                        React.createElement('text', {
+                            x: 135,
+                            y: 20,
+                            fontFamily: 'Poppins, sans-serif',
+                            fontSize: 16,
+                            fontWeight: 'bold',
+                            fill: '#333'
+                        }, 'Human Pose Skeleton')
+                    ),
+                    
+                    // Description
+                    React.createElement('div', {
+                        style: {
+                            backgroundColor: '#f0f0f0',
+                            padding: '15px',
+                            borderRadius: '5px',
+                            marginTop: '15px',
+                            fontSize: '14px',
+                            color: '#555'
+                        }
+                    }, 
+                        React.createElement('p', { style: { margin: 0 } },
+                            "This demo visualizes human pose skeletons generated using diffusion modeling. Toggle the animation to see different poses. This technology is part of my SSDL research."
+                        )
+                    )
+                );
+            };
+            
+            // Render the component
+            ReactDOM.render(React.createElement(SkeletonDemo), demoContainer);
+        });
+    </script>
+</body>
+</html>

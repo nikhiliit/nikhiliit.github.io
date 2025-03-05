@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Nikhil Sharma's Portfolio</title>
+    <!-- Main styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Transition styles -->
+    <link rel="stylesheet" href="css/transitions.css">
+    <!-- Fonts and icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Research-specific styles -->
+    <style>
+        .research-area {
+            margin-bottom: 50px;
+        }
+        
+        .research-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .research-title i {
+            font-size: 24px;
+        }
+        
+        .publication-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow-color);
+        }
+        
+        .publication-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        
+        .publication-authors {
+            font-size: 14px;
+            color: var(--muted-color);
+            margin-bottom: 15px;
+        }
+        
+        .publication-journal {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        .publication-year {
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+        
+        .publication-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .publication-badge {
+            display: inline-block;
+            font-size: 13px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            background: rgba(72, 49, 212, 0.1);
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .publication-badge:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .publication-abstract {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            color: var(--muted-color);
+            font-size: 14px;
+            display: none;
+        }
+        
+        .collaboration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .collaboration-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+        
+        .collaboration-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--shadow-color);
+        }
+        
+        .collaboration-image {
+            height: 140px;
+            overflow: hidden;
+        }
+        
+        .collaboration-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .collaboration-card:hover .collaboration-image img {
+            transform: scale(1.1);
+        }
+        
+        .collaboration-content {
+            padding: 20px;
+        }
+        
+        .collaboration-institution {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        
+        .collaboration-with {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .collaboration-date {
+            font-size: 14px;
+            color: var(--muted-color);
+            margin-bottom: 10px;
+        }
+        
+        .collaboration-topic {
+            color: var(--muted-color);
+            margin-bottom: 15px;
+        }
+        
+        .publication-toggle {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-size: 14px;
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .publication-toggle:hover {
+            color: var(--secondary-color);
+        }
+        
+        .research-metrics {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .metric-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--shadow-color);
+        }
+        
+        .metric-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .metric-label {
+            color: var(--muted-color);
+            text-align: center;
+        }
+        
+        .metric-icon {
+            font-size: 24px;
+            margin-bottom: 15px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(72, 49, 212, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .metric-card:hover .metric-icon {
+            background: var(--primary-color);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        /* New Styles */
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            border-radius: 30px;
+            background: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(72, 49, 212, 0.2);
+        }
+        
+        .research-timeline {
+            position: relative;
+            margin: 40px 0;
+            padding-left: 40px;
+        }
+        
+        .research-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .timeline-year {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-year-label {
+            position: absolute;
+            left: -55px;
+            top: 0;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .timeline-year-label::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 10px 0 10px 10px;
+            border-style: solid;
+            border-color: transparent transparent transparent var(--primary-color);
+        }
+        
+        .citation-count {
+            font-size: 14px;
+            color: var(--primary-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-left: 15px;
+        }
+        
+        .paper-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .paper-link {
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 13px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .paper-link.pdf {
+            background: rgba(234, 67, 53, 0.1);
+            color: #ea4335;
+        }
+        
+        .paper-link.code {
+            background: rgba(36, 41, 47, 0.1);
+            color: #24292f;
+        }
+        
+        .paper-link.demo {
+            background: rgba(72, 49, 212, 0.1);
+            color: var(--primary-color);
+        }
+        
+        .paper-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-container {
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-color);
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 5px 25px rgba(72, 49, 212, 0.2);
+        }
+        
+        .research-statistics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        
+        .statistic {
+            background: var(--card-bg);
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .statistic:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow-color);
+        }
+        
+        .statistic-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .statistic-label {
+            font-size: 14px;
+            color: var(--muted-color);
+        }
+        
+        @media (max-width: 768px) {
+            .research-timeline {
+                padding-left: 30px;
+            }
+            
+            .timeline-year-label {
+                left: -45px;
+                font-size: 14px;
+                padding: 4px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="cube-container">
+                <div class="cube">
+                    <div class="cube-face cube-face-front"><span>N</span></div>
+                    <div class="cube-face cube-face-back"><span>N</span></div>
+                    <div class="cube-face cube-face-right"><span>N</span></div>
+                    <div class="cube-face cube-face-left"><span>N</span></div>
+                    <div class="cube-face cube-face-top"><span>N</span></div>
+                    <div class="cube-face cube-face-bottom"><span>N</span></div>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="preloader-text">Please wait<span class="dot-animation"><span>.</span><span>.</span><span>.</span></span></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Nikhil</div>
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="research.html" class="active">Research</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="theme-toggle">
+                        <i class="fas fa-sun"></i>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggle">
+                            <span class="slider round"></span>
+                        </label>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Research Hero Section -->
+        <section class="page-hero parallax-bg">
+            <div class="container">
+                <div class="page-hero-content fade-in">
+                    <h1>My <span class="name-highlight">Research</span></h1>
+                    <p>Exploring AI, Multimodal Learning, Computer Vision, and Bioinformatics</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Metrics Section -->
+        <section class="research-metrics-section">
+            <div class="container">
+                <div class="research-metrics fade-in">
+                    <div class="metric-card card-3d-effect">
+                        <div class="metric-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="metric-number">15+</div>
+                        <div class="metric-label">Publications</div>
+                    </div>
+                    
+                    <div class="metric-card card-3d-effect">
+                        <div class="metric-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="metric-number">5+</div>
+                        <div class="metric-label">Research Collaborations</div>
+                    </div>
+                    
+                    <div class="metric-card card-3d-effect">
+                        <div class="metric-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="metric-number">2+</div>
+                        <div class="metric-label">Research Awards</div>
+                    </div>
+                    
+                    <div class="metric-card card-3d-effect">
+                        <div class="metric-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="metric-number">4+</div>
+                        <div class="metric-label">Research Domains</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search and Filter Section -->
+        <section class="search-filter-section">
+            <div class="container">
+                <div class="search-container fade-in">
+                    <input type="text" class="search-box" id="publicationSearch" placeholder="Search publications by title, author, or keywords...">
+                </div>
+                
+                <div class="filter-container fade-in">
+                    <button class="filter-btn active" data-filter="all">All Publications</button>
+                    <button class="filter-btn" data-filter="computer-vision">Computer Vision</button>
+                    <button class="filter-btn" data-filter="bioinformatics">Bioinformatics</button>
+                    <button class="filter-btn" data-filter="medical-imaging">Medical Imaging</button>
+                    <button class="filter-btn" data-filter="diffusion-models">Diffusion Models</button>
+                    <button class="filter-btn" data-filter="covid">COVID-19</button>
+                </div>
+                
+                <div class="research-statistics stagger-animation">
+                    <div class="statistic">
+                        <div class="statistic-value">2025</div>
+                        <div class="statistic-label">Latest Publication</div>
+                    </div>
+                    <div class="statistic">
+                        <div class="statistic-value">5+</div>
+                        <div class="statistic-label">Years of Research</div>
+                    </div>
+                    <div class="statistic">
+                        <div class="statistic-value">3+</div>
+                        <div class="statistic-label">Research Fields</div>
+                    </div>
+                    <div class="statistic">
+                        <div class="statistic-value">10+</div>
+                        <div class="statistic-label">Collaborators</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Areas Section -->
+        <section class="research-areas">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="highlight-text">Research Areas</h2>
+                </div>
+                
+                <!-- Computer Vision Research -->
+                <div class="research-area slide-in-left" id="computer-vision">
+                    <h3 class="research-title"><i class="fas fa-eye"></i> Computer Vision</h3>
+                    
+                    <div class="publication-card" data-tags="diffusion-models human-activity-recognition skeleton-frames">
+                        <div class="publication-title">SSDL: Sensor-to-Skeleton Diffusion Model with Lipschitz Regularization for Human Activity Recognition</div>
+                        <div class="publication-authors">N Sharma, C Sun, Z Zhao, AHH Ngu, H Latapie, Y Yan</div>
+                        <div class="publication-journal">MMM 2025</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">Diffusion Models</span>
+                            <span class="publication-badge">Human Activity Recognition</span>
+                            <span class="publication-badge">Skeleton Frames</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://link.springer.com/chapter/10.1007/978-981-96-2071-5_7" class="paper-link pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="https://github.com/nikhiliit/SSDL" class="paper-link code"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> Citations: 0</span>
+                        </div>
+                        <div class="publication-abstract">
+                            Human Action Recognition (HAR) has recently achieved significant success through the analysis of human behavior using non-visual data (e.g., sensor data) and visual data (e.g., skeleton data). However, sensor-based methods face challenges due to the inherent limitations of sensor data, including the absence of 3D body pose information, high volatility, and vulnerability to noise. Meanwhile, skeleton-based methods, while effective due to their rich spatial and temporal information, are constrained by the stringent requirements for data acquisition and problems like occlusion, limiting their feasibility in real-world outdoor scenarios. Therefore, to solve these challenges, we resort to the cross-modal generation strategy and aim to generate hard-to-collect but information-rich skeleton data conditioned on easy-to-monitor sensor data. In our work, we propose a novel Sensor-to-Skeleton Diffusion Model with Lipschitz Regularization, named SSDL. Specifically, we first design an Angular Variation module and extract angular variation information of joint movements with time information. Subsequently, noise is added to the skeleton key points and angular variation during the forward diffusion process. To address noisy sensor data and improve training stability, we incorporate Lipschitz regularization with the diffusion model’s loss to prevent overfitting. We verify the generalizability and effectiveness of our methods on two benchmark multimodal human action datasets: UTD-MHAD, Berkeley-MHAD, and SmartFall-MHAD dataset. Extensive results demonstrate the superiority of leveraging generated skeleton information conditioned on the sensor data for accurate human activity recognition with limited computational demands
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card" data-tags="medical-imaging cnn segmentation skin-lesion">
+                        <div class="publication-title">Skin lesion segmentation using deep convolutional networks</div>
+                        <div class="publication-authors">P Arora, N Sharma, P Bhatt, A Saxena</div>
+                        <div class="publication-journal">Concepts and Real-Time Applications of Deep Learning, 2021</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">Medical Imaging</span>
+                            <span class="publication-badge">CNN</span>
+                            <span class="publication-badge">Segmentation</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://link.springer.com/chapter/10.1007/978-3-030-76167-7_7" class="paper-link pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> Citations: 1</span>
+                        </div>
+                        <div class="publication-abstract">
+                            Skin cancer is one of the most common forms of cancer causing millions of deaths around the world. Recently, many advanced approaches are adopted to detect the lesion with the help of image processing and deep learning. Skin cancer segmentation is a challenging task which eventually enhances the detection and feature extraction from a dermoscopic image for further evaluation. In this paper, CNN pipeline architecture is proposed with the help of wide residual network for segmentation of dermoscopic images. The proposed method involves simultaneous introduction of noise for the training process. Proposed architecture is trained with images provided by the ISCI 2019 dataset consisting of 8000 patients. The proposed state of the art achieved a Jaccard index of 0.887 and an accuracy of 0.949.
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card" data-tags="covid-19 ct-imaging u-net medical-imaging">
+                        <div class="publication-title">Residual dense U-net for segmentation of lung CT images infected with COVID-19</div>
+                        <div class="publication-authors">A Srivastava, N Sharma, S Gupta, S Chandra</div>
+                        <div class="publication-journal">Advanced Computing: IACC 2020, 2021</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">COVID-19</span>
+                            <span class="publication-badge">CT Imaging</span>
+                            <span class="publication-badge">U-Net</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://link.springer.com/chapter/10.1007/978-981-16-0401-0_2" class="paper-link pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <!-- <a href="#" class="paper-link code"><i class="fab fa-github"></i> Code</a> -->
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> Citations: 1</span>
+                        </div>
+                        <div class="publication-abstract">
+                            The novel coronavirus disease 2019 (Covid-19) has been declared as a pandemic by the World Health Organization which in the current global scenario has brought everything from economy to education to a halt. Due to its rapid spread around the globe, even the most developed countries are facing difficulties in diagnosing Covid-19. For efficient treatment and quarantining of the exposed population it is important to analyse Lung CT Scans of the suspected Covid-19 patients. Computer aided segmentation of the suspicious Region of Interest can be used for better characterization of infected regions in Lung. In this work a deep learning-based U-Net architecture is proposed as a framework for automated segmentation of multiple suspicious regions in a CT scan of Covid-19 patient. Advantage of Dense Residual Connections has been taken to learn the global hierarchical features from all convolution’s layers. So, a better trade-off in between efficiency and effectiveness in a U-Net can be maintained. To train the proposed U-Net system, publicly available data of Covid-19 CT scans and masks consisting of 838 CT slices has been used. The proposed method achieved an accurate and rapid segmentation with 97.2%, 99.1% and 99.3% as dice score, sensitivity and specificity respectively.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bioinformatics Research -->
+                <div class="research-area slide-in-right" id="bioinformatics">
+                    <h3 class="research-title"><i class="fas fa-dna"></i> Bioinformatics & Medical Imaging</h3>
+                    
+                    <div class="publication-card" data-tags="3d-segmentation lung-nodules medical-imaging">
+                        <div class="publication-title">3D segmentation of whole lung and metastatic lung nodules using adaptive region-growing and shape-based morphology</div>
+                        <div class="publication-authors">EB Kayal, S Ganguly, A Sasi, DS Dheeksha, M Saini, S Sharma, S Gupta, N Sharma, K Rangarajan, S Bakhshi, D Kandasamy, A Mehndiratta</div>
+                        <div class="publication-journal">Journal of Computer Assisted Tomography, 2024</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">3D Segmentation</span>
+                            <span class="publication-badge">Lung Nodules</span>
+                            <span class="publication-badge">Medical Imaging</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://www.semanticscholar.org/paper/3D-Segmentation-of-Whole-Lung-and-Metastatic-Lung-Kayal-Ganguly/5aa99f070835fdf1be1ea40e800f4d9190faad0d" class="paper-link pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> Citations: 0</span>
+                        </div>
+                        <div class="publication-abstract">
+                            OBJECTIVE Early diagnosis of primary and metastatic lung nodules is critical for effective therapeutic planning. Manual delineation of lung nodules is not time-efficient and is prone to human error as well as interobserver and intraobserver variability. This study aimed to address the unmet need for an open-source computer-aided detection (CAD) system for 3D segmentation of lung and metastatic lung nodules along with radiomic feature extraction. METHODS The proposed adaptive region-growing-based lung nodule segmentation (RGLNS) tool was developed in-house, requiring only manual input to select a seed point within the nodule on computed tomography (CT) images. A total of 230 CT scans from 100 patients with sarcomas were screened. Lung nodules were present in 200 CT scans, which were further analyzed. The accuracy of the lung and nodule segmentation was evaluated qualitatively using a 5-point Likert scale (uninterpretable: 1; poor: 2; fair: 3; good: 4; excellent: 5) and quantitatively using the Dice coefficient and Jaccard index. RESULTS A total of 200 CT scans comprising 12,000 CT slices were analyzed, among which 786 lung nodules were identified. Quantitative lung segmentation accuracies (n=2400 slices) yielded a Dice coefficient of 0.92±0.06 and a Jaccard index of 0.85±0.05. Qualitative scores (n=9600 slices) for lung boundary correction (4.56±1.18) and inclusion of pulmonary vessels (4.75±0.72) were rated as good to excellent. Quantitative nodule segmentation (n=142 nodules) accuracies were as follows: dice coefficient=0.92±0.03, 0.88±0.04, 0.86±0.03, 0.85±0.03, 084±0.04 and Jaccard index=0.84±0.03, 0.81±0.04, 0.78±0.04, 0.78±0.02, 0.76±0.04 for solitary (n=73), juxtapleural (n=32), juxtavascular (n=28), fissure-attached (n=6), and ground-glass (n=6) nodules, respectively. Qualitative scores (n=644 nodules) for nodule-boundary were good to excellent [solitary (n=342): 4.97±0.15; juxtapleural (n=155): 4.45±0.60; juxtavascular (n=127): 4.40±0.65; fissure-attached (n=9): 4.40±0.70; ground-glass (n=11): 4.25±0.75] and for exclusion of pulmonary vessels/pleura from nodules were good [juxtapleural (n=155): 4.10±0.66; juxtavascular (n=127): 4.08±0.64; fissure-attached (n=9): 4.30±0.67]. CONCLUSIONS The proposed semiautomated CAD system, RGLNS, requiring minimal manual input, demonstrated robust, and promising segmentation results for the whole lung and various types of metastatic lung nodules.
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card" data-tags="t1-mapping osteosarcoma chemotherapy medical-imaging">
+                        <div class="publication-title">T1 mapping as a surrogate marker of chemotherapy response evaluation in patients with osteosarcoma</div>
+                        <div class="publication-authors">EB Kayal, N Sharma, R Sharma, S Bakhshi, D Kandasamy, A Mehndiratta</div>
+                        <div class="publication-journal">European Journal of Radiology, 2022</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">T1 Mapping</span>
+                            <span class="publication-badge">Osteosarcoma</span>
+                            <span class="publication-badge">Chemotherapy</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0720048X22000201" class="paper-link pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> Citations: 6</span>
+                        </div>
+                        <div class="publication-abstract">
+                            Objectives - To characterize baseline T1 values of tumors, measure changes after the course of chemotherapy, and evaluate its potential as a marker of response assessment in patients with osteosarcoma.
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card" data-tags="sars-cov-2 genomics nsp6 covid-19 bioinformatics">
+                        <div class="publication-title">Whole genome analysis of more than 10,000 SARS-CoV-2 virus unveils global genetic diversity and target region of NSP6</div>
+                        <div class="publication-authors">I Saha, N Ghosh, N Sharma, D Maity, K Mitra</div>
+                        <div class="publication-journal">Briefings in Bioinformatics, 2021</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">SARS-CoV-2</span>
+                            <span class="publication-badge">Genomics</span>
+                            <span class="publication-badge">NSP6</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://academic.oup.com/bib/article/22/2/1106/6174248" class="paper-link pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="http://www.nitttrkol.ac.in/indrajit/projects/COVID-Mutation-10K" class="paper-link code"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> Citations: 16</span>
+                        </div>
+                        <div class="publication-abstract">
+                            Whole genome analysis of SARS-CoV-2 is important to identify its genetic diversity. Moreover, accurate detection of SARS-CoV-2 is required for its correct diagnosis. To address these, first we have analysed publicly available 10 664 complete or near-complete SARS-CoV-2 genomes of 73 countries globally to find mutation points in the coding regions as substitution, deletion, insertion and single nucleotide polymorphism (SNP) globally and country wise. In this regard, multiple sequence alignment is performed in the presence of reference sequence from NCBI. Once the alignment is done, a consensus sequence is build to analyse each genomic sequence to identify the unique mutation points as substitutions, deletions, insertions and SNPs globally, thereby resulting in 7209, 11700, 119 and 53 such mutation points respectively. Second, in such categories, unique mutations for individual countries are determined with respect to other 72 countries. In case of India, unique 385, 867, 1 and 11 substitutions, deletions, insertions and SNPs are present in 566 SARS-CoV-2 genomes while 458, 1343, 8 and 52 mutation points in such categories are common with other countries. In majority (above 10%) of virus population, the most frequent and common mutation points between global excluding India and India are L37F, P323L, F506L, S507G, D614G and Q57H in NSP6, RdRp, Exon, Spike and ORF3a respectively. While for India, the other most frequent mutation points are T1198K, A97V, T315N and P13L in NSP3, RdRp, Spike and ORF8 respectively. These mutations are further visualised in protein structures and phylogenetic analysis has been done to show the diversity in virus genomes. Third, a web application is provided for searching mutation points globally and country wise. Finally, we have identified the potential conserved region as target that belongs to the coding region of ORF1ab, specifically to the NSP6 gene. Subsequently, we have provided the primers and probes using that conserved region so that it can be used for detecting SARS-CoV-2.    
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card" data-tags="sars-cov-2 vaccine bioinformatics covid-19">
+                        <div class="publication-title">Bioinformatics pipeline unveils genetic variability to synthetic vaccine design for Indian SARS-CoV-2 genomes</div>
+                        <div class="publication-authors">N Ghosh, I Saha, N Sharma, S Nandi</div>
+                        <div class="publication-journal">International Immunopharmacology, 2022</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">SARS-CoV-2</span>
+                            <span class="publication-badge">Vaccine Design</span>
+                            <span class="publication-badge">Bioinformatics</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://www.sciencedirect.com/science/article/pii/S1567576922007081" class="paper-link pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> Citations: 0</span>
+                        </div>
+                        <div class="publication-abstract">
+                            In the worrisome scenarios of various waves of SARS-CoV-2 pandemic, a comprehensive bioinformatics pipeline is essential to analyse the virus genomes in order to understand its evolution, thereby identifying mutations as signature SNPs, conserved regions and subsequently to design epitope based synthetic vaccine. We have thus performed multiple sequence alignment of 4996 Indian SARS-CoV-2 genomes as a case study using MAFFT followed by phylogenetic analysis using Nextstrain to identify virus clades. Furthermore, based on the entropy of each genomic coordinate of the aligned sequences, conserved regions are identified. After refinement of the conserved regions, based on its length, one conserved region is identified for which the primers and probes are reported for virus detection. The refined conserved regions are also used to identify T-cell and B-cell epitopes along with their immunogenic and antigenic scores. Such scores are used for selecting the most immunogenic and antigenic epitopes. By executing this pipeline, 40 unique signature SNPs are identified resulting in 23 non-synonymous signature SNPs which provide 28 amino acid changes in protein. On the other hand, 12 conserved regions are selected based on refinement criteria out of which one is selected as the potential target for virus detection. Additionally, 22 MHC-I and 21 MHC-II restricted T-cell epitopes with 10 unique HLA alleles each and 17 B-cell epitopes are obtained for 12 conserved regions. All the results are validated both quantitatively and qualitatively which show that from genetic variability to synthetic vaccine design, the proposed pipeline can be used effectively to combat SARS-CoV-2.
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card" data-tags="sars-cov-2 clades snps evolution bioinformatics">
+                        <div class="publication-title">Characterisation of SARS-CoV-2 clades based on signature SNPs unveils continuous evolution</div>
+                        <div class="publication-authors">N Ghosh, I Saha, S Nandi, N Sharma</div>
+                        <div class="publication-journal">Methods, 2022</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">SARS-CoV-2</span>
+                            <span class="publication-badge">Viral Evolution</span>
+                            <span class="publication-badge">SNPs</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://www.sciencedirect.com/science/article/abs/pii/S104620232100219X" class="paper-link pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> Citations: 8</span>
+                        </div>
+                        <div class="publication-abstract">
+                            Since the emergence of SARS-CoV-2 in Wuhan, China more than a year ago, it has spread across the world in a very short span of time. Although, different forms of vaccines are being rolled out for vaccination programs around the globe, the mutation of the virus is still a cause of concern among the research communities. Hence, it is important to study the constantly evolving virus and its strains in order to provide a much more stable form of cure. This fact motivated us to conduct this research where we have initially carried out multiple sequence alignment of 15359 and 3033 global dataset without Indian and the dataset of exclusive Indian SARS-CoV-2 genomes respectively, using MAFFT. Subsequently, phylogenetic analyses are performed using Nextstrain to identify virus clades. Consequently, the virus strains are found to be distributed among 5 major clades or clusters viz. 19A, 19B, 20A, 20B and 20C. Thereafter, mutation points as SNPs are identified in each clade. Henceforth, from each clade top 10 signature SNPs are identified based on their frequency i.e. number of occurrences in the virus genome. As a result, 50 such signature SNPs are individually identified for global dataset without Indian and dataset of exclusive Indian SARS-CoV-2 genomes respectively. Out of each 50 signature SNPs, 39 and 41 unique SNPs are identified among which 25 non-synonymous signature SNPs (out of 39) resulted in 30 amino acid changes in protein while 27 changes in amino acid are identified from 22 non-synonymous signature SNPs (out of 41). These 30 and 27 amino acid changes for the non-synonymous signature SNPs are visualised in their respective protein structure as well. Finally, in order to judge the characteristics of the identified clades, the non-synonymous signature SNPs are considered to evaluate the changes in proteins as biological functions with the sequences using PROVEAN and PolyPhen-2 while I-Mutant 2.0 is used to evaluate their structural stability. As a consequence, for global dataset without Indian sequences, G251V in ORF3a in clade 19A, F308Y and G196V in NSP4 and ORF3a in 19B are the unique amino acid changes which are responsible for defining each clade as they are all deleterious and unstable. Such changes which are common for both global dataset without Indian and dataset of exclusive Indian sequences are R203M in Nucleocapsid for 20B, T85I and Q57H in NSP2 and ORF3a respectively for 20C while for exclusive Indian sequences such unique changes are A97V in RdRp, G339S and G339C in NSP2 in 19A and Q57H in ORF3a in 20A.
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card" data-tags="sars-cov-2 mirna bioinformatics covid-19">
+                        <div class="publication-title">Human miRNAs to identify potential regions of SARS-CoV-2</div>
+                        <div class="publication-authors">N Ghosh, I Saha, N Sharma, JP Sarkar</div>
+                        <div class="publication-journal">ACS Omega, 2022</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">SARS-CoV-2</span>
+                            <span class="publication-badge">miRNA</span>
+                            <span class="publication-badge">Host-Pathogen Interaction</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://pubs.acs.org/doi/full/10.1021/acsomega.2c01907" class="paper-link pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> Citations: 4</span>
+                        </div>
+                        <div class="publication-abstract">
+                            It is two years now but the world is still struggling against COVID-19 due to the havoc created by the SARS-CoV-2 virus and its multiple variants. Considering this perspective, in this work, we have hypothesized a new approach in order to identify potential regions in SARS-CoV-2 similar to the human miRNAs. Thus, they may have similar consequences as caused by the human miRNAs in human body. Therefore, the same way by which human miRNAs are inhibited can be applied for such potential regions of virus as well by administering drugs to the interacting human proteins. In this regard, the multiple sequence alignment technique Clustal Omega is used to align 2656 human miRNAs with the SARS-CoV-2 reference genome to identify the potential regions within the virus reference genome which have high similarities with the human miRNAs. The potential regions in virus genome are identified based on the highest number of nucleotide match, greater than or equal to 5 at a genomic position, for the aligned miRNAs. As a result, 38 potential SARS-CoV-2 regions are identified consisting of 249 human miRNAs. Among these 38 potential regions, some top regions belong to nucleocapsid, RdRp, helicase, and ORF8. To understand the biological significance of these potential regions, the targets of the human miRNAs are considered for KEGG pathways and protein–protein and drug–protein interaction analysis as the human miRNAs are similar to the potential regions of SARS-CoV-2. Significant pathways are found which lead to comorbidities. Subsequently, drugs like emodin, bicalutamide, vorinostat, etc. are identified that may be used for clinical trials.
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card" data-tags="sars-cov-2 mers-cov crispr-cas bioinformatics">
+                        <div class="publication-title">Palindrome target site identification in SARS-CoV-2, MERS-CoV and SARS-CoV-1 by adopting CRISPR-Cas technique</div>
+                        <div class="publication-authors">N Ghosh, I Saha, N Sharma</div>
+                        <div class="publication-journal">Gene, 2022</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">SARS-CoV-2</span>
+                            <span class="publication-badge">CRISPR-Cas</span>
+                            <span class="publication-badge">Coronaviruses</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://www.sciencedirect.com/science/article/pii/S0378111921007319" class="paper-link pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> Citations: 3</span>
+                        </div>
+                        <div class="publication-abstract">
+                            Clustered Regularly Interspaced Short Palindromic Repeats (CRISPR) associated Cas protein (CRISPR-Cas) has turned out to be a very important tool for the rapid detection of viruses. This can be used for the identification of the target site in a virus by identifying a 3–6 nt length Protospacer Adjacent Motif (PAM) adjacent to the potential target site, thus motivating us to adopt CRISPR-Cas technique to identify SARS-CoV-2 as well as other members of Coronaviridae family. In this regard, we have developed a fast and effective method using k-mer technique in order to identify the PAM by scanning the whole genome of the respective virus. Subsequently, palindromic sequences adjacent to the PAM locations are identified as the potential target sites. Palindromes are considered in this work as they are known to identify viruses. Once all the palindrome-PAM combinations are identified, PAMs specific for the RNA-guided DNA Cas9/Cas12 endonuclease are identified to bind and cut the target sites. In this regard, PAMs such as 5’-TGG-3’ and 5’-TTTA-3’ in NSP3 and Exon for SARS-CoV-2, 5’-GGG-3’ and 5’-TGG-3’ in Exon and NSP2 for MERS-CoV and 5’-AGG-3’ and 5’-TTTG-3’ in Helicase and NSP3 respectively for SARS-CoV-1 are identified corresponding to SpCas9 and FnCas12a endonucleases. Finally, to recognise the target sites of Coronaviridae family as cleaved by SpCas9 and FnCas12a, complements of the palindromic target regions are designed as primers or guide RNA (gRNA). Therefore, such complementary gRNAs along with respective Cas proteins can be considered in assays for the identification of SARS-CoV-2, MERS-CoV and SARS-CoV-1.
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card" data-tags="sars-cov-2 hotspot-mutations genetics covid-19">
+                        <div class="publication-title">Hotspot mutations in SARS-CoV-2</div>
+                        <div class="publication-authors">I Saha, N Ghosh, N Sharma, S Nandi</div>
+                        <div class="publication-journal">Frontiers in Genetics, 2021</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">SARS-CoV-2</span>
+                            <span class="publication-badge">Mutations</span>
+                            <span class="publication-badge">Genomics</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2021.753440/full" class="paper-link pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> Citations: 23</span>
+                        </div>
+                        <div class="publication-abstract">
+                            Since its emergence in Wuhan, China, severe acute respiratory syndrome coronavirus-2 (SARS-CoV-2) has spread very rapidly around the world, resulting in a global pandemic. Though the vaccination process has started, the number of COVID-affected patients is still quite large. Hence, an analysis of hotspot mutations of the different evolving virus strains needs to be carried out. In this regard, multiple sequence alignment of 71,038 SARS-CoV-2 genomes of 98 countries over the period from January 2020 to June 2021 is performed using MAFFT followed by phylogenetic analysis in order to visualize the virus evolution. These steps resulted in the identification of hotspot mutations as deletions and substitutions in the coding regions based on entropy greater than or equal to 0.3, leading to a total of 45 unique hotspot mutations. Moreover, 10,286 Indian sequences are considered from 71,038 global SARS-CoV-2 sequences as a demonstrative example that gives 52 unique hotspot mutations. Furthermore, the evolution of the hotspot mutations along with the mutations in variants of concern is visualized, and their characteristics are discussed as well. Also, for all the non-synonymous substitutions (missense mutations), the functional consequences of amino acid changes in the respective protein structures are calculated using PolyPhen-2 and I-Mutant 2.0. In addition to this, SSIPe is used to report the binding affinity between the receptor-binding domain of Spike protein and human ACE2 protein by considering L452R, T478K, E484Q, and N501Y hotspot mutations in that region.
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card" data-tags="sars-cov-2 human-interactome comorbidities bioinformatics">
+                        <div class="publication-title">Interactome of human and SARS-CoV-2 proteins to identify human hub proteins associated with comorbidities</div>
+                        <div class="publication-authors">N Ghosh, I Saha, N Sharma, S Nandi</div>
+                        <div class="publication-journal">Computers in Biology and Medicine, 2021</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">SARS-CoV-2</span>
+                            <span class="publication-badge">Protein Interactome</span>
+                            <span class="publication-badge">Comorbidities</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://www.sciencedirect.com/science/article/pii/S0010482521006831" class="paper-link pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> Citations: 13</span>
+                        </div>
+                        <div class="publication-abstract">
+                            SARS-CoV-2 has a higher chance of progression in adults of any age with certain underlying health conditions or comorbidities like cancer, neurological diseases and in certain cases may even lead to death. Like other viruses, SARS-CoV-2 also interacts with host proteins to pave its entry into host cells. Therefore, to understand the behaviour of SARS-CoV-2 and design of effective antiviral drugs, host-virus protein-protein interactions (PPIs) can be very useful. In this regard, we have initially created a human-SARS-CoV-2 PPI database from existing works in the literature which has resulted in 7085 unique PPIs. Subsequently, we have identified at most 10 proteins with highest degrees viz. hub proteins from interacting human proteins for individual virus protein. The identification of these hub proteins is important as they are connected to most of the other human proteins. Consequently, when they get affected, the potential diseases are triggered in the corresponding pathways, thereby leading to comorbidities. Furthermore, the biological significance of the identified hub proteins is shown using KEGG pathway and GO enrichment analysis. KEGG pathway analysis is also essential for identifying the pathways leading to comorbidities. Among others, SARS-CoV-2 proteins viz. NSP2, NSP5, Envelope and ORF10 interacting with human hub proteins like COX4I1, COX5A, COX5B, NDUFS1, CANX, HSP90AA1 and TP53 lead to comorbidities. Such comorbidities are Alzheimer, Parkinson, Huntington, HTLV-1 infection, prostate cancer and viral carcinogenesis. Subsequently, using Enrichr tool possible repurposable drugs which target the human hub proteins are reported in this paper as well. Therefore, this work provides a consolidated study for human-SARS-CoV-2 protein interactions to understand the relationship between comorbidity and hub proteins so that it may pave the way for the development of anti-viral drugs.
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card" data-tags="sars-cov-2 epitopes t-cell b-cell immunology bioinformatics">
+                        <div class="publication-title">Immunogenicity and antigenicity based T-cell and B-cell epitopes identification from conserved regions of 10664 SARS-CoV-2 genomes</div>
+                        <div class="publication-authors">N Ghosh, N Sharma, I Saha</div>
+                        <div class="publication-journal">Infection, Genetics and Evolution, 2021</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">SARS-CoV-2</span>
+                            <span class="publication-badge">Epitopes</span>
+                            <span class="publication-badge">Vaccine Design</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://www.sciencedirect.com/science/article/abs/pii/S1567134821001209" class="paper-link pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> Citations: 11</span>
+                        </div>
+                        <div class="publication-abstract">
+                            The surge of SARS-CoV-2 has created a wave of pandemic around the globe due to its high transmission rate. To contain this virus, researchers are working around the clock for a solution in the form of vaccine. Due to the impact of this pandemic, the economy and healthcare have immensely suffered around the globe. Thus, an efficient vaccine design is the need of the hour. Moreover, to have a generalised vaccine for heterogeneous human population, the virus genomes from different countries should be considered. Thus, in this work, we have performed genome-wide analysis of 10,664 SARS-CoV-2 genomes of 73 countries around the globe in order to identify the potential conserved regions for the development of peptide based synthetic vaccine viz. epitopes with high immunogenic and antigenic scores. In this regard, multiple sequence alignment technique viz. Clustal Omega is used to align the 10,664 SARS-CoV-2 virus genomes. Thereafter, entropy is computed for each genomic coordinate of the aligned genomes. The entropy values are then used to find the conserved regions. These conserved regions are refined based on the criteria that their lengths should be greater than or equal to 60 nt and their corresponding protein sequences are without any stop codons. Furthermore, Nucleotide BLAST is used to verify the specificity of the conserved regions. As a result, we have obtained 17 conserved regions that belong to NSP3, NSP4, NSP6, NSP8, RdRp, Helicase, endoRNAse, 2’-O-RMT, Spike glycoprotein, ORF3a protein, Membrane glycoprotein and Nucleocapsid protein. Finally, these conserved regions are used to identify the T-cell and B-cell epitopes with their corresponding immunogenic and antigenic scores. Based on these scores, the most immunogenic and antigenic epitopes are then selected for each of these 17 conserved regions. Hence, we have obtained 30 MHC-I and 24 MHC-II restricted T-cell epitopes with 14 and 13 unique HLA alleles and 21 B-cell epitopes for the 17 conserved regions. Moreover, for validating the relevance of these epitopes, the binding conformation of the MHC-I and MHC-II restricted T-cell epitopes are shown with respect to HLA alleles. Also, the physico-chemical properties of the epitopes are reported along with Ramchandran plots and Z-Scores and the population coverage is shown as well. Overall, the analysis shows that the identified epitopes can be considered as potential candidates for vaccine design.
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card" data-tags="sars-cov-2 genomics snp evolution bioinformatics">
+                        <div class="publication-title">Genome-wide analysis of 10664 SARS-CoV-2 genomes to identify virus strains in 73 countries based on single nucleotide polymorphism</div>
+                        <div class="publication-authors">N Ghosh, I Saha, N Sharma, S Nandi, D Plewczynski</div>
+                        <div class="publication-journal">Virus Research, 2021</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">SARS-CoV-2</span>
+                            <span class="publication-badge">Genomics</span>
+                            <span class="publication-badge">SNP</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0168170221001088" class="paper-link pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> Citations: 7</span>
+                        </div>
+                        <div class="publication-abstract">
+                            Since the onslaught of SARS-CoV-2, the research community has been searching for a vaccine to fight against this virus. However, during this period, the virus has mutated to adapt to the different environmental conditions in the world and made the task of vaccine design more challenging. In this situation, the identification of virus strains is very much timely and important task. We have performed genome-wide analysis of 10664 SARS-CoV-2 genomes of 73 countries to identify and prepare a Single Nucleotide Polymorphism (SNP) dataset of SARS-CoV-2. Thereafter, with the use of this SNP data, the advantage of hierarchical clustering is taken care of in such a way so that Average Linkage and Complete Linkage with Jaccard and Hamming distance functions are applied separately in order to identify the virus strains as clusters present in the SNP data. In this regard, the consensus of both the clustering results are also considered while Silhouette index is used as a cluster validity index to measure the goodness of the clusters as well to determine the number of clusters or virus strains. As a result, we have identified five major clusters or virus strains present worldwide. Apart from quantitative measures, these clusters are also visualized using Visual Assessment of Tendency (VAT) plot. The evolution of these clusters are also shown. Furthermore, top 10 signature SNPs are identified in each cluster and the non-synonymous signature SNPs are visualised in the respective protein structures. Also, the sequence and structural homology-based prediction along with the protein structural stability of these non-synonymous signature SNPs are reported in order to judge the characteristics of the identified clusters. As a consequence, T85I, Q57H and R203M in NSP2, ORF3a and Nucleocapsid respectively are found to be responsible for Cluster 1 as they are damaging and unstable non-synonymous signature SNPs. Similarly, F506L and S507C in Exon are responsible for both Clusters 3 and 4 while Clusters 2 and 5 do not exhibit such behaviour due to the absence of any non-synonymous signature SNPs. In addition to all these, the code, SNP dataset, 10664 labelled SARS-CoV-2 strains and additional results as supplementary are provided through our website for further use.
+                        </div>
+                    </div>
+
+                    <div class="publication-card" data-tags="sars-cov-2 genomics snp evolution bioinformatics">
+                        <div class="publication-title">Genome-wide analysis of Indian SARS-CoV-2 genomes to identify T-cell and B-cell epitopes from conserved regions based on immunogenicity and antigenicity</div>
+                        <div class="publication-authors">N Ghosh, N Sharma, I Saha, S Saha</div>
+                        <div class="publication-journal">International Immunopharmacology, 2021</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">SARS-CoV-2</span>
+                            <span class="publication-badge">Genomics</span>
+                            <span class="publication-badge">SNP</span>
+                            <span class="publication-badge">T-cell and B-cell epitopes</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://www.sciencedirect.com/science/article/abs/pii/S1567576920337437" class="paper-link pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> Citations: 5</span>
+                        </div>
+                        <div class="publication-abstract">
+                            SARS-CoV-2 has a high transmission rate and shows frequent mutations, thus making vaccine development an arduous task. However, researchers around the globe are working hard to find a solution e.g. synthetic vaccine. Here, we have performed genome-wide analysis of 566 Indian SARS-CoV-2 genomes to extract the potential conserved regions for identifying peptide based synthetic vaccines, viz. epitopes with high immunogenicity and antigenicity. In this regard, different multiple sequence alignment techniques are used to align the SARS-CoV-2 genomes separately. Subsequently, consensus conserved regions are identified after finding the conserved regions from each aligned result of alignment techniques. Further, the consensus conserved regions are refined considering that their lengths are greater than or equal to 60nt and their corresponding proteins are devoid of any stop codons. Subsequently, their specificity as query coverage are verified using Nucleotide BLAST. Finally, with these consensus conserved regions, T-cell and B-cell epitopes are identified based on their immunogenic and antigenic scores which are then used to rank the conserved regions. As a result, we have ranked 23 consensus conserved regions that are associated with different proteins. This ranking also resulted in 34 MHC-I and 37 MHC-II restricted T-cell epitopes with 16 and 19 unique HLA alleles and 29 B-cell epitopes. After ranking, the consensus conserved region from NSP3 gene is obtained that is highly immunogenic and antigenic. In order to judge the relevance of the identified epitopes, the physico-chemical properties and binding conformation of the MHC-I and MHC-II restricted T-cell epitopes are shown with respect to HLA alleles.
+                        </div>
+                    </div>
+
+                    <div class="publication-card" data-tags="sars-cov-2 genomics snp evolution bioinformatics">
+                        <div class="publication-title">Transfer Learning-Based Attention Gated Siamese Network for Human and SARS-CoV-2 Protein Interactions</div>
+                        <div class="publication-authors">N Sharma, S Gupta, M Gupta, S Chandra</div>
+                        <div class="publication-journal">Current Trends in Biotechnology and Pharmacy, 2021</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">Virus</span>
+                            <span class="publication-badge"> SARS-CoV-2</span>
+                            <span class="publication-badge">Attention gated Siamese framework</span>
+                            <span class="publication-badge">Proteins</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://www.abap.co.in/index.php/home/article/view/275" class="paper-link pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> Citations: 1</span>
+                        </div>
+                        <div class="publication-abstract">
+                            For the past year SARS-CoV-2 has affected the lives of people around the globe. Therefore, research community is continuously putting in their best efforts to find a solution to curb and cure the disease. SARS-CoV-2 is a 29.9k bp long sequence genome comprising of 25 different proteins among which spike glycoprotein plays a vital role in interaction with the host cells. Hence, majority of the scientific studies were focused towards targeting the spike region for the vaccine design against the contagious virus. Thorough study of protein-protein interaction between human and virus can help us in better understanding and management of this disease. For this purpose, an Attention gated Siamese framework is utilized from which a consensus of prominent features and contextual information is taken into account to identify the influence of protein sequences. Moreover, to obtain the pattern of interacting pairs of human and SARS-CoV-2 proteins, a transfer learning-based approach is opted from the proposed network through which we obtained an accuracy of 85%. Additionally, by using this model, we identified that there were 30, 13 and 17 human proteins interacting with spike glycoprotein, nucleocapsid and membrane respectively, having predictive interaction of above 90% for each of the interactions.
+                        </div>
+                    </div>
+
+                    <div class="publication-card" data-tags="sars-cov-2 genomics snp evolution bioinformatics">
+                        <div class="publication-title">Inferring the genetic variability in Indian SARS-CoV-2 genomes using consensus of multiple sequence alignment techniques</div>
+                        <div class="publication-authors">I Saha, N Ghosh, D Maity, N Sharma, K Mitra</div>
+                        <div class="publication-journal">Infection, Genetics and Evolution, 2020</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">SARS-CoV-2</span>
+                            <span class="publication-badge"> ClustalW</span>
+                            <span class="publication-badge"> MUSCLE</span>
+                            <span class="publication-badge"> ClustalO</span>
+                            <span class="publication-badge"> MAFFT</span>
+                            <span class="publication-badge">CMSA</span>
+                            <span class="publication-badge">SNP</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://www.sciencedirect.com/science/article/abs/pii/S1567134820303531" class="paper-link pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> Citations: 20</span>
+                        </div>
+                        <div class="publication-abstract">
+                            Severe Acute Respiratory Syndrome Coronavirus-2 (SARS-CoV-2) is a threat to the human population and has created a worldwide pandemic. Daily thousands of people are getting affected by the SARS-CoV-2 virus; India being no exception. In this situation, there is no doubt that vaccine is the primary prevention strategy to contain the wave of COVID-19 pandemic. In this regard, genome-wide analysis of SARS-CoV-2 is important to understand its genetic variability. This has motivated us to analyse 566 Indian SARS-CoV-2 sequences using multiple sequence alignment techniques viz. ClustalW, MUSCLE, ClustalO and MAFFT to align and subsequently identify the lists of mutations as substitution, deletion, insertion and SNP. Thereafter, a consensus of these results, called as Consensus Multiple Sequence Alignment (CMSA), is prepared to have the final list of mutations so that the advantages of all four alignment techniques can be preserved. The analysis shows 767, 2025 and 54 unique substitutions, deletions and SNPs in Indian SARS-CoV-2 genomes. More precisely, out of 54 SNPs, 4 SNPs are present close to the 60% of the virus population. The results of this experiment can be useful for virus classification, designing and defining the dose of vaccine for the Indian population.
+                        </div>
+                    </div>
+
+                    <div class="publication-card" data-tags="sars-cov-2 genomics snp evolution bioinformatics">
+                        <div class="publication-title">Genome-wide analysis of Indian SARS-CoV-2 genomes for the identification of genetic mutation and SNP</div>
+                        <div class="publication-authors">I Saha, N Ghosh, D Maity, N Sharma, J P Sarkar, K Mitra</div>
+                        <div class="publication-journal">Infection, Genetics and Evolution, 2020</div>
+                        <div class="publication-tags">
+                            <span class="publication-badge">SARS-CoV-2</span>
+                            <span class="publication-badge"> ClustalW</span>
+                            <span class="publication-badge"> MUSCLE</span>
+                            <span class="publication-badge"> ClustalO</span>
+                            <span class="publication-badge"> MAFFT</span>
+                            <span class="publication-badge">CMSA</span>
+                            <span class="publication-badge">SNP</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://www.sciencedirect.com/science/article/abs/pii/S1567134820302884" class="paper-link pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
+                        <div class="publication-buttons">
+                            <button class="publication-toggle" onclick="toggleAbstract(this)">
+                                <i class="fas fa-plus-circle"></i> Show Abstract
+                            </button>
+                            <span class="citation-count"><i class="fas fa-quote-right"></i> Citations: 47</span>
+                        </div>
+                        <div class="publication-abstract">
+                            The wave of COVID-19 is a big threat to the human population. Presently, the world is going through different phases of lock down in order to stop this wave of pandemic; India being no exception. We have also started the lock down on 23rd March 2020. In this current situation, apart from social distancing only a vaccine can be the proper solution to serve the population of human being. Thus it is important for all the nations to perform the genome-wide analysis in order to identify the genetic variation in Severe Acute Respiratory Syndrome Coronavirus-2 (SARS-CoV-2) so that proper vaccine can be designed. This fast motivated us to analyze publicly available 566 Indian complete or near complete SARS-CoV-2 genomes to find the mutation points as substitution, deletion and insertion. In this regard, we have performed the multiple sequence alignment in presence of reference sequence from NCBI. After the alignment, a consensus sequence is built to analyze each genome in order to identify the mutation points. As a consequence, we have found 933 substitutions, 2449 deletions and 2 insertions, in total 3384 unique mutation points, in 566 genomes across 29.9 K bp. Further, it has been classified into three groups as 100 clusters of mutations (mostly deletions), 1609 point mutations as substitution, deletion and insertion and 64 SNPs. These outcomes are visualized using BioCircos and bar plots as well as plotting entropy value of each genomic location. Moreover, phylogenetic analysis has also been performed to see the evolution of SARS-CoV-2 virus in India. It also shows the wide variation in tree which indeed vivid in genomic analysis. Finally, these SNPs can be the useful target for virus classification, designing and defining the effective dose of vaccine for the heterogeneous population.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Collaborations Section -->
+        <section class="collaborations parallax-bg">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="highlight-text">Research Collaborations</h2>
+                </div>
+                
+                <div class="collaboration-grid stagger-animation">
+                    <div class="collaboration-card">
+                        <div class="collaboration-image">
+                            <img src="images/stanford.png" alt="Stanford University">
+                        </div>
+                        <div class="collaboration-content">
+                            <div class="collaboration-institution">Stanford University</div>
+                            <div class="collaboration-with">Dr. Mehrdad Shamloo</div>
+                            <div class="collaboration-date">Ongoing</div>
+                            <div class="collaboration-topic">Collaboration on mouse behavior analysis via multi-modality approaches using computer vision and machine learning techniques.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="collaboration-card">
+                        <div class="collaboration-image">
+                            <img src="images/umich.png" alt="University of Michigan">
+                        </div>
+                        <div class="collaboration-content">
+                            <div class="collaboration-institution">University of Michigan</div>
+                            <div class="collaboration-with">Dr. Bo Duan</div>
+                            <div class="collaboration-date">Ongoing</div>
+                            <div class="collaboration-topic">Behavioral analysis and related studies using advanced AI methods for research data interpretation.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="collaboration-card">
+                        <div class="collaboration-image">
+                            <img src="images/iit_delhi.jpg" alt="IIT Delhi">
+                        </div>
+                        <div class="collaboration-content">
+                            <div class="collaboration-institution">IIT Delhi</div>
+                            <div class="collaboration-with">Dr. Amit Mehndiratta</div>
+                            <div class="collaboration-date">June 2019 - April 2021</div>
+                            <div class="collaboration-topic">T1 mapping as a surrogate marker of chemotherapy response evaluation in patients with osteosarcoma.</div>
+                        </div>
+                    </div>
+                    
+                    <!-- <div class="collaboration-card">
+                        <div class="collaboration-image">
+                            <img src="images/cisco.png" alt="Cisco Research">
+                        </div>
+                        <div class="collaboration-content">
+                            <div class="collaboration-institution">Cisco Research & Texas State University</div>
+                            <div class="collaboration-with">Dr. Anne H.H. Ngu & Hongwei Latapie</div>
+                            <div class="collaboration-date">November 2023 - April 2024</div>
+                            <div class="collaboration-topic">Skeleton frame generation via diffusion modeling for human activity recognition.</div>
+                        </div>
+                    </div> -->
+                    
+                    <div class="collaboration-card">
+                        <div class="collaboration-image">
+                            <img src="images/image10.png" alt="NITTR Kolkata">
+                        </div>
+                        <div class="collaboration-content">
+                            <div class="collaboration-institution">NITTR Kolkata</div>
+                            <div class="collaboration-with">Dr. Indrajit Saha</div>
+                            <div class="collaboration-date">June 2019 - April 2021</div>
+                            <div class="collaboration-topic">In Silico Analysis of 10000 Genomic Sequences of COVID-19 around the World including India to Identify Genetic Variability and potential Molecular Targets in Virus and Human.</div>
+                            <div class="paper-links">
+                                <a href="http://www.nitttrkol.ac.in/indrajit/projects/dst/COVID-19-SARS-CoV-2/" class="paper-link pdf"><i class="fas fa-globe"></i> Project Link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta parallax-bg">
+            <div class="container">
+                <div class="cta-content scale-in">
+                    <h2>Interested in research collaboration?</h2>
+                    <p>Let's discuss potential research opportunities and explore new ideas together.</p>
+                    <a href="contact.html" class="btn btn-animated">Contact Me</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+          <div class="social-links">
+            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/nikhiliit" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://scholar.google.com/citations?user=Von4NncAAAAJ&hl=en" target="_blank"><i class="fab fa-google"></i></a>
+          </div>
+          <p class="footer-text">&copy; 2025 Nikhil. All Rights Reserved.</p>
+        </div>
+      </footer>
+
+    <!-- Common Scripts -->
+<script src="js/loader.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/theme-switcher.js"></script>
+<script src="js/mouse-effects.js"></script>
+<script src="js/scroll-animations.js"></script>
+<script src="js/section-dividers.js"></script>
+<script src="js/text-effects.js"></script>
+<script src="js/preloader.js"></script>
+<script src="js/interactive-cards.js"></script>
+<script src="js/parallax.js"></script>
+
+<!-- Research-specific script -->
+<script>
+    // Toggle abstract visibility
+    function toggleAbstract(button) {
+        const card = button.closest('.publication-card');
+        const abstract = card.querySelector('.publication-abstract');
+        const isVisible = abstract.style.display === 'block';
+        
+        // Toggle display
+        abstract.style.display = isVisible ? 'none' : 'block';
+        
+        // Update button text
+        button.innerHTML = isVisible ? 
+            '<i class="fas fa-plus-circle"></i> Show Abstract' : 
+            '<i class="fas fa-minus-circle"></i> Hide Abstract';
+    }
+    
+    // Search publications
+    document.getElementById('publicationSearch').addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const publications = document.querySelectorAll('.publication-card');
+        
+        publications.forEach(card => {
+            const title = card.querySelector('.publication-title').textContent.toLowerCase();
+            const authors = card.querySelector('.publication-authors').textContent.toLowerCase();
+            const tags = card.querySelector('.publication-tags').textContent.toLowerCase();
+            const abstract = card.querySelector('.publication-abstract').textContent.toLowerCase();
+            
+            const matches = title.includes(searchTerm) || 
+                          authors.includes(searchTerm) || 
+                          tags.includes(searchTerm) ||
+                          abstract.includes(searchTerm);
+            
+            card.style.display = matches ? 'block' : 'none';
+        });
+    });
+    
+    // Filter publications by research area
+    document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            const cards = document.querySelectorAll('.publication-card');
+            
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            this.classList.add('active');
+            
+            // Filter cards
+            if (filter === 'all') {
+                cards.forEach(card => {
+                    card.style.display = 'block';
+                });
+            } else {
+                cards.forEach(card => {
+                    const tags = card.getAttribute('data-tags');
+                    if (tags && tags.includes(filter)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+        });
+    });
+    
+    // Animation for publication cards on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.publication-card').forEach(card => {
+        observer.observe(card);
+    });
+</script>
+</body>
+</html>
