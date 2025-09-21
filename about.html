@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Nikhil Sharma's Sketchbook</title>
-    <meta name="description" content="Get to know Nikhil Sharma - AI researcher, PhD student, and someone who believes technology should make life better for everyone.">
-    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Caveat:wght@400;500;600;700&family=Architects+Daughter&display=swap" rel="stylesheet">
+    <title>About Nikhil - Personal Journey & What Drives Me</title>
+    <meta name="description" content="Get to know Nikhil Sharma - Senior Research Engineer at Flam AI, Masters from Illinois Tech, and someone who believes AI should make life better for everyone.">
+    
+    <!-- Google Fonts for Hand-Drawn Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Kalam:wght@300;400;700&family=Architects+Daughter&display=swap" rel="stylesheet">
+    
     <style>
+        /* ===== RESET & VARIABLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -14,33 +18,35 @@
         }
 
         :root {
+            /* Monochromatic Sketch Palette */
             --sketch-black: #2c2c2c;
+            --paper-cream: #faf9f7;
             --sketch-gray: #555555;
             --sketch-light: #777777;
-            --sketch-lighter: #999999;
-            --paper-white: #fefefe;
-            --paper-cream: #faf9f7;
-            --sketch-blue: #4a5568;
             --accent-sketch: #e2e8f0;
-            --line-sketch: #d1d5db;
+            --paper-white: #fefefe;
             --shadow-sketch: rgba(44, 44, 44, 0.1);
+            --border-sketch: rgba(44, 44, 44, 0.2);
             --warm-orange: #ea580c;
             --gentle-green: #16a34a;
         }
 
+        /* ===== BODY & PAPER TEXTURE ===== */
         body {
             font-family: 'Kalam', cursive;
             line-height: 1.7;
             color: var(--sketch-black);
             background: var(--paper-cream);
+            /* Hand-drawn paper texture with subtle grains */
             background-image: 
                 radial-gradient(circle at 25% 25%, #f7f3f0 1px, transparent 1px),
-                radial-gradient(circle at 75% 75%, #f7f3f0 1px, transparent 1px);
-            background-size: 50px 50px;
+                radial-gradient(circle at 75% 75%, #f7f3f0 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, #f5f1ee 0.5px, transparent 0.5px);
+            background-size: 50px 50px, 50px 50px, 25px 25px;
             background-attachment: fixed;
         }
 
-        /* Paper texture overlay */
+        /* Ruled notebook lines overlay */
         body::before {
             content: '';
             position: fixed;
@@ -53,14 +59,14 @@
                     0deg,
                     transparent,
                     transparent 30px,
-                    rgba(221, 221, 221, 0.3) 30px,
-                    rgba(221, 221, 221, 0.3) 31px
+                    rgba(44, 44, 44, 0.08) 30px,
+                    rgba(44, 44, 44, 0.08) 31px
                 );
             pointer-events: none;
             z-index: -1;
         }
 
-        /* Header */
+        /* ===== HEADER ===== */
         .header {
             position: sticky;
             top: 0;
@@ -135,14 +141,14 @@
             transform: rotate(-0.5deg) scale(1.05);
         }
 
-        /* Main Content */
+        /* ===== MAIN CONTENT ===== */
         .main-content {
             max-width: 1000px;
             margin: 0 auto;
             padding: 2rem;
         }
 
-        /* Hero Section */
+        /* ===== HERO SECTION ===== */
         .hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -240,7 +246,7 @@
             font-style: italic;
         }
 
-        /* Story Sections */
+        /* ===== STORY SECTIONS ===== */
         .story-section {
             margin: 4rem 0;
             padding: 3rem;
@@ -301,7 +307,7 @@
             margin: 0 auto;
         }
 
-        /* Values Grid */
+        /* ===== VALUES GRID ===== */
         .values-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -312,7 +318,7 @@
         .value-card {
             padding: 2rem;
             background: var(--accent-sketch);
-            border: 2px solid var(--line-sketch);
+            border: 2px solid var(--sketch-light);
             border-radius: 20px;
             text-align: center;
             transform: rotate(0.5deg);
@@ -348,7 +354,7 @@
             line-height: 1.6;
         }
 
-        /* Fun Facts */
+        /* ===== FUN FACTS ===== */
         .fun-facts {
             background: linear-gradient(135deg, var(--warm-orange), #f59e0b);
             color: var(--paper-white);
@@ -408,7 +414,7 @@
             line-height: 1.5;
         }
 
-        /* Quote Section */
+        /* ===== QUOTE SECTION ===== */
         .quote-section {
             background: var(--gentle-green);
             color: var(--paper-white);
@@ -446,7 +452,7 @@
             opacity: 0.9;
         }
 
-        /* Contact Section */
+        /* ===== CONTACT SECTION ===== */
         .contact-section {
             background: var(--sketch-black);
             color: var(--paper-white);
@@ -507,7 +513,7 @@
             transform: rotate(0deg) scale(1.05);
         }
 
-        /* Mobile Responsive */
+        /* ===== MOBILE RESPONSIVE ===== */
         @media (max-width: 768px) {
             .header-content {
                 padding: 0 1rem;
@@ -552,7 +558,7 @@
             }
         }
 
-        /* Scroll animations */
+        /* ===== SCROLL ANIMATIONS ===== */
         .reveal {
             opacity: 0;
             transform: translateY(30px) rotate(0deg);
@@ -564,7 +570,7 @@
             transform: translateY(0) rotate(var(--random-rotation, 0.5deg));
         }
 
-        /* Floating sketches */
+        /* ===== FLOATING SKETCHES ===== */
         .floating-sketch {
             position: fixed;
             font-size: 1.5rem;
@@ -599,9 +605,10 @@
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="about.html" class="nav-link active">About</a></li>
-                    <li><a href="research.html" class="nav-link">Research</a></li>
+                    <li><a href="industry-work.html" class="nav-link">Industry Work</a></li>
+                    <li><a href="research.html" class="nav-link">Research Portfolio</a></li>
                     <li><a href="experience.html" class="nav-link">Experience</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Connect</a></li>
                 </ul>
             </nav>
         </div>
@@ -615,17 +622,17 @@
                 <h1>Hey there! 👋</h1>
                 <p class="hero-tagline">I'm someone who believes AI should make life better for everyone</p>
                 <p class="hero-description">
-                    I'm not just building algorithms - I'm sketching a future where technology understands 
+                    I'm not just building algorithms - I'm creating a future where technology understands 
                     humans better, helps doctors save lives, and makes complex problems feel simple. 
-                    Whether it's teaching machines to see cancer before it spreads or building secure 
-                    systems for national research, I love turning "what if" moments into reality.
+                    Currently as a Senior Research Engineer at Flam AI, I love turning "what if" 
+                    moments into reality.
                 </p>
             </div>
             <div class="hero-photo-container">
                 <div class="hero-photo-frame">
                     <img src="images/my_image.png" alt="Nikhil Sharma - Just being myself" class="hero-photo">
                 </div>
-                <p class="photo-caption">Just me, probably thinking about the next sketch! ✏️</p>
+                <p class="photo-caption">Senior Research Engineer @ Flam AI ✏️</p>
             </div>
         </section>
 
@@ -641,9 +648,10 @@
                 </p>
                 <br>
                 <p>
-                    Fast forward through a pandemic (where I analyzed 10,000+ COVID genomes), some industry experience building 
-                    real products, and now here I am - pursuing my PhD at Illinois Tech while collaborating with Stanford on 
-                    some pretty cool (and classified!) research. Every day feels like sketching new possibilities!
+                    After completing my Masters at Illinois Institute of Technology, I dove into industry work - first at 
+                    Matdun Labs building production computer vision systems, then collaborating with Cisco on breakthrough 
+                    diffusion models, and working with Stanford on classified edge computing systems. Now at Flam AI as a 
+                    Senior Research Engineer, every day feels like sketching new possibilities!
                 </p>
             </div>
         </section>
@@ -652,7 +660,7 @@
         <section class="values-grid reveal">
             <div class="value-card">
                 <span class="value-icon">🎯</span>
-                <h3 class="value-title">Purpose-Driven Research</h3>
+                <h3 class="value-title">Purpose-Driven Innovation</h3>
                 <p class="value-description">
                     Every line of code I write, every model I train, I ask: "Will this actually help someone?" 
                     Whether it's a doctor trying to save a patient or a researcher working on the next breakthrough.
@@ -663,8 +671,8 @@
                 <span class="value-icon">🤝</span>
                 <h3 class="value-title">Collaboration Over Competition</h3>
                 <p class="value-description">
-                    The best ideas come from working together. I love mentoring students, learning from colleagues, 
-                    and building bridges between different fields and institutions.
+                    The best ideas come from working together. I love mentoring teams, learning from colleagues, 
+                    and building bridges between research and industry, academia and application.
                 </p>
             </div>
 
@@ -678,11 +686,11 @@
             </div>
 
             <div class="value-card">
-                <span class="value-icon">🌱</span>
-                <h3 class="value-title">Always Learning</h3>
+                <span class="value-icon">🚀</span>
+                <h3 class="value-title">From Research to Reality</h3>
                 <p class="value-description">
-                    From my students (who often teach me more than I teach them) to the latest papers, 
-                    to random conversations - I believe learning never stops.
+                    I believe the most impactful AI research happens when you can see it working in the real world, 
+                    helping real people solve real problems.
                 </p>
             </div>
         </section>
@@ -693,7 +701,7 @@
             <div class="facts-grid">
                 <div class="fact-item">
                     <span class="fact-emoji">☕</span>
-                    <p class="fact-text">I've probably consumed enough coffee to fuel a small research lab</p>
+                    <p class="fact-text">I've probably consumed enough coffee to fuel a small AI datacenter</p>
                 </div>
                 <div class="fact-item">
                     <span class="fact-emoji">🧠</span>
@@ -708,8 +716,8 @@
                     <p class="fact-text">I read research papers like some people read novels - sometimes until 2 AM</p>
                 </div>
                 <div class="fact-item">
-                    <span class="fact-emoji">🎓</span>
-                    <p class="fact-text">Teaching 100+ grad students taught me that explaining things simply is the hardest skill</p>
+                    <span class="fact-emoji">👨‍🏫</span>
+                    <p class="fact-text">Teaching students taught me that explaining things simply is the hardest skill</p>
                 </div>
                 <div class="fact-item">
                     <span class="fact-emoji">🤖</span>
@@ -732,15 +740,16 @@
             <h2 class="story-title">What's Next on My Sketch Pad?</h2>
             <div class="story-content">
                 <p>
-                    I'm working on some exciting projects that I can't talk about yet (thanks, NSA compliance!), 
-                    but I'm also always looking for new collaborations. Whether you're a researcher with an 
-                    interesting problem, a company that needs AI solutions, or just someone curious about this field - 
-                    I'd love to chat!
+                    At Flam AI, I'm working on some incredibly exciting projects that push the boundaries of what's 
+                    possible with machine learning. I'm also always looking for new collaborations - whether you're 
+                    a researcher with an interesting problem, a company that needs AI solutions, or just someone 
+                    curious about this field.
                 </p>
                 <br>
                 <p>
-                    My goal? To graduate with a PhD that actually matters, launch some research that changes lives, 
-                    and maybe inspire a few more people to see AI as a tool for good rather than something to fear.
+                    My goal? To continue building AI systems that make a real difference in people's lives, lead 
+                    teams that push the envelope of innovation, and maybe inspire a few more people to see AI 
+                    as a tool for good rather than something to fear.
                 </p>
             </div>
         </section>
@@ -839,9 +848,8 @@
     
     Drop me a line: sharmanikhiljiit@gmail.com
     
-    ~ Nikhil (the human behind the algorithms) 🤖❤️
+    ~ Nikhil (Senior Research Engineer @ Flam AI) 🚀❤️
         `);
     </script>
 </body>
 </html>
-

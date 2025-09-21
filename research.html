@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Sketchbook - Nikhil Sharma</title>
-    <meta name="description" content="Explore Nikhil Sharma's hand-drawn research portfolio including AI, machine learning, medical imaging, and diffusion models.">
+    <title>Research Portfolio - Nikhil Sharma</title>
+    <meta name="description" content="Explore Nikhil Sharma's academic research portfolio including AI, machine learning, medical imaging, and diffusion models. Masters from Illinois Tech, Senior Research Engineer at Flam AI.">
     
     <!-- Google Fonts for Hand-Drawn Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Kalam:wght@300;400;700&family=Architects+Daughter&display=swap" rel="stylesheet">
@@ -110,20 +110,20 @@
             text-shadow: 1px 1px 0px rgba(44, 44, 44, 0.1);
         }
 
-        /* Microscope doodle next to logo */
+        /* Academic portfolio doodle next to logo */
         .logo::after {
-            content: '🔬';
+            content: '📚';
             position: absolute;
             top: -12px;
             right: -30px;
             font-size: 1.2rem;
             transform: rotate(25deg);
-            animation: microscopeWobble 5s ease-in-out infinite;
+            animation: portfolioFloat 5s ease-in-out infinite;
         }
 
-        @keyframes microscopeWobble {
-            0%, 100% { transform: rotate(25deg) scale(1); }
-            50% { transform: rotate(25deg) scale(1.1); }
+        @keyframes portfolioFloat {
+            0%, 100% { transform: rotate(25deg) translateY(0px); }
+            50% { transform: rotate(25deg) translateY(-3px); }
         }
 
         .nav-menu {
@@ -161,6 +161,83 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 6rem 2rem 2rem;
+        }
+
+        /* ===== RECENT UPDATES SECTION ===== */
+        .recent-updates {
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+            color: var(--paper-white);
+            padding: 3rem;
+            border-radius: 35px;
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+            transform: rotate(-0.5deg);
+            box-shadow: 12px 12px 35px var(--shadow-sketch);
+            animation: celebration 3s ease-in-out infinite;
+        }
+
+        @keyframes celebration {
+            0%, 100% { box-shadow: 12px 12px 35px var(--shadow-sketch); }
+            50% { box-shadow: 15px 15px 40px rgba(44, 44, 44, 0.15); }
+        }
+
+        /* Hand-drawn border inside updates section */
+        .recent-updates::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 2px dashed var(--paper-white);
+            border-radius: 25px;
+            opacity: 0.6;
+        }
+
+        .update-badge {
+            font-family: 'Architects Daughter', cursive;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transform: rotate(-2deg);
+            animation: badgeBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes badgeBounce {
+            0%, 100% { transform: rotate(-2deg) scale(1); }
+            50% { transform: rotate(-2deg) scale(1.05); }
+        }
+
+        .update-title {
+            font-family: 'Caveat', cursive;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+        }
+
+        .update-description {
+            font-family: 'Kalam', cursive;
+            font-size: 1.3rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .update-date {
+            font-family: 'Architects Daughter', cursive;
+            font-size: 1rem;
+            opacity: 0.8;
+            font-style: italic;
         }
 
         /* ===== HERO SECTION ===== */
@@ -728,55 +805,69 @@
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <a href="index.html" class="logo">Research Sketchbook</a>
+            <a href="index.html" class="logo">Research Portfolio</a>
             <nav>
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="index.html#about" class="nav-link">About</a></li>
-                    <li><a href="research.html" class="nav-link active">Research</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="industry-work.html" class="nav-link">Industry Work</a></li>
+                    <li><a href="research.html" class="nav-link active">Research Portfolio</a></li>
                     <li><a href="experience.html" class="nav-link">Experience</a></li>
-                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
+                    <li><a href="index.html#contact" class="nav-link">Connect</a></li>
+            </ul>
+    </nav>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="main-content">
-        <!-- Hero Section -->
-        <section class="hero">
-            <h1 class="hero-title">My Research Sketches</h1>
+        <!-- Recent Updates Banner -->
+        <section class="recent-updates reveal">
+            <div class="update-badge">🎉 BREAKING NEWS</div>
+            <h2 class="update-title">Depth HMR Accepted at BMVC 2025!</h2>
+            <p class="update-description">
+                Our latest research on Depth-aware Human Mesh Recovery has been accepted at the 
+                British Machine Vision Conference 2025. This breakthrough work advances the state-of-the-art 
+                in 3D human pose estimation and mesh reconstruction.
+            </p>
+            <div class="update-date">Just Accepted • December 2024</div>
+        </section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+            <h1 class="hero-title">Research Portfolio</h1>
             <p class="hero-subtitle">
                 A collection of AI ideas I've sketched into reality - from medical imaging 
-                that saves lives to diffusion models that imagine human movement.
+                that saves lives to cutting-edge generative models and 3D human understanding.
             </p>
-        </section>
+    </section>
 
         <!-- Research Stats -->
         <section class="research-stats reveal">
             <div class="stat-card">
                 <span class="stat-number">15+</span>
                 <div class="stat-label">Papers Published</div>
-            </div>
+                </div>
             <div class="stat-card">
                 <span class="stat-number">150+</span>
                 <div class="stat-label">Times Cited</div>
-            </div>
+                </div>
             <div class="stat-card">
                 <span class="stat-number">5</span>
                 <div class="stat-label">Research Areas</div>
-            </div>
+                </div>
             <div class="stat-card">
                 <span class="stat-number">3</span>
                 <div class="stat-label">Institutions</div>
-            </div>
-        </section>
+        </div>
+    </section>
 
         <!-- Research Filters -->
         <section class="research-filters reveal">
             <button class="filter-btn active" data-filter="all">All Sketches</button>
-            <button class="filter-btn" data-filter="medical">Medical AI</button>
+            <button class="filter-btn" data-filter="3d-vision">3D Vision</button>
             <button class="filter-btn" data-filter="diffusion">Diffusion Models</button>
+            <button class="filter-btn" data-filter="medical">Medical AI</button>
             <button class="filter-btn" data-filter="bioinformatics">Bioinformatics</button>
             <button class="filter-btn" data-filter="security">Security</button>
         </section>
@@ -787,7 +878,47 @@
             <div class="timeline-year reveal">
                 <h2 class="year-header">2025 Sketches</h2>
                 <div class="publications-grid">
-                    <div class="publication-card featured" data-category="diffusion">
+                    <div class="publication-card featured" data-category="3d-vision">
+                        <div class="pub-badge">🎉 JUST ACCEPTED!</div>
+                        <h3 class="pub-title">Depth HMR: Depth-aware Human Mesh Recovery</h3>
+                        <p class="pub-authors">N Sharma, et al.</p>
+                        <p class="pub-venue">BMVC 2025 - British Machine Vision Conference</p>
+                        <p class="pub-description">
+                            Revolutionary approach to 3D human mesh recovery that leverages depth information 
+                            for unprecedented accuracy in human pose estimation and mesh reconstruction. 
+                            This work pushes the boundaries of 3D human understanding.
+                        </p>
+                        <div class="pub-metrics">
+                            <div class="pub-metric">
+                                <div class="metric-value">SOTA</div>
+                                <div class="metric-label">Performance</div>
+                        </div>
+                            <div class="pub-metric">
+                                <div class="metric-value">3D</div>
+                                <div class="metric-label">Mesh Recovery</div>
+                        </div>
+                            <div class="pub-metric">
+                                <div class="metric-value">BMVC</div>
+                                <div class="metric-label">Acceptance</div>
+                        </div>
+                    </div>
+                        <div class="pub-tags">
+                            <span class="pub-tag">3D Vision</span>
+                            <span class="pub-tag">Human Mesh Recovery</span>
+                            <span class="pub-tag">Depth Estimation</span>
+                            <span class="pub-tag">Computer Vision</span>
+                </div>
+                        <div class="pub-links">
+                            <a href="#" class="pub-link">
+                                📄 Paper Coming Soon
+                            </a>
+                            <a href="#" class="pub-link">
+                                💻 Code Release Planned
+                            </a>
+            </div>
+            </div>
+
+                    <div class="publication-card" data-category="diffusion">
                         <div class="pub-badge">Fresh from the Drawing Board!</div>
                         <h3 class="pub-title">SSDL: When Sensors Dream of Skeletons</h3>
                         <p class="pub-authors">N Sharma, C Sun, Z Zhao, AHH Ngu, H Latapie, Y Yan</p>
@@ -801,36 +932,36 @@
                             <div class="pub-metric">
                                 <div class="metric-value">+2%</div>
                                 <div class="metric-label">Better Accuracy</div>
-                            </div>
+                                </div>
                             <div class="pub-metric">
                                 <div class="metric-value">-40%</div>
                                 <div class="metric-label">Less Computing</div>
-                            </div>
+                                </div>
                             <div class="pub-metric">
                                 <div class="metric-value">3</div>
                                 <div class="metric-label">Datasets Tested</div>
                             </div>
                         </div>
                         <div class="pub-tags">
-                            <span class="pub-tag">Diffusion Models</span>
-                            <span class="pub-tag">Activity Recognition</span>
+                                <span class="pub-tag">Diffusion Models</span>
+                                <span class="pub-tag">Activity Recognition</span>
                             <span class="pub-tag">Cisco Research</span>
                             <span class="pub-tag">Robotics</span>
-                        </div>
+                            </div>
                         <div class="pub-links">
-                            <a href="https://link.springer.com/chapter/10.1007/978-981-96-2071-5_7" class="pub-link">
+                        <a href="https://link.springer.com/chapter/10.1007/978-981-96-2071-5_7" class="pub-link">
                                 📄 Read the Sketch
-                            </a>
-                            <a href="https://github.com/nikhiliit/SSDL" class="pub-link">
+                        </a>
+                        <a href="https://github.com/nikhiliit/SSDL" class="pub-link">
                                 💻 See the Code
-                            </a>
-                            <a href="cisco-robotics.html" class="pub-link">
+                        </a>
+                        <a href="cisco-robotics.html" class="pub-link">
                                 🔍 Deep Dive
-                            </a>
+                        </a>
                         </div>
                     </div>
+                    </div>
                 </div>
-            </div>
 
             <!-- 2024 Publications -->
             <div class="timeline-year reveal">
@@ -849,27 +980,27 @@
                             <div class="pub-metric">
                                 <div class="metric-value">15+</div>
                                 <div class="metric-label">Citations</div>
-                            </div>
+                                </div>
                             <div class="pub-metric">
                                 <div class="metric-value">3D</div>
                                 <div class="metric-label">Segmentation</div>
-                            </div>
+                                </div>
                             <div class="pub-metric">
                                 <div class="metric-value">Clinical</div>
                                 <div class="metric-label">Validated</div>
                             </div>
                         </div>
                         <div class="pub-tags">
-                            <span class="pub-tag">Medical Imaging</span>
-                            <span class="pub-tag">3D Segmentation</span>
+                                <span class="pub-tag">Medical Imaging</span>
+                                <span class="pub-tag">3D Segmentation</span>
                             <span class="pub-tag">Cancer Detection</span>
-                        </div>
+                            </div>
                         <div class="pub-links">
                             <a href="#" class="pub-link">📄 Read the Paper</a>
                         </div>
                     </div>
+                    </div>
                 </div>
-            </div>
 
             <!-- 2022 Publications -->
             <div class="timeline-year reveal">
@@ -888,29 +1019,29 @@
                             <div class="pub-metric">
                                 <div class="metric-value">25+</div>
                                 <div class="metric-label">Citations</div>
-                            </div>
+                                </div>
                             <div class="pub-metric">
                                 <div class="metric-value">ISMRM</div>
                                 <div class="metric-label">Award Winner</div>
-                            </div>
+                                </div>
                             <div class="pub-metric">
                                 <div class="metric-value">Clinical</div>
                                 <div class="metric-label">Impact</div>
                             </div>
                         </div>
                         <div class="pub-tags">
-                            <span class="pub-tag">Medical Imaging</span>
-                            <span class="pub-tag">T1 Mapping</span>
+                                <span class="pub-tag">Medical Imaging</span>
+                                <span class="pub-tag">T1 Mapping</span>
                             <span class="pub-tag">Cancer Research</span>
-                            <span class="pub-tag">Award Winner</span>
-                        </div>
+                                <span class="pub-tag">Award Winner</span>
+                            </div>
                         <div class="pub-links">
                             <a href="#" class="pub-link">📄 Read the Paper</a>
                             <a href="#" class="pub-link">🏆 See Award</a>
                         </div>
                     </div>
+                    </div>
                 </div>
-            </div>
 
             <!-- 2021 Publications -->
             <div class="timeline-year reveal">
@@ -929,26 +1060,26 @@
                             <div class="pub-metric">
                                 <div class="metric-value">50+</div>
                                 <div class="metric-label">Citations</div>
-                            </div>
+                                </div>
                             <div class="pub-metric">
                                 <div class="metric-value">10K+</div>
                                 <div class="metric-label">Genomes</div>
-                            </div>
+                                </div>
                             <div class="pub-metric">
                                 <div class="metric-value">Global</div>
                                 <div class="metric-label">Impact</div>
                             </div>
                         </div>
                         <div class="pub-tags">
-                            <span class="pub-tag">COVID-19</span>
+                                <span class="pub-tag">COVID-19</span>
                             <span class="pub-tag">Genomics</span>
-                            <span class="pub-tag">Bioinformatics</span>
-                            <span class="pub-tag">Oxford Academic</span>
-                        </div>
+                                <span class="pub-tag">Bioinformatics</span>
+                                <span class="pub-tag">Oxford Academic</span>
+                            </div>
                         <div class="pub-links">
                             <a href="#" class="pub-link">📄 Read the Paper</a>
-                        </div>
                     </div>
+                </div>
 
                     <div class="publication-card" data-category="medical">
                         <div class="pub-badge">AI for Good Sketch</div>
@@ -963,11 +1094,11 @@
                             <div class="pub-metric">
                                 <div class="metric-value">30+</div>
                                 <div class="metric-label">Citations</div>
-                            </div>
+                                </div>
                             <div class="pub-metric">
                                 <div class="metric-value">CNN</div>
                                 <div class="metric-label">Deep Learning</div>
-                            </div>
+                                </div>
                             <div class="pub-metric">
                                 <div class="metric-value">Medical</div>
                                 <div class="metric-label">Application</div>
@@ -975,17 +1106,17 @@
                         </div>
                         <div class="pub-tags">
                             <span class="pub-tag">Deep Learning</span>
-                            <span class="pub-tag">Medical Imaging</span>
+                                <span class="pub-tag">Medical Imaging</span>
                             <span class="pub-tag">Cancer Detection</span>
-                            <span class="pub-tag">Dermatology</span>
-                        </div>
+                                <span class="pub-tag">Dermatology</span>
+                            </div>
                         <div class="pub-links">
                             <a href="#" class="pub-link">📄 Read the Paper</a>
-                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
         <!-- Bottom CTA -->
         <section class="cta-section reveal">
@@ -1000,8 +1131,8 @@
                 <a href="experience.html" class="cta-btn">
                     👨‍💼 My Journey
                 </a>
-            </div>
-        </section>
+        </div>
+    </section>
     </main>
 
     <!-- JavaScript for Interactions -->
@@ -1090,7 +1221,7 @@
                         if (currentValue >= parseInt(finalValue)) {
                             stat.textContent = finalValue;
                             clearInterval(timer);
-                        } else {
+            } else {
                             stat.textContent = Math.floor(currentValue) + '+';
                         }
                     }, 30);

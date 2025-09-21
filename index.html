@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nikhil Sharma - AI Researcher & PhD Student</title>
-    <meta name="description" content="Nikhil Sharma is an AI researcher and PhD student specializing in machine learning, computer vision, and medical AI. Hand-sketched portfolio showcasing research and experience.">
+    <title>Nikhil Sharma - Senior Research Engineer | AI & Machine Learning</title>
+    <meta name="description" content="Nikhil Sharma is a Senior Research Engineer at Flam AI, specializing in machine learning, computer vision, and AI research. Hand-sketched portfolio showcasing industry impact and research innovations.">
     
     <!-- Google Fonts for Hand-Drawn Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Kalam:wght@300;400;700&family=Architects+Daughter&display=swap" rel="stylesheet">
@@ -27,6 +27,7 @@
             --paper-white: #fefefe;
             --shadow-sketch: rgba(44, 44, 44, 0.1);
             --border-sketch: rgba(44, 44, 44, 0.2);
+            --flam-accent: #4a5568;
         }
 
         /* ===== BODY & PAPER TEXTURE ===== */
@@ -62,58 +63,6 @@
                 );
             pointer-events: none;
             z-index: -1;
-        }
-
-        /* ===== HAND-DRAWN BORDER UTILITY ===== */
-        .sketch-border {
-            position: relative;
-            border: 2px solid var(--sketch-black);
-            border-radius: 15px;
-        }
-
-        /* Multiple imperfect border layers */
-        .sketch-border::before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            border: 1px solid var(--sketch-gray);
-            border-radius: 15px;
-            transform: rotate(-0.8deg);
-            z-index: -1;
-        }
-
-        .sketch-border::after {
-            content: '';
-            position: absolute;
-            top: -1px;
-            left: -1px;
-            right: -1px;
-            bottom: -1px;
-            border: 1px solid var(--sketch-light);
-            border-radius: 15px;
-            transform: rotate(0.5deg);
-            z-index: -1;
-        }
-
-        /* ===== HAND-DRAWN UNDERLINES ===== */
-        .sketch-underline {
-            position: relative;
-            display: inline-block;
-        }
-
-        .sketch-underline::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0,6 Q25,2 50,7 Q75,9 100,5' stroke='%23555' fill='none' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-            background-repeat: repeat-x;
-            background-size: 100px 10px;
         }
 
         /* ===== HEADER ===== */
@@ -162,20 +111,20 @@
             text-shadow: 1px 1px 0px rgba(44, 44, 44, 0.1);
         }
 
-        /* Pencil doodle next to logo */
+        /* Flame AI icon next to logo */
         .logo::after {
-            content: '✏️';
+            content: '🔥';
             position: absolute;
             top: -12px;
             right: -30px;
             font-size: 1.2rem;
             transform: rotate(25deg);
-            animation: pencilBob 4s ease-in-out infinite;
+            animation: flameFlicker 3s ease-in-out infinite;
         }
 
-        @keyframes pencilBob {
-            0%, 100% { transform: rotate(25deg) translateY(0px); }
-            50% { transform: rotate(25deg) translateY(-3px); }
+        @keyframes flameFlicker {
+            0%, 100% { transform: rotate(25deg) scale(1); }
+            50% { transform: rotate(25deg) scale(1.1); }
         }
 
         .nav-menu {
@@ -201,25 +150,11 @@
             transform: rotate(-0.8deg);
         }
 
-        .nav-link:hover {
+        .nav-link:hover, .nav-link.active {
             color: var(--sketch-black);
             background: var(--accent-sketch);
             transform: rotate(0deg) scale(1.05);
             box-shadow: 2px 2px 8px var(--shadow-sketch);
-        }
-
-        /* Hand-drawn bullet points on hover */
-        .nav-link::before {
-            content: '•';
-            position: absolute;
-            left: -12px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            color: var(--sketch-black);
-        }
-
-        .nav-link:hover::before {
-            opacity: 1;
         }
 
         .nav-toggle {
@@ -246,7 +181,7 @@
             position: relative;
         }
 
-        /* Floating doodles around hero */
+        /* Floating AI doodles around hero */
         .hero::before {
             content: '';
             position: absolute;
@@ -254,36 +189,21 @@
             right: 8%;
             width: 120px;
             height: 120px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20,50 Q50,20 80,50 Q70,80 40,70 Q10,60 20,50' stroke='%23999' fill='none' stroke-width='2' stroke-dasharray='4,6' stroke-linecap='round'/%3E%3Ccircle cx='50' cy='50' r='8' stroke='%23aaa' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30,50 Q50,30 70,50 Q60,70 40,60 Q20,55 30,50' stroke='%23999' fill='none' stroke-width='2' stroke-dasharray='4,6' stroke-linecap='round'/%3E%3Ccircle cx='50' cy='50' r='8' stroke='%23aaa' fill='none' stroke-width='1'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             opacity: 0.3;
             transform: rotate(-20deg);
-            animation: doodleFloat 15s ease-in-out infinite;
+            animation: aiFloat 15s ease-in-out infinite;
         }
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 20%;
-            left: 5%;
-            width: 80px;
-            height: 80px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20,20 Q50,10 80,30 Q70,70 30,80 Q10,50 20,20' stroke='%23bbb' fill='none' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M40,40 L60,60 M60,40 L40,60' stroke='%23ccc' stroke-width='1'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            opacity: 0.2;
-            transform: rotate(15deg);
-            animation: doodleFloat 20s ease-in-out infinite reverse;
-        }
-
-        @keyframes doodleFloat {
+        @keyframes aiFloat {
             0%, 100% { transform: rotate(-20deg) translateY(0px); }
-            33% { transform: rotate(-25deg) translateY(-15px); }
-            66% { transform: rotate(-15deg) translateY(-8px); }
+            50% { transform: rotate(-20deg) translateY(-15px); }
         }
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.3fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
             gap: 4rem;
             align-items: center;
             width: 100%;
@@ -304,33 +224,36 @@
             }
         }
 
-        .hero-greeting {
-            font-family: 'Caveat', cursive;
-            color: var(--sketch-gray);
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            transform: rotate(-1deg);
-            position: relative;
-        }
-
-        /* Animated wave emoji */
-        .hero-greeting::before {
-            content: '👋';
-            margin-right: 0.8rem;
+        .hero-status {
+            background: rgba(44, 44, 44, 0.08);
+            border: 3px solid var(--sketch-black);
+            border-radius: 25px;
+            padding: 1rem 2rem;
+            margin-bottom: 2rem;
+            font-family: 'Architects Daughter', cursive;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--sketch-black);
             display: inline-block;
-            animation: wave 2.5s ease-in-out infinite;
-            transform-origin: 70% 70%;
+            transform: rotate(-2deg);
+            animation: statusGlow 4s ease-in-out infinite alternate;
         }
 
-        @keyframes wave {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(25deg); }
-            75% { transform: rotate(-10deg); }
+        @keyframes statusGlow {
+            from { 
+                box-shadow: 0 0 15px rgba(44, 44, 44, 0.1);
+                border-color: var(--sketch-black);
+            }
+            to { 
+                box-shadow: 0 0 25px rgba(44, 44, 44, 0.2);
+                border-color: var(--sketch-gray);
+            }
         }
 
         .hero-title {
             font-family: 'Caveat', cursive;
-            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-size: clamp(3rem, 7vw, 5rem);
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 1.5rem;
@@ -369,11 +292,31 @@
 
         .hero-subtitle {
             font-family: 'Kalam', cursive;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--sketch-gray);
             margin-bottom: 2rem;
             line-height: 1.6;
             transform: rotate(0.5deg);
+        }
+
+        .flam-badge {
+            background: linear-gradient(135deg, var(--sketch-black), var(--flam-accent));
+            color: var(--paper-white);
+            padding: 1.2rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 8px 8px 25px var(--shadow-sketch);
+            font-family: 'Architects Daughter', cursive;
+            transform: rotate(-1deg);
+        }
+
+        .flam-badge:hover {
+            transform: rotate(1deg) translateY(-3px) scale(1.05);
+            box-shadow: 12px 12px 35px rgba(44, 44, 44, 0.2);
         }
 
         .hero-description {
@@ -447,7 +390,7 @@
                 transform: translateX(40px) rotate(8deg);
             }
             to {
-            opacity: 1;
+                opacity: 1;
                 transform: translateX(0) rotate(3deg);
             }
         }
@@ -473,19 +416,6 @@
             border: 2px solid var(--sketch-gray);
             border-radius: 25px;
             transform: rotate(1.2deg);
-            z-index: -1;
-        }
-
-        .hero-photo-frame::after {
-            content: '';
-            position: absolute;
-            top: -4px;
-            left: -4px;
-            right: -4px;
-            bottom: -4px;
-            border: 1px solid var(--sketch-light);
-            border-radius: 25px;
-            transform: rotate(-0.8deg);
             z-index: -1;
         }
 
@@ -531,18 +461,112 @@
             font-size: 0.95rem;
         }
 
-        /* ===== HAND-DRAWN DIVIDER ===== */
-        .sketch-divider {
-            width: 100%;
-            height: 40px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Cpath d='M0,15 Q25,8 50,18 Q75,12 100,20 Q125,16 150,15' stroke='%23999' fill='none' stroke-width='3' stroke-dasharray='8,6' stroke-linecap='round'/%3E%3C/svg%3E");
-            background-repeat: repeat-x;
-            background-position: center;
+        /* ===== CURRENT IMPACT SECTION ===== */
+        .current-impact {
+            background: var(--paper-white);
+            border: 4px solid var(--sketch-black);
+            border-radius: 35px;
+            padding: 3.5rem;
             margin: 4rem 0;
-            transform: rotate(-0.3deg);
+            position: relative;
+            transform: rotate(-0.5deg);
+            box-shadow: 12px 12px 35px var(--shadow-sketch);
         }
 
-        /* ===== STATS SECTION (HAND-DRAWN BOXES) ===== */
+        .current-impact::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 2px solid var(--sketch-gray);
+            border-radius: 35px;
+            transform: rotate(1deg);
+            z-index: -1;
+        }
+
+        .impact-title {
+            font-family: 'Caveat', cursive;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--sketch-black);
+            margin-bottom: 2rem;
+            text-align: center;
+            transform: rotate(0.8deg);
+            position: relative;
+        }
+
+        /* Hand-drawn underline for title */
+        .impact-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 6px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'%3E%3Cpath d='M0,6 Q25,3 50,8 Q75,10 100,6' stroke='%23777' fill='none' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .impact-card {
+            text-align: center;
+            padding: 2.5rem;
+            border: 3px solid var(--sketch-light);
+            border-radius: 25px;
+            background: var(--accent-sketch);
+            transform: rotate(1deg);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .impact-card:nth-child(even) {
+            transform: rotate(-1deg);
+        }
+
+        .impact-card:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 8px 8px 25px var(--shadow-sketch);
+        }
+
+        .impact-icon {
+            font-size: 3.5rem;
+            margin: 0 auto 1.5rem;
+            width: 90px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid var(--sketch-black);
+            border-radius: 50%;
+            background: var(--paper-white);
+            transform: rotate(-8deg);
+            box-shadow: 4px 4px 15px var(--shadow-sketch);
+        }
+
+        .impact-card-title {
+            font-family: 'Caveat', cursive;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--sketch-black);
+            margin-bottom: 1rem;
+        }
+
+        .impact-card-description {
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
+            line-height: 1.6;
+        }
+
+        /* ===== QUICK STATS ===== */
         .quick-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -566,19 +590,6 @@
             background: var(--paper-white);
             z-index: -1;
             box-shadow: 8px 8px 25px var(--shadow-sketch);
-        }
-
-        .quick-stats::after {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 8px;
-            right: 8px;
-            bottom: 8px;
-            border: 1px solid var(--sketch-light);
-            border-radius: 35px;
-            transform: rotate(0.5deg);
-            z-index: -1;
         }
 
         .stat {
@@ -608,221 +619,10 @@
             margin-top: 0.5rem;
         }
 
-        /* ===== ABOUT SECTION ===== */
-        .about-preview {
-            background: var(--paper-white);
-            border: 4px solid var(--sketch-black);
-            border-radius: 35px;
-            padding: 3.5rem;
-            margin: 4rem 0;
-            position: relative;
-            transform: rotate(-0.5deg);
-            box-shadow: 12px 12px 35px var(--shadow-sketch);
-        }
-
-        /* Multiple border layers */
-        .about-preview::before {
-            content: '';
-            position: absolute;
-            top: -8px;
-            left: -8px;
-            right: -8px;
-            bottom: -8px;
-            border: 2px solid var(--sketch-gray);
-            border-radius: 35px;
-            transform: rotate(1deg);
-            z-index: -1;
-        }
-
-        .about-title {
-            font-family: 'Caveat', cursive;
-            font-size: 3.2rem;
-            font-weight: 700;
-            color: var(--sketch-black);
-            margin-bottom: 2rem;
-            text-align: center;
-            transform: rotate(0.8deg);
-            position: relative;
-        }
-
-        /* Hand-drawn underline for title */
-        .about-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 6px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'%3E%3Cpath d='M0,6 Q25,3 50,8 Q75,10 100,6' stroke='%23777' fill='none' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
-            background-repeat: repeat-x;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .about-card {
-            text-align: center;
-            padding: 2.5rem;
-            border: 3px solid var(--sketch-light);
-            border-radius: 25px;
-            background: var(--accent-sketch);
-            transform: rotate(1deg);
-            position: relative;
-            transition: all 0.4s ease;
-        }
-
-        .about-card:nth-child(even) {
-            transform: rotate(-1deg);
-        }
-
-        .about-card:hover {
-            transform: rotate(0deg) scale(1.05);
-            box-shadow: 8px 8px 25px var(--shadow-sketch);
-        }
-
-        .about-icon {
-            font-size: 3.5rem;
-            margin: 0 auto 1.5rem;
-            width: 90px;
-            height: 90px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 4px solid var(--sketch-black);
-            border-radius: 50%;
-            background: var(--paper-white);
-            transform: rotate(-8deg);
-            box-shadow: 4px 4px 15px var(--shadow-sketch);
-        }
-
-        .about-card-title {
-            font-family: 'Caveat', cursive;
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--sketch-black);
-            margin-bottom: 1rem;
-        }
-
-        .about-card-description {
-            font-family: 'Kalam', cursive;
-            color: var(--sketch-gray);
-            line-height: 1.6;
-        }
-
-        /* ===== FEATURED WORK SECTION ===== */
-        .featured-work {
-            margin: 4rem 0;
-        }
-
-        .section-title {
-            font-family: 'Caveat', cursive;
-            font-size: 3.2rem;
-            font-weight: 700;
-            color: var(--sketch-black);
-            text-align: center;
-            margin-bottom: 3rem;
-            transform: rotate(-0.8deg);
-            position: relative;
-        }
-
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .work-card {
-            background: var(--paper-white);
-            border: 4px solid var(--sketch-black);
-            border-radius: 28px;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            position: relative;
-            transform: rotate(1deg);
-            box-shadow: 8px 8px 25px var(--shadow-sketch);
-        }
-
-        .work-card:nth-child(even) {
-            transform: rotate(-1deg);
-        }
-
-        .work-card:hover {
-            transform: rotate(0deg) scale(1.03);
-            box-shadow: 15px 15px 40px rgba(44, 44, 44, 0.15);
-        }
-
-        .work-header {
-            padding: 2.5rem 2.5rem 1.5rem;
-            position: relative;
-        }
-
-        .work-badge {
-            font-family: 'Architects Daughter', cursive;
-            background: var(--sketch-black);
-            color: var(--paper-cream);
-            padding: 0.6rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 1.2rem;
-            transform: rotate(-3deg);
-        }
-
-        .work-title {
-            font-family: 'Caveat', cursive;
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--sketch-black);
-            margin-bottom: 0.8rem;
-            line-height: 1.3;
-        }
-
-        .work-subtitle {
-            font-family: 'Kalam', cursive;
-            color: var(--sketch-gray);
-            font-weight: 600;
-            margin-bottom: 1.2rem;
-        }
-
-        .work-description {
-            font-family: 'Kalam', cursive;
-            color: var(--sketch-gray);
-            line-height: 1.6;
-            padding: 0 2.5rem 2rem;
-        }
-
-        .work-link {
-            font-family: 'Architects Daughter', cursive;
-            color: var(--sketch-black);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            margin: 0 2.5rem 2.5rem;
-            padding: 0.8rem 1.8rem;
-            border: 3px solid var(--sketch-black);
-            border-radius: 22px;
-            transition: all 0.3s ease;
-            transform: rotate(-1.5deg);
-        }
-
-        .work-link:hover {
-            background: var(--sketch-black);
-            color: var(--paper-cream);
-            transform: rotate(0deg) scale(1.05);
-        }
-
         /* ===== CONTACT SECTION ===== */
         .contact-section {
             background: var(--sketch-black);
-            color: var(--paper-cream);
+            color: var(--paper-white);
             padding: 4rem 3rem;
             border-radius: 40px;
             text-align: center;
@@ -830,19 +630,6 @@
             position: relative;
             transform: rotate(-0.8deg);
             box-shadow: 12px 12px 35px var(--shadow-sketch);
-        }
-
-        /* Hand-drawn border inside contact section */
-        .contact-section::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            border: 2px dashed var(--paper-cream);
-            border-radius: 30px;
-            opacity: 0.4;
         }
 
         .contact-title {
@@ -897,17 +684,6 @@
             box-shadow: 6px 6px 20px rgba(255, 255, 255, 0.2);
         }
 
-        /* ===== FOOTER ===== */
-        .footer {
-            background: var(--sketch-gray);
-            color: var(--paper-cream);
-            text-align: center;
-            padding: 2.5rem;
-            font-family: 'Kalam', cursive;
-            border-radius: 25px 25px 0 0;
-            transform: rotate(-0.3deg);
-        }
-
         /* ===== FLOATING PAPER AIRPLANE ===== */
         .paper-plane {
             position: fixed;
@@ -936,7 +712,7 @@
             .nav-menu {
                 display: none;
                 flex-direction: column;
-            position: absolute;
+                position: absolute;
                 top: 100%;
                 left: 1rem;
                 right: 1rem;
@@ -949,7 +725,7 @@
             }
 
             .nav-menu.active {
-            display: flex;
+                display: flex;
             }
 
             .nav-toggle {
@@ -975,15 +751,10 @@
                 height: 360px;
             }
 
-            .about-preview,
+            .current-impact,
             .contact-section {
                 margin: 2rem 1rem;
                 padding: 2.5rem 1.5rem;
-            }
-
-            .work-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
             }
 
             .quick-stats {
@@ -1022,15 +793,16 @@
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <a href="#" class="logo">Nikhil's Sketchbook</a>
+            <a href="index.html" class="logo">Nikhil @ Flam AI</a>
             <nav>
                 <button class="nav-toggle" id="nav-toggle">☰</button>
                 <ul class="nav-menu" id="nav-menu">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="research.html" class="nav-link">Research</a></li>
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="industry-work.html" class="nav-link">Industry Work</a></li>
+                    <li><a href="research.html" class="nav-link">Research Portfolio</a></li>
                     <li><a href="experience.html" class="nav-link">Experience</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#contact" class="nav-link">Connect</a></li>
             </ul>
     </nav>
         </div>
@@ -1040,193 +812,121 @@
     <section class="hero" id="home">
         <div class="hero-grid">
             <div class="hero-content">
-                <div class="hero-greeting">
-                    Hey there, I'm
-            </div>
+                <div class="hero-status">
+                    🔥 Currently Leading AI Research at Flam AI
+        </div>
+
                 <h1 class="hero-title">
-                    <span class="highlight sketch-underline">Nikhil Sharma</span>
+                    <span class="highlight">Nikhil Sharma</span>
                 </h1>
                 <p class="hero-subtitle">
-                    AI Researcher & PhD Student who sketches ideas into intelligent systems
+                    Senior Research Engineer turning breakthrough AI research into real-world impact
                 </p>
+                
+                <div class="flam-badge">🚀 Driving Innovation at Flam AI</div>
+                
                 <p class="hero-description">
-                    Currently doodling my way through a PhD at Illinois Institute of Technology while collaborating 
-                    on cutting-edge research at Stanford. I love turning complex AI concepts into simple, 
-                    elegant solutions that make a real difference in healthcare and security.
+                    Leading cutting-edge machine learning research and development, bridging the gap between 
+                    academic innovation and production-ready AI systems. From medical imaging that saves lives 
+                    to secure edge computing for national security.
                 </p>
                 <div class="hero-cta">
-                    <a href="research.html" class="cta-primary">
-                        📚 Browse My Work
+                    <a href="industry-work.html" class="cta-primary">
+                        🏢 See My Industry Impact
                     </a>
                     <a href="#contact" class="cta-secondary">
-                        ☕ Grab Coffee & Chat
+                        ☕ Let's Connect
                     </a>
-        </div>
+          </div>
         </div>
             <div class="hero-image">
                 <div class="hero-photo-frame">
-                    <img src="images/my_image.png" alt="Nikhil Sharma - Sketched Portrait" class="hero-photo">
+                    <img src="images/my_image.png" alt="Nikhil Sharma - Senior Research Engineer" class="hero-photo">
                     <div class="photo-badge">
-                        <div class="badge-title">PhD Candidate</div>
-                        <div class="badge-subtitle">Illinois Tech • AI Researcher</div>
-            </div>
+                        <div class="badge-title">Senior Research Engineer</div>
+                        <div class="badge-subtitle">Flam AI • MS Illinois Tech</div>
                 </div>
-          </div>
+                </div>
+            </div>
         </div>
-      </section>
+    </section>
 
-    <!-- Sketch Divider -->
-    <div class="sketch-divider"></div>
+    <!-- Current Impact -->
+    <section class="current-impact reveal" id="impact">
+        <h2 class="impact-title">Current Impact at Flam AI</h2>
+        <div class="impact-grid">
+            <div class="impact-card">
+                <div class="impact-icon">🧠</div>
+                <h3 class="impact-card-title">AI Research Leadership</h3>
+                <p class="impact-card-description">
+                    Leading a team of researchers developing next-generation machine learning models, 
+                    focusing on practical applications that solve real business challenges.
+                </p>
+            </div>
+            <div class="impact-card">
+                <div class="impact-icon">🚀</div>
+                <h3 class="impact-card-title">Production AI Systems</h3>
+                <p class="impact-card-description">
+                    Architecting and deploying scalable AI solutions that serve millions of users, 
+                    ensuring robust performance and maintaining high accuracy standards.
+                </p>
+                        </div>
+            <div class="impact-card">
+                <div class="impact-icon">🤝</div>
+                <h3 class="impact-card-title">Cross-functional Innovation</h3>
+                <p class="impact-card-description">
+                    Bridging research and engineering teams to accelerate innovation, translating 
+                    complex algorithms into user-friendly products and features.
+                </p>
+                        </div>
+                        </div>
+    </section>
 
     <!-- Quick Stats -->
     <section class="quick-stats reveal">
         <div class="stat">
-                    <span class="stat-number">15+</span>
+            <span class="stat-number">15+</span>
             <div class="stat-label">Research Papers</div>
-                </div>
+                    </div>
         <div class="stat">
             <span class="stat-number">150+</span>
             <div class="stat-label">Citations</div>
-        </div>
+                        </div>
         <div class="stat">
-                    <span class="stat-number">3</span>
-            <div class="stat-label">Universities</div>
-                </div>
+            <span class="stat-number">3</span>
+            <div class="stat-label">Industry Positions</div>
+                        </div>
         <div class="stat">
-            <span class="stat-number">∞</span>
-            <div class="stat-label">Ideas Sketched</div>
+            <span class="stat-number">5+</span>
+            <div class="stat-label">Years Experience</div>
         </div>
-    </section>
-
-    <!-- About Preview -->
-    <section class="about-preview reveal" id="about">
-        <h2 class="about-title">What I Sketch Into Reality</h2>
-        <div class="about-content">
-            <div class="about-card">
-                <div class="about-icon">🧠</div>
-                <h3 class="about-card-title">AI Research</h3>
-                <p class="about-card-description">
-                    I sketch out diffusion models, multimodal learning systems, and human activity recognition 
-                    that help robots understand the world better.
-                </p>
-            </div>
-            <div class="about-card">
-                <div class="about-icon">🏥</div>
-                <h3 class="about-card-title">Medical AI</h3>
-                <p class="about-card-description">
-                    Drawing connections between AI and healthcare - from 3D lung imaging to cancer detection 
-                    that saves lives through early intervention.
-                </p>
-                        </div>
-            <div class="about-card">
-                <div class="about-icon">🔒</div>
-                <h3 class="about-card-title">Secure Systems</h3>
-                <p class="about-card-description">
-                    Designing NSA-compliant edge computing systems that keep sensitive research data safe 
-                    while delivering lightning-fast results.
-                </p>
-                        </div>
-                        </div>
-    </section>
-
-    <!-- Featured Work -->
-    <section class="featured-work reveal">
-        <h2 class="section-title">Latest Sketches Come to Life</h2>
-        <div class="work-grid">
-            <div class="work-card">
-                <div class="work-header">
-                    <div class="work-badge">Fresh off the Drawing Board!</div>
-                    <h3 class="work-title">SSDL: Sensor-to-Skeleton Magic</h3>
-                    <p class="work-subtitle">Published at MMM 2025</p>
-                    </div>
-                <p class="work-description">
-                    What if sensors could dream of skeletons? My latest creation turns messy sensor data 
-                    into beautiful skeleton animations using diffusion models. It's like teaching 
-                    computers to imagine human movement!
-                </p>
-                <a href="cisco-robotics.html" class="work-link">
-                    See the Magic →
-                </a>
-                        </div>
-
-            <div class="work-card">
-                <div class="work-header">
-                    <div class="work-badge">Top Secret Doodles</div>
-                    <h3 class="work-title">Stanford Security Sketches</h3>
-                    <p class="work-subtitle">NSA-Level Secure AI</p>
-            </div>
-                <p class="work-description">
-                    Ever wondered what happens when AI meets federal security? I'm building 
-                    ultra-secure edge systems that process neuroscience data without compromising 
-                    national security protocols.
-                </p>
-                <a href="stanford-sprint.html" class="work-link">
-                    Enter the Vault →
-                </a>
-                </div>
-
-            <div class="work-card">
-                <div class="work-header">
-                    <div class="work-badge">Life-Saving Sketches</div>
-                    <h3 class="work-title">3D Medical Imaging</h3>
-                    <p class="work-subtitle">Clinically Validated</p>
-                        </div>
-                <p class="work-description">
-                    My algorithms sketch detailed 3D maps of lungs to spot cancer before it spreads. 
-                    Working with doctors at top hospitals to turn AI research into real patient care.
-                </p>
-                <a href="research.html" class="work-link">
-                    Explore the Gallery →
-                </a>
-                </div>
-                        </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact-section reveal" id="contact">
-        <h2 class="contact-title">Let's Sketch Something Together!</h2>
+        <h2 class="contact-title">Let's Build Something Amazing Together</h2>
         <p class="contact-subtitle">
-            Got an interesting AI problem? Want to collaborate on research? Or just curious about 
-            how diffusion models work? I'm always up for a good conversation!
+            Whether you're interested in AI research collaboration, industry partnerships, 
+            or just want to chat about the latest in machine learning - I'm always excited to connect!
         </p>
         <div class="contact-methods">
             <a href="mailto:sharmanikhiljiit@gmail.com" class="contact-btn">
-                ✉️ Drop me a line
+                ✉️ Drop me an email
             </a>
             <a href="https://linkedin.com/in/nikhilsharmaiit" class="contact-btn">
-                💼 LinkedIn Connect
+                💼 Connect on LinkedIn
             </a>
             <a href="https://scholar.google.com/citations?user=YOUR_ID" class="contact-btn">
                 🎓 Google Scholar
             </a>
-        </div>
+            </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>© 2025 Nikhil Sharma - Hand-sketched with ❤️ and lots of ☕</p>
-            <p>PhD Student • AI Researcher • Sketch Enthusiast • Problem Solver</p>
-        </div>
-    </footer>
 
     <!-- JavaScript for Interactions -->
     <script>
         // Random rotations array for reveal animations
         const randomRotations = ['-1.2deg', '0.8deg', '-1.5deg', '1.1deg', '-0.9deg', '1.3deg'];
         
-        /* ===== HEADER SCROLL EFFECTS ===== */
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.transform = 'rotate(-0.5deg)';
-                header.style.boxShadow = '0 5px 25px rgba(44, 44, 44, 0.15)';
-            } else {
-                header.style.transform = 'rotate(-0.2deg)';
-                header.style.boxShadow = '0 2px 15px rgba(44, 44, 44, 0.1)';
-            }
-        });
-
         /* ===== MOBILE NAVIGATION ===== */
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
@@ -1273,7 +973,7 @@
         });
 
         /* ===== INTERACTIVE HOVER EFFECTS ===== */
-        document.querySelectorAll('.work-card, .about-card').forEach(card => {
+        document.querySelectorAll('.impact-card').forEach(card => {
             card.addEventListener('mouseenter', () => {
                 card.style.transform = card.style.transform.replace(/rotate\([^)]*\)/, '') + ' rotate(0deg) scale(1.05)';
             });
@@ -1290,7 +990,7 @@
             const stats = document.querySelectorAll('.stat-number');
             stats.forEach(stat => {
                 const finalValue = stat.textContent;
-                if (finalValue !== '∞') {
+                if (!isNaN(parseInt(finalValue))) {
                     let currentValue = 0;
                     const increment = parseInt(finalValue) / 50;
                     const timer = setInterval(() => {
@@ -1321,39 +1021,18 @@
             statsObserver.observe(statsSection);
         }
 
-        /* ===== SKETCH-STYLE CONSOLE MESSAGE ===== */
+        /* ===== CONSOLE MESSAGE ===== */
         console.log(`
-    ╭─────────────────────────────────────╮
-    │  ✏️  Welcome to Nikhil's Sketchbook!  │
-    │                                     │
-    │  Hand-drawn with love and CSS magic │
-    │  Thanks for exploring my portfolio! │
-    │                                     │
-    │  Want to collaborate?               │
-    │  📧 sharmanikhiljiit@gmail.com       │
-    │                                     │
-    │  ~ Sketched with ❤️ and lots of ☕   │
-    ╰─────────────────────────────────────╯
-        `);
-
-        /* ===== PERFORMANCE OPTIMIZATION ===== */
-        // Lazy load images
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src || img.src;
-                        img.classList.remove('lazy');
-                        imageObserver.unobserve(img);
-                    }
-            });
-        });
+    🔥✏️ Welcome to Nikhil's Professional Portfolio! ✏️🔥
     
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
+    Currently building the future of AI at Flam AI.
+    Hand-sketched with passion and innovation!
+    
+    Want to collaborate? Let's connect!
+    📧 sharmanikhiljiit@gmail.com
+    
+    ~ Senior Research Engineer @ Flam AI 🚀
+        `);
 
         /* ===== ACCESSIBILITY ENHANCEMENTS ===== */
         // Reduce motion for users who prefer it
