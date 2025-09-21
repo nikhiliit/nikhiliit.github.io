@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Source Projects - Nikhil Sharma</title>
+    <meta name="description" content="Open source projects and contributions by Nikhil Sharma - DINOv3 Alpha Matting, CUDA Programming, PDF Intelligence Assistant, and more research code.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Kalam:wght@300;400;700&family=Architects+Daughter&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+    
+    <style>
+        :root {
+            --sketch-black: #2c2c2c;
+            --paper-cream: #faf9f7;
+            --sketch-gray: #555555;
+            --accent-sketch: #e2e8f0;
+            --sketch-light: #d1d5db;
+            --sketch-blue: #3b82f6;
+            --sketch-green: #10b981;
+            --sketch-orange: #f59e0b;
+            --sketch-red: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kalam', cursive;
+            line-height: 1.7;
+            color: var(--sketch-black);
+            background: var(--paper-cream);
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.03) 0%, rgba(255, 255, 255, 0) 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.03) 0%, rgba(255, 255, 255, 0) 50%),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 24px,
+                    rgba(0, 0, 0, 0.02) 24px,
+                    rgba(0, 0, 0, 0.02) 25px
+                );
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 249, 247, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--sketch-light);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transform: rotate(-0.1deg);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--sketch-black);
+            text-decoration: none;
+            transform: rotate(1deg);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+        }
+
+        .nav-menu a {
+            font-family: 'Architects Daughter', cursive;
+            font-size: 1rem;
+            color: var(--sketch-gray);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 2px solid transparent;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            transform: rotate(-0.5deg);
+        }
+
+        .nav-menu a:hover {
+            color: var(--sketch-black);
+            background: var(--accent-sketch);
+            border-color: var(--sketch-light);
+            transform: rotate(0.5deg) scale(1.05);
+        }
+
+        .nav-menu a.active {
+            background: var(--accent-sketch);
+            border-color: var(--sketch-light);
+            color: var(--sketch-black);
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 120px;
+            padding: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin: 3rem 0 5rem 0;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-title {
+            font-family: 'Caveat', cursive;
+            font-size: 4rem;
+            color: var(--sketch-black);
+            margin-bottom: 1rem;
+            transform: rotate(-1deg);
+            display: inline-block;
+            position: relative;
+        }
+
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--sketch-blue);
+            transform: rotate(0.5deg);
+            border-radius: 2px;
+        }
+
+        .hero-subtitle {
+            font-family: 'Kalam', cursive;
+            font-size: 1.3rem;
+            color: var(--sketch-gray);
+            max-width: 800px;
+            margin: 2rem auto;
+            line-height: 1.8;
+            transform: rotate(0.3deg);
+        }
+
+        .opensource-badge {
+            display: inline-block;
+            background: var(--sketch-green);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-family: 'Architects Daughter', cursive;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 1.5rem 0;
+            transform: rotate(-0.8deg);
+            box-shadow: 
+                0 4px 15px rgba(16, 185, 129, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        /* Projects Section */
+        .projects-section {
+            margin: 4rem 0;
+        }
+
+        .section-title {
+            font-family: 'Caveat', cursive;
+            font-size: 3rem;
+            color: var(--sketch-black);
+            margin-bottom: 3rem;
+            text-align: center;
+            transform: rotate(-0.5deg);
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '🔧';
+            position: absolute;
+            left: -60px;
+            top: 10px;
+            font-size: 2.5rem;
+            transform: rotate(15deg);
+        }
+
+        .section-title::after {
+            content: '💻';
+            position: absolute;
+            right: -60px;
+            top: 10px;
+            font-size: 2.5rem;
+            transform: rotate(-15deg);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--paper-cream);
+            border: 3px solid var(--sketch-light);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            transform: rotate(-0.3deg);
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .project-card:nth-child(even) {
+            transform: rotate(0.4deg);
+        }
+
+        .project-card:hover {
+            transform: rotate(0deg) scale(1.02);
+            border-color: var(--sketch-blue);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.12),
+                0 0 0 1px var(--sketch-blue),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 2px solid var(--sketch-gray);
+            border-radius: 22px;
+            opacity: 0.3;
+            transform: rotate(0.8deg);
+        }
+
+        .project-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-status {
+            display: inline-block;
+            background: var(--sketch-blue);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 15px;
+            font-family: 'Architects Daughter', cursive;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            transform: rotate(-1deg);
+        }
+
+        .project-status.featured {
+            background: var(--sketch-green);
+        }
+
+        .project-status.experimental {
+            background: var(--sketch-orange);
+        }
+
+        .project-status.research {
+            background: var(--sketch-red);
+        }
+
+        .project-title {
+            font-family: 'Caveat', cursive;
+            font-size: 2.2rem;
+            color: var(--sketch-black);
+            margin-bottom: 0.5rem;
+            transform: rotate(-0.5deg);
+        }
+
+        .project-repo {
+            font-family: 'Architects Daughter', cursive;
+            color: var(--sketch-gray);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .project-features {
+            margin: 1.5rem 0;
+        }
+
+        .project-features h4 {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            color: var(--sketch-black);
+            margin-bottom: 0.8rem;
+            transform: rotate(-0.3deg);
+        }
+
+        .features-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .features-list li {
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--sketch-green);
+            font-weight: bold;
+            transform: rotate(5deg);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .tech-tag {
+            background: var(--accent-sketch);
+            color: var(--sketch-black);
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-family: 'Architects Daughter', cursive;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid var(--sketch-light);
+            transform: rotate(-0.5deg);
+        }
+
+        .tech-tag:nth-child(even) {
+            transform: rotate(0.3deg);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--sketch-black);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-family: 'Architects Daughter', cursive;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transform: rotate(-0.5deg);
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: var(--sketch-blue);
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .project-link.demo {
+            background: var(--sketch-green);
+        }
+
+        .project-link.demo:hover {
+            background: var(--sketch-orange);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            margin: 5rem 0;
+            text-align: center;
+            padding: 3rem;
+            background: var(--accent-sketch);
+            border: 2px dashed var(--sketch-light);
+            border-radius: 25px;
+            transform: rotate(-0.2deg);
+        }
+
+        .stats-title {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            color: var(--sketch-black);
+            margin-bottom: 2rem;
+            transform: rotate(0.5deg);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            padding: 1.5rem;
+            background: var(--paper-cream);
+            border: 2px solid var(--sketch-light);
+            border-radius: 15px;
+            transform: rotate(-0.3deg);
+        }
+
+        .stat-card:nth-child(even) {
+            transform: rotate(0.4deg);
+        }
+
+        .stat-number {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--sketch-blue);
+            display: block;
+        }
+
+        .stat-label {
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Contribution Note */
+        .contribution-note {
+            margin: 4rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            border: 2px dashed var(--sketch-blue);
+            border-radius: 20px;
+            text-align: center;
+            transform: rotate(0.3deg);
+        }
+
+        .contribution-note h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 2rem;
+            color: var(--sketch-black);
+            margin-bottom: 1rem;
+        }
+
+        .contribution-note p {
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .project-card {
+                padding: 1.5rem;
+            }
+            
+            .project-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px) rotate(-2deg);
+            animation: revealAnimation 0.8s ease-out forwards;
+        }
+
+        @keyframes revealAnimation {
+            to {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(-0.5deg); }
+            50% { transform: translateY(-10px) rotate(0.5deg); }
+        }
+
+        /* Doodles */
+        .doodle {
+            position: absolute;
+            pointer-events: none;
+            color: var(--sketch-light);
+            font-size: 2rem;
+        }
+
+        .doodle-1 { top: 10%; right: 5%; transform: rotate(15deg); }
+        .doodle-2 { bottom: 20%; left: 3%; transform: rotate(-10deg); }
+        .doodle-3 { top: 60%; right: 8%; transform: rotate(25deg); }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Nikhil's Sketchbook</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="industry-work.html">Industry Work</a></li>
+                <li><a href="research.html">Research Portfolio</a></li>
+                <li><a href="open-source.html" class="active">Open Source</a></li>
+                <li><a href="experience.html">Experience</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Decorative Doodles -->
+        <div class="doodle doodle-1">🚀</div>
+        <div class="doodle doodle-2">⚡</div>
+        <div class="doodle doodle-3">🔬</div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1 class="hero-title">Open Source Projects</h1>
+            <div class="opensource-badge">🌟 Building in the Open</div>
+            <p class="hero-subtitle">
+                A collection of research code, experiments, and tools I've sketched out and shared with 
+                the community. From cutting-edge computer vision research to practical AI applications - 
+                all open sourced for everyone to learn, use, and build upon.
+            </p>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-section">
+            <h2 class="section-title">Featured Projects</h2>
+
+            <div class="projects-grid">
+                <!-- DINOv3 Alpha Matting -->
+                <div class="project-card reveal floating">
+                    <div class="project-header">
+                        <div class="project-status featured">⭐ Featured</div>
+                        <h3 class="project-title">DINOv3 Alpha Matting</h3>
+                        <div class="project-repo">nikhiliit/Dinov3_matting</div>
+                    </div>
+                    
+                    <p class="project-description">
+                        A novel approach to alpha matting leveraging DINOv3 Vision Transformer as a frozen encoder 
+                        with a specialized multi-scale decoder. Achieves high-quality alpha matting with minimal 
+                        training data and computational overhead.
+                    </p>
+
+                    <div class="project-features">
+                        <h4>Key Features</h4>
+                        <ul class="features-list">
+                            <li>Frozen DINOv3 encoder (ViT-S/B/L variants)</li>
+                            <li>Multi-scale decoder with skip connections</li>
+                            <li>Memory efficient training (1-2M vs 22-85M params)</li>
+                            <li>Real-time inference optimization</li>
+                            <li>Comprehensive loss functions (alpha, gradient, Laplacian)</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">DINOv3</span>
+                        <span class="tech-tag">Vision Transformer</span>
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">Alpha Matting</span>
+                        <span class="tech-tag">Self-Supervised Learning</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/nikhiliit/Dinov3_matting" class="project-link" target="_blank">
+                            🔗 GitHub Repository
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Deformable Attention ViT Adaptors -->
+                <div class="project-card reveal floating">
+                    <div class="project-header">
+                        <div class="project-status research">🔬 Research</div>
+                        <h3 class="project-title">Deformable Attention ViT Adaptors</h3>
+                        <div class="project-repo">nikhiliit/Deformable-Attention-of-ViT-Adaptors</div>
+                    </div>
+                    
+                    <p class="project-description">
+                        Exploring deformable attention mechanisms within Vision Transformer adaptors to improve 
+                        model flexibility and performance on downstream tasks. Combines the power of ViTs with 
+                        adaptive spatial attention patterns.
+                    </p>
+
+                    <div class="project-features">
+                        <h4>Key Features</h4>
+                        <ul class="features-list">
+                            <li>Deformable attention mechanism for ViTs</li>
+                            <li>Efficient adaptor-based fine-tuning</li>
+                            <li>Spatial pattern adaptation</li>
+                            <li>Downstream task optimization</li>
+                            <li>Flexible architectural design</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">Vision Transformer</span>
+                        <span class="tech-tag">Attention Mechanisms</span>
+                        <span class="tech-tag">Deformable Convolution</span>
+                        <span class="tech-tag">Adaptors</span>
+                        <span class="tech-tag">Fine-tuning</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/nikhiliit/Deformable-Attention-of-ViT-Adaptors" class="project-link" target="_blank">
+                            🔗 GitHub Repository
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CUDA Programming -->
+                <div class="project-card reveal floating">
+                    <div class="project-header">
+                        <div class="project-status">⚡ Educational</div>
+                        <h3 class="project-title">CUDA Programming</h3>
+                        <div class="project-repo">nikhiliit/CUDA_Programming</div>
+                    </div>
+                    
+                    <p class="project-description">
+                        Comprehensive collection of CUDA programming examples, tutorials, and optimizations. 
+                        Covers everything from basic parallel computing concepts to advanced GPU optimization 
+                        techniques for high-performance AI workloads.
+                    </p>
+
+                    <div class="project-features">
+                        <h4>Key Features</h4>
+                        <ul class="features-list">
+                            <li>CUDA kernel programming examples</li>
+                            <li>Memory optimization techniques</li>
+                            <li>Parallel algorithm implementations</li>
+                            <li>Performance profiling tools</li>
+                            <li>GPU-accelerated ML operations</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">CUDA</span>
+                        <span class="tech-tag">GPU Programming</span>
+                        <span class="tech-tag">Parallel Computing</span>
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">Performance Optimization</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/nikhiliit/CUDA_Programming" class="project-link" target="_blank">
+                            🔗 GitHub Repository
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PDF Intelligence Assistant -->
+                <div class="project-card reveal floating">
+                    <div class="project-header">
+                        <div class="project-status">🤖 AI Application</div>
+                        <h3 class="project-title">PDF Intelligence Assistant</h3>
+                        <div class="project-repo">nikhiliit/PDF_Intelligence_Assistant</div>
+                    </div>
+                    
+                    <p class="project-description">
+                        AI-powered PDF processing assistant that can understand, analyze, and extract insights 
+                        from documents. Features advanced natural language understanding and document intelligence 
+                        capabilities for automated document workflows.
+                    </p>
+
+                    <div class="project-features">
+                        <h4>Key Features</h4>
+                        <ul class="features-list">
+                            <li>Intelligent PDF parsing and extraction</li>
+                            <li>Natural language Q&A on documents</li>
+                            <li>Document summarization capabilities</li>
+                            <li>Multi-modal content understanding</li>
+                            <li>Automated workflow integration</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">Natural Language Processing</span>
+                        <span class="tech-tag">Document AI</span>
+                        <span class="tech-tag">PDF Processing</span>
+                        <span class="tech-tag">LLM Integration</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/nikhiliit/PDF_Intelligence_Assistant" class="project-link" target="_blank">
+                            🔗 GitHub Repository
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Long Tailed Data KD -->
+                <div class="project-card reveal floating">
+                    <div class="project-header">
+                        <div class="project-status research">🔬 Research</div>
+                        <h3 class="project-title">Long Tailed Data Knowledge Distillation</h3>
+                        <div class="project-repo">nikhiliit/Long_Tailed_Data_KD</div>
+                    </div>
+                    
+                    <p class="project-description">
+                        Advanced knowledge distillation techniques specifically designed for long-tailed data 
+                        distributions. Addresses class imbalance challenges in deep learning through intelligent 
+                        teacher-student architectures and specialized training strategies.
+                    </p>
+
+                    <div class="project-features">
+                        <h4>Key Features</h4>
+                        <ul class="features-list">
+                            <li>Long-tailed distribution handling</li>
+                            <li>Class-balanced knowledge distillation</li>
+                            <li>Teacher-student architecture optimization</li>
+                            <li>Imbalanced dataset strategies</li>
+                            <li>Performance evaluation metrics</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">Knowledge Distillation</span>
+                        <span class="tech-tag">Long-tailed Learning</span>
+                        <span class="tech-tag">Class Imbalance</span>
+                        <span class="tech-tag">Deep Learning</span>
+                        <span class="tech-tag">PyTorch</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/nikhiliit/Long_Tailed_Data_KD" class="project-link" target="_blank">
+                            🔗 GitHub Repository
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SSDL -->
+                <div class="project-card reveal floating">
+                    <div class="project-header">
+                        <div class="project-status featured">⭐ Published</div>
+                        <h3 class="project-title">SSDL: Sensor-to-Skeleton Diffusion</h3>
+                        <div class="project-repo">nikhiliit/SSDL</div>
+                    </div>
+                    
+                    <p class="project-description">
+                        Implementation of the SSDL diffusion model for transforming sensor data into skeleton 
+                        information. Features state-of-the-art performance in human activity recognition with 
+                        40% reduced computational cost and 2% accuracy improvement.
+                    </p>
+
+                    <div class="project-features">
+                        <h4>Key Features</h4>
+                        <ul class="features-list">
+                            <li>Sensor-to-skeleton diffusion model</li>
+                            <li>40% computational cost reduction</li>
+                            <li>2% accuracy improvement</li>
+                            <li>Real-time processing capabilities</li>
+                            <li>Lipschitz regularization techniques</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">Diffusion Models</span>
+                        <span class="tech-tag">Human Activity Recognition</span>
+                        <span class="tech-tag">Sensor Data</span>
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">Real-time Processing</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/nikhiliit/SSDL" class="project-link" target="_blank">
+                            🔗 GitHub Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section reveal">
+            <h2 class="stats-title">Open Source Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">6+</span>
+                    <div class="stat-label">Active Projects</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2+</span>
+                    <div class="stat-label">Research Publications</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">10+</span>
+                    <div class="stat-label">GitHub Stars</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100%</span>
+                    <div class="stat-label">Open Source</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contribution Note -->
+        <section class="contribution-note reveal">
+            <h3>🌍 Contributing to the AI Community</h3>
+            <p>
+                All these projects are open source and available for the community to use, learn from, 
+                and contribute to. I believe in the power of open research and collaboration to advance 
+                the field of AI. Feel free to explore the code, submit issues, or contribute improvements!
+            </p>
+        </section>
+    </main>
+
+    <script>
+        // Intersection Observer for reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = `${Math.random() * 0.3}s`;
+                    entry.target.classList.add('reveal');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements that should be revealed
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.project-card, .stats-section, .contribution-note');
+            revealElements.forEach(el => observer.observe(el));
+
+            // Add floating animation to project cards
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.5}s`;
+            });
+        });
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.zIndex = '10';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.zIndex = '1';
+            });
+        });
+
+        // Random rotation for tech tags
+        document.querySelectorAll('.tech-tag').forEach(tag => {
+            const rotation = (Math.random() - 0.5) * 4; // Random rotation between -2 and 2 degrees
+            tag.style.transform = `rotate(${rotation}deg)`;
+        });
+    </script>
+</body>
+</html>
