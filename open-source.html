@@ -507,16 +507,19 @@
 
         /* Animation */
         .reveal {
-            opacity: 0;
-            transform: translateY(30px) rotate(-2deg);
-            animation: revealAnimation 0.8s ease-out forwards;
+            opacity: 1;
+            transform: translateY(0) rotate(0deg);
         }
 
-        @keyframes revealAnimation {
-            to {
-                opacity: 1;
-                transform: translateY(0) rotate(0deg);
-            }
+        .reveal-hidden {
+            opacity: 0;
+            transform: translateY(30px) rotate(-2deg);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal-hidden.reveal-animate {
+            opacity: 1;
+            transform: translateY(0) rotate(0deg);
         }
 
         .floating {
@@ -858,30 +861,24 @@
     </main>
 
     <script>
-        // Intersection Observer for reveal animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = `${Math.random() * 0.3}s`;
-                    entry.target.classList.add('reveal');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all elements that should be revealed
+        // Simple reveal on page load - no intersection observer needed
         document.addEventListener('DOMContentLoaded', () => {
-            const revealElements = document.querySelectorAll('.project-card, .stats-section, .contribution-note');
-            revealElements.forEach(el => observer.observe(el));
-
-            // Add floating animation to project cards
+            // Add floating animation to project cards with staggered delays
             const projectCards = document.querySelectorAll('.project-card');
             projectCards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.5}s`;
+                // Ensure cards are visible
+                card.classList.remove('reveal-hidden');
+                card.classList.add('reveal');
+                
+                // Add floating animation with delay
+                card.style.animationDelay = `${index * 0.2}s`;
+            });
+
+            // Ensure other sections are visible too
+            const otherSections = document.querySelectorAll('.stats-section, .contribution-note');
+            otherSections.forEach(section => {
+                section.classList.remove('reveal-hidden');
+                section.classList.add('reveal');
             });
         });
 
