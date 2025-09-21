@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Journey Through AI - Nikhil Sharma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>My Journey Sketches - Nikhil Sharma</title>
+    <meta name="description" content="Follow Nikhil Sharma's hand-sketched career journey from medical imaging at IIT Delhi to AI research at Illinois Tech and Stanford University.">
+    
+    <!-- Google Fonts for Hand-Drawn Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Kalam:wght@300;400;700&family=Architects+Daughter&display=swap" rel="stylesheet">
+    
     <style>
+        /* ===== RESET & VARIABLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -13,435 +18,487 @@
         }
 
         :root {
-            --deep-space: #0a0a0a;
-            --cosmic-blue: #1e3a8a;
-            --electric-cyan: #00f5ff;
-            --plasma-purple: #8b5cf6;
-            --stellar-gold: #fbbf24;
-            --neural-green: #10b981;
-            --quantum-red: #ef4444;
-            --text-light: #f8fafc;
-            --text-dim: #94a3b8;
-            --border-glow: rgba(0, 245, 255, 0.3);
-            --stanford-red: #dc261b;
-            --cisco-blue: #1ba0d7;
+            /* Monochromatic Sketch Palette */
+            --sketch-black: #2c2c2c;
+            --paper-cream: #faf9f7;
+            --sketch-gray: #555555;
+            --sketch-light: #777777;
+            --accent-sketch: #e2e8f0;
+            --paper-white: #fefefe;
+            --shadow-sketch: rgba(44, 44, 44, 0.1);
+            --border-sketch: rgba(44, 44, 44, 0.2);
         }
 
+        /* ===== BODY & PAPER TEXTURE ===== */
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--deep-space);
-            color: var(--text-light);
-            overflow-x: hidden;
-            line-height: 1.6;
+            font-family: 'Kalam', cursive;
+            line-height: 1.7;
+            color: var(--sketch-black);
+            background: var(--paper-cream);
+            /* Hand-drawn paper texture with subtle grains */
+            background-image: 
+                radial-gradient(circle at 25% 25%, #f7f3f0 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, #f7f3f0 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, #f5f1ee 0.5px, transparent 0.5px);
+            background-size: 50px 50px, 50px 50px, 25px 25px;
+            background-attachment: fixed;
         }
 
-        /* Journey Background */
-        .journey-bg {
+        /* Ruled notebook lines overlay */
+        body::before {
+            content: '';
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            background: radial-gradient(ellipse at center, #1a1a2e 0%, var(--deep-space) 70%);
-        }
-
-        /* Flowing Particles Animation */
-        .flow-particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 30px,
+                    rgba(44, 44, 44, 0.08) 30px,
+                    rgba(44, 44, 44, 0.08) 31px
+                );
             pointer-events: none;
             z-index: -1;
-            opacity: 0.6;
         }
 
-        .flow-particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--electric-cyan);
-            border-radius: 50%;
-            box-shadow: 0 0 15px var(--electric-cyan);
-            animation: flowPath 25s linear infinite;
-        }
-
-        @keyframes flowPath {
-            0% {
-                transform: translate(0, 100vh) rotate(0deg);
-                opacity: 0;
-            }
-            5% { opacity: 1; }
-            95% { opacity: 1; }
-            100% {
-                transform: translate(100vw, -10vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Header */
+        /* ===== HEADER ===== */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
+            background: var(--paper-cream);
             z-index: 100;
-            background: rgba(10, 10, 10, 0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-glow);
-            padding: 1rem 2rem;
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--sketch-black);
+            box-shadow: 0 2px 15px var(--shadow-sketch);
+            transform: rotate(-0.2deg);
+        }
+
+        /* Hand-drawn divider under header */
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 20px;
+            right: 20px;
+            height: 3px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6'%3E%3Cpath d='M0,3 Q25,1 50,4 Q75,2 100,3' stroke='%23777' fill='none' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
         }
 
         .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .logo {
-            font-family: 'Space Mono', monospace;
-            font-size: 1.5rem;
+            font-family: 'Caveat', cursive;
             font-weight: 700;
-            background: linear-gradient(45deg, var(--electric-cyan), var(--plasma-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 2.2rem;
+            color: var(--sketch-black);
             text-decoration: none;
+            transform: rotate(-1.5deg);
+            position: relative;
+            text-shadow: 1px 1px 0px rgba(44, 44, 44, 0.1);
+        }
+
+        /* Target doodle next to logo */
+        .logo::after {
+            content: '🎯';
+            position: absolute;
+            top: -12px;
+            right: -30px;
+            font-size: 1.2rem;
+            transform: rotate(25deg);
+            animation: targetSpin 8s linear infinite;
+        }
+
+        @keyframes targetSpin {
+            from { transform: rotate(25deg); }
+            to { transform: rotate(385deg); }
         }
 
         .nav-menu {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             list-style: none;
+            font-family: 'Architects Daughter', cursive;
         }
 
         .nav-link {
-            color: var(--text-dim);
+            color: var(--sketch-gray);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 400;
+            font-size: 1.1rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
             transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
+            position: relative;
+            transform: rotate(0.8deg);
+        }
+
+        .nav-link:nth-child(even) {
+            transform: rotate(-0.8deg);
         }
 
         .nav-link:hover, .nav-link.active {
-            color: var(--electric-cyan);
-            background: rgba(0, 245, 255, 0.1);
+            color: var(--sketch-black);
+            background: var(--accent-sketch);
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 2px 2px 8px var(--shadow-sketch);
         }
 
-        /* Main Content */
+        /* ===== MAIN CONTENT ===== */
         .main-content {
-            padding-top: 5rem;
-            min-height: 100vh;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 4rem 2rem;
-            text-align: center;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 6rem 2rem 2rem;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        /* Floating doodles around hero */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: 12%;
+            width: 100px;
+            height: 100px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20,50 Q50,20 80,50 Q70,80 40,70 Q10,60 20,50' stroke='%23aaa' fill='none' stroke-width='2' stroke-dasharray='4,4' stroke-linecap='round'/%3E%3Ccircle cx='50' cy='50' r='15' stroke='%23ccc' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            transform: rotate(20deg);
+            animation: journeyDoodle 15s ease-in-out infinite;
+        }
+
+        @keyframes journeyDoodle {
+            0%, 100% { transform: rotate(20deg) translateY(0px); }
+            50% { transform: rotate(20deg) translateY(-15px); }
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 900;
+            font-family: 'Caveat', cursive;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            color: var(--sketch-black);
             margin-bottom: 1rem;
-            background: linear-gradient(
-                45deg,
-                var(--text-light) 0%,
-                var(--electric-cyan) 30%,
-                var(--plasma-purple) 70%,
-                var(--stellar-gold) 100%
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: titleReveal 1.5s ease-out;
+            transform: rotate(-0.8deg);
+            position: relative;
+            text-shadow: 1px 1px 0px rgba(44, 44, 44, 0.1);
+        }
+
+        /* Hand-drawn underline for hero title */
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            height: 6px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'%3E%3Cpath d='M0,6 Q25,3 50,8 Q75,10 100,6' stroke='%23777' fill='none' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
-            color: var(--text-dim);
+            font-family: 'Kalam', cursive;
+            font-size: 1.4rem;
+            color: var(--sketch-gray);
             margin-bottom: 3rem;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            animation: subtitleReveal 1.5s ease-out 0.3s both;
         }
 
-        /* Journey Timeline */
-        .journey-timeline {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem 4rem;
+        /* ===== TIMELINE SECTION ===== */
+        .timeline {
+            margin: 4rem 0;
             position: relative;
         }
 
-        /* Timeline Line */
-        .timeline-line {
+        /* Hand-drawn timeline line */
+        .timeline::before {
+            content: '';
             position: absolute;
             left: 50%;
             top: 0;
             bottom: 0;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--electric-cyan), var(--plasma-purple), var(--stellar-gold));
+            width: 6px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6 100'%3E%3Cpath d='M3,0 Q2,25 4,50 Q2,75 3,100' stroke='%23999' fill='none' stroke-width='4' stroke-dasharray='8,4' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: repeat-y;
             transform: translateX(-50%);
-            opacity: 0.3;
+            opacity: 0.4;
         }
 
-        .timeline-progress {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--electric-cyan), var(--plasma-purple));
-            transform: translateX(-50%);
-            height: 0;
-            transition: height 1s ease;
-            box-shadow: 0 0 20px var(--electric-cyan);
-        }
-
-        /* Experience Cards */
+        /* ===== EXPERIENCE ITEMS ===== */
         .experience-item {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 120px 1fr;
+            gap: 2.5rem;
             align-items: center;
-            margin-bottom: 6rem;
+            margin-bottom: 5rem;
             position: relative;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-
-        .experience-item.revealed {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .experience-item:nth-child(even) {
-            flex-direction: row-reverse;
+            direction: rtl;
+        }
+
+        .experience-item:nth-child(even) * {
+            direction: ltr;
         }
 
         .experience-card {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid transparent;
-            border-radius: 2rem;
+            background: var(--paper-white);
+            border: 4px solid var(--sketch-black);
+            border-radius: 28px;
             padding: 2.5rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.5s ease;
             position: relative;
-            overflow: hidden;
+            transform: rotate(0.8deg);
+            transition: all 0.5s ease;
+            box-shadow: 10px 10px 30px var(--shadow-sketch);
         }
 
-        .experience-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--electric-cyan);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .experience-card:hover::before {
-            transform: scaleX(1);
+        .experience-item:nth-child(even) .experience-card {
+            transform: rotate(-0.8deg);
         }
 
         .experience-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: var(--electric-cyan);
-            box-shadow: 0 20px 50px rgba(0, 245, 255, 0.2);
-            background: rgba(255, 255, 255, 0.08);
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 15px 15px 40px rgba(44, 44, 44, 0.15);
         }
 
-        /* Timeline Node */
+        /* Multiple border layers for hand-drawn effect */
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 2px solid var(--sketch-light);
+            border-radius: 28px;
+            transform: rotate(1.2deg);
+            z-index: -1;
+        }
+
+        /* ===== TIMELINE NODE ===== */
         .timeline-node {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, var(--electric-cyan), var(--plasma-purple));
+            width: 120px;
+            height: 120px;
+            background: var(--paper-white);
+            border: 4px solid var(--sketch-black);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            margin: 0 2rem;
-            z-index: 10;
+            font-size: 3rem;
             position: relative;
-            box-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
-            animation: nodeGlow 3s ease-in-out infinite alternate;
+            z-index: 10;
+            box-shadow: 0 0 30px var(--shadow-sketch);
+            transform: rotate(-8deg);
         }
 
-        @keyframes nodeGlow {
-            from { box-shadow: 0 0 30px rgba(0, 245, 255, 0.5); }
-            to { box-shadow: 0 0 50px rgba(0, 245, 255, 0.8); }
+        /* Multiple border layers for timeline node */
+        .timeline-node::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 2px solid var(--sketch-gray);
+            border-radius: 50%;
+            transform: rotate(12deg);
+            z-index: -1;
         }
 
-        /* Content */
-        .exp-header {
-            margin-bottom: 1.5rem;
-        }
-
+        /* ===== EXPERIENCE CONTENT STYLES ===== */
         .exp-period {
-            color: var(--stellar-gold);
-            font-family: 'Space Mono', monospace;
-            font-weight: 700;
+            font-family: 'Architects Daughter', cursive;
+            background: var(--sketch-black);
+            color: var(--paper-white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
             font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.2rem;
+            transform: rotate(-3deg);
         }
 
         .exp-title {
-            font-size: 1.8rem;
+            font-family: 'Caveat', cursive;
+            font-size: 2.2rem;
             font-weight: 700;
-            color: var(--text-light);
+            color: var(--sketch-black);
             margin-bottom: 0.5rem;
+            line-height: 1.2;
         }
 
         .exp-company {
-            color: var(--electric-cyan);
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
 
         .exp-location {
-            color: var(--text-dim);
-            font-size: 0.9rem;
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-light);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
         }
 
         .exp-description {
-            color: var(--text-dim);
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
             margin-bottom: 2rem;
             line-height: 1.7;
-            font-size: 1.05rem;
         }
 
-        .exp-achievements {
+        .exp-highlights {
             list-style: none;
             margin-bottom: 2rem;
         }
 
-        .exp-achievements li {
-            color: var(--text-dim);
+        .exp-highlights li {
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
             margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
+            padding-left: 2rem;
             position: relative;
             line-height: 1.6;
         }
 
-        .exp-achievements li::before {
-            content: '→';
+        .exp-highlights li::before {
+            content: '✓';
             position: absolute;
             left: 0;
-            color: var(--electric-cyan);
+            color: var(--sketch-black);
             font-weight: bold;
+            font-size: 1.2rem;
+            transform: rotate(-8deg);
         }
 
         .exp-metrics {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .exp-metric {
             text-align: center;
+            padding: 1rem;
+            border: 2px solid var(--sketch-light);
+            border-radius: 15px;
+            background: var(--accent-sketch);
+            transform: rotate(-1.2deg);
+            min-width: 90px;
+        }
+
+        .exp-metric:nth-child(even) {
+            transform: rotate(1.2deg);
         }
 
         .metric-value {
-            font-size: 1.5rem;
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
             font-weight: 700;
-            color: var(--stellar-gold);
+            color: var(--sketch-black);
             display: block;
         }
 
         .metric-label {
+            font-family: 'Kalam', cursive;
             font-size: 0.8rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            color: var(--sketch-gray);
+            margin-top: 0.3rem;
         }
 
-        /* Special Institution Colors */
-        .stanford-card {
-            border-color: rgba(220, 38, 27, 0.3);
-        }
-        .stanford-card:hover {
-            border-color: var(--stanford-red);
-            box-shadow: 0 20px 50px rgba(220, 38, 27, 0.3);
-        }
-        .stanford-card::before {
-            background: var(--stanford-red);
-        }
-
-        .cisco-card {
-            border-color: rgba(27, 160, 215, 0.3);
-        }
-        .cisco-card:hover {
-            border-color: var(--cisco-blue);
-            box-shadow: 0 20px 50px rgba(27, 160, 215, 0.3);
-        }
-        .cisco-card::before {
-            background: var(--cisco-blue);
-        }
-
-        .medical-card {
-            border-color: rgba(16, 185, 129, 0.3);
-        }
-        .medical-card:hover {
-            border-color: var(--neural-green);
-            box-shadow: 0 20px 50px rgba(16, 185, 129, 0.3);
-        }
-        .medical-card::before {
-            background: var(--neural-green);
-        }
-
-        /* Skills Section */
+        /* ===== SKILLS SECTION ===== */
         .skills-section {
-            max-width: 1200px;
-            margin: 6rem auto 0;
-            padding: 0 2rem;
+            margin: 6rem 0;
+            padding: 3.5rem;
+            background: var(--paper-white);
+            border: 4px solid var(--sketch-black);
+            border-radius: 35px;
+            position: relative;
+            transform: rotate(-0.5deg);
+            box-shadow: 12px 12px 35px var(--shadow-sketch);
+        }
+
+        /* Multiple border layers for skills section */
+        .skills-section::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 2px solid var(--sketch-gray);
+            border-radius: 35px;
+            transform: rotate(1deg);
+            z-index: -1;
         }
 
         .skills-title {
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-family: 'Caveat', cursive;
+            font-size: 3.2rem;
+            font-weight: 700;
             text-align: center;
             margin-bottom: 3rem;
-            background: linear-gradient(45deg, var(--electric-cyan), var(--plasma-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--sketch-black);
+            transform: rotate(0.8deg);
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
 
         .skill-category {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-glow);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            padding: 2.5rem;
+            border: 3px solid var(--sketch-light);
+            border-radius: 25px;
+            background: var(--accent-sketch);
+            transform: rotate(0.8deg);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .skill-category:nth-child(even) {
+            transform: rotate(-0.8deg);
         }
 
         .skill-category:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 8px 8px 25px var(--shadow-sketch);
         }
 
         .skill-category-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--electric-cyan);
+            font-family: 'Caveat', cursive;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--sketch-black);
             margin-bottom: 1.5rem;
             text-align: center;
         }
@@ -451,6 +508,7 @@
         }
 
         .skill-item {
+            font-family: 'Kalam', cursive;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -459,124 +517,241 @@
         }
 
         .skill-name {
-            color: var(--text-light);
+            color: var(--sketch-gray);
             font-weight: 500;
         }
 
         .skill-level {
-            background: linear-gradient(45deg, var(--electric-cyan), var(--plasma-purple));
-            color: var(--deep-space);
-            padding: 0.2rem 0.8rem;
-            border-radius: 1rem;
+            font-family: 'Architects Daughter', cursive;
+            background: var(--sketch-black);
+            color: var(--paper-white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
             font-size: 0.8rem;
             font-weight: 600;
+            transform: rotate(-3deg);
         }
 
-        /* Mobile Responsive */
+        /* ===== BOTTOM CTA SECTION ===== */
+        .cta-section {
+            background: var(--sketch-black);
+            color: var(--paper-white);
+            padding: 4rem 3rem;
+            border-radius: 40px;
+            text-align: center;
+            margin: 4rem 0;
+            position: relative;
+            transform: rotate(-0.8deg);
+            box-shadow: 12px 12px 35px var(--shadow-sketch);
+        }
+
+        /* Hand-drawn border inside CTA section */
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px dashed var(--paper-white);
+            border-radius: 30px;
+            opacity: 0.4;
+        }
+
+        .cta-title {
+            font-family: 'Caveat', cursive;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-text {
+            font-family: 'Kalam', cursive;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            font-family: 'Architects Daughter', cursive;
+            background: var(--paper-white);
+            color: var(--sketch-black);
+            padding: 1.2rem 2.5rem;
+            border-radius: 28px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            border: 3px solid var(--paper-white);
+            transform: rotate(2deg);
+            box-shadow: 4px 4px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-btn:nth-child(even) {
+            transform: rotate(-2deg);
+        }
+
+        .cta-btn:hover {
+            background: transparent;
+            color: var(--paper-white);
+            transform: rotate(0deg) scale(1.08);
+            box-shadow: 6px 6px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* ===== FLOATING DOODLES ===== */
+        .floating-doodle {
+            position: fixed;
+            font-size: 1.8rem;
+            opacity: 0.15;
+            animation: floatJourney 30s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .floating-doodle:nth-child(1) { top: 25%; right: 8%; animation-delay: 0s; }
+        .floating-doodle:nth-child(2) { top: 65%; left: 8%; animation-delay: 10s; }
+        .floating-doodle:nth-child(3) { top: 40%; right: 12%; animation-delay: 20s; }
+
+        @keyframes floatJourney {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-40px) rotate(15deg); }
+            50% { transform: translateY(-20px) rotate(-15deg); }
+            75% { transform: translateY(-50px) rotate(10deg); }
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .timeline-line,
-            .timeline-progress {
+            .header-content {
+                padding: 0 1rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .main-content {
+                padding: 5rem 1rem 2rem;
+            }
+
+            .timeline::before {
                 left: 2rem;
             }
 
-            .experience-item,
-            .experience-item:nth-child(even) {
-                flex-direction: column;
+            .experience-item {
+                grid-template-columns: 1fr;
                 text-align: center;
+                gap: 2rem;
             }
-            
+
+            .experience-item:nth-child(even) {
+                direction: ltr;
+            }
+
             .timeline-node {
-                margin: 0 0 2rem 0;
-                position: relative;
-                left: -1rem;
-            }
-            
-            .experience-card {
-                margin-left: 0;
+                margin: 0 auto;
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
             }
 
-            .hero {
-                padding: 2rem 1rem;
-            }
-            
-            .journey-timeline {
-                padding: 0 1rem 2rem;
-            }
-            
             .skills-section {
-                padding: 0 1rem;
+                padding: 2.5rem 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .exp-metrics {
+                gap: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
         }
 
-        /* Animations */
-        @keyframes titleReveal {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* ===== SCROLL REVEAL ANIMATION ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px) rotate(0deg);
+            transition: all 0.9s ease;
         }
 
-        @keyframes subtitleReveal {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0) rotate(var(--random-rotation, 1deg));
         }
     </style>
 </head>
 <body>
-    <!-- Journey Background -->
-    <div class="journey-bg"></div>
-    
-    <!-- Flow Particles -->
-    <div class="flow-particles" id="flow-particles"></div>
+    <!-- Floating doodles -->
+    <div class="floating-doodle">🎯</div>
+    <div class="floating-doodle">💡</div>
+    <div class="floating-doodle">🚀</div>
 
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <a href="index.html" class="logo">NIKHIL.UNIVERSE</a>
-    <nav class="nav">
+            <a href="index.html" class="logo">Journey Sketches</a>
+            <nav>
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
                     <li><a href="research.html" class="nav-link">Research</a></li>
-                    <li><a href="experience.html" class="nav-link active">Journey</a></li>
-                    <li><a href="#contact" class="nav-link">Connect</a></li>
-            </ul>
-    </nav>
+                    <li><a href="experience.html" class="nav-link active">Experience</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="main-content">
-    <!-- Hero Section -->
-    <section class="hero">
-            <h1 class="hero-title">Journey Through AI</h1>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1 class="hero-title">My Journey Sketches</h1>
             <p class="hero-subtitle">
-                From medical imaging at IIT Delhi to federal security at Stanford - 
-                trace the evolution of an AI researcher bridging academia, industry, and real-world impact.
+                From sketching medical AI solutions at IIT Delhi to drawing secure systems at Stanford - 
+                here's how I've been turning ideas into reality across three amazing institutions.
             </p>
-    </section>
+        </section>
 
-        <!-- Journey Timeline -->
-        <section class="journey-timeline">
-            <div class="timeline-line"></div>
-            <div class="timeline-progress" id="timeline-progress"></div>
-
+        <!-- Timeline -->
+        <section class="timeline">
             <!-- Current: Stanford & Illinois Tech -->
-            <div class="experience-item">
-                <div class="experience-card stanford-card">
-                    <div class="exp-header">
-                        <div class="exp-period">Aug 2023 - Present</div>
-                        <h3 class="exp-title">Research Collaborator</h3>
-                        <div class="exp-company">Stanford University SPrinT Program</div>
-                        <div class="exp-location">Stanford, CA (Remote)</div>
-                        </div>
+            <div class="experience-item reveal">
+                <div class="experience-card">
+                    <div class="exp-period">Aug 2023 - Present</div>
+                    <h3 class="exp-title">Research Collaborator</h3>
+                    <div class="exp-company">Stanford University SPrinT</div>
+                    <div class="exp-location">Stanford, CA (Remote Collaboration)</div>
+                    
                     <p class="exp-description">
-                        Leading development of secure, low-latency edge-based inference systems for real-time 
-                        mouse behavior tracking in federally funded neuroscience research with NSA compliance protocols.
+                        Currently sketching out secure, lightning-fast edge computing systems for federal neuroscience research. 
+                        Working directly with Dr. Mehrdad Shamloo to build NSA-compliant ML systems that process sensitive 
+                        behavioral data in real-time.
                     </p>
-                    <ul class="exp-achievements">
-                        <li>Built secure ML pipeline with NSA compliance protocols for classified research</li>
-                        <li>Deployed scalable multimodal models on AWS infrastructure with federal security standards</li>
-                        <li>Collaborated with Dr. Mehrdad Shamloo on behavioral analysis and neuroscience applications</li>
-                        <li>Achieved real-time inference with &lt;10ms latency while maintaining 100% security compliance</li>
+                    
+                    <ul class="exp-highlights">
+                        <li>Built secure ML pipelines with NSA compliance for classified research</li>
+                        <li>Deployed multimodal models on AWS with federal security standards</li>
+                        <li>Achieved &lt;10ms inference latency while maintaining 100% security</li>
+                        <li>Collaborated with neuroscience teams on behavioral analysis applications</li>
                     </ul>
+                    
                     <div class="exp-metrics">
                         <div class="exp-metric">
                             <span class="metric-value">&lt;10ms</span>
@@ -584,7 +759,7 @@
                         </div>
                         <div class="exp-metric">
                             <span class="metric-value">100%</span>
-                            <div class="metric-label">NSA Compliant</div>
+                            <div class="metric-label">Secure</div>
                         </div>
                         <div class="exp-metric">
                             <span class="metric-value">AWS</span>
@@ -592,28 +767,37 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="timeline-node">🔒</div>
-                </div>
+                
+                <div style="grid-column: 3;"></div>
+            </div>
 
-            <!-- Illinois Tech Teaching & Research -->
-            <div class="experience-item">
+            <!-- Illinois Tech PhD -->
+            <div class="experience-item reveal">
+                <div style="grid-column: 1;"></div>
+                
+                <div class="timeline-node">🎓</div>
+                
                 <div class="experience-card">
-                    <div class="exp-header">
-                        <div class="exp-period">Aug 2023 - May 2025</div>
-                        <h3 class="exp-title">Research Assistant & Teaching Assistant</h3>
-                        <div class="exp-company">Illinois Institute of Technology</div>
-                        <div class="exp-location">Chicago, IL</div>
-                        </div>
+                    <div class="exp-period">Aug 2023 - May 2025 (Expected)</div>
+                    <h3 class="exp-title">PhD Student & Teaching Assistant</h3>
+                    <div class="exp-company">Illinois Institute of Technology</div>
+                    <div class="exp-location">Chicago, IL</div>
+                    
                     <p class="exp-description">
-                        Leading research in multimodal learning and foundation models while teaching graduate-level 
-                        courses in deep learning and computer vision to 100+ students.
+                        Sketching the future of multimodal learning and foundation models while teaching the next 
+                        generation of AI researchers. Working under Prof. Yan Yan on cutting-edge diffusion models 
+                        and mentoring students who'll change the world.
                     </p>
-                    <ul class="exp-achievements">
-                        <li>Led research under Prof. Yan Yan on SOTA multimodal learning with 2+ publications</li>
-                        <li>Taught lab sessions for 100+ graduate students in Deep Learning and Computer Vision courses</li>
-                        <li>Mentored 3 undergraduate and 2 MS students on research projects in ML applications</li>
-                        <li>Achieved 4.8/5 teaching rating with innovative lab exercises and project guidance</li>
+                    
+                    <ul class="exp-highlights">
+                        <li>Leading research on SOTA multimodal learning with 2+ publications</li>
+                        <li>Teaching 100+ grad students in Deep Learning and Computer Vision</li>
+                        <li>Mentoring 5 students on ML research projects</li>
+                        <li>Earned 4.8/5 teaching rating with innovative lab exercises</li>
                     </ul>
+                    
                     <div class="exp-metrics">
                         <div class="exp-metric">
                             <span class="metric-value">100+</span>
@@ -624,41 +808,42 @@
                             <div class="metric-label">Rating</div>
                         </div>
                         <div class="exp-metric">
-                            <span class="metric-value">5+</span>
+                            <span class="metric-value">5</span>
                             <div class="metric-label">Mentored</div>
+                        </div>
                     </div>
                 </div>
-                        </div>
-                <div class="timeline-node">🎓</div>
-                    </div>
+            </div>
 
-            <!-- Industry Experience: Matdun Labs -->
-            <div class="experience-item">
-                <div class="experience-card cisco-card">
-                    <div class="exp-header">
-                        <div class="exp-period">Nov 2021 - Apr 2023</div>
-                        <h3 class="exp-title">Machine Learning Engineer</h3>
-                        <div class="exp-company">Matdun Labs India Pvt. Ltd.</div>
-                        <div class="exp-location">Hyderabad, India</div>
-                    </div>
+            <!-- Industry Experience -->
+            <div class="experience-item reveal">
+                <div class="experience-card">
+                    <div class="exp-period">Nov 2021 - Apr 2023</div>
+                    <h3 class="exp-title">Machine Learning Engineer</h3>
+                    <div class="exp-company">Matdun Labs India Pvt. Ltd.</div>
+                    <div class="exp-location">Hyderabad, India</div>
+                    
                     <p class="exp-description">
-                        Built production-ready computer vision systems for real-time applications, focusing on 
-                        human pose detection and face recognition with optimized deployment and MLOps workflows.
+                        Sketched production-ready computer vision magic! Built systems that could see and understand 
+                        human movement in real-time. From concept sketches to deployed products - learned how to 
+                        make AI work in the real world.
                     </p>
-                    <ul class="exp-achievements">
-                        <li>Developed human pose detection systems achieving 92% accuracy for real-time CV applications</li>
-                        <li>Optimized model inference reducing processing time by 40% while maintaining high accuracy</li>
-                        <li>Implemented comprehensive MLOps workflows with automated testing, deployment, and monitoring</li>
-                        <li>Led technical implementation of autonomous face detection for "Chabee" product launch</li>
+                    
+                    <ul class="exp-highlights">
+                        <li>Developed human pose detection achieving 92% accuracy</li>
+                        <li>Optimized models for 40% faster inference while keeping accuracy high</li>
+                        <li>Built complete MLOps workflows from training to deployment</li>
+                        <li>Led technical implementation of "Chabee" face recognition product</li>
                     </ul>
+                    
                     <div class="exp-metrics">
                         <div class="exp-metric">
                             <span class="metric-value">92%</span>
                             <div class="metric-label">Accuracy</div>
                         </div>
                         <div class="exp-metric">
-                            <span class="metric-value">40%</span>
-                            <div class="metric-label">Speed ↑</div>
+                            <span class="metric-value">-40%</span>
+                            <div class="metric-label">Faster</div>
                         </div>
                         <div class="exp-metric">
                             <span class="metric-value">Production</span>
@@ -666,28 +851,37 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="timeline-node">💻</div>
-                </div>
+                
+                <div style="grid-column: 3;"></div>
+            </div>
 
             <!-- COVID Research -->
-            <div class="experience-item">
-                <div class="experience-card medical-card">
-                    <div class="exp-header">
-                        <div class="exp-period">May 2020 - Sep 2022</div>
-                        <h3 class="exp-title">COVID-19 Research Scientist</h3>
-                        <div class="exp-company">Government of India - SERB Funded Project</div>
-                        <div class="exp-location">Remote Collaboration</div>
-                        </div>
+            <div class="experience-item reveal">
+                <div style="grid-column: 1;"></div>
+                
+                <div class="timeline-node">🦠</div>
+                
+                <div class="experience-card">
+                    <div class="exp-period">May 2020 - Sep 2022</div>
+                    <h3 class="exp-title">COVID-19 Research Scientist</h3>
+                    <div class="exp-company">Government of India - SERB Funded</div>
+                    <div class="exp-location">Remote Collaboration</div>
+                    
                     <p class="exp-description">
-                        Led computational biology research on SARS-CoV-2 genomic analysis under government-funded 
-                        project analyzing 10,000+ viral sequences for genetic variability and vaccine development.
+                        During the pandemic, I sketched algorithms to fight COVID-19! Analyzed over 10,000 viral 
+                        genomes to understand how the virus was evolving. Science in service of humanity during 
+                        one of the most challenging times in recent history.
                     </p>
-                    <ul class="exp-achievements">
-                        <li>Analyzed 10,000+ SARS-CoV-2 genomic sequences to identify genetic variability and viral strains</li>
-                        <li>Developed machine learning models for coronavirus prediction from pathogenic virus sequences</li>
-                        <li>Identified potential molecular targets and epitopes for synthetic vaccine development</li>
-                        <li>Co-authored 12+ publications in high-impact journals on COVID-19 genomics and bioinformatics</li>
+                    
+                    <ul class="exp-highlights">
+                        <li>Analyzed 10,000+ SARS-CoV-2 genomes for genetic variability</li>
+                        <li>Developed ML models for coronavirus prediction from sequences</li>
+                        <li>Identified molecular targets for synthetic vaccine development</li>
+                        <li>Co-authored 12+ papers on COVID-19 genomics and bioinformatics</li>
                     </ul>
+                    
                     <div class="exp-metrics">
                         <div class="exp-metric">
                             <span class="metric-value">10K+</span>
@@ -695,40 +889,41 @@
                         </div>
                         <div class="exp-metric">
                             <span class="metric-value">12+</span>
-                            <div class="metric-label">Publications</div>
+                            <div class="metric-label">Papers</div>
                         </div>
                         <div class="exp-metric">
-                            <span class="metric-value">SERB-DST</span>
+                            <span class="metric-value">SERB</span>
                             <div class="metric-label">Funded</div>
                         </div>
                     </div>
                 </div>
-                <div class="timeline-node">🦠</div>
-                </div>
+            </div>
 
             <!-- Medical AI Research -->
-            <div class="experience-item">
-                <div class="experience-card medical-card">
-                    <div class="exp-header">
-                        <div class="exp-period">Jun 2019 - Aug 2023</div>
-                        <h3 class="exp-title">Research Assistant - Medical AI</h3>
-                        <div class="exp-company">IIT Delhi & AIIMS Delhi</div>
-                        <div class="exp-location">New Delhi, India</div>
-                        </div>
+            <div class="experience-item reveal">
+                <div class="experience-card">
+                    <div class="exp-period">Jun 2019 - Aug 2023</div>
+                    <h3 class="exp-title">Medical AI Research Assistant</h3>
+                    <div class="exp-company">IIT Delhi & AIIMS Delhi</div>
+                    <div class="exp-location">New Delhi, India</div>
+                    
                     <p class="exp-description">
-                        Conducted advanced medical imaging research focusing on osteosarcoma analysis and 3D lung nodule 
-                        segmentation using deep learning techniques with clinical validation at AIIMS Delhi.
+                        Where it all started! Sketched my first AI models for medical imaging at India's top tech 
+                        institute. Working with real doctors at AIIMS to build systems that could spot cancer 
+                        and help patients - that's when I knew AI could change lives.
                     </p>
-                    <ul class="exp-achievements">
-                        <li>Developed deep learning models for osteosarcoma detection and prognosis prediction</li>
-                        <li>Implemented 3D lung nodule segmentation algorithms using adaptive region-growing techniques</li>
-                        <li>Collaborated with medical professionals at AIIMS Delhi for clinical validation of AI models</li>
-                        <li>Won ISMRM Award 2020 for T1 mapping research in chemotherapy response evaluation</li>
+                    
+                    <ul class="exp-highlights">
+                        <li>Developed deep learning models for cancer detection and prognosis</li>
+                        <li>Built 3D lung segmentation using adaptive algorithms</li>
+                        <li>Collaborated with doctors at AIIMS for clinical validation</li>
+                        <li>Won ISMRM Award 2020 for T1 mapping research in chemotherapy</li>
                     </ul>
+                    
                     <div class="exp-metrics">
                         <div class="exp-metric">
                             <span class="metric-value">3D</span>
-                            <div class="metric-label">Segmentation</div>
+                            <div class="metric-label">Imaging</div>
                         </div>
                         <div class="exp-metric">
                             <span class="metric-value">ISMRM</span>
@@ -738,18 +933,21 @@
                             <span class="metric-value">Clinical</span>
                             <div class="metric-label">Validated</div>
                         </div>
-                        </div>
                     </div>
+                </div>
+                
                 <div class="timeline-node">🏥</div>
-        </div>
-    </section>
+                
+                <div style="grid-column: 3;"></div>
+            </div>
+        </section>
 
-        <!-- Skills Evolution -->
-        <section class="skills-section">
-            <h2 class="skills-title">Technical Evolution</h2>
+        <!-- Skills Section -->
+        <section class="skills-section reveal">
+            <h2 class="skills-title">Skills I've Sketched Along the Way</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3 class="skill-category-title">🤖 Machine Learning & AI</h3>
+                    <h3 class="skill-category-title">🧠 AI & Machine Learning</h3>
                     <ul class="skill-list">
                         <li class="skill-item">
                             <span class="skill-name">Deep Learning (PyTorch, TensorFlow)</span>
@@ -768,14 +966,14 @@
                             <span class="skill-level">Advanced</span>
                         </li>
                         <li class="skill-item">
-                            <span class="skill-name">Human Activity Recognition</span>
+                            <span class="skill-name">Activity Recognition</span>
                             <span class="skill-level">Expert</span>
                         </li>
                     </ul>
                 </div>
 
                 <div class="skill-category">
-                    <h3 class="skill-category-title">💻 Software Engineering</h3>
+                    <h3 class="skill-category-title">💻 Engineering & Development</h3>
                     <ul class="skill-list">
                         <li class="skill-item">
                             <span class="skill-name">Python (NumPy, Pandas, Scikit-learn)</span>
@@ -791,7 +989,7 @@
                         </li>
                         <li class="skill-item">
                             <span class="skill-name">Docker & Containerization</span>
-                            <span class="skill-level">Expert</span>
+                            <span class="skill-level">Advanced</span>
                         </li>
                     </ul>
                 </div>
@@ -819,10 +1017,10 @@
                 </div>
 
                 <div class="skill-category">
-                    <h3 class="skill-category-title">📊 Research & Analytics</h3>
+                    <h3 class="skill-category-title">📊 Research & Communication</h3>
                     <ul class="skill-list">
                         <li class="skill-item">
-                            <span class="skill-name">Statistical Analysis & Modeling</span>
+                            <span class="skill-name">Academic Writing & Publications</span>
                             <span class="skill-level">Expert</span>
                         </li>
                         <li class="skill-item">
@@ -830,7 +1028,7 @@
                             <span class="skill-level">Advanced</span>
                         </li>
                         <li class="skill-item">
-                            <span class="skill-name">Academic Writing & Publications</span>
+                            <span class="skill-name">Teaching & Mentoring</span>
                             <span class="skill-level">Expert</span>
                         </li>
                         <li class="skill-item">
@@ -838,113 +1036,123 @@
                             <span class="skill-level">Advanced</span>
                         </li>
                     </ul>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Bottom CTA -->
+        <section class="cta-section reveal">
+            <h2 class="cta-title">Want to Add Your Sketch to Mine?</h2>
+            <p class="cta-text">
+                Looking for someone who can sketch AI solutions from concept to deployment? Let's chat about your next project!
+            </p>
+            <div class="cta-buttons">
+                <a href="mailto:sharmanikhiljiit@gmail.com" class="cta-btn">
+                    ✉️ Let's Connect
+                </a>
+                <a href="research.html" class="cta-btn">
+                    📚 See My Research
+                </a>
+            </div>
+        </section>
     </main>
 
+    <!-- JavaScript for Interactions -->
     <script>
-        // Create flowing particles
-        function createFlowParticles() {
-            const container = document.getElementById('flow-particles');
-            const particleCount = 30;
+        // Random rotations array for reveal animations
+        const randomRotations = ['-1.2deg', '0.8deg', '-1.5deg', '1.1deg', '-0.9deg', '1.3deg'];
 
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'flow-particle';
-                
-                // Random starting position and timing
-                particle.style.left = Math.random() * -100 + 'px';
-                particle.style.top = Math.random() * 100 + 'vh';
-                particle.style.animationDuration = (Math.random() * 20 + 15) + 's';
-                particle.style.animationDelay = Math.random() * 10 + 's';
-                
-                // Random colors for diversity
-                const colors = ['#00f5ff', '#8b5cf6', '#fbbf24', '#10b981'];
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                particle.style.background = color;
-                particle.style.boxShadow = `0 0 15px ${color}`;
-                
-                container.appendChild(particle);
-            }
-        }
-
-        // Timeline progress animation
-        function animateTimelineProgress() {
-            const progress = document.getElementById('timeline-progress');
-            const items = document.querySelectorAll('.experience-item');
-
-        window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const windowHeight = window.innerHeight;
-                const timelineHeight = document.querySelector('.journey-timeline').offsetHeight;
-                
-                // Calculate progress based on scroll
-                const progressHeight = Math.min((scrolled / (timelineHeight - windowHeight)) * 100, 100);
-                progress.style.height = progressHeight + '%';
-            });
-        }
-
-        // Scroll reveal animation
+        /* ===== SCROLL REVEAL ANIMATIONS ===== */
         const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px 0px -100px 0px'
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
+                    const randomRotation = randomRotations[Math.floor(Math.random() * randomRotations.length)];
+                    entry.target.style.setProperty('--random-rotation', randomRotation);
                     entry.target.classList.add('revealed');
                 }
             });
         }, observerOptions);
 
-        // Observe all experience items
-        document.querySelectorAll('.experience-item').forEach(item => {
-            observer.observe(item);
+        // Observe all elements with reveal class
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
         });
 
-        // Initialize particles
-        createFlowParticles();
-
-        // Initialize timeline progress
-        animateTimelineProgress();
-
-        // Add entrance animation for skills
-        window.addEventListener('load', () => {
-            const skillCategories = document.querySelectorAll('.skill-category');
-            skillCategories.forEach((category, index) => {
-                setTimeout(() => {
-                    category.style.opacity = '1';
-                    category.style.transform = 'translateY(0)';
-                }, index * 200);
-            });
-        });
-
-        // Initially hide skill categories for animation
-        document.querySelectorAll('.skill-category').forEach(category => {
-            category.style.opacity = '0';
-            category.style.transform = 'translateY(30px)';
-            category.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        });
-
-        // Enhanced hover effects
+        /* ===== EXPERIENCE CARD HOVER EFFECTS ===== */
         document.querySelectorAll('.experience-card').forEach(card => {
             card.addEventListener('mouseenter', () => {
-                // Pause particle animations on card hover
-                const particles = document.querySelectorAll('.flow-particle');
-                particles.forEach(particle => {
-                    particle.style.animationPlayState = 'paused';
-                });
+                card.style.transform = card.style.transform.replace(/rotate\([^)]*\)/, '') + ' rotate(0deg) scale(1.02)';
             });
-
+            
             card.addEventListener('mouseleave', () => {
-                // Resume particle animations
-                const particles = document.querySelectorAll('.flow-particle');
-                particles.forEach(particle => {
-                    particle.style.animationPlayState = 'running';
-                });
+                const isEven = Array.from(document.querySelectorAll('.experience-item')).indexOf(card.closest('.experience-item')) % 2 === 0;
+                const baseRotation = isEven ? 'rotate(0.8deg)' : 'rotate(-0.8deg)';
+                card.style.transform = card.style.transform.replace(/rotate\([^)]*\)/, '').replace(/scale\([^)]*\)/, '') + ' ' + baseRotation;
             });
+        });
+
+        /* ===== SKILL CATEGORY HOVER EFFECTS ===== */
+        document.querySelectorAll('.skill-category').forEach(category => {
+            category.addEventListener('mouseenter', () => {
+                category.style.transform = category.style.transform.replace(/rotate\([^)]*\)/, '') + ' rotate(0deg) scale(1.02)';
+            });
+            
+            category.addEventListener('mouseleave', () => {
+                const isEven = Array.from(category.parentNode.children).indexOf(category) % 2 === 0;
+                const rotation = isEven ? 'rotate(0.8deg)' : 'rotate(-0.8deg)';
+                category.style.transform = category.style.transform.replace(/rotate\([^)]*\)/, '').replace(/scale\([^)]*\)/, '') + ' ' + rotation;
+            });
+        });
+
+        /* ===== SMOOTH SCROLLING ===== */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        /* ===== SKETCH-STYLE CONSOLE MESSAGE ===== */
+        console.log(`
+    🎯✏️ Journey Sketches Loaded! ✏️🎯
+    
+    Thanks for following my journey through AI research!
+    Each step has been a chance to learn, grow, and 
+    hopefully make a positive impact on the world.
+    
+    ~ Nikhil's Career Adventure 🚀
+        `);
+
+        /* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+        // Reduce motion for users who prefer it
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.querySelectorAll('*').forEach(el => {
+                el.style.animationDuration = '0.01ms !important';
+                el.style.animationIterationCount = '1 !important';
+                el.style.transitionDuration = '0.01ms !important';
+            });
+        }
+
+        // Keyboard navigation enhancement
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
         });
     </script>
 </body>

@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cisco Robotics Research - Nikhil Sharma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Hand-sketched exploration of Nikhil Sharma's robotics research at Cisco, featuring the revolutionary SSDL diffusion model for human activity recognition.">
+    
+    <!-- Google Fonts for Hand-Drawn Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Kalam:wght@300;400;700&family=Architects+Daughter&display=swap" rel="stylesheet">
+    
     <style>
+        /* ===== RESET & VARIABLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -13,240 +18,259 @@
         }
 
         :root {
-            --industrial-black: #0a0a0a;
-            --cisco-blue: #1ba0d7;
-            --robot-orange: #ff6b35;
-            --tech-green: #00d084;
-            --cyber-purple: #6c5ce7;
-            --steel-gray: #2d3436;
-            --text-light: #f0f0f0;
-            --text-dim: #b0b0b0;
-            --border-tech: rgba(27, 160, 215, 0.3);
-            --glow-blue: rgba(27, 160, 215, 0.6);
-            --glow-orange: rgba(255, 107, 53, 0.5);
+            /* Monochromatic Sketch Palette */
+            --sketch-black: #2c2c2c;
+            --paper-cream: #faf9f7;
+            --sketch-gray: #555555;
+            --sketch-light: #777777;
+            --accent-sketch: #e2e8f0;
+            --paper-white: #fefefe;
+            --shadow-sketch: rgba(44, 44, 44, 0.1);
+            --border-sketch: rgba(44, 44, 44, 0.2);
+            /* Industrial theme accents */
+            --industrial-dark: #1a1a1a;
+            --industrial-accent: #3a3a3a;
         }
 
+        /* ===== BODY & PAPER TEXTURE ===== */
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--industrial-black);
-            color: var(--text-light);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* Industrial Background */
-        .industrial-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            background: 
-                radial-gradient(circle at 25% 25%, rgba(27, 160, 215, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(255, 107, 53, 0.08) 0%, transparent 50%);
-        }
-
-        /* Mechanical Grid Pattern */
-        .mech-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.1;
+            font-family: 'Kalam', cursive;
+            line-height: 1.7;
+            color: var(--sketch-black);
+            background: var(--paper-cream);
+            /* Hand-drawn paper texture with subtle grains */
             background-image: 
-                linear-gradient(rgba(27, 160, 215, 0.3) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(27, 160, 215, 0.3) 1px, transparent 1px);
-            background-size: 30px 30px;
-            animation: gridShift 20s linear infinite;
+                radial-gradient(circle at 25% 25%, #f7f3f0 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, #f7f3f0 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, #f5f1ee 0.5px, transparent 0.5px);
+            background-size: 50px 50px, 50px 50px, 25px 25px;
+            background-attachment: fixed;
         }
 
-        @keyframes gridShift {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(30px, 30px); }
-        }
-
-        /* Floating Circuit Elements */
-        .circuit-elements {
+        /* Ruled notebook lines overlay */
+        body::before {
+            content: '';
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 30px,
+                    rgba(44, 44, 44, 0.08) 30px,
+                    rgba(44, 44, 44, 0.08) 31px
+                );
             pointer-events: none;
-            z-index: 2;
+            z-index: -1;
         }
 
-        .circuit-element {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: var(--cisco-blue);
-            border-radius: 2px;
-            box-shadow: 0 0 12px var(--cisco-blue);
-            animation: circuitFloat 15s linear infinite;
-        }
-
-        @keyframes circuitFloat {
-            0% {
-                transform: translateY(100vh) translateX(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% {
-                transform: translateY(-10vh) translateX(50px) rotate(180deg);
-                opacity: 0;
-            }
-        }
-
-        /* Header */
+        /* ===== HEADER ===== */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
+            background: var(--paper-cream);
             z-index: 100;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 2px solid var(--cisco-blue);
-            padding: 1rem 2rem;
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--sketch-black);
+            box-shadow: 0 2px 15px var(--shadow-sketch);
+            transform: rotate(-0.2deg);
+        }
+
+        /* Hand-drawn divider under header */
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 20px;
+            right: 20px;
+            height: 3px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6'%3E%3Cpath d='M0,3 Q25,1 50,4 Q75,2 100,3' stroke='%23777' fill='none' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
         }
 
         .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .logo {
-            font-family: 'Space Mono', monospace;
-            font-size: 1.5rem;
+            font-family: 'Caveat', cursive;
             font-weight: 700;
-            background: linear-gradient(45deg, var(--cisco-blue), var(--tech-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 2.2rem;
+            color: var(--sketch-black);
             text-decoration: none;
+            transform: rotate(-1.5deg);
+            position: relative;
+            text-shadow: 1px 1px 0px rgba(44, 44, 44, 0.1);
+        }
+
+        /* Robot doodle next to logo */
+        .logo::after {
+            content: '🤖';
+            position: absolute;
+            top: -12px;
+            right: -30px;
+            font-size: 1.2rem;
+            transform: rotate(25deg);
+            animation: robotBounce 4s ease-in-out infinite;
+        }
+
+        @keyframes robotBounce {
+            0%, 100% { transform: rotate(25deg) translateY(0); }
+            50% { transform: rotate(25deg) translateY(-5px); }
         }
 
         .cisco-badge {
-            background: var(--cisco-blue);
-            color: var(--text-light);
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
+            background: var(--sketch-black);
+            color: var(--paper-white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 15px;
+            font-family: 'Architects Daughter', cursive;
+            font-size: 0.9rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            animation: techPulse 2s ease-in-out infinite;
+            transform: rotate(3deg);
+            animation: techPulse 3s ease-in-out infinite;
         }
 
         @keyframes techPulse {
             0%, 100% { 
-                box-shadow: 0 0 20px rgba(27, 160, 215, 0.4);
+                box-shadow: 0 0 15px rgba(44, 44, 44, 0.2);
             }
             50% { 
-                box-shadow: 0 0 30px rgba(27, 160, 215, 0.8);
+                box-shadow: 0 0 25px rgba(44, 44, 44, 0.4);
             }
         }
 
         .nav-menu {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             list-style: none;
+            font-family: 'Architects Daughter', cursive;
         }
 
         .nav-link {
-            color: var(--text-dim);
+            color: var(--sketch-gray);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 400;
+            font-size: 1.1rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
             transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
+            position: relative;
+            transform: rotate(0.8deg);
+        }
+
+        .nav-link:nth-child(even) {
+            transform: rotate(-0.8deg);
         }
 
         .nav-link:hover, .nav-link.active {
-            color: var(--cisco-blue);
-            background: rgba(27, 160, 215, 0.1);
+            color: var(--sketch-black);
+            background: var(--accent-sketch);
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 2px 2px 8px var(--shadow-sketch);
         }
 
-        /* Main Content */
+        /* ===== MAIN CONTENT ===== */
         .main-content {
-            padding-top: 6rem;
-            min-height: 100vh;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 4rem 2rem;
-            text-align: center;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 6rem 2rem 2rem;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            text-align: center;
+            margin: 3rem 0;
             position: relative;
         }
 
+        /* Floating doodles around hero */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 10%;
+            width: 120px;
+            height: 120px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20,50 Q50,20 80,50 Q70,80 40,70 Q10,60 20,50' stroke='%23999' fill='none' stroke-width='2' stroke-dasharray='3,3' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            opacity: 0.2;
+            transform: rotate(-15deg);
+            animation: roboticsDoodle 18s ease-in-out infinite;
+        }
+
+        @keyframes roboticsDoodle {
+            0%, 100% { transform: rotate(-15deg) translateY(0px); }
+            50% { transform: rotate(-15deg) translateY(-20px); }
+        }
+
         .hero-badge {
-            background: rgba(255, 107, 53, 0.1);
-            border: 2px solid var(--robot-orange);
-            border-radius: 2rem;
+            background: rgba(44, 44, 44, 0.08);
+            border: 3px solid var(--sketch-black);
+            border-radius: 30px;
             padding: 1rem 2rem;
             margin-bottom: 2rem;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.9rem;
+            font-family: 'Architects Daughter', cursive;
+            font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: var(--robot-orange);
+            color: var(--sketch-black);
             display: inline-block;
-            animation: roboticGlow 3s ease-in-out infinite alternate;
+            transform: rotate(-2deg);
+            animation: roboticGlow 4s ease-in-out infinite alternate;
         }
 
         @keyframes roboticGlow {
             from { 
-                box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
-                border-color: var(--robot-orange);
+                box-shadow: 0 0 15px rgba(44, 44, 44, 0.1);
+                border-color: var(--sketch-black);
             }
             to { 
-                box-shadow: 0 0 40px rgba(255, 107, 53, 0.6);
-                border-color: #ff8844;
+                box-shadow: 0 0 25px rgba(44, 44, 44, 0.2);
+                border-color: var(--sketch-gray);
             }
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 900;
+            font-family: 'Caveat', cursive;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
             margin-bottom: 1rem;
-            background: linear-gradient(
-                45deg,
-                var(--cisco-blue) 0%,
-                var(--text-light) 30%,
-                var(--robot-orange) 70%,
-                var(--tech-green) 100%
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: titleProcess 4s ease-in-out infinite alternate;
+            color: var(--sketch-black);
+            transform: rotate(-0.8deg);
+            position: relative;
+            text-shadow: 2px 2px 0px rgba(44, 44, 44, 0.1);
         }
 
-        @keyframes titleProcess {
-            0% { 
-                text-shadow: 0 0 30px rgba(27, 160, 215, 0.5);
-                transform: scale(1);
-            }
-            100% { 
-                text-shadow: 0 0 40px rgba(255, 107, 53, 0.5);
-                transform: scale(1.02);
-            }
+        /* Hand-drawn underline for hero title */
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 320px;
+            height: 6px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'%3E%3Cpath d='M0,6 Q25,3 50,8 Q75,10 100,6' stroke='%23777' fill='none' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
-            color: var(--text-dim);
+            font-family: 'Kalam', cursive;
+            font-size: 1.4rem;
+            color: var(--sketch-gray);
             margin-bottom: 3rem;
             max-width: 800px;
             margin-left: auto;
@@ -254,44 +278,86 @@
         }
 
         .published-badge {
-            background: linear-gradient(45deg, var(--tech-green), var(--cisco-blue));
-            color: var(--text-light);
-            padding: 1rem 2rem;
-            border-radius: 2rem;
+            background: linear-gradient(135deg, var(--sketch-black), var(--industrial-accent));
+            color: var(--paper-white);
+            padding: 1.2rem 2.5rem;
+            border-radius: 30px;
             font-weight: 700;
             text-decoration: none;
             display: inline-block;
             margin-top: 2rem;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 208, 132, 0.3);
+            box-shadow: 8px 8px 25px var(--shadow-sketch);
+            font-family: 'Architects Daughter', cursive;
+            transform: rotate(-1deg);
         }
 
         .published-badge:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(0, 208, 132, 0.4);
+            transform: rotate(1deg) translateY(-3px) scale(1.05);
+            box-shadow: 12px 12px 35px rgba(44, 44, 44, 0.2);
         }
 
-        /* Performance Metrics */
+        /* ===== PERFORMANCE METRICS ===== */
         .performance-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
-            max-width: 1000px;
-            margin: 4rem auto;
-            padding: 0 2rem;
+            margin: 4rem 0;
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        /* Hand-drawn container for performance metrics */
+        .performance-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 3px solid var(--sketch-black);
+            border-radius: 35px;
+            transform: rotate(-1deg);
+            background: var(--paper-white);
+            z-index: -1;
+            box-shadow: 8px 8px 25px var(--shadow-sketch);
+        }
+
+        .performance-section::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 1px solid var(--sketch-light);
+            border-radius: 35px;
+            transform: rotate(0.5deg);
+            z-index: -1;
         }
 
         .perf-metric {
-            background: rgba(45, 52, 54, 0.6);
-            border: 2px solid var(--border-tech);
-            border-radius: 1rem;
-            padding: 2rem;
             text-align: center;
             position: relative;
-            overflow: hidden;
+            padding: 1.5rem;
+            border: 2px solid var(--sketch-light);
+            border-radius: 20px;
+            background: var(--accent-sketch);
+            transform: rotate(1deg);
             transition: all 0.5s ease;
+            overflow: hidden;
         }
 
+        .perf-metric:nth-child(even) {
+            transform: rotate(-1deg);
+        }
+
+        .perf-metric:hover {
+            transform: rotate(0deg) scale(1.08);
+            box-shadow: 8px 8px 25px var(--shadow-sketch);
+        }
+
+        /* Tech scan animation */
         .perf-metric::before {
             content: '';
             position: absolute;
@@ -299,8 +365,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(27, 160, 215, 0.1), transparent);
-            animation: techScan 4s linear infinite;
+            background: linear-gradient(90deg, transparent, rgba(44, 44, 44, 0.1), transparent);
+            animation: techScan 5s linear infinite;
         }
 
         @keyframes techScan {
@@ -308,58 +374,68 @@
             100% { left: 100%; }
         }
 
-        .perf-metric:hover {
-            border-color: var(--cisco-blue);
-            box-shadow: 0 0 40px rgba(27, 160, 215, 0.3);
-            transform: translateY(-8px);
-        }
-
         .metric-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: var(--robot-orange);
+            color: var(--sketch-black);
+            display: block;
+            transform: rotate(-5deg);
         }
 
         .metric-value {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--tech-green);
-            font-family: 'Space Mono', monospace;
+            font-family: 'Caveat', cursive;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--sketch-black);
             margin-bottom: 0.5rem;
+            display: block;
+            text-shadow: 1px 1px 0px rgba(44, 44, 44, 0.1);
         }
 
         .metric-improvement {
-            color: var(--cisco-blue);
+            color: var(--sketch-gray);
         }
 
         .metric-label {
-            color: var(--text-dim);
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
-        /* SSDL Architecture */
+        /* ===== SSDL ARCHITECTURE ===== */
         .architecture-section {
-            background: rgba(45, 52, 54, 0.3);
+            background: rgba(44, 44, 44, 0.05);
             margin: 4rem 0;
             padding: 4rem 2rem;
-            border-top: 3px solid var(--cisco-blue);
-            border-bottom: 3px solid var(--robot-orange);
+            border: 3px solid var(--sketch-black);
+            border-radius: 35px;
+            position: relative;
+            transform: rotate(-0.3deg);
         }
 
-        .arch-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .architecture-section::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border: 1px solid var(--sketch-light);
+            border-radius: 35px;
+            transform: rotate(0.6deg);
+            z-index: -1;
         }
 
         .arch-title {
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-family: 'Caveat', cursive;
+            font-size: 3.2rem;
+            font-weight: 700;
             text-align: center;
             margin-bottom: 3rem;
-            color: var(--cisco-blue);
-            font-family: 'Space Mono', monospace;
+            color: var(--sketch-black);
+            transform: rotate(0.5deg);
         }
 
         .ssdl-pipeline {
@@ -370,54 +446,60 @@
         }
 
         .pipeline-stage {
-            background: rgba(27, 160, 215, 0.05);
-            border: 2px solid var(--border-tech);
-            border-radius: 1.5rem;
+            background: var(--accent-sketch);
+            border: 3px solid var(--sketch-black);
+            border-radius: 25px;
             padding: 2rem;
             position: relative;
+            transform: rotate(0.8deg);
             transition: all 0.5s ease;
         }
 
+        .pipeline-stage:nth-child(even) {
+            transform: rotate(-0.8deg);
+        }
+
         .pipeline-stage:hover {
-            border-color: var(--cisco-blue);
-            box-shadow: 0 15px 40px rgba(27, 160, 215, 0.2);
-            transform: scale(1.05);
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 10px 10px 30px var(--shadow-sketch);
         }
 
         .stage-number {
-            background: var(--cisco-blue);
-            color: var(--text-light);
-            width: 40px;
-            height: 40px;
+            background: var(--sketch-black);
+            color: var(--paper-white);
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             margin: 0 auto 1rem;
-            box-shadow: 0 0 20px rgba(27, 160, 215, 0.4);
+            box-shadow: 0 0 15px rgba(44, 44, 44, 0.2);
+            font-family: 'Caveat', cursive;
+            transform: rotate(-8deg);
         }
 
         .stage-title {
-            font-size: 1.3rem;
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
             font-weight: 700;
-            color: var(--text-light);
+            color: var(--sketch-black);
             margin-bottom: 1rem;
             text-align: center;
         }
 
         .stage-description {
-            color: var(--text-dim);
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
             line-height: 1.6;
             text-align: center;
         }
 
-        /* Innovation Showcase */
+        /* ===== INNOVATION SHOWCASE ===== */
         .innovation-section {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
+            margin: 4rem 0;
         }
 
         .innovation-grid {
@@ -427,59 +509,65 @@
         }
 
         .innovation-card {
-            background: rgba(45, 52, 54, 0.6);
-            border: 2px solid transparent;
-            border-radius: 2rem;
+            background: var(--paper-white);
+            border: 4px solid var(--sketch-black);
+            border-radius: 28px;
             padding: 3rem;
             position: relative;
-            overflow: hidden;
+            transform: rotate(0.8deg);
             transition: all 0.5s ease;
+            box-shadow: 10px 10px 30px var(--shadow-sketch);
         }
 
-        .innovation-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--cisco-blue), var(--robot-orange), var(--tech-green));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .innovation-card:hover::after {
-            transform: scaleX(1);
+        .innovation-card:nth-child(even) {
+            transform: rotate(-0.8deg);
         }
 
         .innovation-card:hover {
-            border-color: var(--cisco-blue);
-            box-shadow: 0 25px 60px rgba(27, 160, 215, 0.2);
-            transform: translateY(-10px);
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 15px 15px 40px rgba(44, 44, 44, 0.15);
+        }
+
+        /* Multiple border layers for hand-drawn effect */
+        .innovation-card::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 2px solid var(--sketch-light);
+            border-radius: 28px;
+            transform: rotate(1.2deg);
+            z-index: -1;
         }
 
         .inno-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(45deg, var(--cisco-blue), var(--robot-orange));
-            border-radius: 1rem;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--sketch-black), var(--industrial-accent));
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 0 30px rgba(27, 160, 215, 0.4);
+            box-shadow: 0 0 25px rgba(44, 44, 44, 0.2);
+            color: var(--paper-white);
+            transform: rotate(-5deg);
         }
 
         .inno-title {
-            font-size: 1.6rem;
+            font-family: 'Caveat', cursive;
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--text-light);
+            color: var(--sketch-black);
             margin-bottom: 1rem;
         }
 
         .inno-description {
-            color: var(--text-dim);
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
             line-height: 1.7;
             margin-bottom: 2rem;
         }
@@ -489,9 +577,10 @@
         }
 
         .tech-features li {
-            color: var(--text-dim);
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
             margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
+            padding-left: 2rem;
             position: relative;
         }
 
@@ -499,44 +588,50 @@
             content: '⚙️';
             position: absolute;
             left: 0;
-            color: var(--cisco-blue);
+            font-size: 1rem;
+            transform: rotate(-5deg);
         }
 
-        /* Publication Section */
+        /* ===== PUBLICATION SECTION ===== */
         .publication-section {
-            background: linear-gradient(135deg, var(--cisco-blue) 0%, var(--tech-green) 100%);
-            color: var(--text-light);
+            background: linear-gradient(135deg, var(--sketch-black), var(--industrial-accent));
+            color: var(--paper-white);
             padding: 4rem 2rem;
+            border-radius: 40px;
             text-align: center;
-        }
-
-        .pub-container {
-            max-width: 1000px;
-            margin: 0 auto;
+            margin: 4rem 0;
+            transform: rotate(-0.5deg);
+            box-shadow: 12px 12px 35px var(--shadow-sketch);
         }
 
         .pub-title {
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-family: 'Caveat', cursive;
+            font-size: 3rem;
+            font-weight: 700;
             margin-bottom: 1rem;
         }
 
         .pub-venue {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             padding: 0.8rem 2rem;
-            border-radius: 2rem;
+            border-radius: 25px;
             font-weight: 600;
             display: inline-block;
             margin-bottom: 2rem;
-            font-family: 'Space Mono', monospace;
+            font-family: 'Architects Daughter', cursive;
+            transform: rotate(2deg);
         }
 
         .pub-abstract {
-            font-size: 1.2rem;
+            font-family: 'Kalam', cursive;
+            font-size: 1.3rem;
             line-height: 1.7;
             margin-bottom: 3rem;
             opacity: 0.9;
             font-style: italic;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .pub-links {
@@ -547,45 +642,53 @@
         }
 
         .pub-btn {
-            background: var(--text-light);
-            color: var(--cisco-blue);
-            padding: 1rem 2rem;
-            border-radius: 2rem;
+            background: var(--paper-white);
+            color: var(--sketch-black);
+            padding: 1.2rem 2rem;
+            border-radius: 25px;
             text-decoration: none;
             font-weight: 700;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
+            font-family: 'Architects Daughter', cursive;
+            transform: rotate(-1deg);
+        }
+
+        .pub-btn:nth-child(even) {
+            transform: rotate(1deg);
         }
 
         .pub-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+            transform: rotate(0deg) translateY(-3px) scale(1.05);
+            box-shadow: 8px 8px 25px rgba(255, 255, 255, 0.2);
         }
 
-        /* Collaboration Section */
+        /* ===== COLLABORATION SECTION ===== */
         .collaboration-section {
-            max-width: 1000px;
-            margin: 4rem auto;
-            padding: 0 2rem;
+            margin: 4rem 0;
             text-align: center;
         }
 
         .collab-title {
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-family: 'Caveat', cursive;
+            font-size: 3rem;
+            font-weight: 700;
             margin-bottom: 2rem;
-            background: linear-gradient(45deg, var(--cisco-blue), var(--robot-orange));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--sketch-black);
+            transform: rotate(-0.8deg);
         }
 
         .collab-description {
+            font-family: 'Kalam', cursive;
             font-size: 1.2rem;
-            color: var(--text-dim);
+            color: var(--sketch-gray);
             line-height: 1.7;
             margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .partners-grid {
@@ -595,105 +698,139 @@
         }
 
         .partner-card {
-            background: rgba(45, 52, 54, 0.6);
-            border: 2px solid var(--border-tech);
-            border-radius: 1rem;
+            background: var(--paper-white);
+            border: 3px solid var(--sketch-black);
+            border-radius: 25px;
             padding: 2rem;
             transition: all 0.3s ease;
+            transform: rotate(0.8deg);
+            box-shadow: 5px 5px 15px var(--shadow-sketch);
+        }
+
+        .partner-card:nth-child(even) {
+            transform: rotate(-0.8deg);
         }
 
         .partner-card:hover {
-            border-color: var(--cisco-blue);
-            transform: translateY(-5px);
+            transform: rotate(0deg) translateY(-5px) scale(1.05);
+            box-shadow: 8px 8px 25px var(--shadow-sketch);
         }
 
         .partner-logo {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
-            color: var(--cisco-blue);
+            color: var(--sketch-black);
+            display: block;
+            transform: rotate(-5deg);
         }
 
         .partner-name {
-            font-size: 1.2rem;
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--text-light);
+            color: var(--sketch-black);
             margin-bottom: 0.5rem;
         }
 
         .partner-role {
-            color: var(--text-dim);
-            font-size: 0.9rem;
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
+            font-size: 0.95rem;
         }
 
-        /* Mobile Responsive */
+        /* ===== FLOATING CIRCUIT ELEMENTS ===== */
+        .circuit-element {
+            position: fixed;
+            font-size: 1.8rem;
+            opacity: 0.1;
+            animation: floatCircuit 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .circuit-element:nth-child(1) { top: 25%; right: 8%; animation-delay: 0s; }
+        .circuit-element:nth-child(2) { top: 65%; left: 8%; animation-delay: 8s; }
+        .circuit-element:nth-child(3) { top: 45%; right: 12%; animation-delay: 16s; }
+
+        @keyframes floatCircuit {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-50px) rotate(20deg); }
+            50% { transform: translateY(-25px) rotate(-20deg); }
+            75% { transform: translateY(-60px) rotate(15deg); }
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .header {
-                padding: 1rem;
+            .header-content {
+                padding: 0 1rem;
             }
-            
+
             .nav-menu {
                 display: none;
             }
-            
-            .hero {
-                padding: 2rem 1rem;
+
+            .main-content {
+                padding: 5rem 1rem 2rem;
             }
-            
+
             .performance-section {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
-                padding: 0 1rem;
+                padding: 2rem 1rem;
             }
-            
+
             .innovation-grid,
             .ssdl-pipeline,
             .partners-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            
-            .innovation-section,
-            .arch-container,
-            .collaboration-section {
-                padding: 0 1rem;
-            }
-            
+
             .pub-links {
                 flex-direction: column;
                 align-items: center;
             }
         }
+
+        /* ===== SCROLL REVEAL ANIMATION ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px) rotate(0deg);
+            transition: all 0.9s ease;
+        }
+
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0) rotate(var(--random-rotation, 1deg));
+        }
     </style>
 </head>
 <body>
-    <!-- Industrial Background -->
-    <div class="industrial-bg"></div>
-    <div class="mech-grid"></div>
-    
-    <!-- Circuit Elements -->
-    <div class="circuit-elements" id="circuit-elements"></div>
+    <!-- Floating circuit elements -->
+    <div class="circuit-element">⚙️</div>
+    <div class="circuit-element">🔧</div>
+    <div class="circuit-element">⚡</div>
 
     <!-- Header -->
     <header class="header">
         <div class="header-content">
             <a href="index.html" class="logo">ROBOTICS.LAB</a>
             <div class="cisco-badge">MMM 2025 PUBLISHED</div>
-            <nav class="nav">
+    <nav class="nav">
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">HOME</a></li>
                     <li><a href="research.html" class="nav-link">RESEARCH</a></li>
                     <li><a href="experience.html" class="nav-link">JOURNEY</a></li>
                     <li><a href="stanford-sprint.html" class="nav-link">STANFORD</a></li>
                     <li><a href="cisco-robotics.html" class="nav-link active">CISCO</a></li>
-                </ul>
-            </nav>
+            </ul>
+    </nav>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="main-content">
-        <!-- Hero Section -->
-        <section class="hero">
+    <!-- Hero Section -->
+    <section class="hero">
             <div class="hero-badge">🤖 Industry Partnership • Texas State × Cisco Research</div>
             
             <h1 class="hero-title">CISCO ROBOTICS RESEARCH</h1>
@@ -703,83 +840,81 @@
             </p>
             
             <a href="#publication" class="published-badge">📄 Published in MMM 2025</a>
-        </section>
+    </section>
 
-        <!-- Performance Metrics -->
-        <section class="performance-section">
+    <!-- Performance Metrics -->
+        <section class="performance-section reveal">
             <div class="perf-metric">
                 <div class="metric-icon">📈</div>
                 <div class="metric-value metric-improvement">+2%</div>
-                <div class="metric-label">Accuracy Improvement</div>
-            </div>
+                    <div class="metric-label">Accuracy Improvement</div>
+                </div>
             <div class="perf-metric">
                 <div class="metric-icon">⚡</div>
                 <div class="metric-value metric-improvement">-40%</div>
-                <div class="metric-label">Computational Cost</div>
-            </div>
+                    <div class="metric-label">Computational Cost</div>
+                </div>
             <div class="perf-metric">
                 <div class="metric-icon">🎯</div>
                 <div class="metric-value">Real-time</div>
-                <div class="metric-label">Inference Speed</div>
-            </div>
+                    <div class="metric-label">Inference Speed</div>
+                </div>
             <div class="perf-metric">
                 <div class="metric-icon">📊</div>
                 <div class="metric-value">3</div>
-                <div class="metric-label">Datasets Validated</div>
-            </div>
-        </section>
+                    <div class="metric-label">Datasets Validated</div>
+        </div>
+    </section>
 
         <!-- SSDL Architecture -->
-        <section class="architecture-section">
-            <div class="arch-container">
-                <h2 class="arch-title">SSDL: Sensor-to-Skeleton Diffusion Model</h2>
-                <div class="ssdl-pipeline">
-                    <div class="pipeline-stage">
-                        <div class="stage-number">1</div>
-                        <h3 class="stage-title">Sensor Input</h3>
-                        <p class="stage-description">
-                            Multi-sensor data acquisition from wearable devices and environmental sensors 
-                            for comprehensive human activity monitoring
-                        </p>
-                    </div>
-                    <div class="pipeline-stage">
-                        <div class="stage-number">2</div>
-                        <h3 class="stage-title">Angular Variation</h3>
-                        <p class="stage-description">
-                            Advanced angular variation modules extract temporal movement patterns 
-                            while preserving critical motion information
-                        </p>
-                    </div>
-                    <div class="pipeline-stage">
-                        <div class="stage-number">3</div>
-                        <h3 class="stage-title">Diffusion Process</h3>
-                        <p class="stage-description">
-                            Forward noise addition to skeleton keypoints with controlled degradation 
-                            for robust generative modeling
-                        </p>
-                    </div>
-                    <div class="pipeline-stage">
-                        <div class="stage-number">4</div>
-                        <h3 class="stage-title">Lipschitz Regularization</h3>
-                        <p class="stage-description">
-                            Novel regularization technique ensures training stability and prevents 
-                            overfitting with noisy sensor data
-                        </p>
-                    </div>
-                    <div class="pipeline-stage">
-                        <div class="stage-number">5</div>
-                        <h3 class="stage-title">Skeleton Generation</h3>
-                        <p class="stage-description">
-                            High-quality skeleton frame generation for enhanced activity recognition 
-                            in robotics and surveillance applications
-                        </p>
-                    </div>
-                </div>
+        <section class="architecture-section reveal">
+            <h2 class="arch-title">SSDL: Sensor-to-Skeleton Diffusion Model</h2>
+            <div class="ssdl-pipeline">
+                <div class="pipeline-stage">
+                    <div class="stage-number">1</div>
+                    <h3 class="stage-title">Sensor Input</h3>
+                    <p class="stage-description">
+                        Multi-sensor data acquisition from wearable devices and environmental sensors 
+                        for comprehensive human activity monitoring
+                </p>
             </div>
-        </section>
+                <div class="pipeline-stage">
+                    <div class="stage-number">2</div>
+                    <h3 class="stage-title">Angular Variation</h3>
+                    <p class="stage-description">
+                        Advanced angular variation modules extract temporal movement patterns 
+                        while preserving critical motion information
+                    </p>
+                    </div>
+                <div class="pipeline-stage">
+                    <div class="stage-number">3</div>
+                    <h3 class="stage-title">Diffusion Process</h3>
+                    <p class="stage-description">
+                        Forward noise addition to skeleton keypoints with controlled degradation 
+                        for robust generative modeling
+                    </p>
+                </div>
+                <div class="pipeline-stage">
+                    <div class="stage-number">4</div>
+                    <h3 class="stage-title">Lipschitz Regularization</h3>
+                    <p class="stage-description">
+                        Novel regularization technique ensures training stability and prevents 
+                        overfitting with noisy sensor data
+                    </p>
+                </div>
+                <div class="pipeline-stage">
+                    <div class="stage-number">5</div>
+                    <h3 class="stage-title">Skeleton Generation</h3>
+                    <p class="stage-description">
+                        High-quality skeleton frame generation for enhanced activity recognition 
+                        in robotics and surveillance applications
+                    </p>
+            </div>
+        </div>
+    </section>
 
         <!-- Innovation Showcase -->
-        <section class="innovation-section">
+        <section class="innovation-section reveal">
             <div class="innovation-grid">
                 <div class="innovation-card">
                     <div class="inno-icon">🧠</div>
@@ -794,7 +929,7 @@
                         <li>Temporal consistency preservation</li>
                         <li>Noise-robust skeleton generation</li>
                     </ul>
-                </div>
+            </div>
 
                 <div class="innovation-card">
                     <div class="inno-icon">🔧</div>
@@ -809,7 +944,7 @@
                         <li>Overfitting prevention mechanisms</li>
                         <li>Robust noise handling capabilities</li>
                     </ul>
-                </div>
+                    </div>
 
                 <div class="innovation-card">
                     <div class="inno-icon">🚀</div>
@@ -824,36 +959,34 @@
                         <li>Real-time inference capabilities</li>
                         <li>Multi-dataset generalization</li>
                     </ul>
-                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Publication Section -->
-        <section class="publication-section" id="publication">
-            <div class="pub-container">
-                <h2 class="pub-title">SSDL: Sensor-to-Skeleton Diffusion Model with Lipschitz Regularization</h2>
-                <div class="pub-venue">MMM 2025 - International Conference on MultiMedia Modeling</div>
-                <p class="pub-abstract">
+    <!-- Publication Section -->
+        <section class="publication-section reveal" id="publication">
+            <h2 class="pub-title">SSDL: Sensor-to-Skeleton Diffusion Model with Lipschitz Regularization</h2>
+            <div class="pub-venue">MMM 2025 - International Conference on MultiMedia Modeling</div>
+            <p class="pub-abstract">
                     "We propose a novel Sensor-to-Skeleton Diffusion Model with Lipschitz Regularization, 
                     named SSDL, that generates hard-to-collect but information-rich skeleton data conditioned 
                     on easy-to-monitor sensor data for enhanced human activity recognition."
-                </p>
-                <div class="pub-links">
-                    <a href="https://link.springer.com/chapter/10.1007/978-981-96-2071-5_7" class="pub-btn">
-                        📄 Read Paper
-                    </a>
-                    <a href="https://github.com/nikhiliit/SSDL" class="pub-btn">
-                        💻 Source Code
-                    </a>
-                    <a href="#" class="pub-btn">
-                        📊 Dataset
-                    </a>
-                </div>
-            </div>
-        </section>
+            </p>
+            <div class="pub-links">
+                <a href="https://link.springer.com/chapter/10.1007/978-981-96-2071-5_7" class="pub-btn">
+                    📄 Read Paper
+                </a>
+                <a href="https://github.com/nikhiliit/SSDL" class="pub-btn">
+                    💻 Source Code
+                </a>
+                <a href="#" class="pub-btn">
+                    📊 Dataset
+                </a>
+        </div>
+    </section>
 
         <!-- Collaboration Section -->
-        <section class="collaboration-section">
+        <section class="collaboration-section reveal">
             <h2 class="collab-title">Industry-Academic Partnership</h2>
             <p class="collab-description">
                 This groundbreaking research represents a successful collaboration between industry expertise 
@@ -862,95 +995,77 @@
             <div class="partners-grid">
                 <div class="partner-card">
                     <div class="partner-logo">🏢</div>
-                    <div class="partner-name">Cisco Research</div>
-                    <div class="partner-role">Industry Partner & Funding</div>
-                </div>
+                                <div class="partner-name">Cisco Research</div>
+                                <div class="partner-role">Industry Partner & Funding</div>
+                            </div>
                 <div class="partner-card">
                     <div class="partner-logo">🎓</div>
-                    <div class="partner-name">Texas State University</div>
-                    <div class="partner-role">Academic Collaboration</div>
-                </div>
+                                <div class="partner-name">Texas State University</div>
+                                <div class="partner-role">Academic Collaboration</div>
+                            </div>
                 <div class="partner-card">
                     <div class="partner-logo">🔬</div>
-                    <div class="partner-name">Illinois Institute of Technology</div>
+                                <div class="partner-name">Illinois Institute of Technology</div>
                     <div class="partner-role">Research Development</div>
-                </div>
             </div>
-        </section>
+        </div>
+    </section>
     </main>
 
+    <!-- JavaScript for Interactions -->
     <script>
-        // Create floating circuit elements
-        function createCircuitElements() {
-            const container = document.getElementById('circuit-elements');
-            const elementCount = 25;
+        // Random rotations array for reveal animations
+        const randomRotations = ['-1.2deg', '0.8deg', '-1.5deg', '1.1deg', '-0.9deg', '1.3deg'];
 
-            for (let i = 0; i < elementCount; i++) {
-                const element = document.createElement('div');
-                element.className = 'circuit-element';
-                
-                // Random positioning and timing
-                element.style.left = Math.random() * 100 + 'vw';
-                element.style.animationDuration = (Math.random() * 20 + 10) + 's';
-                element.style.animationDelay = Math.random() * 10 + 's';
-                
-                // Random shapes and colors
-                if (Math.random() > 0.5) {
-                    element.style.borderRadius = '50%';
-                }
-                
-                const colors = ['#1ba0d7', '#ff6b35', '#00d084', '#6c5ce7'];
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                element.style.background = color;
-                element.style.boxShadow = `0 0 12px ${color}`;
-                
-                container.appendChild(element);
-            }
-        }
-
-        // Scroll reveal animations
+        /* ===== SCROLL REVEAL ANIMATIONS ===== */
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    const randomRotation = randomRotations[Math.floor(Math.random() * randomRotations.length)];
+                    entry.target.style.setProperty('--random-rotation', randomRotation);
+                    entry.target.classList.add('revealed');
                 }
             });
         }, observerOptions);
 
         // Observe elements for scroll animations
-        document.querySelectorAll('.perf-metric, .pipeline-stage, .innovation-card, .partner-card').forEach(element => {
+        document.querySelectorAll('.reveal').forEach(element => {
             element.style.opacity = '0';
-            element.style.transform = 'translateY(30px)';
-            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            element.style.transform = 'translateY(40px) rotate(0deg)';
+            element.style.transition = 'opacity 0.9s ease, transform 0.9s ease';
             observer.observe(element);
         });
 
-        // Enhanced hover effects
-        document.querySelectorAll('.innovation-card').forEach(card => {
+        /* ===== ENHANCED HOVER EFFECTS ===== */
+        document.querySelectorAll('.innovation-card, .perf-metric, .pipeline-stage, .partner-card').forEach(card => {
             card.addEventListener('mouseenter', () => {
-                // Pause circuit animations on hover
-                const circuits = document.querySelectorAll('.circuit-element');
-                circuits.forEach(circuit => {
-                    circuit.style.animationPlayState = 'paused';
-                });
+                card.style.transform = card.style.transform.replace(/rotate\([^)]*\)/, '') + ' rotate(0deg) scale(1.05)';
             });
 
             card.addEventListener('mouseleave', () => {
-                // Resume circuit animations
-                const circuits = document.querySelectorAll('.circuit-element');
-                circuits.forEach(circuit => {
-                    circuit.style.animationPlayState = 'running';
-                });
+                const isEven = Array.from(card.parentNode.children).indexOf(card) % 2 === 0;
+                let baseRotation = 'rotate(0.8deg)';
+                
+                if (card.classList.contains('perf-metric')) {
+                    baseRotation = isEven ? 'rotate(1deg)' : 'rotate(-1deg)';
+                } else if (card.classList.contains('pipeline-stage')) {
+                    baseRotation = isEven ? 'rotate(0.8deg)' : 'rotate(-0.8deg)';
+                } else if (card.classList.contains('partner-card')) {
+                    baseRotation = isEven ? 'rotate(0.8deg)' : 'rotate(-0.8deg)';
+            } else {
+                    baseRotation = isEven ? 'rotate(0.8deg)' : 'rotate(-0.8deg)';
+                }
+
+                card.style.transform = card.style.transform.replace(/rotate\([^)]*\)/, '').replace(/scale\([^)]*\)/, '') + ' ' + baseRotation;
             });
         });
 
-        // Performance metric animation
+        /* ===== PERFORMANCE METRIC ANIMATION ===== */
         document.querySelectorAll('.perf-metric').forEach(metric => {
             metric.addEventListener('mouseenter', () => {
                 const value = metric.querySelector('.metric-value');
@@ -970,34 +1085,56 @@
         `;
         document.head.appendChild(style);
 
-        // Initialize circuit elements
-        createCircuitElements();
-
-        // Add loading animation for performance metrics
-        window.addEventListener('load', () => {
-            const metrics = document.querySelectorAll('.perf-metric');
-            metrics.forEach((metric, index) => {
-                setTimeout(() => {
-                    metric.style.opacity = '1';
-                    metric.style.transform = 'translateY(0)';
-                }, index * 300);
+        /* ===== SMOOTH SCROLLING ===== */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
 
-        // Random technical glitch effect
+        /* ===== RANDOM TECHNICAL GLITCH EFFECT ===== */
         setInterval(() => {
-            if (Math.random() < 0.05) { // 5% chance every 3 seconds
-                const grid = document.querySelector('.mech-grid');
-                grid.style.opacity = '0.3';
+            if (Math.random() < 0.03) { // 3% chance every 4 seconds
+                const body = document.body;
+                body.style.filter = 'contrast(1.05)';
                 setTimeout(() => {
-                    grid.style.opacity = '0.1';
+                    body.style.filter = 'none';
                 }, 100);
             }
-        }, 3000);
+        }, 4000);
 
-        // Console robotics message
-        console.log('%c🤖 CISCO ROBOTICS LAB INITIALIZED', 'color: #1ba0d7; font-size: 16px; font-weight: bold;');
-        console.log('%cSSdL Model: Ready for deployment', 'color: #00d084; font-size: 12px;');
+        /* ===== CONSOLE ROBOTICS MESSAGE ===== */
+        console.log('%c🤖 CISCO ROBOTICS LAB INITIALIZED', 'color: #2c2c2c; font-size: 16px; font-weight: bold; font-family: "Caveat", cursive;');
+        console.log('%cSSdL Model: Ready for deployment', 'color: #555; font-size: 12px; font-family: "Kalam", cursive;');
+        console.log('%cHand-sketched with industrial precision ⚙️✏️', 'color: #777; font-size: 12px; font-family: "Kalam", cursive;');
+
+        /* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+        // Reduce motion for users who prefer it
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.querySelectorAll('*').forEach(el => {
+                el.style.animationDuration = '0.01ms !important';
+                el.style.animationIterationCount = '1 !important';
+                el.style.transitionDuration = '0.01ms !important';
+            });
+        }
+
+        // Keyboard navigation enhancement
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
     </script>
 </body>
 </html>

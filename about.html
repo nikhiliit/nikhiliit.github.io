@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Nikhil Sharma's Sketchbook</title>
+    <meta name="description" content="Get to know Nikhil Sharma - AI researcher, PhD student, and someone who believes technology should make life better for everyone.">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Caveat:wght@400;500;600;700&family=Architects+Daughter&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sketch-black: #2c2c2c;
+            --sketch-gray: #555555;
+            --sketch-light: #777777;
+            --sketch-lighter: #999999;
+            --paper-white: #fefefe;
+            --paper-cream: #faf9f7;
+            --sketch-blue: #4a5568;
+            --accent-sketch: #e2e8f0;
+            --line-sketch: #d1d5db;
+            --shadow-sketch: rgba(44, 44, 44, 0.1);
+            --warm-orange: #ea580c;
+            --gentle-green: #16a34a;
+        }
+
+        body {
+            font-family: 'Kalam', cursive;
+            line-height: 1.7;
+            color: var(--sketch-black);
+            background: var(--paper-cream);
+            background-image: 
+                radial-gradient(circle at 25% 25%, #f7f3f0 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, #f7f3f0 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-attachment: fixed;
+        }
+
+        /* Paper texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 30px,
+                    rgba(221, 221, 221, 0.3) 30px,
+                    rgba(221, 221, 221, 0.3) 31px
+                );
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background: var(--paper-cream);
+            z-index: 100;
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--sketch-black);
+            box-shadow: 0 2px 10px var(--shadow-sketch);
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 20px;
+            right: 20px;
+            height: 2px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 4'%3E%3Cpath d='M0,2 Q25,1 50,3 Q75,1 100,2' stroke='%23777' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Caveat', cursive;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--sketch-black);
+            text-decoration: none;
+            transform: rotate(-1deg);
+            position: relative;
+        }
+
+        .logo::after {
+            content: '👋';
+            position: absolute;
+            top: -10px;
+            right: -25px;
+            font-size: 1rem;
+            transform: rotate(15deg);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            font-family: 'Architects Daughter', cursive;
+        }
+
+        .nav-link {
+            color: var(--sketch-gray);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            transform: rotate(0.5deg);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--sketch-black);
+            background: var(--accent-sketch);
+            transform: rotate(-0.5deg) scale(1.05);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin: 3rem 0;
+            padding: 3rem;
+            background: var(--paper-white);
+            border: 3px solid var(--sketch-black);
+            border-radius: 30px;
+            position: relative;
+            transform: rotate(-0.3deg);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid var(--sketch-gray);
+            border-radius: 30px;
+            transform: rotate(0.6deg);
+            z-index: -1;
+        }
+
+        .hero-content h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--sketch-black);
+            margin-bottom: 1rem;
+            transform: rotate(0.5deg);
+        }
+
+        .hero-tagline {
+            font-family: 'Kalam', cursive;
+            font-size: 1.3rem;
+            color: var(--warm-orange);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-family: 'Kalam', cursive;
+            font-size: 1.1rem;
+            color: var(--sketch-gray);
+            line-height: 1.7;
+        }
+
+        .hero-photo-container {
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-photo-frame {
+            position: relative;
+            padding: 15px;
+            background: var(--paper-white);
+            border: 3px solid var(--sketch-black);
+            border-radius: 20px;
+            box-shadow: 10px 10px 25px var(--shadow-sketch);
+            transform: rotate(2deg);
+            display: inline-block;
+        }
+
+        .hero-photo-frame::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid var(--sketch-gray);
+            border-radius: 20px;
+            transform: rotate(-1deg);
+            z-index: -1;
+        }
+
+        .hero-photo {
+            width: 280px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            filter: sepia(10%) contrast(1.1);
+        }
+
+        .photo-caption {
+            font-family: 'Caveat', cursive;
+            font-size: 1.1rem;
+            color: var(--sketch-light);
+            margin-top: 1rem;
+            transform: rotate(-1deg);
+            font-style: italic;
+        }
+
+        /* Story Sections */
+        .story-section {
+            margin: 4rem 0;
+            padding: 3rem;
+            background: var(--paper-white);
+            border: 3px solid var(--sketch-black);
+            border-radius: 25px;
+            position: relative;
+            transform: rotate(0.5deg);
+        }
+
+        .story-section:nth-child(even) {
+            transform: rotate(-0.5deg);
+        }
+
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid var(--sketch-light);
+            border-radius: 25px;
+            transform: rotate(0.8deg);
+            z-index: -1;
+        }
+
+        .story-title {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--sketch-black);
+            margin-bottom: 2rem;
+            text-align: center;
+            transform: rotate(-0.5deg);
+            position: relative;
+        }
+
+        .story-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8'%3E%3Cpath d='M0,4 Q25,1 50,6 Q75,2 100,4' stroke='%23777' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+        }
+
+        .story-content {
+            font-family: 'Kalam', cursive;
+            font-size: 1.1rem;
+            color: var(--sketch-gray);
+            line-height: 1.7;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .value-card {
+            padding: 2rem;
+            background: var(--accent-sketch);
+            border: 2px solid var(--line-sketch);
+            border-radius: 20px;
+            text-align: center;
+            transform: rotate(0.5deg);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:nth-child(even) {
+            transform: rotate(-0.5deg);
+        }
+
+        .value-card:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 10px 10px 25px var(--shadow-sketch);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .value-title {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--sketch-black);
+            margin-bottom: 1rem;
+        }
+
+        .value-description {
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
+            line-height: 1.6;
+        }
+
+        /* Fun Facts */
+        .fun-facts {
+            background: linear-gradient(135deg, var(--warm-orange), #f59e0b);
+            color: var(--paper-white);
+            padding: 3rem;
+            border-radius: 30px;
+            text-align: center;
+            margin: 4rem 0;
+            transform: rotate(-0.5deg);
+            position: relative;
+        }
+
+        .fun-facts::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 2px dashed var(--paper-white);
+            border-radius: 20px;
+            opacity: 0.7;
+        }
+
+        .fun-facts h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .fact-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            transform: rotate(0.5deg);
+        }
+
+        .fact-item:nth-child(even) {
+            transform: rotate(-0.5deg);
+        }
+
+        .fact-emoji {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .fact-text {
+            font-family: 'Kalam', cursive;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background: var(--gentle-green);
+            color: var(--paper-white);
+            padding: 4rem 3rem;
+            border-radius: 30px;
+            text-align: center;
+            margin: 4rem 0;
+            transform: rotate(0.3deg);
+            position: relative;
+        }
+
+        .quote-section::before {
+            content: '"';
+            font-family: 'Caveat', cursive;
+            font-size: 8rem;
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .quote-text {
+            font-family: 'Caveat', cursive;
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .quote-attribution {
+            font-family: 'Kalam', cursive;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--sketch-black);
+            color: var(--paper-white);
+            padding: 4rem 3rem;
+            border-radius: 30px;
+            text-align: center;
+            margin: 4rem 0;
+            transform: rotate(-0.5deg);
+        }
+
+        .contact-title {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .contact-text {
+            font-family: 'Kalam', cursive;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            font-family: 'Architects Daughter', cursive;
+            background: var(--paper-white);
+            color: var(--sketch-black);
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 3px solid var(--paper-white);
+            transform: rotate(1deg);
+        }
+
+        .contact-btn:nth-child(even) {
+            transform: rotate(-1deg);
+        }
+
+        .contact-btn:hover {
+            background: transparent;
+            color: var(--paper-white);
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 1rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+                padding: 2rem 1rem;
+            }
+
+            .hero-photo {
+                width: 250px;
+                height: 320px;
+            }
+
+            .story-section {
+                padding: 2rem 1rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .facts-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-methods {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px) rotate(0deg);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0) rotate(var(--random-rotation, 0.5deg));
+        }
+
+        /* Floating sketches */
+        .floating-sketch {
+            position: fixed;
+            font-size: 1.5rem;
+            opacity: 0.15;
+            animation: floatSketch 30s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .floating-sketch:nth-child(1) { top: 25%; right: 8%; animation-delay: 0s; }
+        .floating-sketch:nth-child(2) { top: 65%; left: 8%; animation-delay: 10s; }
+        .floating-sketch:nth-child(3) { top: 40%; right: 12%; animation-delay: 20s; }
+
+        @keyframes floatSketch {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-40px) rotate(15deg); }
+            50% { transform: translateY(-20px) rotate(-15deg); }
+            75% { transform: translateY(-50px) rotate(10deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating sketches -->
+    <div class="floating-sketch">✨</div>
+    <div class="floating-sketch">🎨</div>
+    <div class="floating-sketch">💭</div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">About Nikhil</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link active">About</a></li>
+                    <li><a href="research.html" class="nav-link">Research</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Hey there! 👋</h1>
+                <p class="hero-tagline">I'm someone who believes AI should make life better for everyone</p>
+                <p class="hero-description">
+                    I'm not just building algorithms - I'm sketching a future where technology understands 
+                    humans better, helps doctors save lives, and makes complex problems feel simple. 
+                    Whether it's teaching machines to see cancer before it spreads or building secure 
+                    systems for national research, I love turning "what if" moments into reality.
+                </p>
+            </div>
+            <div class="hero-photo-container">
+                <div class="hero-photo-frame">
+                    <img src="images/my_image.png" alt="Nikhil Sharma - Just being myself" class="hero-photo">
+                </div>
+                <p class="photo-caption">Just me, probably thinking about the next sketch! ✏️</p>
+            </div>
+        </section>
+
+        <!-- My Story -->
+        <section class="story-section reveal">
+            <h2 class="story-title">My Story (So Far...)</h2>
+            <div class="story-content">
+                <p>
+                    My journey into AI started with a simple question: "What if computers could help doctors spot diseases 
+                    faster?" During my undergrad, I spent countless hours in labs at IIT Delhi, working with real medical data 
+                    from AIIMS Hospital. Seeing how a small algorithm improvement could potentially help save lives - that's when 
+                    I knew this was more than just code to me.
+                </p>
+                <br>
+                <p>
+                    Fast forward through a pandemic (where I analyzed 10,000+ COVID genomes), some industry experience building 
+                    real products, and now here I am - pursuing my PhD at Illinois Tech while collaborating with Stanford on 
+                    some pretty cool (and classified!) research. Every day feels like sketching new possibilities!
+                </p>
+            </div>
+        </section>
+
+        <!-- What Drives Me -->
+        <section class="values-grid reveal">
+            <div class="value-card">
+                <span class="value-icon">🎯</span>
+                <h3 class="value-title">Purpose-Driven Research</h3>
+                <p class="value-description">
+                    Every line of code I write, every model I train, I ask: "Will this actually help someone?" 
+                    Whether it's a doctor trying to save a patient or a researcher working on the next breakthrough.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <span class="value-icon">🤝</span>
+                <h3 class="value-title">Collaboration Over Competition</h3>
+                <p class="value-description">
+                    The best ideas come from working together. I love mentoring students, learning from colleagues, 
+                    and building bridges between different fields and institutions.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <span class="value-icon">🔍</span>
+                <h3 class="value-title">Curious About Everything</h3>
+                <p class="value-description">
+                    Why do diffusion models work so well? How can we make AI more secure? What if sensors could dream? 
+                    I'm endlessly fascinated by the "why" behind the "what."
+                </p>
+            </div>
+
+            <div class="value-card">
+                <span class="value-icon">🌱</span>
+                <h3 class="value-title">Always Learning</h3>
+                <p class="value-description">
+                    From my students (who often teach me more than I teach them) to the latest papers, 
+                    to random conversations - I believe learning never stops.
+                </p>
+            </div>
+        </section>
+
+        <!-- Fun Facts -->
+        <section class="fun-facts reveal">
+            <h2>Random Sketches About Me</h2>
+            <div class="facts-grid">
+                <div class="fact-item">
+                    <span class="fact-emoji">☕</span>
+                    <p class="fact-text">I've probably consumed enough coffee to fuel a small research lab</p>
+                </div>
+                <div class="fact-item">
+                    <span class="fact-emoji">🧠</span>
+                    <p class="fact-text">I think in flowcharts and dream in neural network architectures</p>
+                </div>
+                <div class="fact-item">
+                    <span class="fact-emoji">🏆</span>
+                    <p class="fact-text">Won my first research award (ISMRM 2020) and still get excited about every achievement</p>
+                </div>
+                <div class="fact-item">
+                    <span class="fact-emoji">📚</span>
+                    <p class="fact-text">I read research papers like some people read novels - sometimes until 2 AM</p>
+                </div>
+                <div class="fact-item">
+                    <span class="fact-emoji">🎓</span>
+                    <p class="fact-text">Teaching 100+ grad students taught me that explaining things simply is the hardest skill</p>
+                </div>
+                <div class="fact-item">
+                    <span class="fact-emoji">🤖</span>
+                    <p class="fact-text">I name my models like pets - SSDL is my latest "baby"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy -->
+        <section class="quote-section reveal">
+            <p class="quote-text">
+                Technology should feel like magic to the people it helps, 
+                but never like a mystery to the people who need to trust it.
+            </p>
+            <p class="quote-attribution">- Something I remind myself daily</p>
+        </section>
+
+        <!-- What's Next -->
+        <section class="story-section reveal">
+            <h2 class="story-title">What's Next on My Sketch Pad?</h2>
+            <div class="story-content">
+                <p>
+                    I'm working on some exciting projects that I can't talk about yet (thanks, NSA compliance!), 
+                    but I'm also always looking for new collaborations. Whether you're a researcher with an 
+                    interesting problem, a company that needs AI solutions, or just someone curious about this field - 
+                    I'd love to chat!
+                </p>
+                <br>
+                <p>
+                    My goal? To graduate with a PhD that actually matters, launch some research that changes lives, 
+                    and maybe inspire a few more people to see AI as a tool for good rather than something to fear.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact-section" id="contact">
+            <h2 class="contact-title">Let's Sketch Something Together!</h2>
+            <p class="contact-text">
+                Whether you want to collaborate on research, need AI consulting, or just want to chat about 
+                the latest in machine learning over coffee - I'm always up for a good conversation!
+            </p>
+            <div class="contact-methods">
+                <a href="mailto:sharmanikhiljiit@gmail.com" class="contact-btn">
+                    ✉️ Drop me an email
+                </a>
+                <a href="https://linkedin.com/in/nikhilsharmaiit" class="contact-btn">
+                    💼 Connect on LinkedIn
+                </a>
+                <a href="https://scholar.google.com/citations?user=YOUR_ID" class="contact-btn">
+                    🎓 Google Scholar
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Scroll reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const randomRotations = ['-0.5deg', '0.3deg', '-0.8deg', '0.6deg', '-0.3deg', '0.4deg'];
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const randomRotation = randomRotations[Math.floor(Math.random() * randomRotations.length)];
+                    entry.target.style.setProperty('--random-rotation', randomRotation);
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with reveal class
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add hover effects to value cards
+        document.querySelectorAll('.value-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = card.style.transform.replace(/rotate\([^)]*\)/, '') + ' rotate(0deg) scale(1.05)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                const isEven = Array.from(card.parentNode.children).indexOf(card) % 2 === 0;
+                const rotation = isEven ? 'rotate(0.5deg)' : 'rotate(-0.5deg)';
+                card.style.transform = card.style.transform.replace(/rotate\([^)]*\)/, '').replace(/scale\([^)]*\)/, '') + ' ' + rotation;
+            });
+        });
+
+        // Fun facts hover effects
+        document.querySelectorAll('.fact-item').forEach(fact => {
+            fact.addEventListener('mouseenter', () => {
+                fact.style.transform = fact.style.transform.replace(/rotate\([^)]*\)/, '') + ' rotate(0deg) scale(1.1)';
+            });
+            
+            fact.addEventListener('mouseleave', () => {
+                const isEven = Array.from(fact.parentNode.children).indexOf(fact) % 2 === 0;
+                const rotation = isEven ? 'rotate(0.5deg)' : 'rotate(-0.5deg)';
+                fact.style.transform = fact.style.transform.replace(/rotate\([^)]*\)/, '').replace(/scale\([^)]*\)/, '') + ' ' + rotation;
+            });
+        });
+
+        // Smooth scrolling for contact link
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fun console message
+        console.log(`
+    👋✨ Hey! Thanks for checking out my about page! ✨👋
+    
+    If you made it this far, you're probably pretty cool.
+    Seriously though, I'd love to hear from you!
+    
+    Drop me a line: sharmanikhiljiit@gmail.com
+    
+    ~ Nikhil (the human behind the algorithms) 🤖❤️
+        `);
+    </script>
+</body>
+</html>
+

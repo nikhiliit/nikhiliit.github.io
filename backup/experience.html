@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience & Leadership - Nikhil Sharma</title>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@100;200;300;400;500;600;700;800;900&family=SF+Pro+Text:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-text: #1d1d1f;
+            --secondary-text: #86868b;
+            --accent-blue: #007aff;
+            --accent-purple: #5856d6;
+            --accent-green: #30d158;
+            --accent-orange: #ff9500;
+            --background-white: #ffffff;
+            --background-gray: #f5f5f7;
+            --background-dark: #1c1c1e;
+            --border-light: rgba(0, 0, 0, 0.08);
+            --shadow-light: rgba(0, 0, 0, 0.04);
+            --shadow-medium: rgba(0, 0, 0, 0.12);
+            --gradient-primary: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
+            --gradient-experience: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--background-white);
+            color: var(--primary-text);
+            line-height: 1.47059;
+            letter-spacing: -0.022em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: all 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+        }
+
+        .nav-container {
+            max-width: 1024px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 22px;
+            height: 44px;
+        }
+
+        .nav-logo {
+            font-family: 'SF Pro Display', sans-serif;
+            font-size: 21px;
+            font-weight: 600;
+            letter-spacing: 0.011em;
+            color: var(--primary-text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0;
+            list-style: none;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 0 21px;
+            color: var(--primary-text);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.33;
+            letter-spacing: -0.01em;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .nav-links a.active {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 44px 22px 0;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(103, 126, 234, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 75% 75%, rgba(118, 75, 162, 0.1) 0%, transparent 25%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 500px;
+            z-index: 2;
+        }
+
+        .hero-eyebrow {
+            font-family: 'SF Pro Display', sans-serif;
+            font-size: 19px;
+            line-height: 1.21;
+            font-weight: 600;
+            letter-spacing: 0.012em;
+            color: var(--accent-blue);
+            margin-bottom: 16px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-headline {
+            font-family: 'SF Pro Display', sans-serif;
+            font-size: 64px;
+            line-height: 1.05;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--primary-text) 0%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-subheadline {
+            font-family: 'SF Pro Display', sans-serif;
+            font-size: 28px;
+            line-height: 1.14;
+            font-weight: 400;
+            letter-spacing: 0.007em;
+            color: var(--secondary-text);
+            margin-bottom: 32px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-description {
+            font-size: 19px;
+            line-height: 1.42;
+            font-weight: 400;
+            letter-spacing: 0.012em;
+            color: var(--secondary-text);
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        /* Profile Visual */
+        .profile-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-container {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+
+        .profile-card {
+            width: 100%;
+            height: 100%;
+            background: var(--background-gray);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.5s ease;
+            border: 1px solid var(--border-light);
+        }
+
+        .profile-card:hover {
+            transform: scale(0.5);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+            border-radius: 24px 24px 0 0;
+        }
+
+        .profile-placeholder {
+            width: 100%;
+            height: 70%;
+            background: linear-gradient(135deg, #e5e5e7 0%, #d1d1d6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--secondary-text);
+            border-radius: 24px 24px 0 0;
+        }
+
+        .profile-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--background-white);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .profile-name {
+            font-family: 'SF Pro Display', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .profile-title {
+            font-size: 15px;
+            color: var(--secondary-text);
+        }
+
+        /* Experience Timeline */
+        .experience {
+            padding: 110px 0;
+            background: var(--background-gray);
+        }
+
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 0 22px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-eyebrow {
+            font-family: 'SF Pro Display', sans-serif;
+            font-size: 19px;
+            line-height: 1.21;
+            font-weight: 600;
+            letter-spacing: 0.012em;
+            color: var(--accent-blue);
+            margin-bottom: 16px;
+        }
+
+        .section-headline {
+            font-family: 'SF Pro Display', sans-serif;
+            font-size: 48px;
+            line-height: 1.08;
+            font-weight: 700;
+            letter-spacing: -0.003em;
+            margin-bottom: 20px;
+        }
+
+        .section-subheadline {
+            font-size: 21px;
+            line-height: 1.38;
+            font-weight: 400;
+            letter-spacing: 0.011em;
+            color: var(--secondary-text);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: var(--background-white);
+            border-radius: 18px;
+            padding: 32px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-light);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px var(--shadow-medium);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .timeline-title-group {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .timeline-date {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.2;
+            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
+            white-space: nowrap;
+        }
+
+        .position-title {
+            font-family: 'SF Pro Display', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .company-name {
+            color: var(--accent-blue);
+            font-weight: 600;
+            font-size: 17px;
+            margin-bottom: 16px;
+        }
+
+        .position-description {
+            font-size: 17px;
+            line-height: 1.47;
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+        }
+
+        .achievements {
+            list-style: none;
+        }
+
+        .achievements li {
+            font-size: 15px;
+            line-height: 1.47;
+            color: var(--secondary-text);
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .achievements li::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        .metrics-row {
+            display: flex;
+            gap: 24px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .metric {
+            text-align: center;
+            flex: 1;
+        }
+
+        .metric-value {
+            font-family: 'SF Pro Display', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            line-height: 1.2;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: var(--secondary-text);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 4px;
+        }
+
+        /* Teaching Section */
+        .teaching {
+            padding: 110px 0;
+            background: var(--background-white);
+        }
+
+        .teaching-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .teaching-card {
+            background: var(--background-gray);
+            border-radius: 18px;
+            padding: 32px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .teaching-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+        }
+
+        .teaching-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px var(--shadow-medium);
+        }
+
+        .teaching-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 14px 0 rgba(0, 122, 255, 0.25);
+        }
+
+        .teaching-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        .teaching-title {
+            font-family: 'SF Pro Display', sans-serif;
+            font-size: 24px;
+            line-height: 1.17;
+            font-weight: 700;
+            letter-spacing: 0.009em;
+            margin-bottom: 12px;
+        }
+
+        .teaching-description {
+            font-size: 17px;
+            line-height: 1.47;
+            color: var(--secondary-text);
+            margin-bottom: 24px;
+        }
+
+        .teaching-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding: 16px;
+            background: var(--background-white);
+            border-radius: 12px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'SF Pro Display', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--secondary-text);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 4px;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 110px 0;
+            background: var(--background-gray);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .skill-category {
+            background: var(--background-white);
+            border-radius: 18px;
+            padding: 32px;
+            border: 1px solid var(--border-light);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px var(--shadow-medium);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+        }
+
+        .skill-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .skill-title {
+            font-family: 'SF Pro Display', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        .skill-name {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .skill-level {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 110px 0;
+            background: var(--background-white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        .contact-card {
+            background: var(--background-gray);
+            border-radius: 18px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px var(--shadow-medium);
+        }
+
+        .contact-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 14px 0 rgba(0, 122, 255, 0.25);
+        }
+
+        .contact-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        .contact-title {
+            font-family: 'SF Pro Display', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .contact-description {
+            font-size: 15px;
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            line-height: 1.47;
+        }
+
+        .contact-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border: 1px solid var(--accent-blue);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .contact-link:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--background-gray);
+            padding: 60px 0 40px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .footer-content {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 0 22px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--secondary-text);
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-text);
+        }
+
+        .footer-text {
+            color: var(--secondary-text);
+            font-size: 12px;
+            line-height: 1.33;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                min-height: 80vh;
+            }
+
+            .hero-headline {
+                font-size: 48px;
+            }
+
+            .profile-section {
+                margin-top: 40px;
+            }
+
+            .profile-container {
+                width: 280px;
+                height: 280px;
+            }
+
+            @media (max-width: 768px) {
+                .timeline-header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .timeline-title-group {
+                    min-width: auto;
+                    width: 100%;
+                }
+
+                .timeline-date {
+                    align-self: flex-start;
+                }
+
+                .metrics-row {
+                    flex-direction: column;
+                    gap: 16px;
+                }
+            }
+
+            .section-headline {
+                font-size: 32px;
+            }
+
+            .teaching-grid,
+            .skills-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .metrics-row {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container, .nav-container, .footer-content {
+                padding: 0 16px;
+            }
+
+            .hero {
+                padding: 44px 16px 0;
+            }
+
+            .hero-headline {
+                font-size: 36px;
+            }
+
+            .timeline-content {
+                padding: 24px;
+            }
+
+            .teaching-card,
+            .skill-category,
+            .contact-card {
+                padding: 24px;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection */
+        ::selection {
+            background: rgba(0, 122, 255, 0.2);
+        }
+
+        /* Focus styles */
+        button:focus,
+        a:focus {
+            outline: 2px solid var(--accent-blue);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Nikhil Sharma</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="stanford-sprint.html" class="active">Stanford SPrinT</a></li>
+                <li><a href="cisco-robotics.html">Cisco Robotics</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-eyebrow">Teaching • Mentoring • Leading • Creating</div>
+            <h1 class="hero-headline">Experience & Leadership</h1>
+            <p class="hero-subheadline">From Research to Industry</p>
+            <p class="hero-description">
+                Passionate about advancing AI through collaborative research, teaching the next 
+                generation of ML engineers, and building secure, scalable AI systems that make 
+                a real-world impact.
+            </p>
+        </div>
+
+        <div class="profile-section">
+            <div class="profile-container">
+                <div class="profile-card">
+                    <!-- Option 1: Use this if you have a photo URL -->
+                    <img src="images/portfolio.jpg" alt="Nikhil Sharma" class="profile-image">
+                    
+                    <!-- Option 2: Current placeholder (remove this when you add your photo) -->
+                    <!-- <div class="profile-placeholder">
+                        <svg viewBox="0 0 24 24" style="width: 48px; height: 48px; fill: currentColor;">
+                            <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+                        </svg>
+                    </div> -->
+                    
+                    <div class="profile-overlay">
+                        <div class="profile-name">Nikhil Sharma</div>
+                        <div class="profile-title">PhD Candidate • ML Engineer • Research Leader</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section class="experience">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Professional Journey</div>
+                <h2 class="section-headline">Experience Timeline</h2>
+                <p class="section-subheadline">
+                    Journey through research, industry, and academic leadership.
+                </p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title-group">
+                            <h3 class="position-title">Research Collaborator - Stanford SPrinT Program</h3>
+                            <div class="company-name">Stanford University (Hybrid)</div>
+                        </div>
+                        <div class="timeline-date">Aug 2023<br>Present</div>
+                    </div>
+                    <p class="position-description">
+                        Leading development of secure, low-latency edge-based inference systems for real-time 
+                        mouse behavior tracking in a federally funded neuroscience research program.
+                    </p>
+                    <ul class="achievements">
+                        <li>Built secure edge inference device achieving &lt;10ms latency for real-time behavior tracking</li>
+                        <li>Deployed scalable multimodal ML models on AWS with full NSA compliance protocols</li>
+                        <li>Collaborated with cross-functional neuroscience teams on confidential pipeline design</li>
+                        <li>Contributed to core architecture for federally regulated research environment</li>
+                    </ul>
+                    <div class="metrics-row">
+                        <div class="metric">
+                            <div class="metric-value">&lt;10ms</div>
+                            <div class="metric-label">Latency</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">100%</div>
+                            <div class="metric-label">Compliance</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">AWS</div>
+                            <div class="metric-label">Deployed</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title-group">
+                            <h3 class="position-title">Research Assistant & Teaching Assistant</h3>
+                            <div class="company-name">Illinois Institute of Technology</div>
+                        </div>
+                        <div class="timeline-date">Aug 2023<br>May 2025</div>
+                    </div>
+                    <p class="position-description">
+                        Leading research in multimodal learning and foundation models while teaching 
+                        graduate-level courses and mentoring students.
+                    </p>
+                    <ul class="achievements">
+                        <li>Led research under Prof. Yan Yan on SOTA multimodal learning with 2 publications</li>
+                        <li>Taught lab sessions for 100+ students in graduate-level Deep Learning and Computer Vision</li>
+                        <li>Mentored 3 undergraduate and 2 MS students on research projects</li>
+                        <li>Achieved 4.8/5 teaching rating with innovative lab exercises and project guidance</li>
+                    </ul>
+                    <div class="metrics-row">
+                        <div class="metric">
+                            <div class="metric-value">100+</div>
+                            <div class="metric-label">Students</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">2</div>
+                            <div class="metric-label">Publications</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">4.8/5</div>
+                            <div class="metric-label">Rating</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title-group">
+                            <h3 class="position-title">Machine Learning Engineer</h3>
+                            <div class="company-name">Matdun Labs India Pvt. Ltd., Hyderabad</div>
+                        </div>
+                        <div class="timeline-date">Nov 2021<br>Apr 2023</div>
+                    </div>
+                    <p class="position-description">
+                        Built production-ready computer vision systems for real-time applications, 
+                        focusing on human pose detection and face recognition with optimized deployment.
+                    </p>
+                    <ul class="achievements">
+                        <li>Developed human pose detection systems achieving 92% accuracy for real-time CV applications</li>
+                        <li>Optimized model inference reducing processing time by 40% while maintaining accuracy</li>
+                        <li>Implemented MLOps workflows with automated testing, deployment, and monitoring</li>
+                        <li>Led technical implementation of autonomous face detection for "Chabee" product launch</li>
+                    </ul>
+                    <div class="metrics-row">
+                        <div class="metric">
+                            <div class="metric-value">92%</div>
+                            <div class="metric-label">Accuracy</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">40%</div>
+                            <div class="metric-label">Speed ↑</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Production</div>
+                            <div class="metric-label">Deployed</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title-group">
+                            <h3 class="position-title">COVID-19 Research Scientist</h3>
+                            <div class="company-name">Government of India - SERB Funded Project</div>
+                        </div>
+                        <div class="timeline-date">May 2020<br>Sep 2022</div>
+                    </div>
+                    <p class="position-description">
+                        Led computational biology research on SARS-CoV-2 genomic analysis under the government-funded 
+                        project "In Silico Analysis of 10000 Genomic Sequences of COVID-19 around the World including India" 
+                        (Project No.: CVD/2020/000991) supported by SERB-DST.
+                    </p>
+                    <ul class="achievements">
+                        <li>Analyzed 10,000+ SARS-CoV-2 genomic sequences to identify genetic variability and viral strains</li>
+                        <li>Developed machine learning models for coronavirus prediction from pathogenic virus sequences</li>
+                        <li>Identified potential molecular targets and epitopes for synthetic vaccine development</li>
+                        <li>Co-authored 12+ publications in high-impact journals on COVID-19 genomics and bioinformatics</li>
+                        <li>Conducted protein-protein interaction analysis for virus-host target identification</li>
+                        <li>Applied SNP analysis and miRNA regulatory network modeling for comprehensive viral understanding</li>
+                    </ul>
+                    <div class="metrics-row">
+                        <div class="metric">
+                            <div class="metric-value">10K+</div>
+                            <div class="metric-label">Genomes</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">12+</div>
+                            <div class="metric-label">Publications</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Gov Funded</div>
+                            <div class="metric-label">SERB-DST</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title-group">
+                            <h3 class="position-title">Research Assistant - Medical AI</h3>
+                            <div class="company-name">IIT Delhi & AIIMS Delhi</div>
+                        </div>
+                        <div class="timeline-date">Jun 2019<br>Aug 2023</div>
+                    </div>
+                    <p class="position-description">
+                        Conducted advanced medical imaging research focusing on osteosarcoma analysis and 3D lung nodule 
+                        segmentation using deep learning techniques for clinical applications.
+                    </p>
+                    <ul class="achievements">
+                        <li>Developed deep learning models for osteosarcoma detection and prognosis prediction from medical imaging</li>
+                        <li>Implemented 3D lung nodule segmentation algorithms using adaptive region-growing techniques</li>
+                        <li>Collaborated with medical professionals at AIIMS Delhi for clinical validation of AI models</li>
+                        <li>Published research in high-impact medical journals including Journal of Computer Assisted Tomography</li>
+                        <li>Achieved significant improvements in automated medical image analysis accuracy and efficiency</li>
+                        <li>Contributed to T1 mapping techniques for chemotherapy response evaluation in cancer patients</li>
+                    </ul>
+                    <div class="metrics-row">
+                        <div class="metric">
+                            <div class="metric-value">3D</div>
+                            <div class="metric-label">Segmentation</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Clinical</div>
+                            <div class="metric-label">Validated</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Medical AI</div>
+                            <div class="metric-label">Expertise</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaching & Mentorship -->
+    <section class="teaching">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Academic Leadership</div>
+                <h2 class="section-headline">Teaching & Mentorship</h2>
+                <p class="section-subheadline">
+                    Empowering the next generation of AI researchers and engineers.
+                </p>
+            </div>
+
+            <div class="teaching-grid">
+                <div class="teaching-card">
+                    <div class="teaching-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="teaching-title">Graduate Course Instruction</h3>
+                    <p class="teaching-description">
+                        Teaching Assistant for Deep Learning & Computer Vision courses at Illinois Tech, 
+                        designing lab exercises and mentoring students on PyTorch, CNNs, and advanced ML concepts.
+                    </p>
+                    <div class="teaching-stats">
+                        <div class="stat">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">Students</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Courses</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">4.8/5</div>
+                            <div class="stat-label">Rating</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teaching-card">
+                    <div class="teaching-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="teaching-title">Research Mentorship</h3>
+                    <p class="teaching-description">
+                        Mentored 5+ students across Bachelor's and Master's levels on applied ML projects 
+                        in activity recognition, pose estimation, and model interpretability.
+                    </p>
+                    <div class="teaching-stats">
+                        <div class="stat">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-label">Mentored</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Publications</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teaching-card">
+                    <div class="teaching-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M16,4C18.11,4 19.8,5.69 19.8,7.8C19.8,8.88 19.39,9.85 18.72,10.56L14.66,14.61L9.34,14.61L5.28,10.56C4.61,9.85 4.2,8.88 4.2,7.8C4.2,5.69 5.89,4 8,4C9.11,4 10.08,4.41 10.79,5.08L12,6.29L13.21,5.08C13.92,4.41 14.89,4 16,4Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="teaching-title">Research Leadership</h3>
+                    <p class="teaching-description">
+                        Leading collaborative research projects with international institutions and 
+                        guiding cross-functional teams in AI development and deployment.
+                    </p>
+                    <div class="teaching-stats">
+                        <div class="stat">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Collaborations</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">$500K+</div>
+                            <div class="stat-label">Funding</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Publications</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Expertise -->
+    <section class="skills">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Technical Expertise</div>
+                <h2 class="section-headline">Skills & Technologies</h2>
+                <p class="section-subheadline">
+                    Deep expertise across the full machine learning and AI development stack.
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22A1,1 0 0,1 23,15V18A1,1 0 0,1 22,19H21V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V19H2A1,1 0 0,1 1,18V15A1,1 0 0,1 2,14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2M7.5,13A2.5,2.5 0 0,0 5,15.5A2.5,2.5 0 0,0 7.5,18A2.5,2.5 0 0,0 10,15.5A2.5,2.5 0 0,0 7.5,13M16.5,13A2.5,2.5 0 0,0 14,15.5A2.5,2.5 0 0,0 16.5,18A2.5,2.5 0 0,0 19,15.5A2.5,2.5 0 0,0 16.5,13Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="skill-title">Machine Learning & AI</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Deep Learning (PyTorch, TensorFlow)</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Computer Vision</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Diffusion Models</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Multimodal Learning</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Human Activity Recognition</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8,3A2,2 0 0,0 6,5V9A2,2 0 0,1 4,11H3V13H4A2,2 0 0,1 6,15V19A2,2 0 0,0 8,21H10V19H8V14A2,2 0 0,0 6,12A2,2 0 0,0 8,10V5H10V3M16,3A2,2 0 0,1 18,5V9A2,2 0 0,0 20,11H21V13H20A2,2 0 0,0 18,15V19A2,2 0 0,1 16,21H14V19H16V14A2,2 0 0,1 18,12A2,2 0 0,1 16,10V5H14V3H16Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="skill-title">Software Engineering</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Python (NumPy, Pandas, Scikit-learn)</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">CUDA Programming</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Git & Version Control</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Docker & Containerization</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="skill-title">Cloud & Infrastructure</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">AWS (EC2, S3, Lambda, SageMaker)</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Edge Computing & IoT</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">MLOps & Model Deployment</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Linux/Unix Systems</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Security & Compliance</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5,3H7V5H5V10A2,2 0 0,1 3,12A2,2 0 0,1 5,14V19H7V21H5C3.93,20.73 3,20.1 3,19V15A2,2 0 0,0 1,13H0V11H1A2,2 0 0,0 3,9V5C3,4.1 3.1,3.27 5,3M19,3C20.1,3.27 21,3.9 21,5V9A2,2 0 0,0 23,11H24V13H23A2,2 0 0,0 21,15V19C21,19.9 20.9,20.73 19,21H17V19H19V14A2,2 0 0,1 21,12A2,2 0 0,1 19,10V5H17V3H19Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="skill-title">Research & Analytics</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Statistical Analysis & Modeling</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Data Visualization (Matplotlib, Seaborn)</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Academic Writing & Publications</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Experimental Design</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Peer Review & Editorial</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Let's Connect</div>
+                <h2 class="section-headline">Get in Touch</h2>
+                <p class="section-subheadline">
+                    Ready to collaborate on cutting-edge AI research and development.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="contact-title">Email</h3>
+                    <p class="contact-description">
+                        For research collaborations, consulting opportunities, or academic discussions.
+                    </p>
+                    <a href="mailto:sharmanikhiljiit@gmail.com" class="contact-link">sharmanikhiljiit@gmail.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19M18.5,18.5V13.2A3.26,3.26 0 0,0 15.24,9.94C14.39,9.94 13.4,10.46 12.92,11.24V10.13H10.13V18.5H12.92V13.57C12.92,12.8 13.54,12.17 14.31,12.17A1.4,1.4 0 0,1 15.71,13.57V18.5H18.5M6.88,8.56A1.68,1.68 0 0,0 8.56,6.88C8.56,5.95 7.81,5.19 6.88,5.19A1.69,1.69 0 0,0 5.19,6.88C5.19,7.81 5.95,8.56 6.88,8.56M8.27,18.5V10.13H5.5V18.5H8.27Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="contact-title">LinkedIn</h3>
+                    <p class="contact-description">
+                        Connect professionally and stay updated on my latest research and industry work.
+                    </p>
+                    <a href="https://linkedin.com/in/nikhil-sharma-jiit" class="contact-link" target="_blank">Connect</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="contact-title">GitHub</h3>
+                    <p class="contact-description">
+                        Explore my code repositories, research implementations, and open-source contributions.
+                    </p>
+                    <a href="https://github.com/nikhiliit" class="contact-link" target="_blank">View Code</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="contact-title">Google Scholar</h3>
+                    <p class="contact-description">
+                        Access my complete publication list, research metrics, and citation information.
+                    </p>
+                    <a href="https://scholar.google.com/citations?user=Von4NncAAAAJ&hl=en" class="contact-link" target="_blank">Publications</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="mailto:sharmanikhiljiit@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/nikhil-sharma-jiit/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/nikhiliit" target="_blank">GitHub</a>
+                <a href="https://scholar.google.com/citations?user=Von4NncAAAAJ&hl=en" target="_blank">Google Scholar</a>
+            </div>
+            <div class="footer-text">
+                Copyright © 2025 Nikhil Sharma. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll behavior for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 44; // Account for fixed nav
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Enhanced navbar scroll effect
+        let lastScrollY = window.scrollY;
+        const nav = document.querySelector('.nav');
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.9)';
+                nav.style.borderBottom = '1px solid rgba(0, 0, 0, 0.12)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.8)';
+                nav.style.borderBottom = '1px solid rgba(0, 0, 0, 0.08)';
+            }
+
+            // Hide/show nav on scroll direction
+            if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // Intersection Observer for timeline animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe timeline items and cards
+        document.querySelectorAll('.timeline-item, .teaching-card, .skill-category, .contact-card').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            timelineObserver.observe(item);
+        });
+
+        // Profile card interaction
+        const profileCard = document.querySelector('.profile-card');
+        if (profileCard) {
+            profileCard.addEventListener('mousemove', (e) => {
+                const rect = profileCard.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                profileCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+            
+            profileCard.addEventListener('mouseleave', () => {
+                profileCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+            });
+        }
+
+        // Add loading state
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        // Preload critical resources
+        const preloadLink = document.createElement('link');
+        preloadLink.rel = 'preload';
+        preloadLink.href = 'https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@100;200;300;400;500;600;700;800;900&family=SF+Pro+Text:wght@300;400;500;600&display=swap';
+        preloadLink.as = 'style';
+        document.head.appendChild(preloadLink);
+    </script>
+</body>
+</html>
