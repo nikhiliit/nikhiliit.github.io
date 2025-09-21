@@ -4,1399 +4,1000 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cisco Robotics Research - Nikhil Sharma</title>
-    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@100;200;300;400;500;600;700;800;900&family=SF+Pro+Text:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-text: #1d1d1f;
-            --secondary-text: #86868b;
-            --accent-blue: #007aff;
-            --accent-cisco: #1ba0d7;
-            --accent-green: #30d158;
-            --background-white: #ffffff;
-            --background-gray: #f5f5f7;
-            --background-dark: #1c1c1e;
-            --border-light: rgba(0, 0, 0, 0.08);
-            --shadow-light: rgba(0, 0, 0, 0.04);
-            --shadow-medium: rgba(0, 0, 0, 0.12);
-            --gradient-cisco: linear-gradient(135deg, #1ba0d7 0%, #0d7ba7 100%);
-            --gradient-success: linear-gradient(135deg, #30d158 0%, #28a745 100%);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--background-white);
-            color: var(--primary-text);
-            line-height: 1.47059;
-            letter-spacing: -0.022em;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        :root {
+            --industrial-black: #0a0a0a;
+            --cisco-blue: #1ba0d7;
+            --robot-orange: #ff6b35;
+            --tech-green: #00d084;
+            --cyber-purple: #6c5ce7;
+            --steel-gray: #2d3436;
+            --text-light: #f0f0f0;
+            --text-dim: #b0b0b0;
+            --border-tech: rgba(27, 160, 215, 0.3);
+            --glow-blue: rgba(27, 160, 215, 0.6);
+            --glow-orange: rgba(255, 107, 53, 0.5);
         }
 
-        /* Navigation */
-        .nav {
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--industrial-black);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Industrial Background */
+        .industrial-bg {
             position: fixed;
             top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid var(--border-light);
-            z-index: 1000;
-            transition: all 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(27, 160, 215, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 107, 53, 0.08) 0%, transparent 50%);
         }
 
-        .nav-container {
-            max-width: 1024px;
-            margin: 0 auto;
+        /* Mechanical Grid Pattern */
+        .mech-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.1;
+            background-image: 
+                linear-gradient(rgba(27, 160, 215, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(27, 160, 215, 0.3) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: gridShift 20s linear infinite;
+        }
+
+        @keyframes gridShift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(30px, 30px); }
+        }
+
+        /* Floating Circuit Elements */
+        .circuit-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .circuit-element {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--cisco-blue);
+            border-radius: 2px;
+            box-shadow: 0 0 12px var(--cisco-blue);
+            animation: circuitFloat 15s linear infinite;
+        }
+
+        @keyframes circuitFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                transform: translateY(-10vh) translateX(50px) rotate(180deg);
+                opacity: 0;
+            }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid var(--cisco-blue);
+            padding: 1rem 2rem;
+        }
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 22px;
-            height: 44px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .nav-logo {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 21px;
-            font-weight: 600;
-            letter-spacing: 0.011em;
-            color: var(--primary-text);
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--cisco-blue), var(--tech-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-decoration: none;
         }
 
-        .nav-links {
+        .cisco-badge {
+            background: var(--cisco-blue);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            animation: techPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes techPulse {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(27, 160, 215, 0.4);
+            }
+            50% { 
+                box-shadow: 0 0 30px rgba(27, 160, 215, 0.8);
+            }
+        }
+
+        .nav-menu {
             display: flex;
-            gap: 0;
+            gap: 2rem;
             list-style: none;
         }
 
-        .nav-links li {
-            position: relative;
-        }
-
-        .nav-links a {
-            display: block;
-            padding: 0 21px;
-            color: var(--primary-text);
+        .nav-link {
+            color: var(--text-dim);
             text-decoration: none;
-            font-size: 12px;
-            font-weight: 400;
-            line-height: 1.33;
-            letter-spacing: -0.01em;
-            transition: opacity 0.3s ease;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
         }
 
-        .nav-links a:hover {
-            opacity: 0.8;
+        .nav-link:hover, .nav-link.active {
+            color: var(--cisco-blue);
+            background: rgba(27, 160, 215, 0.1);
         }
 
-        .nav-links a.active {
-            opacity: 0.8;
+        /* Main Content */
+        .main-content {
+            padding-top: 6rem;
+            min-height: 100vh;
         }
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding: 4rem 2rem;
             text-align: center;
-            background: var(--background-white);
-            padding: 44px 22px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 25% 25%, rgba(27, 160, 215, 0.08) 0%, transparent 30%),
-                radial-gradient(circle at 75% 75%, rgba(48, 209, 88, 0.06) 0%, transparent 30%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            max-width: 692px;
+            max-width: 1200px;
             margin: 0 auto;
-            z-index: 2;
             position: relative;
-        }
-
-        .cisco-logo {
-            width: 120px;
-            height: 120px;
-            background: var(--gradient-cisco);
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 32px;
-            box-shadow: 0 8px 32px rgba(27, 160, 215, 0.3);
-            animation: fadeInScale 1s ease;
-        }
-
-        .cisco-logo svg {
-            width: 60px;
-            height: 60px;
-            fill: white;
         }
 
         .hero-badge {
-            background: rgba(27, 160, 215, 0.1);
-            border: 2px solid var(--accent-cisco);
-            color: var(--accent-cisco);
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 20px;
-            animation: fadeInUp 0.8s ease 0.2s both;
-            letter-spacing: 0.06em;
+            background: rgba(255, 107, 53, 0.1);
+            border: 2px solid var(--robot-orange);
+            border-radius: 2rem;
+            padding: 1rem 2rem;
+            margin-bottom: 2rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--robot-orange);
+            display: inline-block;
+            animation: roboticGlow 3s ease-in-out infinite alternate;
         }
 
-        .hero-headline {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 80px;
-            line-height: 1.05;
-            font-weight: 700;
-            letter-spacing: -0.015em;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, var(--primary-text) 0%, var(--accent-cisco) 100%);
+        @keyframes roboticGlow {
+            from { 
+                box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+                border-color: var(--robot-orange);
+            }
+            to { 
+                box-shadow: 0 0 40px rgba(255, 107, 53, 0.6);
+                border-color: #ff8844;
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(
+                45deg,
+                var(--cisco-blue) 0%,
+                var(--text-light) 30%,
+                var(--robot-orange) 70%,
+                var(--tech-green) 100%
+            );
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 0.8s ease 0.4s both;
+            animation: titleProcess 4s ease-in-out infinite alternate;
         }
 
-        .hero-subheadline {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 28px;
-            line-height: 1.14;
-            font-weight: 400;
-            letter-spacing: 0.007em;
-            color: var(--secondary-text);
-            margin-bottom: 40px;
-            animation: fadeInUp 0.8s ease 0.6s both;
+        @keyframes titleProcess {
+            0% { 
+                text-shadow: 0 0 30px rgba(27, 160, 215, 0.5);
+                transform: scale(1);
+            }
+            100% { 
+                text-shadow: 0 0 40px rgba(255, 107, 53, 0.5);
+                transform: scale(1.02);
+            }
         }
 
-        .hero-description {
-            font-size: 21px;
-            line-height: 1.38;
-            font-weight: 400;
-            letter-spacing: 0.011em;
-            color: var(--secondary-text);
-            margin-bottom: 40px;
-            max-width: 600px;
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-dim);
+            margin-bottom: 3rem;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            animation: fadeInUp 0.8s ease 0.8s both;
         }
 
-        .publication-badge {
-            background: var(--gradient-success);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-weight: 600;
+        .published-badge {
+            background: linear-gradient(45deg, var(--tech-green), var(--cisco-blue));
+            color: var(--text-light);
+            padding: 1rem 2rem;
+            border-radius: 2rem;
+            font-weight: 700;
             text-decoration: none;
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 2rem;
             transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease 1s both;
-            box-shadow: 0 4px 14px 0 rgba(48, 209, 88, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 208, 132, 0.3);
         }
 
-        .publication-badge:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px 0 rgba(48, 209, 88, 0.4);
+        .published-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 208, 132, 0.4);
         }
 
         /* Performance Metrics */
-        .performance-metrics {
-            padding: 80px 0;
-            background: var(--background-gray);
-        }
-
-        .container {
-            max-width: 1024px;
-            margin: 0 auto;
-            padding: 0 22px;
-        }
-
-        .metrics-grid {
+        .performance-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .perf-metric {
+            background: rgba(45, 52, 54, 0.6);
+            border: 2px solid var(--border-tech);
+            border-radius: 1rem;
+            padding: 2rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
         }
 
-        .metric-item {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+        .perf-metric::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(27, 160, 215, 0.1), transparent);
+            animation: techScan 4s linear infinite;
         }
 
-        .metric-item.visible {
-            opacity: 1;
-            transform: translateY(0);
+        @keyframes techScan {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
 
-        .metric-number {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 48px;
-            line-height: 1.03;
-            font-weight: 700;
-            letter-spacing: -0.009em;
-            color: var(--accent-cisco);
-            margin-bottom: 8px;
-            display: block;
+        .perf-metric:hover {
+            border-color: var(--cisco-blue);
+            box-shadow: 0 0 40px rgba(27, 160, 215, 0.3);
+            transform: translateY(-8px);
+        }
+
+        .metric-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--robot-orange);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--tech-green);
+            font-family: 'Space Mono', monospace;
+            margin-bottom: 0.5rem;
         }
 
         .metric-improvement {
-            color: var(--accent-green);
-            font-size: 36px;
+            color: var(--cisco-blue);
         }
 
         .metric-label {
-            font-size: 17px;
-            line-height: 1.47;
-            color: var(--secondary-text);
-            font-weight: 400;
-        }
-
-        /* Technical Innovation */
-        .innovation {
-            padding: 110px 0;
-            background: var(--background-white);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-eyebrow {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 19px;
-            line-height: 1.21;
-            font-weight: 600;
-            letter-spacing: 0.012em;
-            color: var(--accent-cisco);
-            margin-bottom: 16px;
-        }
-
-        .section-headline {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 48px;
-            line-height: 1.08;
-            font-weight: 700;
-            letter-spacing: -0.003em;
-            margin-bottom: 20px;
-        }
-
-        .section-subheadline {
-            font-size: 21px;
-            line-height: 1.38;
-            font-weight: 400;
-            letter-spacing: 0.011em;
-            color: var(--secondary-text);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .innovation-showcase {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-            margin-bottom: 80px;
-        }
-
-        .innovation-visual {
-            position: relative;
-        }
-
-        .innovation-diagram {
-            width: 100%;
-            height: 400px;
-            background: var(--background-gray);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--border-light);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .innovation-diagram img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-        }
-
-        .diagram-overlay {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            background: rgba(27, 160, 215, 0.1);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(27, 160, 215, 0.2);
-        }
-
-        .diagram-content {
-            text-align: center;
-            color: var(--primary-text);
-        }
-
-        .diagram-title {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .diagram-subtitle {
-            font-size: 17px;
-            color: var(--secondary-text);
-        }
-
-        .innovation-content {
-            max-width: 500px;
-        }
-
-        .innovation-title {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 40px;
-            line-height: 1.1;
-            font-weight: 700;
-            letter-spacing: -0.003em;
-            margin-bottom: 20px;
-        }
-
-        .innovation-description {
-            font-size: 19px;
-            line-height: 1.42;
-            color: var(--secondary-text);
-            margin-bottom: 32px;
-        }
-
-        .innovation-features {
-            list-style: none;
-        }
-
-        .innovation-features li {
-            font-size: 17px;
-            line-height: 1.47;
-            color: var(--secondary-text);
-            margin-bottom: 12px;
-            padding-left: 28px;
-            position: relative;
-        }
-
-        .innovation-features li::before {
-            content: '●';
-            position: absolute;
-            left: 0;
-            color: var(--accent-cisco);
-            font-weight: bold;
-            font-size: 20px;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         /* SSDL Architecture */
-        .ssdl-architecture {
-            padding: 110px 0;
-            background: var(--background-gray);
+        .architecture-section {
+            background: rgba(45, 52, 54, 0.3);
+            margin: 4rem 0;
+            padding: 4rem 2rem;
+            border-top: 3px solid var(--cisco-blue);
+            border-bottom: 3px solid var(--robot-orange);
         }
 
-        .architecture-diagram {
-            background: var(--background-white);
-            border-radius: 20px;
-            padding: 48px;
-            border: 1px solid var(--border-light);
-            margin-bottom: 40px;
+        .arch-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .arch-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--cisco-blue);
+            font-family: 'Space Mono', monospace;
+        }
+
+        .ssdl-pipeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .pipeline-stage {
+            background: rgba(27, 160, 215, 0.05);
+            border: 2px solid var(--border-tech);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        .pipeline-stage:hover {
+            border-color: var(--cisco-blue);
+            box-shadow: 0 15px 40px rgba(27, 160, 215, 0.2);
+            transform: scale(1.05);
+        }
+
+        .stage-number {
+            background: var(--cisco-blue);
+            color: var(--text-light);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 0 auto 1rem;
+            box-shadow: 0 0 20px rgba(27, 160, 215, 0.4);
+        }
+
+        .stage-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .stage-description {
+            color: var(--text-dim);
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Innovation Showcase */
+        .innovation-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .innovation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .innovation-card {
+            background: rgba(45, 52, 54, 0.6);
+            border: 2px solid transparent;
+            border-radius: 2rem;
+            padding: 3rem;
             position: relative;
             overflow: hidden;
+            transition: all 0.5s ease;
         }
 
-        .architecture-diagram::before {
+        .innovation-card::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             height: 4px;
-            background: var(--gradient-cisco);
-        }
-
-        .diagram-title {
-            text-align: center;
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 40px;
-        }
-
-        .flow-diagram {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-            align-items: center;
-        }
-
-        .flow-step {
-            background: var(--gradient-cisco);
-            color: white;
-            padding: 24px 20px;
-            border-radius: 16px;
-            text-align: center;
-            position: relative;
+            background: linear-gradient(90deg, var(--cisco-blue), var(--robot-orange), var(--tech-green));
+            transform: scaleX(0);
             transition: transform 0.3s ease;
         }
 
-        .flow-step:hover {
-            transform: translateY(-4px);
+        .innovation-card:hover::after {
+            transform: scaleX(1);
         }
 
-        .step-number {
-            background: rgba(255, 255, 255, 0.2);
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
+        .innovation-card:hover {
+            border-color: var(--cisco-blue);
+            box-shadow: 0 25px 60px rgba(27, 160, 215, 0.2);
+            transform: translateY(-10px);
+        }
+
+        .inno-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, var(--cisco-blue), var(--robot-orange));
+            border-radius: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 12px;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 30px rgba(27, 160, 215, 0.4);
+        }
+
+        .inno-title {
+            font-size: 1.6rem;
             font-weight: 700;
-            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 1rem;
         }
 
-        .step-title {
-            font-family: 'SF Pro Display', sans-serif;
-            font-weight: 600;
-            font-size: 17px;
-            margin-bottom: 8px;
+        .inno-description {
+            color: var(--text-dim);
+            line-height: 1.7;
+            margin-bottom: 2rem;
         }
 
-        .step-description {
-            font-size: 14px;
-            opacity: 0.9;
-            line-height: 1.4;
+        .tech-features {
+            list-style: none;
         }
 
-        /* Results Section */
-        .results {
-            padding: 110px 0;
-            background: var(--background-white);
-        }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
-        }
-
-        .result-card {
-            background: var(--background-gray);
-            border-radius: 18px;
-            padding: 32px;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        .tech-features li {
+            color: var(--text-dim);
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
             position: relative;
-            text-align: center;
         }
 
-        .result-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -12px var(--shadow-medium);
-        }
-
-        .result-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--gradient-cisco);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-        }
-
-        .result-icon svg {
-            width: 32px;
-            height: 32px;
-            fill: white;
-        }
-
-        .result-number {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--accent-cisco);
-            margin-bottom: 8px;
-        }
-
-        .result-improvement {
-            color: var(--accent-green);
-        }
-
-        .result-label {
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .result-description {
-            font-size: 15px;
-            line-height: 1.47;
-            color: var(--secondary-text);
+        .tech-features li::before {
+            content: '⚙️';
+            position: absolute;
+            left: 0;
+            color: var(--cisco-blue);
         }
 
         /* Publication Section */
-        .publication {
-            padding: 110px 0;
-            background: var(--gradient-cisco);
-            color: white;
+        .publication-section {
+            background: linear-gradient(135deg, var(--cisco-blue) 0%, var(--tech-green) 100%);
+            color: var(--text-light);
+            padding: 4rem 2rem;
             text-align: center;
         }
 
-        .publication-content {
-            max-width: 800px;
+        .pub-container {
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .publication-headline {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 48px;
-            line-height: 1.08;
-            font-weight: 700;
-            letter-spacing: -0.003em;
-            margin-bottom: 24px;
+        .pub-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
         }
 
-        .publication-venue {
+        .pub-venue {
             background: rgba(255, 255, 255, 0.2);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
+            padding: 0.8rem 2rem;
+            border-radius: 2rem;
             font-weight: 600;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
             display: inline-block;
-            margin-bottom: 24px;
+            margin-bottom: 2rem;
+            font-family: 'Space Mono', monospace;
         }
 
-        .publication-title {
-            font-size: 28px;
-            line-height: 1.14;
-            font-weight: 600;
-            margin-bottom: 16px;
-            opacity: 0.95;
-        }
-
-        .publication-authors {
-            font-size: 19px;
-            line-height: 1.42;
-            opacity: 0.8;
-            margin-bottom: 32px;
-        }
-
-        .publication-abstract {
-            font-size: 21px;
-            line-height: 1.38;
+        .pub-abstract {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 3rem;
             opacity: 0.9;
-            margin-bottom: 40px;
             font-style: italic;
         }
 
-        .publication-links {
+        .pub-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 2rem;
             flex-wrap: wrap;
         }
 
-        .pub-link {
-            background: white;
-            color: var(--accent-cisco);
-            padding: 12px 24px;
-            border-radius: 980px;
+        .pub-btn {
+            background: var(--text-light);
+            color: var(--cisco-blue);
+            padding: 1rem 2rem;
+            border-radius: 2rem;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.5rem;
         }
 
-        .pub-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+        .pub-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
         }
 
-        .pub-link svg {
-            width: 16px;
-            height: 16px;
-            fill: currentColor;
+        /* Collaboration Section */
+        .collaboration-section {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            text-align: center;
         }
 
-        /* Team Collaboration */
-        .collaboration {
-            padding: 110px 0;
-            background: var(--background-gray);
+        .collab-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, var(--cisco-blue), var(--robot-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .collaboration-content {
+        .collab-description {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            line-height: 1.7;
+            margin-bottom: 3rem;
+        }
+
+        .partners-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
 
-        .collaboration-text {
-            max-width: 500px;
+        .partner-card {
+            background: rgba(45, 52, 54, 0.6);
+            border: 2px solid var(--border-tech);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
         }
 
-        .collaboration-title {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 40px;
-            line-height: 1.1;
-            font-weight: 700;
-            letter-spacing: -0.003em;
-            margin-bottom: 20px;
-        }
-
-        .collaboration-description {
-            font-size: 19px;
-            line-height: 1.42;
-            color: var(--secondary-text);
-            margin-bottom: 32px;
-        }
-
-        .collaboration-partners {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .partner {
-            display: flex;
-            align-items: center;
-            gap: 16px;
+        .partner-card:hover {
+            border-color: var(--cisco-blue);
+            transform: translateY(-5px);
         }
 
         .partner-logo {
-            width: 48px;
-            height: 48px;
-            background: var(--gradient-cisco);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .partner-logo svg {
-            width: 24px;
-            height: 24px;
-            fill: white;
-        }
-
-        .partner-info {
-            flex: 1;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--cisco-blue);
         }
 
         .partner-name {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 2px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
         }
 
         .partner-role {
-            font-size: 15px;
-            color: var(--secondary-text);
-        }
-
-        .collaboration-visual {
-            position: relative;
-        }
-
-        .collaboration-photo {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .photo-caption {
-            text-align: center;
-            font-size: 15px;
-            color: var(--secondary-text);
-            margin-top: 16px;
-            font-style: italic;
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 80px 0;
-            background: var(--background-white);
-            text-align: center;
-        }
-
-        .cta-content {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .cta-headline {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .cta-description {
-            font-size: 19px;
-            line-height: 1.42;
-            color: var(--secondary-text);
-            margin-bottom: 32px;
-        }
-
-        .btn-primary {
-            background: var(--accent-blue);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 980px;
-            text-decoration: none;
-            font-size: 17px;
-            font-weight: 400;
-            line-height: 1.23;
-            letter-spacing: -0.022em;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 0 4px 14px 0 rgba(0, 122, 255, 0.39);
-            display: inline-block;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px 0 rgba(0, 122, 255, 0.4);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--background-gray);
-            padding: 40px 0;
-            border-top: 1px solid var(--border-light);
-        }
-
-        .footer-content {
-            max-width: 1024px;
-            margin: 0 auto;
-            padding: 0 22px;
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--secondary-text);
-            text-decoration: none;
-            font-size: 17px;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-text);
-        }
-
-        .footer-text {
-            color: var(--secondary-text);
-            font-size: 12px;
-            line-height: 1.33;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            color: var(--text-dim);
+            font-size: 0.9rem;
         }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .nav-links {
+            .header {
+                padding: 1rem;
+            }
+            
+            .nav-menu {
                 display: none;
             }
-
-            .hero-headline {
-                font-size: 48px;
+            
+            .hero {
+                padding: 2rem 1rem;
             }
-
-            .hero-description {
-                font-size: 19px;
-            }
-
-            .section-headline {
-                font-size: 32px;
-            }
-
-            .innovation-showcase {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-
-            .collaboration-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-
-            .flow-diagram {
-                grid-template-columns: 1fr;
-            }
-
-            .metrics-grid {
+            
+            .performance-section {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
+                gap: 1rem;
+                padding: 0 1rem;
             }
-
-            .results-grid {
+            
+            .innovation-grid,
+            .ssdl-pipeline,
+            .partners-grid {
                 grid-template-columns: 1fr;
-                gap: 24px;
+                gap: 2rem;
             }
-
-            .publication-links {
+            
+            .innovation-section,
+            .arch-container,
+            .collaboration-section {
+                padding: 0 1rem;
+            }
+            
+            .pub-links {
                 flex-direction: column;
                 align-items: center;
             }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container, .nav-container, .footer-content {
-                padding: 0 16px;
-            }
-
-            .hero {
-                padding: 44px 16px 0;
-            }
-
-            .hero-headline {
-                font-size: 36px;
-            }
-
-            .cisco-logo {
-                width: 100px;
-                height: 100px;
-            }
-
-            .publication-headline {
-                font-size: 32px;
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Selection */
-        ::selection {
-            background: rgba(27, 160, 215, 0.2);
-        }
-
-        /* Focus styles */
-        button:focus,
-        a:focus {
-            outline: 2px solid var(--accent-blue);
-            outline-offset: 2px;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">Nikhil Sharma</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="experience.html">Experience</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="stanford-sprint.html" class="active">Stanford SPrinT</a></li>
-                <li><a href="cisco-robotics.html">Cisco Robotics</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Industrial Background -->
+    <div class="industrial-bg"></div>
+    <div class="mech-grid"></div>
+    
+    <!-- Circuit Elements -->
+    <div class="circuit-elements" id="circuit-elements"></div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="cisco-logo">
-                <svg viewBox="0 0 24 24">
-                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
-                </svg>
-            </div>
-            <div class="hero-badge">Cisco USA Funded • Industry Collaboration • Published MMM 2025</div>
-            <h1 class="hero-headline">Cisco Robotics Research</h1>
-            <p class="hero-subheadline">Diffusion Models for Human Activity Recognition in Robotics</p>
-            <p class="hero-description">
-                Pioneering research collaboration with Cisco Research and Texas State University on 
-                skeleton frame generation using advanced diffusion modeling techniques for next-generation robotics applications.
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">ROBOTICS.LAB</a>
+            <div class="cisco-badge">MMM 2025 PUBLISHED</div>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">HOME</a></li>
+                    <li><a href="research.html" class="nav-link">RESEARCH</a></li>
+                    <li><a href="experience.html" class="nav-link">JOURNEY</a></li>
+                    <li><a href="stanford-sprint.html" class="nav-link">STANFORD</a></li>
+                    <li><a href="cisco-robotics.html" class="nav-link active">CISCO</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-badge">🤖 Industry Partnership • Texas State × Cisco Research</div>
+            
+            <h1 class="hero-title">CISCO ROBOTICS RESEARCH</h1>
+            <p class="hero-subtitle">
+                Advancing human activity recognition through revolutionary diffusion models 
+                with Lipschitz regularization for next-generation robotics applications.
             </p>
-            <a href="#publication" class="publication-badge">📄 Published in MMM 2025</a>
-        </div>
-    </section>
+            
+            <a href="#publication" class="published-badge">📄 Published in MMM 2025</a>
+        </section>
 
-    <!-- Performance Metrics -->
-    <section class="performance-metrics">
-        <div class="container">
-            <div class="metrics-grid">
-                <div class="metric-item">
-                    <span class="metric-number metric-improvement">+2%</span>
-                    <div class="metric-label">Accuracy Improvement</div>
-                </div>
-                <div class="metric-item">
-                    <span class="metric-number metric-improvement">-40%</span>
-                    <div class="metric-label">Computational Cost</div>
-                </div>
-                <div class="metric-item">
-                    <span class="metric-number">Real-time</span>
-                    <div class="metric-label">Inference Speed</div>
-                </div>
-                <div class="metric-item">
-                    <span class="metric-number">3</span>
-                    <div class="metric-label">Datasets Validated</div>
-                </div>
+        <!-- Performance Metrics -->
+        <section class="performance-section">
+            <div class="perf-metric">
+                <div class="metric-icon">📈</div>
+                <div class="metric-value metric-improvement">+2%</div>
+                <div class="metric-label">Accuracy Improvement</div>
             </div>
-        </div>
-    </section>
-
-    <!-- Technical Innovation -->
-    <section class="innovation">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-eyebrow">Technical Innovation</div>
-                <h2 class="section-headline">SSDL Model Architecture</h2>
-                <p class="section-subheadline">
-                    Sensor-to-Skeleton Diffusion Model with Lipschitz Regularization for enhanced stability and performance.
-                </p>
+            <div class="perf-metric">
+                <div class="metric-icon">⚡</div>
+                <div class="metric-value metric-improvement">-40%</div>
+                <div class="metric-label">Computational Cost</div>
             </div>
+            <div class="perf-metric">
+                <div class="metric-icon">🎯</div>
+                <div class="metric-value">Real-time</div>
+                <div class="metric-label">Inference Speed</div>
+            </div>
+            <div class="perf-metric">
+                <div class="metric-icon">📊</div>
+                <div class="metric-value">3</div>
+                <div class="metric-label">Datasets Validated</div>
+            </div>
+        </section>
 
-            <div class="innovation-showcase">
-                <div class="innovation-visual">
-                    <div class="innovation-diagram">
-                        <!-- Replace with your actual architecture diagram -->
-                        <img src="images/fig2_model-1.png" alt="SSDL Architecture Diagram">
-                        
+        <!-- SSDL Architecture -->
+        <section class="architecture-section">
+            <div class="arch-container">
+                <h2 class="arch-title">SSDL: Sensor-to-Skeleton Diffusion Model</h2>
+                <div class="ssdl-pipeline">
+                    <div class="pipeline-stage">
+                        <div class="stage-number">1</div>
+                        <h3 class="stage-title">Sensor Input</h3>
+                        <p class="stage-description">
+                            Multi-sensor data acquisition from wearable devices and environmental sensors 
+                            for comprehensive human activity monitoring
+                        </p>
+                    </div>
+                    <div class="pipeline-stage">
+                        <div class="stage-number">2</div>
+                        <h3 class="stage-title">Angular Variation</h3>
+                        <p class="stage-description">
+                            Advanced angular variation modules extract temporal movement patterns 
+                            while preserving critical motion information
+                        </p>
+                    </div>
+                    <div class="pipeline-stage">
+                        <div class="stage-number">3</div>
+                        <h3 class="stage-title">Diffusion Process</h3>
+                        <p class="stage-description">
+                            Forward noise addition to skeleton keypoints with controlled degradation 
+                            for robust generative modeling
+                        </p>
+                    </div>
+                    <div class="pipeline-stage">
+                        <div class="stage-number">4</div>
+                        <h3 class="stage-title">Lipschitz Regularization</h3>
+                        <p class="stage-description">
+                            Novel regularization technique ensures training stability and prevents 
+                            overfitting with noisy sensor data
+                        </p>
+                    </div>
+                    <div class="pipeline-stage">
+                        <div class="stage-number">5</div>
+                        <h3 class="stage-title">Skeleton Generation</h3>
+                        <p class="stage-description">
+                            High-quality skeleton frame generation for enhanced activity recognition 
+                            in robotics and surveillance applications
+                        </p>
                     </div>
                 </div>
-                <div class="innovation-content">
-                    <h3 class="innovation-title">Revolutionary Approach</h3>
-                    <p class="innovation-description">
-                        Introducing Lipschitz regularization to diffusion models for more stable 
-                        and reliable skeleton frame generation from sensor data, achieving unprecedented 
-                        accuracy in human activity recognition.
+            </div>
+        </section>
+
+        <!-- Innovation Showcase -->
+        <section class="innovation-section">
+            <div class="innovation-grid">
+                <div class="innovation-card">
+                    <div class="inno-icon">🧠</div>
+                    <h3 class="inno-title">Revolutionary Diffusion Architecture</h3>
+                    <p class="inno-description">
+                        First-of-its-kind sensor-to-skeleton diffusion model that transforms raw sensor 
+                        data into structured skeleton information with unprecedented accuracy.
                     </p>
-                    <ul class="innovation-features">
-                        <li>Novel diffusion model architecture for cross-modal generation</li>
-                        <li>Lipschitz regularization technique for training stability</li>
-                        <li>Angular variation modules for temporal consistency</li>
-                        <li>Optimized noise handling for robust performance</li>
-                        <li>Real-time inference capabilities for robotics applications</li>
+                    <ul class="tech-features">
+                        <li>Novel cross-modal diffusion framework</li>
+                        <li>Lipschitz-constrained neural networks</li>
+                        <li>Temporal consistency preservation</li>
+                        <li>Noise-robust skeleton generation</li>
+                    </ul>
+                </div>
+
+                <div class="innovation-card">
+                    <div class="inno-icon">🔧</div>
+                    <h3 class="inno-title">Training Stability Innovation</h3>
+                    <p class="inno-description">
+                        Breakthrough Lipschitz regularization technique that ensures stable training 
+                        convergence and prevents mode collapse in challenging sensor environments.
+                    </p>
+                    <ul class="tech-features">
+                        <li>Gradient clipping optimization</li>
+                        <li>Stable convergence guarantees</li>
+                        <li>Overfitting prevention mechanisms</li>
+                        <li>Robust noise handling capabilities</li>
+                    </ul>
+                </div>
+
+                <div class="innovation-card">
+                    <div class="inno-icon">🚀</div>
+                    <h3 class="inno-title">Performance Breakthroughs</h3>
+                    <p class="inno-description">
+                        Achieved significant improvements in recognition accuracy while dramatically 
+                        reducing computational costs for real-world robotics deployment.
+                    </p>
+                    <ul class="tech-features">
+                        <li>2% accuracy improvement over SOTA</li>
+                        <li>40% reduction in compute requirements</li>
+                        <li>Real-time inference capabilities</li>
+                        <li>Multi-dataset generalization</li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SSDL Architecture -->
-    <section class="ssdl-architecture">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-eyebrow">System Pipeline</div>
-                <h2 class="section-headline">Diffusion Model Pipeline</h2>
-                <p class="section-subheadline">
-                    End-to-end pipeline from sensor input to skeleton generation with Lipschitz regularization.
-                </p>
-            </div>
-
-            <div class="architecture-diagram">
-                <div class="diagram-title">SSDL Processing Pipeline</div>
-                <div class="flow-diagram">
-                    <div class="flow-step">
-                        <div class="step-number">1</div>
-                        <div class="step-title">Sensor Input</div>
-                        <div class="step-description">Multi-sensor data acquisition and preprocessing for activity recognition</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="step-number">2</div>
-                        <div class="step-title">Angular Variation</div>
-                        <div class="step-description">Extract angular movement patterns with temporal information preservation</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="step-number">3</div>
-                        <div class="step-title">Diffusion Process</div>
-                        <div class="step-description">Forward noise addition to skeleton keypoints with controlled degradation</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="step-number">4</div>
-                        <div class="step-title">Lipschitz Regularization</div>
-                        <div class="step-description">Stability improvement and overfitting prevention during training</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="step-number">5</div>
-                        <div class="step-title">Skeleton Generation</div>
-                        <div class="step-description">High-quality skeleton frames for enhanced activity recognition</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Results Section -->
-    <section class="results">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-eyebrow">Research Outcomes</div>
-                <h2 class="section-headline">Measurable Impact</h2>
-                <p class="section-subheadline">
-                    Significant improvements in human activity recognition performance across multiple datasets.
-                </p>
-            </div>
-
-            <div class="results-grid">
-                <div class="result-card">
-                    <div class="result-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M16,6L18.29,8.29L13.41,13.17L9.41,9.17L2,16.59L3.41,18L9.41,12L13.41,16L19.71,9.71L22,12V6H16Z"/>
-                        </svg>
-                    </div>
-                    <div class="result-number result-improvement">+2%</div>
-                    <div class="result-label">Recognition Accuracy</div>
-                    <div class="result-description">
-                        Significant improvement in activity recognition accuracy through 
-                        generated skeleton information
-                    </div>
-                </div>
-
-                <div class="result-card">
-                    <div class="result-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
-                        </svg>
-                    </div>
-                    <div class="result-number result-improvement">-40%</div>
-                    <div class="result-label">Computational Cost</div>
-                    <div class="result-description">
-                        Reduced computational demands while maintaining high-quality 
-                        skeleton generation performance
-                    </div>
-                </div>
-
-                <div class="result-card">
-                    <div class="result-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z"/>
-                        </svg>
-                    </div>
-                    <div class="result-number">Multi-Dataset</div>
-                    <div class="result-label">Generalizability</div>
-                    <div class="result-description">
-                        Demonstrated effectiveness across UTD-MHAD, Berkeley-MHAD, 
-                        and SmartFall-MHAD datasets
-                    </div>
-                </div>
-
-                <div class="result-card">
-                    <div class="result-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9"/>
-                        </svg>
-                    </div>
-                    <div class="result-number">Enhanced</div>
-                    <div class="result-label">Training Stability</div>
-                    <div class="result-description">
-                        Improved training stability and prevention of overfitting 
-                        with noisy sensor data through Lipschitz regularization
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Publication Section -->
-    <section class="publication" id="publication">
-        <div class="container">
-            <div class="publication-content">
-                <h2 class="publication-headline">Published Research</h2>
-                <div class="publication-venue">MMM 2025 - International Conference</div>
-                <div class="publication-title">
-                    SSDL: Sensor-to-Skeleton Diffusion Model with Lipschitz Regularization 
-                    for Human Activity Recognition
-                </div>
-                <div class="publication-authors">
-                    N Sharma, C Sun, Z Zhao, AHH Ngu, H Latapie, Y Yan
-                </div>
-                <div class="publication-abstract">
+        <!-- Publication Section -->
+        <section class="publication-section" id="publication">
+            <div class="pub-container">
+                <h2 class="pub-title">SSDL: Sensor-to-Skeleton Diffusion Model with Lipschitz Regularization</h2>
+                <div class="pub-venue">MMM 2025 - International Conference on MultiMedia Modeling</div>
+                <p class="pub-abstract">
                     "We propose a novel Sensor-to-Skeleton Diffusion Model with Lipschitz Regularization, 
                     named SSDL, that generates hard-to-collect but information-rich skeleton data conditioned 
                     on easy-to-monitor sensor data for enhanced human activity recognition."
-                </div>
-                <div class="publication-links">
-                    <a href="https://link.springer.com/chapter/10.1007/978-981-96-2071-5_7" class="pub-link">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
-                        </svg>
-                        View Paper
-                    </a>
-                    <a href="https://github.com/nikhiliit/SSDL" class="pub-link">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"/>
-                        </svg>
-                        Source Code
-                    </a>
-                    <a href="#" class="pub-link">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M5,3H7V5H5V10A2,2 0 0,1 3,8V6A2,2 0 0,1 5,4V3M19,3V4A2,2 0 0,1 21,6V8A2,2 0 0,1 19,10V5H17V3H19M16,5V18A2,2 0 0,1 14,20H10A2,2 0 0,1 8,18V5H16M14,7H10V18H14V7Z"/>
-                        </svg>
-                        Dataset
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Collaboration -->
-    <section class="collaboration">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-eyebrow">Research Partnership</div>
-                <h2 class="section-headline">Industry-Academic Collaboration</h2>
-                <p class="section-subheadline">
-                    Joint research effort combining Cisco's industry expertise with academic research excellence.
                 </p>
-            </div>
-
-            <div class="collaboration-content">
-                <div class="collaboration-text">
-                    <h3 class="collaboration-title">Cross-Institutional Research</h3>
-                    <p class="collaboration-description">
-                        This groundbreaking research represents a successful collaboration between 
-                        Cisco Research, Texas State University, and Illinois Institute of Technology, 
-                        combining industry insights with academic rigor.
-                    </p>
-                    <div class="collaboration-partners">
-                        <div class="partner">
-                            <div class="partner-logo">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4Z"/>
-                                </svg>
-                            </div>
-                            <div class="partner-info">
-                                <div class="partner-name">Cisco Research</div>
-                                <div class="partner-role">Industry Partner & Funding</div>
-                            </div>
-                        </div>
-                        <div class="partner">
-                            <div class="partner-logo">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/>
-                                </svg>
-                            </div>
-                            <div class="partner-info">
-                                <div class="partner-name">Texas State University</div>
-                                <div class="partner-role">Academic Collaboration</div>
-                            </div>
-                        </div>
-                        <div class="partner">
-                            <div class="partner-logo">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/>
-                                </svg>
-                            </div>
-                            <div class="partner-info">
-                                <div class="partner-name">Illinois Institute of Technology</div>
-                                <div class="partner-role">Research Institution</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="pub-links">
+                    <a href="https://link.springer.com/chapter/10.1007/978-981-96-2071-5_7" class="pub-btn">
+                        📄 Read Paper
+                    </a>
+                    <a href="https://github.com/nikhiliit/SSDL" class="pub-btn">
+                        💻 Source Code
+                    </a>
+                    <a href="#" class="pub-btn">
+                        📊 Dataset
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-headline">Interested in Robotics AI Research?</h2>
-                <p class="cta-description">
-                    Explore more of my work in computer vision, diffusion models, and industry collaborations.
-                </p>
-                <a href="research.html" class="btn-primary">View All Research</a>
+        <!-- Collaboration Section -->
+        <section class="collaboration-section">
+            <h2 class="collab-title">Industry-Academic Partnership</h2>
+            <p class="collab-description">
+                This groundbreaking research represents a successful collaboration between industry expertise 
+                and academic innovation, combining Cisco's practical insights with cutting-edge research methodologies.
+            </p>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-logo">🏢</div>
+                    <div class="partner-name">Cisco Research</div>
+                    <div class="partner-role">Industry Partner & Funding</div>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">🎓</div>
+                    <div class="partner-name">Texas State University</div>
+                    <div class="partner-role">Academic Collaboration</div>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">🔬</div>
+                    <div class="partner-name">Illinois Institute of Technology</div>
+                    <div class="partner-role">Research Development</div>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="mailto:sharmanikhiljiit@gmail.com">Email</a>
-                <a href="https://www.linkedin.com/in/nikhil-sharma-jiit/" target="_blank">LinkedIn</a>
-                <a href="https://github.com/nikhiliit" target="_blank">GitHub</a>
-                <a href="https://scholar.google.com/citations?user=Von4NncAAAAJ&hl=en" target="_blank">Google Scholar</a>
-            </div>
-            <div class="footer-text">
-                Copyright © 2025 Nikhil Sharma. All rights reserved.
-            </div>
-        </div>
-    </footer>
+        </section>
+    </main>
 
     <script>
-        // Smooth scroll behavior for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 44; // Account for fixed nav
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
+        // Create floating circuit elements
+        function createCircuitElements() {
+            const container = document.getElementById('circuit-elements');
+            const elementCount = 25;
+
+            for (let i = 0; i < elementCount; i++) {
+                const element = document.createElement('div');
+                element.className = 'circuit-element';
+                
+                // Random positioning and timing
+                element.style.left = Math.random() * 100 + 'vw';
+                element.style.animationDuration = (Math.random() * 20 + 10) + 's';
+                element.style.animationDelay = Math.random() * 10 + 's';
+                
+                // Random shapes and colors
+                if (Math.random() > 0.5) {
+                    element.style.borderRadius = '50%';
                 }
-            });
-        });
-
-        // Enhanced navbar scroll effect
-        let lastScrollY = window.scrollY;
-        const nav = document.querySelector('.nav');
-
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            
-            if (currentScrollY > 100) {
-                nav.style.background = 'rgba(255, 255, 255, 0.9)';
-                nav.style.borderBottom = '1px solid rgba(0, 0, 0, 0.12)';
-            } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.8)';
-                nav.style.borderBottom = '1px solid rgba(0, 0, 0, 0.08)';
+                
+                const colors = ['#1ba0d7', '#ff6b35', '#00d084', '#6c5ce7'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                element.style.background = color;
+                element.style.boxShadow = `0 0 12px ${color}`;
+                
+                container.appendChild(element);
             }
+        }
 
-            // Hide/show nav on scroll direction
-            if (currentScrollY > lastScrollY && currentScrollY > 200) {
-                nav.style.transform = 'translateY(-100%)';
-            } else {
-                nav.style.transform = 'translateY(0)';
-            }
-            
-            lastScrollY = currentScrollY;
-        });
-
-        // Intersection Observer for metrics animation
+        // Scroll reveal animations
         const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px 0px -100px 0px'
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
 
-        const metricsObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 200);
-                }
-            });
-        }, observerOptions);
-
-        // Observe all metric items
-        document.querySelectorAll('.metric-item').forEach(item => {
-            metricsObserver.observe(item);
-        });
-
-        // Intersection Observer for cards animation
-        const cardsObserver = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+        }, observerOptions);
+
+        // Observe elements for scroll animations
+        document.querySelectorAll('.perf-metric, .pipeline-stage, .innovation-card, .partner-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(element);
         });
 
-        // Observe cards for scroll animations
-        document.querySelectorAll('.result-card, .flow-step, .innovation-showcase, .collaboration-content').forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(30px)';
-            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            cardsObserver.observe(item);
+        // Enhanced hover effects
+        document.querySelectorAll('.innovation-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Pause circuit animations on hover
+                const circuits = document.querySelectorAll('.circuit-element');
+                circuits.forEach(circuit => {
+                    circuit.style.animationPlayState = 'paused';
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                // Resume circuit animations
+                const circuits = document.querySelectorAll('.circuit-element');
+                circuits.forEach(circuit => {
+                    circuit.style.animationPlayState = 'running';
+                });
+            });
         });
 
-        // Add loading state
+        // Performance metric animation
+        document.querySelectorAll('.perf-metric').forEach(metric => {
+            metric.addEventListener('mouseenter', () => {
+                const value = metric.querySelector('.metric-value');
+                if (value.textContent.includes('+') || value.textContent.includes('-')) {
+                    value.style.animation = 'metricBounce 0.5s ease';
+                }
+            });
+        });
+
+        // Add metric bounce animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes metricBounce {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize circuit elements
+        createCircuitElements();
+
+        // Add loading animation for performance metrics
         window.addEventListener('load', () => {
-            document.body.style.opacity = '1';
+            const metrics = document.querySelectorAll('.perf-metric');
+            metrics.forEach((metric, index) => {
+                setTimeout(() => {
+                    metric.style.opacity = '1';
+                    metric.style.transform = 'translateY(0)';
+                }, index * 300);
+            });
         });
 
-        // Preload critical resources
-        const preloadLink = document.createElement('link');
-        preloadLink.rel = 'preload';
-        preloadLink.href = 'https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@100;200;300;400;500;600;700;800;900&family=SF+Pro+Text:wght@300;400;500;600&display=swap';
-        preloadLink.as = 'style';
-        document.head.appendChild(preloadLink);
+        // Random technical glitch effect
+        setInterval(() => {
+            if (Math.random() < 0.05) { // 5% chance every 3 seconds
+                const grid = document.querySelector('.mech-grid');
+                grid.style.opacity = '0.3';
+                setTimeout(() => {
+                    grid.style.opacity = '0.1';
+                }, 100);
+            }
+        }, 3000);
+
+        // Console robotics message
+        console.log('%c🤖 CISCO ROBOTICS LAB INITIALIZED', 'color: #1ba0d7; font-size: 16px; font-weight: bold;');
+        console.log('%cSSdL Model: Ready for deployment', 'color: #00d084; font-size: 12px;');
     </script>
 </body>
 </html>

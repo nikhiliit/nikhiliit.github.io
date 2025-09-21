@@ -3,1564 +3,970 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research & Publications - Nikhil Sharma</title>
-    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@100;200;300;400;500;600;700;800;900&family=SF+Pro+Text:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Research Sketchbook - Nikhil Sharma</title>
+    <meta name="description" content="Explore Nikhil Sharma's research portfolio including AI, machine learning, medical imaging, and diffusion models.">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Caveat:wght@400;500;600;700&family=Architects+Daughter&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-text: #1d1d1f;
-            --secondary-text: #86868b;
-            --accent-blue: #007aff;
-            --accent-purple: #5856d6;
-            --accent-green: #30d158;
-            --accent-orange: #ff9500;
-            --background-white: #ffffff;
-            --background-gray: #f5f5f7;
-            --background-dark: #1c1c1e;
-            --border-light: rgba(0, 0, 0, 0.08);
-            --shadow-light: rgba(0, 0, 0, 0.04);
-            --shadow-medium: rgba(0, 0, 0, 0.12);
-            --gradient-research: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
-            --gradient-ai: linear-gradient(135deg, #30d158 0%, #007aff 100%);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--background-white);
-            color: var(--primary-text);
-            line-height: 1.47059;
-            letter-spacing: -0.022em;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        :root {
+            --sketch-black: #2c2c2c;
+            --sketch-gray: #555555;
+            --sketch-light: #777777;
+            --sketch-lighter: #999999;
+            --paper-white: #fefefe;
+            --paper-cream: #faf9f7;
+            --sketch-blue: #4a5568;
+            --accent-sketch: #e2e8f0;
+            --line-sketch: #d1d5db;
+            --shadow-sketch: rgba(44, 44, 44, 0.1);
         }
 
-        /* Navigation */
-        .nav {
+        body {
+            font-family: 'Kalam', cursive;
+            line-height: 1.7;
+            color: var(--sketch-black);
+            background: var(--paper-cream);
+            background-image: 
+                radial-gradient(circle at 25% 25%, #f7f3f0 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, #f7f3f0 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-attachment: fixed;
+        }
+
+        /* Paper texture overlay */
+        body::before {
+            content: '';
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid var(--border-light);
-            z-index: 1000;
-            transition: all 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 30px,
+                    rgba(221, 221, 221, 0.3) 30px,
+                    rgba(221, 221, 221, 0.3) 31px
+                );
+            pointer-events: none;
+            z-index: -1;
         }
 
-        .nav-container {
-            max-width: 1024px;
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background: var(--paper-cream);
+            z-index: 100;
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--sketch-black);
+            box-shadow: 0 2px 10px var(--shadow-sketch);
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 20px;
+            right: 20px;
+            height: 2px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 4'%3E%3Cpath d='M0,2 Q25,1 50,3 Q75,1 100,2' stroke='%23777' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+        }
+
+        .header-content {
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 22px;
-            height: 44px;
+            padding: 0 2rem;
         }
 
-        .nav-logo {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 21px;
-            font-weight: 600;
-            letter-spacing: 0.011em;
-            color: var(--primary-text);
+        .logo {
+            font-family: 'Caveat', cursive;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--sketch-black);
             text-decoration: none;
+            transform: rotate(-1deg);
+            position: relative;
         }
 
-        .nav-links {
+        .logo::after {
+            content: '🔬';
+            position: absolute;
+            top: -10px;
+            right: -25px;
+            font-size: 1rem;
+            transform: rotate(15deg);
+        }
+
+        .nav-menu {
             display: flex;
-            gap: 0;
+            gap: 1.5rem;
             list-style: none;
+            font-family: 'Architects Daughter', cursive;
         }
 
-        .nav-links li {
-            position: relative;
-        }
-
-        .nav-links a {
-            display: block;
-            padding: 0 21px;
-            color: var(--primary-text);
+        .nav-link {
+            color: var(--sketch-gray);
             text-decoration: none;
-            font-size: 12px;
             font-weight: 400;
-            line-height: 1.33;
-            letter-spacing: -0.01em;
-            transition: opacity 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
-
-        .nav-links a.active {
-            opacity: 0.8;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: var(--background-white);
-            padding: 44px 22px 0;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
+            transform: rotate(0.5deg);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--sketch-black);
+            background: var(--accent-sketch);
+            transform: rotate(-0.5deg) scale(1.05);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 25% 25%, rgba(0, 122, 255, 0.1) 0%, transparent 25%),
-                radial-gradient(circle at 75% 75%, rgba(88, 86, 214, 0.1) 0%, transparent 25%),
-                radial-gradient(circle at 50% 50%, rgba(48, 209, 88, 0.05) 0%, transparent 30%);
-            pointer-events: none;
+            top: -20px;
+            left: 10%;
+            width: 120px;
+            height: 120px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20,50 Q50,20 80,50 Q70,80 40,70 Q10,60 20,50' stroke='%23999' fill='none' stroke-width='2' stroke-dasharray='3,3'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            opacity: 0.2;
+            transform: rotate(-15deg);
         }
 
-        .hero-content {
-            max-width: 692px;
-            margin: 0 auto;
-            z-index: 2;
+        .hero-title {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            color: var(--sketch-black);
+            margin-bottom: 1rem;
+            transform: rotate(-0.5deg);
             position: relative;
         }
 
-        .hero-eyebrow {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 19px;
-            line-height: 1.21;
-            font-weight: 600;
-            letter-spacing: 0.012em;
-            color: var(--accent-blue);
-            margin-bottom: 16px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.2s forwards;
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 5px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0,5 Q25,2 50,7 Q75,3 100,6' stroke='%23777' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
         }
 
-        .hero-headline {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 80px;
-            line-height: 1.05;
-            font-weight: 700;
-            letter-spacing: -0.015em;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, var(--primary-text) 0%, var(--accent-purple) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.4s forwards;
+        .hero-subtitle {
+            font-family: 'Kalam', cursive;
+            font-size: 1.4rem;
+            color: var(--sketch-gray);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .hero-subheadline {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 28px;
-            line-height: 1.14;
-            font-weight: 400;
-            letter-spacing: 0.007em;
-            color: var(--secondary-text);
-            margin-bottom: 40px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.6s forwards;
-        }
-
-        /* Research Metrics */
-        .research-metrics {
-            padding: 80px 0;
-            background: var(--background-gray);
-        }
-
-        .container {
-            max-width: 1024px;
-            margin: 0 auto;
-            padding: 0 22px;
-        }
-
-        .metrics-grid {
+        /* Stats */
+        .research-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+            padding: 2rem;
+            background: var(--paper-white);
+            border: 3px solid var(--sketch-black);
+            border-radius: 30px;
+            position: relative;
+            transform: rotate(-0.3deg);
+        }
+
+        .research-stats::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid var(--sketch-gray);
+            border-radius: 30px;
+            transform: rotate(0.6deg);
+            z-index: -1;
+        }
+
+        .stat-card {
             text-align: center;
+            transform: rotate(0.5deg);
         }
 
-        .metric-item {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+        .stat-card:nth-child(even) {
+            transform: rotate(-0.5deg);
         }
 
-        .metric-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .metric-number {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 48px;
-            line-height: 1.03;
+        .stat-number {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
             font-weight: 700;
-            letter-spacing: -0.009em;
-            background: var(--gradient-research);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 8px;
+            color: var(--sketch-black);
             display: block;
         }
 
-        .metric-label {
-            font-size: 17px;
-            line-height: 1.47;
-            color: var(--secondary-text);
-            font-weight: 400;
+        .stat-label {
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
+            font-size: 1rem;
+            margin-top: 0.5rem;
         }
 
-        /* Publications Section */
-        .publications {
-            padding: 110px 0;
-            background: var(--background-white);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-eyebrow {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 19px;
-            line-height: 1.21;
-            font-weight: 600;
-            letter-spacing: 0.012em;
-            color: var(--accent-blue);
-            margin-bottom: 16px;
-        }
-
-        .section-headline {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 48px;
-            line-height: 1.08;
-            font-weight: 700;
-            letter-spacing: -0.003em;
-            margin-bottom: 20px;
-        }
-
-        .section-subheadline {
-            font-size: 21px;
-            line-height: 1.38;
-            font-weight: 400;
-            letter-spacing: 0.011em;
-            color: var(--secondary-text);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .filter-tabs {
+        /* Filters */
+        .research-filters {
             display: flex;
             justify-content: center;
-            gap: 12px;
-            margin-bottom: 60px;
+            gap: 1rem;
+            margin: 4rem 0;
             flex-wrap: wrap;
         }
 
-        .filter-tab {
-            background: var(--background-gray);
-            border: 1px solid var(--border-light);
-            color: var(--secondary-text);
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
+        .filter-btn {
+            font-family: 'Architects Daughter', cursive;
+            padding: 0.8rem 1.5rem;
+            background: var(--paper-white);
+            border: 3px solid var(--sketch-gray);
+            border-radius: 25px;
+            color: var(--sketch-gray);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
             transition: all 0.3s ease;
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: -0.01em;
+            cursor: pointer;
+            transform: rotate(-0.5deg);
         }
 
-        .filter-tab.active, .filter-tab:hover {
-            background: var(--accent-blue);
-            color: white;
-            border-color: var(--accent-blue);
-            transform: translateY(-1px);
+        .filter-btn:nth-child(even) {
+            transform: rotate(0.5deg);
         }
 
-        .publications-grid {
-            display: grid;
-            gap: 24px;
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--sketch-black);
+            color: var(--paper-white);
+            transform: rotate(0deg) scale(1.05);
         }
 
-        .publication-item {
-            background: var(--background-white);
-            border-radius: 16px;
-            padding: 32px;
-            border: 1px solid var(--border-light);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        /* Publication Timeline */
+        .timeline {
+            margin: 4rem 0;
+        }
+
+        .timeline-year {
+            margin-bottom: 4rem;
             position: relative;
         }
 
-        .publication-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -12px var(--shadow-medium);
-        }
-
-        .publication-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 24px;
-            margin-bottom: 20px;
-        }
-
-        .publication-year {
-            background: var(--gradient-research);
-            color: white;
-            padding: 12px 16px;
-            border-radius: 12px;
+        .year-header {
+            font-family: 'Caveat', cursive;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--sketch-black);
             text-align: center;
-            min-width: 80px;
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 19px;
-            font-weight: 700;
-            line-height: 1.21;
-            flex-shrink: 0;
+            margin-bottom: 3rem;
+            transform: rotate(-0.5deg);
+            position: relative;
         }
 
-        .publication-content {
-            flex: 1;
+        .year-header::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 5px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0,5 Q25,8 50,4 Q75,7 100,5' stroke='%23555' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
         }
 
-        .publication-title {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 20px;
+        /* Publications Grid */
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .publication-card {
+            background: var(--paper-white);
+            border: 3px solid var(--sketch-black);
+            border-radius: 25px;
+            padding: 2.5rem;
+            position: relative;
+            transform: rotate(0.5deg);
+            transition: all 0.3s ease;
+            box-shadow: 10px 10px 30px var(--shadow-sketch);
+        }
+
+        .publication-card:nth-child(even) {
+            transform: rotate(-0.5deg);
+        }
+
+        .publication-card:hover {
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 15px 15px 40px rgba(44, 44, 44, 0.15);
+        }
+
+        .publication-card::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid var(--sketch-light);
+            border-radius: 25px;
+            transform: rotate(0.8deg);
+            z-index: -1;
+        }
+
+        .pub-badge {
+            font-family: 'Architects Daughter', cursive;
+            background: var(--sketch-black);
+            color: var(--paper-white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
             font-weight: 600;
-            line-height: 1.25;
-            margin-bottom: 8px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            transform: rotate(-2deg);
         }
 
-        .publication-authors {
-            color: var(--secondary-text);
-            font-size: 15px;
-            line-height: 1.47;
-            margin-bottom: 8px;
+        .pub-title {
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--sketch-black);
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
         }
 
-        .publication-venue {
-            color: var(--accent-blue);
-            font-weight: 500;
-            font-size: 15px;
-            margin-bottom: 16px;
+        .pub-authors {
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-style: italic;
         }
 
-        .publication-metrics {
+        .pub-venue {
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-blue);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pub-description {
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .pub-metrics {
             display: flex;
-            gap: 16px;
-            margin-bottom: 16px;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .pub-metric {
-            background: var(--background-gray);
-            padding: 6px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--secondary-text);
+            text-align: center;
+            padding: 0.8rem;
+            border: 2px solid var(--line-sketch);
+            border-radius: 15px;
+            background: var(--accent-sketch);
+            transform: rotate(-1deg);
+        }
+
+        .pub-metric:nth-child(even) {
+            transform: rotate(1deg);
+        }
+
+        .metric-value {
+            font-family: 'Caveat', cursive;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--sketch-black);
+        }
+
+        .metric-label {
+            font-family: 'Kalam', cursive;
+            font-size: 0.7rem;
+            color: var(--sketch-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .pub-tags {
             display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .pub-metric.citations {
-            color: var(--accent-green);
-            background: rgba(48, 209, 88, 0.1);
-        }
-
-        .pub-metric.impact {
-            color: var(--accent-orange);
-            background: rgba(255, 149, 0, 0.1);
-        }
-
-        .publication-tags {
-            display: flex;
-            gap: 8px;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
             flex-wrap: wrap;
-            margin-bottom: 20px;
+            justify-content: center;
         }
 
         .pub-tag {
-            background: rgba(0, 122, 255, 0.1);
-            color: var(--accent-blue);
-            padding: 4px 10px;
-            border-radius: 10px;
-            font-size: 12px;
+            font-family: 'Architects Daughter', cursive;
+            padding: 0.4rem 0.8rem;
+            background: transparent;
+            border: 2px solid var(--sketch-gray);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--sketch-gray);
             font-weight: 500;
+            transform: rotate(0.5deg);
         }
 
-        .publication-links {
+        .pub-tag:nth-child(even) {
+            transform: rotate(-0.5deg);
+        }
+
+        .pub-links {
             display: flex;
-            gap: 12px;
-            align-items: center;
+            gap: 1rem;
+            justify-content: center;
             flex-wrap: wrap;
         }
 
         .pub-link {
-            color: var(--accent-blue);
+            font-family: 'Architects Daughter', cursive;
+            padding: 0.8rem 1.5rem;
+            background: transparent;
+            border: 3px solid var(--sketch-black);
+            border-radius: 25px;
+            color: var(--sketch-black);
             text-decoration: none;
-            font-weight: 500;
-            padding: 6px 12px;
-            border: 1px solid rgba(0, 122, 255, 0.3);
-            border-radius: 16px;
+            font-weight: 600;
             transition: all 0.3s ease;
-            font-size: 14px;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 0.5rem;
+            transform: rotate(-1deg);
         }
 
         .pub-link:hover {
-            background: rgba(0, 122, 255, 0.1);
-            transform: translateY(-1px);
+            background: var(--sketch-black);
+            color: var(--paper-white);
+            transform: rotate(0deg) scale(1.05);
         }
 
-        .pub-link svg {
-            width: 14px;
-            height: 14px;
-            fill: currentColor;
-        }
-
-        /* Research Areas */
-        .research-areas {
-            padding: 110px 0;
-            background: var(--background-gray);
-        }
-
-        .areas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
-        }
-
-        .area-card {
-            background: var(--background-white);
-            border-radius: 18px;
-            padding: 40px;
-            border: 1px solid var(--border-light);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        /* Featured Publication */
+        .featured {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--accent-sketch), var(--paper-white));
+            border: 4px solid var(--sketch-black);
             position: relative;
-            overflow: hidden;
         }
 
-        .area-card::before {
-            content: '';
+        .featured::after {
+            content: '⭐ FEATURED SKETCH';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-ai);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .area-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px var(--shadow-medium);
-        }
-
-        .area-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .area-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--gradient-ai);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            box-shadow: 0 4px 14px 0 rgba(48, 209, 88, 0.25);
-        }
-
-        .area-icon svg {
-            width: 32px;
-            height: 32px;
-            fill: white;
-        }
-
-        .area-title {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 24px;
-            line-height: 1.17;
-            font-weight: 700;
-            letter-spacing: 0.009em;
-            margin-bottom: 12px;
-        }
-
-        .area-description {
-            font-size: 17px;
-            line-height: 1.47;
-            color: var(--secondary-text);
-            margin-bottom: 24px;
-        }
-
-        .area-stats {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .area-stat {
-            text-align: center;
-            flex: 1;
-        }
-
-        .area-stat-number {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--accent-blue);
-            line-height: 1.17;
-        }
-
-        .area-stat-label {
-            font-size: 12px;
-            color: var(--secondary-text);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-top: 4px;
-        }
-
-        /* Collaborations */
-        .collaborations {
-            padding: 110px 0;
-            background: var(--background-white);
-        }
-
-        .collaboration-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-        }
-
-        .collaboration-card {
-            background: var(--background-gray);
-            border-radius: 18px;
-            padding: 32px;
-            border: 1px solid var(--border-light);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            text-align: center;
-        }
-
-        .collaboration-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -12px var(--shadow-medium);
-        }
-
-        .collaboration-logo {
-            width: 72px;
-            height: 72px;
-            background: var(--gradient-research);
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-        }
-
-        .collaboration-logo svg {
-            width: 36px;
-            height: 36px;
-            fill: white;
-        }
-
-        .collaboration-title {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .collaboration-partner {
-            color: var(--accent-blue);
-            font-weight: 500;
-            font-size: 15px;
-            margin-bottom: 16px;
-        }
-
-        .collaboration-description {
-            color: var(--secondary-text);
-            line-height: 1.47;
-            font-size: 15px;
-            margin-bottom: 20px;
-        }
-
-        .collaboration-status {
-            background: rgba(48, 209, 88, 0.1);
-            color: var(--accent-green);
-            padding: 6px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-
-        .collaboration-status.completed {
-            background: rgba(142, 142, 147, 0.1);
-            color: var(--secondary-text);
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 110px 0;
-            background: var(--gradient-research);
-            color: white;
-            text-align: center;
-        }
-
-        .cta-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .cta-headline {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 48px;
-            line-height: 1.08;
-            font-weight: 700;
-            letter-spacing: -0.003em;
-            margin-bottom: 24px;
-        }
-
-        .cta-description {
-            font-size: 21px;
-            line-height: 1.38;
-            font-weight: 400;
-            letter-spacing: 0.011em;
-            opacity: 0.9;
-            margin-bottom: 40px;
-        }
-
-        .btn-white {
-            background: white;
-            color: var(--accent-blue);
-            padding: 12px 24px;
-            border-radius: 980px;
-            text-decoration: none;
-            font-size: 17px;
-            font-weight: 400;
-            line-height: 1.23;
-            letter-spacing: -0.022em;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            display: inline-block;
-        }
-
-        .btn-white:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px 0 rgba(255, 255, 255, 0.3);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--background-gray);
-            padding: 60px 0 40px;
-            border-top: 1px solid var(--border-light);
-        }
-
-        .footer-content {
-            max-width: 1024px;
-            margin: 0 auto;
-            padding: 0 22px;
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--secondary-text);
-            text-decoration: none;
-            font-size: 17px;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-text);
-        }
-
-        .footer-text {
-            color: var(--secondary-text);
-            font-size: 12px;
-            line-height: 1.33;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Featured Publication Highlight */
-        .featured-publication {
-            background: var(--gradient-research);
-            color: white;
+            top: -15px;
+            right: 20px;
+            background: var(--sketch-black);
+            color: var(--paper-white);
+            padding: 0.5rem 1rem;
             border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-            position: relative;
-            overflow: hidden;
+            font-family: 'Architects Daughter', cursive;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transform: rotate(2deg);
         }
 
-        .featured-publication::before {
-            content: '';
+        /* Hand-drawn arrows and connectors */
+        .sketch-arrow {
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            animation: spotlight 8s ease-in-out infinite;
+            font-size: 2rem;
+            color: var(--sketch-lighter);
+            animation: bounce 3s ease-in-out infinite;
         }
 
-        @keyframes spotlight {
-            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); opacity: 0.3; }
-            50% { transform: translate(-30%, -30%) rotate(180deg); opacity: 0.6; }
-        }
-
-        .featured-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .featured-badge {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            display: inline-block;
-            margin-bottom: 16px;
-        }
-
-        .featured-title {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 28px;
-            font-weight: 700;
-            line-height: 1.14;
-            margin-bottom: 12px;
-        }
-
-        .featured-venue {
-            font-size: 19px;
-            font-weight: 500;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-
-        .featured-metrics {
-            display: flex;
-            gap: 24px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
-
-        .featured-metric {
-            text-align: center;
-        }
-
-        .featured-metric-number {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            line-height: 1.17;
-        }
-
-        .featured-metric-label {
-            font-size: 12px;
-            opacity: 0.8;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
         }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .nav-links {
+            .header-content {
+                padding: 0 1rem;
+            }
+
+            .nav-menu {
                 display: none;
             }
 
-            .hero-headline {
-                font-size: 48px;
+            .main-content {
+                padding: 1rem;
             }
 
-            .hero-subheadline {
-                font-size: 21px;
-            }
-
-            .section-headline {
-                font-size: 32px;
-            }
-
-            .publication-header {
-                flex-direction: column;
-                gap: 16px;
-            }
-
-            .publication-year {
-                min-width: auto;
-                width: 100%;
-                text-align: center;
-            }
-
-            .filter-tabs {
-                gap: 8px;
-            }
-
-            .filter-tab {
-                padding: 6px 12px;
-                font-size: 12px;
-            }
-
-            .areas-grid {
+            .publications-grid {
                 grid-template-columns: 1fr;
-                gap: 24px;
+                gap: 1.5rem;
             }
 
-            .area-card {
-                padding: 24px;
+            .publication-card {
+                padding: 2rem 1.5rem;
             }
 
-            .metrics-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
+            .research-filters {
+                gap: 0.5rem;
             }
 
-            .collaboration-grid {
-                grid-template-columns: 1fr;
+            .filter-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
             }
 
-            .footer-links {
+            .pub-metrics {
+                gap: 1rem;
+            }
+
+            .pub-links {
                 flex-direction: column;
-                gap: 20px;
-            }
-
-            .featured-publication {
-                padding: 24px;
-            }
-
-            .featured-title {
-                font-size: 24px;
-            }
-
-            .featured-metrics {
-                justify-content: center;
             }
         }
 
-        @media (max-width: 480px) {
-            .container, .nav-container, .footer-content {
-                padding: 0 16px;
-            }
-
-            .hero {
-                padding: 44px 16px 0;
-            }
-
-            .hero-headline {
-                font-size: 36px;
-            }
-
-            .publication-item {
-                padding: 20px;
-            }
-
-            .cta-headline {
-                font-size: 32px;
-            }
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px) rotate(0deg);
+            transition: all 0.8s ease;
         }
 
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0) rotate(var(--random-rotation, 0.5deg));
         }
 
-        /* Selection */
-        ::selection {
-            background: rgba(0, 122, 255, 0.2);
+        /* Floating research icons */
+        .research-icon {
+            position: fixed;
+            font-size: 1.5rem;
+            opacity: 0.2;
+            animation: float 20s ease-in-out infinite;
+            pointer-events: none;
         }
 
-        /* Focus styles */
-        button:focus,
-        a:focus {
-            outline: 2px solid var(--accent-blue);
-            outline-offset: 2px;
+        .research-icon:nth-child(1) { top: 15%; right: 10%; animation-delay: 0s; }
+        .research-icon:nth-child(2) { top: 60%; right: 5%; animation-delay: 5s; }
+        .research-icon:nth-child(3) { top: 40%; left: 5%; animation-delay: 10s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(-10px) rotate(-5deg); }
+            75% { transform: translateY(-30px) rotate(3deg); }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">Nikhil Sharma</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="experience.html">Experience</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="stanford-sprint.html" class="active">Stanford SPrinT</a></li>
-                <li><a href="cisco-robotics.html">Cisco Robotics</a></li>
+    <!-- Floating research icons -->
+    <div class="research-icon">🧠</div>
+    <div class="research-icon">🔬</div>
+    <div class="research-icon">📊</div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">Research Sketchbook</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="research.html" class="nav-link active">Research</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-        </div>
     </nav>
+        </div>
+    </header>
 
-    <!-- Hero Section -->
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero -->
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-eyebrow">15+ Publications • 150+ Citations • 3 Research Areas</div>
-            <h1 class="hero-headline">Research Impact</h1>
-            <p class="hero-subheadline">
-                Advancing AI through rigorous research in computer vision, multimodal learning, and secure edge systems.
+            <h1 class="hero-title">My Research Sketches</h1>
+            <p class="hero-subtitle">
+                A collection of AI ideas I've sketched into reality - from medical imaging 
+                that saves lives to diffusion models that imagine human movement.
             </p>
+    </section>
+
+        <!-- Research Stats -->
+        <section class="research-stats reveal">
+            <div class="stat-card">
+                <span class="stat-number">15+</span>
+                <div class="stat-label">Papers Published</div>
+                </div>
+            <div class="stat-card">
+                <span class="stat-number">150+</span>
+                <div class="stat-label">Times Cited</div>
+                </div>
+            <div class="stat-card">
+                <span class="stat-number">5</span>
+                <div class="stat-label">Research Areas</div>
+                </div>
+            <div class="stat-card">
+                <span class="stat-number">3</span>
+                <div class="stat-label">Institutions</div>
         </div>
     </section>
 
-    <!-- Research Metrics -->
-    <section class="research-metrics">
-        <div class="container">
-            <div class="metrics-grid">
-                <div class="metric-item">
-                    <span class="metric-number">15+</span>
-                    <div class="metric-label">Publications</div>
-                </div>
-                <div class="metric-item">
-                    <span class="metric-number">3</span>
-                    <div class="metric-label">Research Areas</div>
-                </div>
-                <div class="metric-item">
-                    <span class="metric-number">5+</span>
-                    <div class="metric-label">Collaborations</div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Research Filters -->
+        <section class="research-filters reveal">
+            <button class="filter-btn active" data-filter="all">All Sketches</button>
+            <button class="filter-btn" data-filter="medical">Medical AI</button>
+            <button class="filter-btn" data-filter="diffusion">Diffusion Models</button>
+            <button class="filter-btn" data-filter="bioinformatics">Bioinformatics</button>
+            <button class="filter-btn" data-filter="security">Security</button>
+        </section>
 
-    <!-- Publications Section -->
-    <section class="publications">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-eyebrow">Research Contributions</div>
-                <h2 class="section-headline">Publications & Impact</h2>
-                <p class="section-subheadline">Key research contributions in AI and computer vision with measurable impact.</p>
-            </div>
-
-            <!-- Featured Publication -->
-            <div class="featured-publication">
-                <div class="featured-content">
-                    <div class="featured-badge">Featured Research</div>
-                    <h3 class="featured-title">SSDL: Sensor-to-Skeleton Diffusion Model with Lipschitz Regularization</h3>
-                    <div class="featured-venue">MMM 2025 - Cisco Research Collaboration</div>
-                    <div class="featured-metrics">
-                        <div class="featured-metric">
-                            <div class="featured-metric-number">2%</div>
-                            <div class="featured-metric-label">Accuracy Improvement</div>
-                        </div>
-                        <div class="featured-metric">
-                            <div class="featured-metric-number">40%</div>
-                            <div class="featured-metric-label">Compute Reduction</div>
-                        </div>
-                        <div class="featured-metric">
-                            <div class="featured-metric-number">3</div>
-                            <div class="featured-metric-label">Datasets Validated</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="filter-tabs">
-                <div class="filter-tab active" data-filter="all">All Publications</div>
-                <div class="filter-tab" data-filter="computer-vision">Computer Vision</div>
-                <div class="filter-tab" data-filter="medical-ai">Medical AI</div>
-                <div class="filter-tab" data-filter="bioinformatics">Bioinformatics</div>
-                <div class="filter-tab" data-filter="diffusion">Diffusion Models</div>
-            </div>
-
+        <!-- Timeline -->
+        <section class="timeline">
+            <!-- 2025 -->
+            <div class="timeline-year reveal">
+                <h2 class="year-header">2025 Sketches</h2>
             <div class="publications-grid">
-                <div class="publication-item" data-category="computer-vision diffusion">
-                    <div class="publication-header">
-                        <div class="publication-year">2025</div>
-                        <div class="publication-content">
-                            <h3 class="publication-title">SSDL: Sensor-to-Skeleton Diffusion Model with Lipschitz Regularization for Human Activity Recognition</h3>
-                            <p class="publication-authors">N Sharma, C Sun, Z Zhao, AHH Ngu, H Latapie, Y Yan</p>
-                            <p class="publication-venue">MMM 2025 - International Conference on MultiMedia Modeling</p>
-                            <div class="publication-metrics">
-                                <div class="pub-metric citations">
-                                    <svg viewBox="0 0 24 24"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/></svg>
-                                    New Publication
+                    <div class="publication-card featured" data-category="diffusion">
+                        <div class="pub-badge">Fresh from the Drawing Board!</div>
+                        <h3 class="pub-title">SSDL: When Sensors Dream of Skeletons</h3>
+                        <p class="pub-authors">N Sharma, C Sun, Z Zhao, AHH Ngu, H Latapie, Y Yan</p>
+                        <p class="pub-venue">MMM 2025 - International Conference on MultiMedia Modeling</p>
+                        <p class="pub-description">
+                            Ever wondered what would happen if we taught sensors to imagine human skeletons? 
+                            This diffusion model sketch turns messy sensor data into beautiful skeleton 
+                            animations using Lipschitz magic for rock-solid training.
+                        </p>
+                        <div class="pub-metrics">
+                            <div class="pub-metric">
+                                <div class="metric-value">+2%</div>
+                                <div class="metric-label">Better Accuracy</div>
                                 </div>
-                                <div class="pub-metric impact">
-                                    <svg viewBox="0 0 24 24"><path d="M16,6L18.29,8.29L13.41,13.17L9.41,9.17L2,16.59L3.41,18L9.41,12L13.41,16L19.71,9.71L22,12V6H16Z"/></svg>
-                                    High Impact
+                            <div class="pub-metric">
+                                <div class="metric-value">-40%</div>
+                                <div class="metric-label">Less Computing</div>
                                 </div>
+                            <div class="pub-metric">
+                                <div class="metric-value">3</div>
+                                <div class="metric-label">Datasets Tested</div>
                             </div>
-                            <div class="publication-tags">
+                        </div>
+                        <div class="pub-tags">
                                 <span class="pub-tag">Diffusion Models</span>
                                 <span class="pub-tag">Activity Recognition</span>
-                                <span class="pub-tag">Lipschitz Regularization</span>
-                                <span class="pub-tag">Cisco Collaboration</span>
+                            <span class="pub-tag">Cisco Research</span>
+                            <span class="pub-tag">Robotics</span>
                             </div>
-                        </div>
-                    </div>
-                    <div class="publication-links">
+                        <div class="pub-links">
                         <a href="https://link.springer.com/chapter/10.1007/978-981-96-2071-5_7" class="pub-link">
-                            <svg viewBox="0 0 24 24"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/></svg>
-                            PDF
+                                📄 Read the Sketch
                         </a>
                         <a href="https://github.com/nikhiliit/SSDL" class="pub-link">
-                            <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"/></svg>
-                            Code
+                                💻 See the Code
                         </a>
                         <a href="cisco-robotics.html" class="pub-link">
-                            <svg viewBox="0 0 24 24"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/></svg>
-                            Project Details
+                                🔍 Deep Dive
                         </a>
+                        </div>
+                    </div>
                     </div>
                 </div>
 
-                <div class="publication-item" data-category="medical-ai">
-                    <div class="publication-header">
-                        <div class="publication-year">2024</div>
-                        <div class="publication-content">
-                            <h3 class="publication-title">3D segmentation of whole lung and metastatic lung nodules using adaptive region-growing</h3>
-                            <p class="publication-authors">EB Kayal, S Ganguly, A Sasi, DS Dheeksha, M Saini, S Sharma, S Gupta, N Sharma, et al.</p>
-                            <p class="publication-venue">Journal of Computer Assisted Tomography</p>
-                            <div class="publication-metrics">
-                                <div class="pub-metric citations">
-                                    <svg viewBox="0 0 24 24"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/></svg>
-                                    15+ Citations
+            <!-- 2024 -->
+            <div class="timeline-year reveal">
+                <h2 class="year-header">2024 Sketches</h2>
+                <div class="publications-grid">
+                    <div class="publication-card" data-category="medical">
+                        <div class="pub-badge">Life-Saving Sketches</div>
+                        <h3 class="pub-title">3D Lung Maps That Spot Cancer Early</h3>
+                        <p class="pub-authors">EB Kayal, S Ganguly, A Sasi, DS Dheeksha, M Saini, S Sharma, S Gupta, N Sharma, et al.</p>
+                        <p class="pub-venue">Journal of Computer Assisted Tomography</p>
+                        <p class="pub-description">
+                            My algorithms sketch detailed 3D maps of lungs to catch cancer before it spreads. 
+                            Working with real doctors at top hospitals to turn AI sketches into actual patient care.
+                        </p>
+                        <div class="pub-metrics">
+                            <div class="pub-metric">
+                                <div class="metric-value">15+</div>
+                                <div class="metric-label">Citations</div>
                                 </div>
-                                <div class="pub-metric impact">
-                                    <svg viewBox="0 0 24 24"><path d="M16,6L18.29,8.29L13.41,13.17L9.41,9.17L2,16.59L3.41,18L9.41,12L13.41,16L19.71,9.71L22,12V6H16Z"/></svg>
-                                    Clinical Impact
+                            <div class="pub-metric">
+                                <div class="metric-value">3D</div>
+                                <div class="metric-label">Segmentation</div>
                                 </div>
+                            <div class="pub-metric">
+                                <div class="metric-value">Clinical</div>
+                                <div class="metric-label">Validated</div>
                             </div>
-                            <div class="publication-tags">
+                        </div>
+                        <div class="pub-tags">
                                 <span class="pub-tag">Medical Imaging</span>
                                 <span class="pub-tag">3D Segmentation</span>
-                                <span class="pub-tag">Lung Analysis</span>
-                                <span class="pub-tag">Region Growing</span>
+                            <span class="pub-tag">Cancer Detection</span>
                             </div>
+                        <div class="pub-links">
+                            <a href="#" class="pub-link">📄 Read the Paper</a>
                         </div>
                     </div>
-                    <div class="publication-links">
-                        <a href="#" class="pub-link">
-                            <svg viewBox="0 0 24 24"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/></svg>
-                            PDF
-                        </a>
                     </div>
                 </div>
 
-                <div class="publication-item" data-category="medical-ai">
-                    <div class="publication-header">
-                        <div class="publication-year">2022</div>
-                        <div class="publication-content">
-                            <h3 class="publication-title">T1 mapping as a surrogate marker of chemotherapy response evaluation in patients with osteosarcoma</h3>
-                            <p class="publication-authors">EB Kayal, N Sharma, R Sharma, S Bakhshi, D Kandasamy, A Mehndiratta</p>
-                            <p class="publication-venue">European Journal of Radiology</p>
-                            <div class="publication-metrics">
-                                <div class="pub-metric citations">
-                                    <svg viewBox="0 0 24 24"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/></svg>
-                                    25+ Citations
+            <!-- 2022 -->
+            <div class="timeline-year reveal">
+                <h2 class="year-header">2022 Sketches</h2>
+                <div class="publications-grid">
+                    <div class="publication-card" data-category="medical">
+                        <div class="pub-badge">Award-Winning Sketch! 🏆</div>
+                        <h3 class="pub-title">T1 Mapping Magic for Cancer Treatment</h3>
+                        <p class="pub-authors">EB Kayal, N Sharma, R Sharma, S Bakhshi, D Kandasamy, A Mehndiratta</p>
+                        <p class="pub-venue">European Journal of Radiology</p>
+                        <p class="pub-description">
+                            This sketch won an ISMRM Award! It's about using T1 mapping to see how well 
+                            cancer treatments are working without invasive procedures. Science that helps people!
+                        </p>
+                        <div class="pub-metrics">
+                            <div class="pub-metric">
+                                <div class="metric-value">25+</div>
+                                <div class="metric-label">Citations</div>
                                 </div>
-                                <div class="pub-metric impact" style="background: rgba(255, 215, 0, 0.1); color: #FFD700;">
-                                    <svg viewBox="0 0 24 24"><path d="M12,2L15.09,8.26L22,9L17,14L18.18,21L12,17.77L5.82,21L7,14L2,9L8.91,8.26L12,2Z"/></svg>
-                                    ISMRM Award 2020
+                            <div class="pub-metric">
+                                <div class="metric-value">ISMRM</div>
+                                <div class="metric-label">Award Winner</div>
                                 </div>
+                            <div class="pub-metric">
+                                <div class="metric-value">Clinical</div>
+                                <div class="metric-label">Impact</div>
                             </div>
-                            <div class="publication-tags">
+                        </div>
+                        <div class="pub-tags">
                                 <span class="pub-tag">Medical Imaging</span>
-                                <span class="pub-tag">Cancer Research</span>
                                 <span class="pub-tag">T1 Mapping</span>
+                            <span class="pub-tag">Cancer Research</span>
                                 <span class="pub-tag">Award Winner</span>
                             </div>
+                        <div class="pub-links">
+                            <a href="#" class="pub-link">📄 Read the Paper</a>
+                            <a href="#" class="pub-link">🏆 See Award</a>
                         </div>
                     </div>
-                    <div class="publication-links">
-                        <a href="#" class="pub-link">
-                            <svg viewBox="0 0 24 24"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/></svg>
-                            PDF
-                        </a>
-                        <a href="#" class="pub-link">
-                            <svg viewBox="0 0 24 24"><path d="M12,2L15.09,8.26L22,9L17,14L18.18,21L12,17.77L5.82,21L7,14L2,9L8.91,8.26L12,2Z"/></svg>
-                            Award Details
-                        </a>
                     </div>
                 </div>
 
-                <div class="publication-item" data-category="bioinformatics">
-                    <div class="publication-header">
-                        <div class="publication-year">2021</div>
-                        <div class="publication-content">
-                            <h3 class="publication-title">Whole genome analysis of more than 10,000 SARS-CoV-2 virus unveils global genetic diversity</h3>
-                            <p class="publication-authors">I Saha, N Ghosh, N Sharma, D Maity, K Mitra</p>
-                            <p class="publication-venue">Briefings in Bioinformatics - Oxford Academic</p>
-                            <div class="publication-metrics">
-                                <div class="pub-metric citations">
-                                    <svg viewBox="0 0 24 24"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/></svg>
-                                    50+ Citations
+            <!-- 2021 -->
+            <div class="timeline-year reveal">
+                <h2 class="year-header">2021 Sketches</h2>
+                <div class="publications-grid">
+                    <div class="publication-card" data-category="bioinformatics">
+                        <div class="pub-badge">Global Impact Sketch</div>
+                        <h3 class="pub-title">10,000+ COVID Genomes Analyzed</h3>
+                        <p class="pub-authors">I Saha, N Ghosh, N Sharma, D Maity, K Mitra</p>
+                        <p class="pub-venue">Briefings in Bioinformatics - Oxford Academic</p>
+                        <p class="pub-description">
+                            During the pandemic, I sketched algorithms to analyze over 10,000 SARS-CoV-2 genomes. 
+                            This research helped understand how the virus was evolving globally.
+                        </p>
+                        <div class="pub-metrics">
+                            <div class="pub-metric">
+                                <div class="metric-value">50+</div>
+                                <div class="metric-label">Citations</div>
                                 </div>
-                                <div class="pub-metric impact">
-                                    <svg viewBox="0 0 24 24"><path d="M16,6L18.29,8.29L13.41,13.17L9.41,9.17L2,16.59L3.41,18L9.41,12L13.41,16L19.71,9.71L22,12V6H16Z"/></svg>
-                                    COVID-19 Research
+                            <div class="pub-metric">
+                                <div class="metric-value">10K+</div>
+                                <div class="metric-label">Genomes</div>
                                 </div>
+                            <div class="pub-metric">
+                                <div class="metric-value">Global</div>
+                                <div class="metric-label">Impact</div>
                             </div>
-                            <div class="publication-tags">
-                                <span class="pub-tag">Genomics</span>
+                        </div>
+                        <div class="pub-tags">
                                 <span class="pub-tag">COVID-19</span>
+                            <span class="pub-tag">Genomics</span>
                                 <span class="pub-tag">Bioinformatics</span>
                                 <span class="pub-tag">Oxford Academic</span>
                             </div>
-                        </div>
-                    </div>
-                    <div class="publication-links">
-                        <a href="#" class="pub-link">
-                            <svg viewBox="0 0 24 24"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/></svg>
-                            PDF
-                        </a>
+                        <div class="pub-links">
+                            <a href="#" class="pub-link">📄 Read the Paper</a>
                     </div>
                 </div>
 
-                <div class="publication-item" data-category="computer-vision">
-                    <div class="publication-header">
-                        <div class="publication-year">2021</div>
-                        <div class="publication-content">
-                            <h3 class="publication-title">Skin lesion segmentation using deep convolutional networks</h3>
-                            <p class="publication-authors">P Arora, N Sharma, P Bhatt, A Saxena</p>
-                            <p class="publication-venue">Concepts and Real-Time Applications of Deep Learning</p>
-                            <div class="publication-metrics">
-                                <div class="pub-metric citations">
-                                    <svg viewBox="0 0 24 24"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/></svg>
-                                    30+ Citations
+                    <div class="publication-card" data-category="medical">
+                        <div class="pub-badge">AI for Good Sketch</div>
+                        <h3 class="pub-title">Skin Cancer Detection Sketches</h3>
+                        <p class="pub-authors">P Arora, N Sharma, P Bhatt, A Saxena</p>
+                        <p class="pub-venue">Concepts and Real-Time Applications of Deep Learning</p>
+                        <p class="pub-description">
+                            Sketched deep learning models that can spot skin cancer early by looking at photos. 
+                            AI that could save lives by catching problems before they get serious.
+                        </p>
+                        <div class="pub-metrics">
+                            <div class="pub-metric">
+                                <div class="metric-value">30+</div>
+                                <div class="metric-label">Citations</div>
                                 </div>
-                                <div class="pub-metric impact">
-                                    <svg viewBox="0 0 24 24"><path d="M16,6L18.29,8.29L13.41,13.17L9.41,9.17L2,16.59L3.41,18L9.41,12L13.41,16L19.71,9.71L22,12V6H16Z"/></svg>
-                                    Medical AI
+                            <div class="pub-metric">
+                                <div class="metric-value">CNN</div>
+                                <div class="metric-label">Deep Learning</div>
                                 </div>
+                            <div class="pub-metric">
+                                <div class="metric-value">Medical</div>
+                                <div class="metric-label">Application</div>
                             </div>
-                            <div class="publication-tags">
+                        </div>
+                        <div class="pub-tags">
+                            <span class="pub-tag">Deep Learning</span>
                                 <span class="pub-tag">Medical Imaging</span>
-                                <span class="pub-tag">CNN</span>
-                                <span class="pub-tag">Segmentation</span>
+                            <span class="pub-tag">Cancer Detection</span>
                                 <span class="pub-tag">Dermatology</span>
                             </div>
-                        </div>
-                    </div>
-                    <div class="publication-links">
-                        <a href="#" class="pub-link">
-                            <svg viewBox="0 0 24 24"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/></svg>
-                            PDF
-                        </a>
+                        <div class="pub-links">
+                            <a href="#" class="pub-link">📄 Read the Paper</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Research Areas -->
-    <section class="research-areas">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-eyebrow">Research Focus</div>
-                <h2 class="section-headline">Areas of Expertise</h2>
-                <p class="section-subheadline">Core research areas driving innovation in AI and machine learning systems.</p>
-            </div>
-
-            <div class="areas-grid">
-                <div class="area-card">
-                    <div class="area-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22A1,1 0 0,1 23,15V18A1,1 0 0,1 22,19H21V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V19H2A1,1 0 0,1 1,18V15A1,1 0 0,1 2,14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2M7.5,13A2.5,2.5 0 0,0 5,15.5A2.5,2.5 0 0,0 7.5,18A2.5,2.5 0 0,0 10,15.5A2.5,2.5 0 0,0 7.5,13M16.5,13A2.5,2.5 0 0,0 14,15.5A2.5,2.5 0 0,0 16.5,18A2.5,2.5 0 0,0 19,15.5A2.5,2.5 0 0,0 16.5,13Z"/>
-                        </svg>
-                    </div>
-                    <h3 class="area-title">Computer Vision & Deep Learning</h3>
-                    <p class="area-description">
-                        Advanced research in human pose estimation, activity recognition, and medical image analysis 
-                        using state-of-the-art deep learning architectures and novel optimization techniques.
-                    </p>
-                    <div class="area-stats">
-                        <div class="area-stat">
-                            <div class="area-stat-number">8+</div>
-                            <div class="area-stat-label">Publications</div>
-                        </div>
-                        <div class="area-stat">
-                            <div class="area-stat-number">23%</div>
-                            <div class="area-stat-label">Best Improvement</div>
-                        </div>
-                        <div class="area-stat">
-                            <div class="area-stat-number">3</div>
-                            <div class="area-stat-label">Active Projects</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="area-card">
-                    <div class="area-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M17,9H7V7A5,5 0 0,1 12,2A5,5 0 0,1 17,7V9M12,17A2,2 0 0,0 14,15A2,2 0 0,0 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,10V9A6,6 0 0,0 12,3A6,6 0 0,0 6,9V10A2,2 0 0,0 4,12V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V12A2,2 0 0,0 18,10Z"/>
-                        </svg>
-                    </div>
-                    <h3 class="area-title">Secure Edge ML Systems</h3>
-                    <p class="area-description">
-                        Developing secure, low-latency machine learning systems for edge deployment with federal 
-                        compliance protocols and real-time inference capabilities.
-                    </p>
-                    <div class="area-stats">
-                        <div class="area-stat">
-                            <div class="area-stat-number">2</div>
-                            <div class="area-stat-label">Major Projects</div>
-                        </div>
-                        <div class="area-stat">
-                            <div class="area-stat-number">&lt;10ms</div>
-                            <div class="area-stat-label">Latency</div>
-                        </div>
-                        <div class="area-stat">
-                            <div class="area-stat-number">100%</div>
-                            <div class="area-stat-label">Compliant</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="area-card">
-                    <div class="area-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M13,13H18V16H13V13M13,9H18V12H13V9M6,9H11V19H6V9Z"/>
-                        </svg>
-                    </div>
-                    <h3 class="area-title">Medical AI & Bioinformatics</h3>
-                    <p class="area-description">
-                        Applying AI techniques to biological and medical data, enabling advanced analysis 
-                        for healthcare applications and genomic research with clinical impact.
-                    </p>
-                    <div class="area-stats">
-                        <div class="area-stat">
-                            <div class="area-stat-number">6+</div>
-                            <div class="area-stat-label">Publications</div>
-                        </div>
-                        <div class="area-stat">
-                            <div class="area-stat-number">2</div>
-                            <div class="area-stat-label">Awards</div>
-                        </div>
-                        <div class="area-stat">
-                            <div class="area-stat-number">150+</div>
-                            <div class="area-stat-label">Citations</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Bottom CTA -->
+        <section class="hero reveal" style="margin-top: 6rem;">
+            <div class="sketch-arrow" style="top: 50%; right: 20%;">↗</div>
+            <h2 style="font-family: 'Caveat', cursive; font-size: 2.5rem; color: var(--sketch-black); margin-bottom: 2rem;">
+                Want to Sketch Something Together?
+            </h2>
+            <p style="font-size: 1.2rem; color: var(--sketch-gray); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Got an interesting AI problem that needs sketching out? Let's grab some coffee and brainstorm!
+            </p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="mailto:sharmanikhiljiit@gmail.com" style="font-family: 'Architects Daughter', cursive; background: var(--sketch-black); color: var(--paper-white); padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-weight: 600; transform: rotate(-0.5deg); transition: all 0.3s ease;">
+                    ✉️ Email Me
+                </a>
+                <a href="experience.html" style="font-family: 'Architects Daughter', cursive; background: transparent; color: var(--sketch-black); padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-weight: 600; border: 3px solid var(--sketch-black); transform: rotate(0.5deg); transition: all 0.3s ease;">
+                    👨‍💼 My Journey
+                </a>
         </div>
     </section>
-
-    <!-- Collaborations -->
-    <section class="collaborations">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-eyebrow">Research Partnerships</div>
-                <h2 class="section-headline">Global Collaborations</h2>
-                <p class="section-subheadline">Working with leading institutions and industry partners worldwide.</p>
-            </div>
-
-            <div class="collaboration-grid">
-                <div class="collaboration-card">
-                    <div class="collaboration-logo">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M12,2L13.09,8.26L22,9L17,14L18.18,21L12,17.77L5.82,21L7,14L2,9L8.91,8.26L12,2Z"/>
-                        </svg>
-                    </div>
-                    <h3 class="collaboration-title">Stanford University</h3>
-                    <p class="collaboration-partner">Dr. Mehrdad Shamloo • SPrinT Program</p>
-                    <p class="collaboration-description">
-                        Leading secure edge-based inference systems for real-time behavioral analysis in federally 
-                        funded neuroscience research with NSA compliance protocols.
-                    </p>
-                    <span class="collaboration-status">Active</span>
-                </div>
-
-                <div class="collaboration-card">
-                    <div class="collaboration-logo">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M20,12V8L18,6L14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V12Z"/>
-                        </svg>
-                    </div>
-                    <h3 class="collaboration-title">University of Michigan</h3>
-                    <p class="collaboration-partner">Dr. Bo Duan • Behavioral Analysis</p>
-                    <p class="collaboration-description">
-                        Advanced behavioral analysis and ML-driven research data interpretation using computer vision 
-                        and multimodal learning approaches for neuroscience applications.
-                    </p>
-                    <span class="collaboration-status">Active</span>
-                </div>
-
-                <div class="collaboration-card">
-                    <div class="collaboration-logo">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,7V13H12.5L16.5,9.5L17.5,10.5L12,16H10V7H11Z"/>
-                        </svg>
-                    </div>
-                    <h3 class="collaboration-title">Cisco Research</h3>
-                    <p class="collaboration-partner">Texas State University • Industry Partnership</p>
-                    <p class="collaboration-description">
-                        Skeleton frame generation via diffusion modeling for enhanced human activity recognition 
-                        systems. Published research with measurable performance improvements.
-                    </p>
-                    <span class="collaboration-status completed">Completed</span>
-                </div>
-
-                <div class="collaboration-card">
-                    <div class="collaboration-logo">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M13,13H18V16H13V13M13,9H18V12H13V9M6,9H11V19H6V9Z"/>
-                        </svg>
-                    </div>
-                    <h3 class="collaboration-title">Medical Institutions</h3>
-                    <p class="collaboration-partner">AIIMS Delhi • IIT Delhi • Cancer Research</p>
-                    <p class="collaboration-description">
-                        T1 mapping research for cancer treatment evaluation and medical imaging analysis with 
-                        clinical applications and award-winning outcomes.
-                    </p>
-                    <span class="collaboration-status completed">Completed</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-headline">Interested in Research Collaboration?</h2>
-                <p class="cta-description">
-                    Let's discuss opportunities for advancing AI research together through innovative partnerships and cutting-edge projects.
-                </p>
-                <a href="mailto:sharmanikhiljiit@gmail.com" class="btn-white">Get in Touch</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="mailto:sharmanikhiljiit@gmail.com">Email</a>
-                <a href="https://www.linkedin.com/in/nikhil-sharma-jiit/" target="_blank">LinkedIn</a>
-                <a href="https://github.com/nikhiliit" target="_blank">GitHub</a>
-                <a href="https://scholar.google.com/citations?user=Von4NncAAAAJ&hl=en" target="_blank">Google Scholar</a>
-            </div>
-            <div class="footer-text">
-                Copyright © 2025 Nikhil Sharma. All rights reserved.
-            </div>
-        </div>
-    </footer>
+    </main>
 
     <script>
         // Filter functionality
-        const filterTabs = document.querySelectorAll('.filter-tab');
-        const publicationItems = document.querySelectorAll('.publication-item');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const publications = document.querySelectorAll('.publication-card');
 
-        filterTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Remove active class from all tabs
-                filterTabs.forEach(t => t.classList.remove('active'));
-                // Add active class to clicked tab
-                tab.classList.add('active');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
 
-                const filter = tab.dataset.filter;
+                const filter = button.dataset.filter;
 
-                publicationItems.forEach(item => {
-                    const categories = item.dataset.category.split(' ');
-                    
-                    if (filter === 'all' || categories.includes(filter)) {
-                        item.style.display = 'block';
-                        item.style.opacity = '0';
-                        item.style.transform = 'translateY(20px)';
+                publications.forEach(pub => {
+                    if (filter === 'all' || pub.dataset.category === filter) {
+                        pub.style.display = 'block';
+                        pub.style.opacity = '0';
+                        pub.style.transform = 'translateY(30px) rotate(0deg)';
                         setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateY(0)';
+                            pub.style.opacity = '1';
+                            pub.style.transform = 'translateY(0) rotate(' + 
+                                (Math.random() > 0.5 ? '0.5deg' : '-0.5deg') + ')';
                         }, 100);
                     } else {
-                        item.style.display = 'none';
+                        pub.style.opacity = '0';
+                        pub.style.transform = 'translateY(30px) rotate(0deg)';
+                        setTimeout(() => {
+                            pub.style.display = 'none';
+                        }, 300);
                     }
                 });
             });
         });
 
-        // Smooth scroll behavior for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 44; // Account for fixed nav
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Enhanced navbar scroll effect
-        let lastScrollY = window.scrollY;
-        const nav = document.querySelector('.nav');
-
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            
-            if (currentScrollY > 100) {
-                nav.style.background = 'rgba(255, 255, 255, 0.9)';
-                nav.style.borderBottom = '1px solid rgba(0, 0, 0, 0.12)';
-            } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.8)';
-                nav.style.borderBottom = '1px solid rgba(0, 0, 0, 0.08)';
-            }
-
-            // Hide/show nav on scroll direction
-            if (currentScrollY > lastScrollY && currentScrollY > 200) {
-                nav.style.transform = 'translateY(-100%)';
-            } else {
-                nav.style.transform = 'translateY(0)';
-            }
-            
-            lastScrollY = currentScrollY;
-        });
-
-        // Intersection Observer for metrics animation
+        // Scroll reveal animations
         const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px 0px -100px 0px'
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
 
-        const metricsObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
+        const randomRotations = ['-0.5deg', '0.3deg', '-0.8deg', '0.6deg', '-0.3deg', '0.4deg'];
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 200);
+                    const randomRotation = randomRotations[Math.floor(Math.random() * randomRotations.length)];
+                    entry.target.style.setProperty('--random-rotation', randomRotation);
+                    entry.target.classList.add('revealed');
                 }
             });
         }, observerOptions);
 
-        // Observe all metric items
-        document.querySelectorAll('.metric-item').forEach(item => {
-            metricsObserver.observe(item);
+        // Observe all elements with reveal class
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
         });
 
-        // Intersection Observer for cards animation
-        const cardsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        // Observe cards for scroll animations
-        document.querySelectorAll('.publication-item, .area-card, .collaboration-card').forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(30px)';
-            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            cardsObserver.observe(item);
-        });
-
-        // Add loading state
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '1';
-        });
-
-        // Preload critical resources
-        const preloadLink = document.createElement('link');
-        preloadLink.rel = 'preload';
-        preloadLink.href = 'https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@100;200;300;400;500;600;700;800;900&family=SF+Pro+Text:wght@300;400;500;600&display=swap';
-        preloadLink.as = 'style';
-        document.head.appendChild(preloadLink);
-
-        // Enhanced publication hover effects
-        document.querySelectorAll('.publication-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
+        // Add hover effects to publication cards
+        document.querySelectorAll('.publication-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = card.style.transform.replace(/rotate\([^)]*\)/, '') + ' rotate(0deg)';
             });
             
-            item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
+            card.addEventListener('mouseleave', () => {
+                const isEven = Array.from(card.parentNode.children).indexOf(card) % 2 === 0;
+                const rotation = isEven ? 'rotate(0.5deg)' : 'rotate(-0.5deg)';
+                card.style.transform = card.style.transform.replace(/rotate\([^)]*\)/, '') + ' ' + rotation;
             });
         });
 
-        // Featured publication spotlight animation
-        const featuredPublication = document.querySelector('.featured-publication');
-        if (featuredPublication) {
-            let animationId;
-            
-            featuredPublication.addEventListener('mouseenter', () => {
-                const spotlight = featuredPublication.querySelector('::before');
-                if (spotlight) {
-                    spotlight.style.animationDuration = '4s';
-                }
-            });
-            
-            featuredPublication.addEventListener('mouseleave', () => {
-                const spotlight = featuredPublication.querySelector('::before');
-                if (spotlight) {
-                    spotlight.style.animationDuration = '8s';
-                }
-            });
-        }
+        // Fun console message
+        console.log(`
+    📚✏️ Research Sketchbook Loaded! ✏️📚
+    
+    Thanks for exploring my research sketches!
+    Each paper is a small idea that grew into 
+    something that hopefully helps people.
+    
+    ~ Nikhil 🎨
+        `);
 
-        // Add dynamic content loading for better performance
-        const observeElements = () => {
-            const elements = document.querySelectorAll('[data-src]');
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-
-            elements.forEach(img => imageObserver.observe(img));
-        };
-
-        // Initialize lazy loading
-        observeElements();
+        // Add transition styles to publication cards
+        publications.forEach(pub => {
+            pub.style.transition = 'all 0.3s ease, opacity 0.3s ease, transform 0.3s ease';
+        });
     </script>
 </body>
 </html>

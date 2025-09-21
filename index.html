@@ -3,1236 +3,1175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nikhil Sharma - ML Engineer & AI Researcher</title>
-    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@100;200;300;400;500;600;700;800;900&family=SF+Pro+Text:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Nikhil Sharma - AI Researcher & PhD Student</title>
+    <meta name="description" content="Nikhil Sharma is an AI researcher and PhD student specializing in machine learning, computer vision, and medical AI. Currently at Illinois Institute of Technology with collaborations at Stanford University.">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Caveat:wght@400;500;600;700&family=Architects+Daughter&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-text: #1d1d1f;
-            --secondary-text: #86868b;
-            --accent-blue: #007aff;
-            --accent-purple: #5856d6;
-            --background-white: #ffffff;
-            --background-gray: #f5f5f7;
-            --background-dark: #000000;
-            --border-light: rgba(0, 0, 0, 0.08);
-            --shadow-light: rgba(0, 0, 0, 0.04);
-            --shadow-medium: rgba(0, 0, 0, 0.12);
-            --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-accent: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--background-white);
-            color: var(--primary-text);
-            line-height: 1.47059;
-            letter-spacing: -0.022em;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        :root {
+            --sketch-black: #2c2c2c;
+            --sketch-gray: #555555;
+            --sketch-light: #777777;
+            --sketch-lighter: #999999;
+            --paper-white: #fefefe;
+            --paper-cream: #faf9f7;
+            --sketch-blue: #4a5568;
+            --accent-sketch: #e2e8f0;
+            --line-sketch: #d1d5db;
+            --shadow-sketch: rgba(44, 44, 44, 0.1);
         }
 
-        /* Navigation */
-        .nav {
+        body {
+            font-family: 'Kalam', cursive;
+            line-height: 1.7;
+            color: var(--sketch-black);
+            background: var(--paper-cream);
+            background-image: 
+                radial-gradient(circle at 25% 25%, #f7f3f0 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, #f7f3f0 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-attachment: fixed;
+        }
+
+        /* Paper texture overlay */
+        body::before {
+            content: '';
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid var(--border-light);
-            z-index: 1000;
-            transition: all 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 30px,
+                    rgba(221, 221, 221, 0.3) 30px,
+                    rgba(221, 221, 221, 0.3) 31px
+                );
+            pointer-events: none;
+            z-index: -1;
         }
 
-        .nav-container {
-            max-width: 1024px;
+        /* Sketch-style borders and elements */
+        .sketch-border {
+            border: 2px solid var(--sketch-black);
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .sketch-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 1px solid var(--sketch-gray);
+            border-radius: 15px;
+            transform: rotate(-0.5deg);
+            z-index: -1;
+        }
+
+        .sketch-border::after {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            border: 1px solid var(--sketch-light);
+            border-radius: 15px;
+            transform: rotate(0.3deg);
+            z-index: -1;
+        }
+
+        /* Hand-drawn underlines */
+        .sketch-underline {
+            position: relative;
+            display: inline-block;
+        }
+
+        .sketch-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0,8 Q25,2 50,6 Q75,10 100,4' stroke='%23555' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+            background-size: 100px 10px;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background: var(--paper-cream);
+            z-index: 100;
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--sketch-black);
+            box-shadow: 0 2px 10px var(--shadow-sketch);
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 20px;
+            right: 20px;
+            height: 2px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 4'%3E%3Cpath d='M0,2 Q25,1 50,3 Q75,1 100,2' stroke='%23777' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+        }
+
+        .header-content {
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 22px;
-            height: 44px;
+            padding: 0 2rem;
         }
 
-        .nav-logo {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 21px;
-            font-weight: 600;
-            letter-spacing: 0.011em;
-            color: var(--primary-text);
+        .logo {
+            font-family: 'Caveat', cursive;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--sketch-black);
             text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 0;
-            list-style: none;
-        }
-
-        .nav-links li {
+            transform: rotate(-1deg);
             position: relative;
         }
 
-        .nav-links a {
-            display: block;
-            padding: 0 21px;
-            color: var(--primary-text);
+        .logo::after {
+            content: '✏️';
+            position: absolute;
+            top: -10px;
+            right: -25px;
+            font-size: 1rem;
+            transform: rotate(15deg);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            font-family: 'Architects Daughter', cursive;
+        }
+
+        .nav-link {
+            color: var(--sketch-gray);
             text-decoration: none;
-            font-size: 12px;
             font-weight: 400;
-            line-height: 1.33;
-            letter-spacing: -0.01em;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            transform: rotate(0.5deg);
+        }
+
+        .nav-link:hover {
+            color: var(--sketch-black);
+            background: var(--accent-sketch);
+            transform: rotate(-0.5deg) scale(1.05);
+        }
+
+        .nav-link::before {
+            content: '•';
+            position: absolute;
+            left: -10px;
+            opacity: 0;
             transition: opacity 0.3s ease;
         }
 
-        .nav-links a:hover {
-            opacity: 0.8;
+        .nav-link:hover::before {
+            opacity: 1;
         }
 
-        .nav-links a.active {
-            opacity: 0.8;
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--sketch-black);
+            font-size: 1.5rem;
+            cursor: pointer;
+            font-family: 'Kalam', cursive;
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 90vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            background: var(--background-white);
-            padding: 44px 22px 0;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
             position: relative;
-            overflow: hidden;
         }
 
+        /* Doodle decorations */
         .hero::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            width: 150px;
+            height: 150px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20,20 Q50,10 80,20 Q90,50 80,80 Q50,90 20,80 Q10,50 20,20' stroke='%23999' fill='none' stroke-width='2' stroke-dasharray='3,3'/%3E%3Cpath d='M35,35 Q50,25 65,35 Q70,50 65,65 Q50,75 35,65 Q30,50 35,35' stroke='%23bbb' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            transform: rotate(15deg);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 15%;
+            left: 5%;
+            width: 100px;
+            height: 100px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M10,50 Q30,20 50,50 Q70,80 90,50' stroke='%23aaa' fill='none' stroke-width='2'/%3E%3Cpath d='M20,40 Q40,30 60,40' stroke='%23ccc' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            opacity: 0.2;
+            transform: rotate(-10deg);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+        }
+
+        .hero-greeting {
+            font-family: 'Caveat', cursive;
+            color: var(--sketch-gray);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            transform: rotate(-1deg);
+            position: relative;
+        }
+
+        .hero-greeting::before {
+            content: '👋';
+            margin-right: 0.5rem;
+            display: inline-block;
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(20deg); }
+            75% { transform: rotate(-10deg); }
+        }
+
+        .hero-title {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--sketch-black);
+            transform: rotate(-0.5deg);
+            position: relative;
+        }
+
+        .hero-title .highlight {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-title .highlight::before {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: -5px;
+            right: -5px;
+            height: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath d='M0,10 Q25,5 50,12 Q75,8 100,15' stroke='%23e2e8f0' fill='none' stroke-width='8' opacity='0.7'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+            z-index: -1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--sketch-gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            transform: rotate(0.3deg);
+            font-family: 'Kalam', cursive;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--sketch-light);
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            font-family: 'Kalam', cursive;
+            position: relative;
+        }
+
+        /* Sketch-style buttons */
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary, .cta-secondary {
+            font-family: 'Architects Daughter', cursive;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transform: rotate(-0.5deg);
+        }
+
+        .cta-primary {
+            background: var(--sketch-black);
+            color: var(--paper-cream);
+            border: 3px solid var(--sketch-black);
+        }
+
+        .cta-primary:hover {
+            background: var(--paper-cream);
+            color: var(--sketch-black);
+            transform: rotate(0.5deg) scale(1.05);
+            box-shadow: 5px 5px 15px var(--shadow-sketch);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--sketch-gray);
+            border: 3px solid var(--sketch-gray);
+        }
+
+        .cta-secondary:hover {
+            background: var(--sketch-gray);
+            color: var(--paper-cream);
+            transform: rotate(-0.5deg) scale(1.05);
+            box-shadow: 5px 5px 15px var(--shadow-sketch);
+        }
+
+        /* Sketch-style photo frame */
+        .hero-image {
+            position: relative;
+            transform: rotate(2deg);
+        }
+
+        .hero-photo-frame {
+            position: relative;
+            padding: 20px;
+            background: var(--paper-white);
+            border: 3px solid var(--sketch-black);
+            border-radius: 25px;
+            box-shadow: 10px 10px 30px var(--shadow-sketch);
+            transform: rotate(-1deg);
+        }
+
+        .hero-photo-frame::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid var(--sketch-gray);
+            border-radius: 25px;
+            transform: rotate(0.8deg);
+            z-index: -1;
+        }
+
+        .hero-photo {
+            width: 100%;
+            max-width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            filter: sepia(20%) contrast(1.1);
+        }
+
+        .photo-badge {
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            right: 20px;
+            background: var(--paper-white);
+            padding: 1rem;
+            border: 2px solid var(--sketch-black);
+            border-radius: 15px;
+            transform: rotate(-0.5deg);
+            box-shadow: 5px 5px 15px var(--shadow-sketch);
+        }
+
+        .badge-title {
+            font-family: 'Caveat', cursive;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--sketch-black);
+            margin-bottom: 0.2rem;
+        }
+
+        .badge-subtitle {
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Hand-drawn divider */
+        .sketch-divider {
+            width: 100%;
+            height: 30px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath d='M0,10 Q25,5 50,12 Q75,8 100,15 Q125,12 150,10' stroke='%23999' fill='none' stroke-width='2' stroke-dasharray='5,5'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+            background-position: center;
+            margin: 3rem 0;
+        }
+
+        /* Stats with sketchy style */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .quick-stats::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
-                radial-gradient(circle at 25% 25%, rgba(120, 119, 198, 0.1) 0%, transparent 25%),
-                radial-gradient(circle at 75% 75%, rgba(0, 122, 255, 0.1) 0%, transparent 25%);
-            pointer-events: none;
+            border: 2px solid var(--sketch-gray);
+            border-radius: 30px;
+            transform: rotate(-0.5deg);
+            background: var(--paper-white);
+            z-index: -1;
         }
 
-        .hero-content {
-            max-width: 692px;
-            margin: 0 auto;
-            z-index: 2;
-            position: relative;
+        .quick-stats::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 1px solid var(--sketch-lighter);
+            border-radius: 30px;
+            transform: rotate(0.3deg);
+            z-index: -1;
         }
 
-        .hero-eyebrow {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 19px;
-            line-height: 1.21;
-            font-weight: 600;
-            letter-spacing: 0.012em;
-            color: var(--accent-blue);
-            margin-bottom: 16px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.2s forwards;
-        }
-
-        .hero-headline {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 80px;
-            line-height: 1.05;
-            font-weight: 700;
-            letter-spacing: -0.015em;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, var(--primary-text) 0%, var(--accent-purple) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.4s forwards;
-        }
-
-        .hero-subheadline {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 28px;
-            line-height: 1.14;
-            font-weight: 400;
-            letter-spacing: 0.007em;
-            color: var(--secondary-text);
-            margin-bottom: 40px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.6s forwards;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.8s forwards;
-        }
-
-        .btn-primary {
-            background: var(--accent-blue);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 980px;
-            text-decoration: none;
-            font-size: 17px;
-            font-weight: 400;
-            line-height: 1.23;
-            letter-spacing: -0.022em;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 0 4px 14px 0 rgba(0, 122, 255, 0.39);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px 0 rgba(0, 122, 255, 0.4);
-        }
-
-        .btn-secondary {
-            color: var(--accent-blue);
-            padding: 12px 24px;
-            border-radius: 980px;
-            text-decoration: none;
-            font-size: 17px;
-            font-weight: 400;
-            line-height: 1.23;
-            letter-spacing: -0.022em;
-            border: 1px solid var(--accent-blue);
-            transition: all 0.3s ease;
-            background: transparent;
-        }
-
-        .btn-secondary:hover {
-            background: var(--accent-blue);
-            color: white;
-            transform: translateY(-1px);
-        }
-        
-        .about {
-            padding: 100px 0;
-            background: var(--background-gray);
-        }
-
-        .about-container {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .about-image img {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 3px solid var(--accent-blue);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-text h2 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .about-text p {
-            font-size: 18px;
-            color: var(--secondary-text);
-            margin-bottom: 24px;
-            max-width: 600px;
-        }
-
-
-        /* Stats Section */
-        .stats {
-            padding: 80px 0;
-            background: var(--background-gray);
-            margin-top: 0;
-        }
-
-        .container {
-            max-width: 1024px;
-            margin: 0 auto;
-            padding: 0 22px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 60px;
+        .stat {
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .stat-item {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .stat-item.visible {
-            opacity: 1;
-            transform: translateY(0);
+            position: relative;
+            transform: rotate(0.2deg);
         }
 
         .stat-number {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 64px;
-            line-height: 1.03;
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
             font-weight: 700;
-            letter-spacing: -0.009em;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 8px;
+            color: var(--sketch-black);
             display: block;
+            transform: rotate(-0.5deg);
         }
 
         .stat-label {
-            font-size: 17px;
-            line-height: 1.47;
-            color: var(--secondary-text);
-            font-weight: 400;
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
+            font-size: 1rem;
+            margin-top: 0.5rem;
         }
 
-        /* Projects Section */
-        .projects {
-            padding: 110px 0;
-            background: var(--background-white);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-eyebrow {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 19px;
-            line-height: 1.21;
-            font-weight: 600;
-            letter-spacing: 0.012em;
-            color: var(--accent-blue);
-            margin-bottom: 16px;
-        }
-
-        .section-headline {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 48px;
-            line-height: 1.08;
-            font-weight: 700;
-            letter-spacing: -0.003em;
-            margin-bottom: 20px;
-        }
-
-        .section-subheadline {
-            font-size: 21px;
-            line-height: 1.38;
-            font-weight: 400;
-            letter-spacing: 0.011em;
-            color: var(--secondary-text);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-
-        .project-card {
-            background: var(--background-white);
-            border-radius: 18px;
-            padding: 40px;
-            border: 1px solid var(--border-light);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        /* About section with notebook style */
+        .about-preview {
+            background: var(--paper-white);
+            border: 3px solid var(--sketch-black);
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 4rem 0;
             position: relative;
-            overflow: hidden;
+            transform: rotate(-0.3deg);
         }
 
-        .project-card::before {
+        .about-preview::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--gradient-accent);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid var(--sketch-gray);
+            border-radius: 30px;
+            transform: rotate(0.6deg);
+            z-index: -1;
         }
 
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px var(--shadow-medium);
-        }
-
-        .project-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .project-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--gradient-accent);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            box-shadow: 0 4px 14px 0 rgba(0, 122, 255, 0.25);
-        }
-
-        .project-icon svg {
-            width: 32px;
-            height: 32px;
-            fill: white;
-        }
-
-        .project-badge {
-            background: rgba(0, 122, 255, 0.1);
-            color: var(--accent-blue);
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            display: inline-block;
-        }
-
-        .project-title {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 24px;
-            line-height: 1.17;
+        .about-title {
+            font-family: 'Caveat', cursive;
+            font-size: 3rem;
             font-weight: 700;
-            letter-spacing: 0.009em;
-            margin-bottom: 12px;
-        }
-
-        .project-description {
-            font-size: 17px;
-            line-height: 1.47;
-            color: var(--secondary-text);
-            margin-bottom: 24px;
-        }
-
-        .project-metrics {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 24px;
-            padding: 16px;
-            background: var(--background-gray);
-            border-radius: 12px;
-        }
-
-        .metric {
+            color: var(--sketch-black);
+            margin-bottom: 2rem;
             text-align: center;
-        }
-
-        .metric-value {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--accent-blue);
-            line-height: 1.2;
-        }
-
-        .metric-label {
-            font-size: 12px;
-            color: var(--secondary-text);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-top: 4px;
-        }
-
-        .project-link {
-            color: var(--accent-blue);
-            text-decoration: none;
-            font-weight: 400;
-            font-size: 17px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .project-link:hover {
-            gap: 12px;
-        }
-
-        .project-link::after {
-            content: '→';
-            font-size: 16px;
-            transition: transform 0.3s ease;
-        }
-
-        .project-link:hover::after {
-            transform: translateX(4px);
-        }
-
-        /* Experience Section */
-        .experience {
-            padding: 110px 0;
-            background: var(--background-gray);
-        }
-
-        .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .experience-card {
-            background: var(--background-white);
-            border-radius: 18px;
-            padding: 32px;
-            border: 1px solid var(--border-light);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .experience-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -12px var(--shadow-medium);
-        }
-
-        .experience-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .experience-logo {
-            width: 48px;
-            height: 48px;
-            background: var(--gradient-accent);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 16px;
-        }
-
-        .experience-logo svg {
-            width: 24px;
-            height: 24px;
-            fill: white;
-        }
-
-        .experience-meta {
-            flex: 1;
-        }
-
-        .experience-title {
-            font-family: 'SF Pro Display', sans-serif;
-            font-size: 19px;
-            font-weight: 600;
-            line-height: 1.21;
-            margin-bottom: 2px;
-        }
-
-        .experience-org {
-            font-size: 15px;
-            color: var(--secondary-text);
-            font-weight: 400;
-        }
-
-        .experience-description {
-            font-size: 17px;
-            line-height: 1.47;
-            color: var(--secondary-text);
-            margin-bottom: 20px;
-        }
-
-        .experience-achievements {
-            list-style: none;
-        }
-
-        .experience-achievements li {
-            font-size: 15px;
-            line-height: 1.47;
-            color: var(--secondary-text);
-            margin-bottom: 8px;
-            padding-left: 20px;
+            transform: rotate(0.5deg);
             position: relative;
         }
 
-        .experience-achievements li::before {
-            content: '•';
+        .about-title::after {
+            content: '';
             position: absolute;
-            left: 0;
-            color: var(--accent-blue);
-            font-weight: bold;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 5px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0,5 Q25,2 50,6 Q75,8 100,5' stroke='%23777' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            text-align: center;
+            padding: 2rem;
+            border: 2px solid var(--sketch-lighter);
+            border-radius: 20px;
+            background: var(--paper-cream);
+            transform: rotate(0.5deg);
+            position: relative;
+        }
+
+        .about-card:nth-child(even) {
+            transform: rotate(-0.5deg);
+        }
+
+        .about-icon {
+            font-size: 3rem;
+            margin: 0 auto 1.5rem;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--sketch-black);
+            border-radius: 50%;
+            background: var(--paper-white);
+            transform: rotate(-5deg);
+        }
+
+        .about-card-title {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--sketch-black);
+            margin-bottom: 1rem;
+        }
+
+        .about-card-description {
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
+            line-height: 1.6;
+        }
+
+        /* Featured Work */
+        .featured-work {
+            margin: 4rem 0;
+        }
+
+        .section-title {
+            font-family: 'Caveat', cursive;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--sketch-black);
+            text-align: center;
+            margin-bottom: 3rem;
+            transform: rotate(-0.5deg);
+            position: relative;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .work-card {
+            background: var(--paper-white);
+            border: 3px solid var(--sketch-black);
+            border-radius: 25px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            transform: rotate(0.5deg);
+        }
+
+        .work-card:nth-child(even) {
+            transform: rotate(-0.5deg);
+        }
+
+        .work-card:hover {
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 15px 15px 30px var(--shadow-sketch);
+        }
+
+        .work-header {
+            padding: 2rem 2rem 1rem;
+            position: relative;
+        }
+
+        .work-badge {
+            font-family: 'Architects Daughter', cursive;
+            background: var(--sketch-black);
+            color: var(--paper-cream);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+            transform: rotate(-2deg);
+        }
+
+        .work-title {
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--sketch-black);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .work-subtitle {
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-blue);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .work-description {
+            font-family: 'Kalam', cursive;
+            color: var(--sketch-gray);
+            line-height: 1.6;
+            padding: 0 2rem 2rem;
+        }
+
+        .work-link {
+            font-family: 'Architects Daughter', cursive;
+            color: var(--sketch-black);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0 2rem 2rem;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--sketch-black);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            transform: rotate(-1deg);
+        }
+
+        .work-link:hover {
+            background: var(--sketch-black);
+            color: var(--paper-cream);
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        /* Contact section */
+        .contact-section {
+            background: var(--sketch-black);
+            color: var(--paper-cream);
+            padding: 4rem 2rem;
+            border-radius: 40px;
+            text-align: center;
+            margin: 4rem 0;
+            position: relative;
+            transform: rotate(-0.5deg);
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px dashed var(--paper-cream);
+            border-radius: 30px;
+            opacity: 0.3;
+        }
+
+        .contact-title {
+            font-family: 'Caveat', cursive;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .contact-subtitle {
+            font-family: 'Kalam', cursive;
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            font-family: 'Architects Daughter', cursive;
+            background: var(--paper-cream);
+            color: var(--sketch-black);
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 3px solid var(--paper-cream);
+            transform: rotate(1deg);
+        }
+
+        .contact-btn:hover {
+            background: transparent;
+            color: var(--paper-cream);
+            transform: rotate(-1deg) scale(1.05);
         }
 
         /* Footer */
         .footer {
-            background: var(--background-gray);
-            padding: 60px 0 40px;
-            border-top: 1px solid var(--border-light);
-        }
-
-        .footer-content {
-            max-width: 1024px;
-            margin: 0 auto;
-            padding: 0 22px;
+            background: var(--sketch-gray);
+            color: var(--paper-cream);
             text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--secondary-text);
-            text-decoration: none;
-            font-size: 17px;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-text);
-        }
-
-        .footer-text {
-            color: var(--secondary-text);
-            font-size: 12px;
-            line-height: 1.33;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Scroll Indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            animation: fadeInUp 1s ease 1.2s forwards;
-        }
-
-        .scroll-mouse {
-            width: 24px;
-            height: 40px;
-            border: 2px solid var(--secondary-text);
-            border-radius: 12px;
-            position: relative;
-            margin: 0 auto 10px;
-        }
-
-        .scroll-mouse::before {
-            content: '';
-            width: 4px;
-            height: 8px;
-            background: var(--secondary-text);
-            border-radius: 2px;
-            position: absolute;
-            top: 6px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: scrollDown 2s infinite;
-        }
-
-        .about-image-card {
-            padding: 5px;
-            background: white;
-            border-radius: 6px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .about-image-card img {
-            border-radius: 5px;
-            max-width: 280px;
-            width: 100%;
-            height: auto;
-        }
-
-        .scroll-text {
-            font-size: 12px;
-            color: var(--secondary-text);
-            text-align: center;
-        }
-
-        @keyframes scrollDown {
-            0% {
-                top: 6px;
-                opacity: 1;
-            }
-            100% {
-                top: 20px;
-                opacity: 0;
-            }
+            padding: 2rem;
+            font-family: 'Kalam', cursive;
         }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .nav-links {
+            .header-content {
+                padding: 0 1rem;
+            }
+
+            .nav-menu {
                 display: none;
             }
 
+            .nav-toggle {
+                display: block;
+            }
+
             .hero {
-                height: auto;
-                min-height: 100vh;
-                padding: 80px 16px 40px;
+                padding: 3rem 1rem 2rem;
             }
 
-            .hero-headline {
-                font-size: 48px;
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
             }
 
-            .hero-subheadline {
-                font-size: 21px;
+            .hero-image {
+                order: -1;
             }
 
-            .hero-cta {
+            .hero-photo {
+                max-width: 250px;
+                height: 320px;
+            }
+
+            .about-preview,
+            .contact-section {
+                margin: 2rem 1rem;
+                padding: 2rem 1rem;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .quick-stats {
+                grid-template-columns: repeat(2, 1fr);
+                margin: 2rem 1rem;
+                padding: 1.5rem;
+            }
+
+            .contact-methods {
                 flex-direction: column;
                 align-items: center;
             }
 
-            .section-headline {
-                font-size: 32px;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .project-card {
-                padding: 24px;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 40px;
-            }
-
-            .stat-number {
-                font-size: 48px;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 20px;
+            .hero-cta {
+                justify-content: center;
             }
         }
 
-        @media (max-width: 480px) {
-            .container, .nav-container, .footer-content {
-                padding: 0 16px;
-            }
-
-            .hero {
-                padding: 44px 16px 0;
-            }
-
-            .hero-headline {
-                font-size: 36px;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px) rotate(0deg);
+            transition: all 0.8s ease;
         }
 
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0) rotate(var(--random-rotation, 0.5deg));
         }
 
-        /* Selection */
-        ::selection {
-            background: rgba(0, 122, 255, 0.2);
+        /* Paper airplane decoration */
+        .paper-plane {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            opacity: 0.3;
+            animation: fly 15s ease-in-out infinite;
+            z-index: 50;
         }
 
-        /* Focus styles */
-        button:focus,
-        a:focus {
-            outline: 2px solid var(--accent-blue);
-            outline-offset: 2px;
+        @keyframes fly {
+            0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+            25% { transform: translateX(-20px) translateY(-10px) rotate(-5deg); }
+            50% { transform: translateX(20px) translateY(10px) rotate(5deg); }
+            75% { transform: translateX(-10px) translateY(-5px) rotate(-3deg); }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">Nikhil Sharma</a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="experience.html">Experience</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="stanford-sprint.html">Stanford SPrinT</a></li>
-                <li><a href="cisco-robotics.html">Cisco Robotics</a></li>
+    <!-- Paper airplane decoration -->
+    <div class="paper-plane">✈️</div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">Nikhil's Sketchbook</a>
+            <nav>
+                <button class="nav-toggle" id="nav-toggle">☰</button>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="research.html" class="nav-link">Research</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-        </div>
     </nav>
+        </div>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content hero-split">
-            <div class="hero-text">
-                <!-- <div class="hero-eyebrow">ML Engineer • Researcher • Stanford Collaborator</div> -->
-                <h1 class="hero-headline">"A.I. is our future."</h1>
-                <!-- <p class="hero-subheadline">
-                    Working at the intersection of secure machine learning, computer vision, and multimodal AI with collaborators from Stanford, Cisco, and IIT Delhi.
-                </p> -->
-                <!-- <div class="hero-cta">
-                    <a href="research.html" class="btn-primary">View Research</a>
-                    <a href="mailto:sharmanikhiljiit@gmail.com" class="btn-secondary">Get in Touch</a>
-                </div> -->
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="hero-greeting">
+                    Hey there, I'm
             </div>
+                <h1 class="hero-title">
+                    <span class="highlight sketch-underline">Nikhil Sharma</span>
+                </h1>
+                <p class="hero-subtitle">
+                    AI Researcher & PhD Student who sketches ideas into intelligent systems
+                </p>
+                <p class="hero-description">
+                    Currently doodling my way through a PhD at Illinois Institute of Technology while collaborating 
+                    on cutting-edge research at Stanford. I love turning complex AI concepts into simple, 
+                    elegant solutions that make a real difference in healthcare and security.
+                </p>
+                <div class="hero-cta">
+                    <a href="research.html" class="cta-primary">
+                        📚 Browse My Work
+                    </a>
+                    <a href="#contact" class="cta-secondary">
+                        ☕ Grab Coffee & Chat
+                    </a>
         </div>
-
-        <div class="scroll-indicator">
-            <div class="scroll-mouse"></div>
-            <div class="scroll-text">Scroll</div>
         </div>
-    </section>
-
-
-    <section class="about" id="about">
-        <div class="container about-container">
-            <div class="about-image-card">
-                <img src="images/me.jpg">
+            <div class="hero-image">
+                <div class="hero-photo-frame">
+                    <img src="images/my_image.png" alt="Nikhil Sharma - Sketched Portrait" class="hero-photo">
+                    <div class="photo-badge">
+                        <div class="badge-title">PhD Candidate</div>
+                        <div class="badge-subtitle">Illinois Tech • AI Researcher</div>
             </div>
-          <div class="about-text">
-            <h2>About Me</h2>
-            <p>
-              I'm a Machine Learning Engineer and researcher working across secure ML, computer vision, and multimodal AI.
-              Currently collaborating with Stanford, Cisco, and Illinois Tech to push the boundaries of responsible AI innovation.
-            </p>
-            <a href="research.html" class="btn-primary">Explore My Work</a>
+                </div>
           </div>
         </div>
       </section>
 
-      
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
+    <!-- Sketch Divider -->
+    <div class="sketch-divider"></div>
+
+    <!-- Quick Stats -->
+    <section class="quick-stats reveal">
+        <div class="stat">
                     <span class="stat-number">15+</span>
-                    <div class="stat-label">Research Publications</div>
+            <div class="stat-label">Research Papers</div>
                 </div>
-                <div class="stat-item">
+        <div class="stat">
+            <span class="stat-number">150+</span>
+            <div class="stat-label">Citations</div>
+        </div>
+        <div class="stat">
                     <span class="stat-number">3</span>
-                    <div class="stat-label">Major Collaborations</div>
+            <div class="stat-label">Universities</div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">$500K+</span>
-                    <div class="stat-label">Grant Funding</div>
-                </div>
-            </div>
+        <div class="stat">
+            <span class="stat-number">∞</span>
+            <div class="stat-label">Ideas Sketched</div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-eyebrow">Featured Work</div>
-                <h2 class="section-headline">Research That Matters</h2>
-                <p class="section-subheadline">
-                    Collaborating with world-class institutions to push the boundaries of AI and machine learning.
+    <!-- About Preview -->
+    <section class="about-preview reveal" id="about">
+        <h2 class="about-title">What I Sketch Into Reality</h2>
+        <div class="about-content">
+            <div class="about-card">
+                <div class="about-icon">🧠</div>
+                <h3 class="about-card-title">AI Research</h3>
+                <p class="about-card-description">
+                    I sketch out diffusion models, multimodal learning systems, and human activity recognition 
+                    that help robots understand the world better.
                 </p>
             </div>
-
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                    </div>
-                    <div class="project-badge">Stanford University</div>
-                    <h3 class="project-title">SPrinT Neuroscience Program</h3>
-                    <p class="project-description">
-                        Developing secure edge-based inference systems for real-time behavioral analysis. 
-                        Federally funded research with NSA security protocols and AWS cloud deployment.
-                    </p>
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <div class="metric-value">Real-time</div>
-                            <div class="metric-label">Processing</div>
+            <div class="about-card">
+                <div class="about-icon">🏥</div>
+                <h3 class="about-card-title">Medical AI</h3>
+                <p class="about-card-description">
+                    Drawing connections between AI and healthcare - from 3D lung imaging to cancer detection 
+                    that saves lives through early intervention.
+                </p>
                         </div>
-                        <div class="metric">
-                            <div class="metric-value">100%</div>
-                            <div class="metric-label">NSA Compliant</div>
+            <div class="about-card">
+                <div class="about-icon">🔒</div>
+                <h3 class="about-card-title">Secure Systems</h3>
+                <p class="about-card-description">
+                    Designing NSA-compliant edge computing systems that keep sensitive research data safe 
+                    while delivering lightning-fast results.
+                </p>
                         </div>
-                        <div class="metric">
-                            <div class="metric-value">AWS</div>
-                            <div class="metric-label">Deployed</div>
                         </div>
-                    </div>
-                    <a href="stanford-sprint.html" class="project-link">Explore Project</a>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M20 12V8l-1.5-1.5c-.75-.75-2.25-.75-3 0L11.5 10c-.75.75-.75 2.25 0 3L13 14.5c.75.75 2.25.75 3 0L20 12zM8 16l-1.5 1.5c-.75.75-2.25.75-3 0L2 16v-4l1.5-1.5c.75-.75 2.25-.75 3 0L8 12l1.5-1.5c.75-.75 2.25-.75 3 0L14 12v4l-1.5 1.5c-.75.75-2.25.75-3 0L8 16z"/>
-                        </svg>
-                    </div>
-                    <div class="project-badge">Cisco Research</div>
-                    <h3 class="project-title">Robotics & Human Activity Recognition</h3>
-                    <p class="project-description">
-                        Advanced skeleton frame generation using diffusion models for enhanced activity recognition. 
-                        Published in MMM 2025 with industry-grade applications.
-                    </p>
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <div class="metric-value">2%</div>
-                            <div class="metric-label">Accuracy ↑</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">40%</div>
-                            <div class="metric-label">Compute ↓</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">MMM 2025</div>
-                            <div class="metric-label">Published</div>
-                        </div>
-                    </div>
-                    <a href="cisco-robotics.html" class="project-link">View Publication</a>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                        </svg>
-                    </div>
-                    <div class="project-badge">Illinois Tech</div>
-                    <h3 class="project-title">Deep Learning Research</h3>
-                    <p class="project-description">
-                        Teaching graduate-level courses in computer vision and deep learning. 
-                        Mentoring next-generation AI researchers on cutting-edge ML applications.
-                    </p>
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <div class="metric-value">100+</div>
-                            <div class="metric-label">Students</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">5+</div>
-                            <div class="metric-label">Mentored</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">4.8/5</div>
-                            <div class="metric-label">Rating</div>
-                        </div>
-                    </div>
-                    <a href="experience.html" class="project-link">Learn More</a>
-                </div>
-            </div>
-        </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="experience" id="experience">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-eyebrow">Professional Journey</div>
-                <h2 class="section-headline">Experience & Leadership</h2>
-                <p class="section-subheadline">
-                    From research to teaching, building the future of AI and machine learning.
+    <!-- Featured Work -->
+    <section class="featured-work reveal">
+        <h2 class="section-title">Latest Sketches Come to Life</h2>
+        <div class="work-grid">
+            <div class="work-card">
+                <div class="work-header">
+                    <div class="work-badge">Fresh off the Drawing Board!</div>
+                    <h3 class="work-title">SSDL: Sensor-to-Skeleton Magic</h3>
+                    <p class="work-subtitle">Published at MMM 2025</p>
+                    </div>
+                <p class="work-description">
+                    What if sensors could dream of skeletons? My latest creation turns messy sensor data 
+                    into beautiful skeleton animations using diffusion models. It's like teaching 
+                    computers to imagine human movement!
                 </p>
+                <a href="cisco-robotics.html" class="work-link">
+                    See the Magic →
+                </a>
+                        </div>
+
+            <div class="work-card">
+                <div class="work-header">
+                    <div class="work-badge">Top Secret Doodles</div>
+                    <h3 class="work-title">Stanford Security Sketches</h3>
+                    <p class="work-subtitle">NSA-Level Secure AI</p>
             </div>
-
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-logo">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
-                        <div class="experience-meta">
-                            <div class="experience-title">Research Collaborator</div>
-                            <div class="experience-org">Stanford University</div>
-                        </div>
-                    </div>
-                    <p class="experience-description">
-                        Leading development of secure, low-latency edge-based inference systems for the federally funded SPrinT neuroscience program.
-                    </p>
-                    <ul class="experience-achievements">
-                        <li>Built secure ML pipeline with NSA compliance protocols</li>
-                        <li>Deployed scalable multimodal models on AWS infrastructure</li>
-                        <li>Collaborated with Dr. Mehrdad Shamloo on behavioral analysis</li>
-                        <li>Achieved real-time inference with 40% compute reduction</li>
-                    </ul>
+                <p class="work-description">
+                    Ever wondered what happens when AI meets federal security? I'm building 
+                    ultra-secure edge systems that process neuroscience data without compromising 
+                    national security protocols.
+                </p>
+                <a href="stanford-sprint.html" class="work-link">
+                    Enter the Vault →
+                </a>
                 </div>
 
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-logo">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2c0-.55-.45-1-1-1s-1 .45-1 1v2H8V2c0-.55-.45-1-1-1s-1 .45-1 1v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"/>
-                            </svg>
+            <div class="work-card">
+                <div class="work-header">
+                    <div class="work-badge">Life-Saving Sketches</div>
+                    <h3 class="work-title">3D Medical Imaging</h3>
+                    <p class="work-subtitle">Clinically Validated</p>
                         </div>
-                        <div class="experience-meta">
-                            <div class="experience-title">Research Assistant & TA</div>
-                            <div class="experience-org">Illinois Institute of Technology</div>
-                        </div>
-                    </div>
-                    <p class="experience-description">
-                        Leading research in multimodal learning and foundation models while teaching graduate-level courses in deep learning and computer vision.
-                    </p>
-                    <ul class="experience-achievements">
-                        <li>Published 3+ papers in top-tier ML conferences</li>
-                        <li>Taught 100+ graduate students in DL/CV courses</li>
-                        <li>Mentored 5+ students on applied ML research projects</li>
-                        <li>Achieved 4.8/5 teaching rating across all courses</li>
-                    </ul>
+                <p class="work-description">
+                    My algorithms sketch detailed 3D maps of lungs to spot cancer before it spreads. 
+                    Working with doctors at top hospitals to turn AI research into real patient care.
+                </p>
+                <a href="research.html" class="work-link">
+                    Explore the Gallery →
+                </a>
                 </div>
+                        </div>
+    </section>
 
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-logo">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2z"/>
-                            </svg>
-                        </div>
-                        <div class="experience-meta">
-                            <div class="experience-title">ML Engineer</div>
-                            <div class="experience-org">Matdun Labs</div>
-                        </div>
-                    </div>
-                    <p class="experience-description">
-                        Built production-ready computer vision systems for human pose detection and face recognition with real-time performance optimization.
-                    </p>
-                    <ul class="experience-achievements">
-                        <li>Developed real-time pose detection achieving 60fps</li>
-                        <li>Reduced inference time by 40% through model optimization</li>
-                        <li>Led technical implementation of "Chabee" face detection</li>
-                        <li>Deployed MLOps workflows for continuous model improvement</li>
-                    </ul>
-                </div>
-            </div>
+    <!-- Contact Section -->
+    <section class="contact-section reveal" id="contact">
+        <h2 class="contact-title">Let's Sketch Something Together!</h2>
+        <p class="contact-subtitle">
+            Got an interesting AI problem? Want to collaborate on research? Or just curious about 
+            how diffusion models work? I'm always up for a good conversation!
+        </p>
+        <div class="contact-methods">
+            <a href="mailto:sharmanikhiljiit@gmail.com" class="contact-btn">
+                ✉️ Drop me a line
+            </a>
+            <a href="https://linkedin.com/in/nikhilsharmaiit" class="contact-btn">
+                💼 LinkedIn Connect
+            </a>
+            <a href="https://scholar.google.com/citations?user=YOUR_ID" class="contact-btn">
+                🎓 Google Scholar
+            </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer" id="contact">
+    <footer class="footer">
         <div class="footer-content">
-            <div class="footer-links">
-                <a href="mailto:sharmanikhiljiit@gmail.com">Email</a>
-                <a href="https://www.linkedin.com/in/nikhil-sharma-jiit/" target="_blank">LinkedIn</a>
-                <a href="https://github.com/nikhiliit" target="_blank">GitHub</a>
-                <a href="https://scholar.google.com/citations?user=Von4NncAAAAJ&hl=en" target="_blank">Google Scholar</a>
-            </div>
-            <div class="footer-text">
-                Copyright © 2025 Nikhil Sharma. All rights reserved.
-            </div>
+            <p>© 2025 Nikhil Sharma - Hand-sketched with ❤️ and lots of ☕</p>
+            <p>PhD Student • AI Researcher • Sketch Enthusiast • Problem Solver</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scroll behavior for navigation links
+        // Add random rotations to revealed elements
+        const randomRotations = ['-0.5deg', '0.3deg', '-0.8deg', '0.6deg', '-0.3deg', '0.4deg'];
+        
+        // Header scroll effect with sketch style
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.transform = 'rotate(-0.2deg)';
+                header.style.boxShadow = '0 5px 20px rgba(44, 44, 44, 0.15)';
+            } else {
+                header.style.transform = 'rotate(0deg)';
+                header.style.boxShadow = '0 2px 10px rgba(44, 44, 44, 0.1)';
+            }
+        });
+
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            if (navMenu.style.display === 'flex') {
+                navMenu.style.display = 'none';
+            } else {
+                navMenu.style.display = 'flex';
+                navMenu.style.flexDirection = 'column';
+                navMenu.style.position = 'absolute';
+                navMenu.style.top = '100%';
+                navMenu.style.left = '0';
+                navMenu.style.right = '0';
+                navMenu.style.background = '#faf9f7';
+                navMenu.style.border = '2px solid #2c2c2c';
+                navMenu.style.borderRadius = '15px';
+                navMenu.style.padding = '1rem';
+                navMenu.style.margin = '1rem';
+            }
+        });
+
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offsetTop = target.offsetTop - 44; // Account for fixed nav
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
             });
         });
-    
-        // Enhanced navbar scroll effect
-        let lastScrollY = window.scrollY;
-        const nav = document.querySelector('.nav');
-    
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-    
-            if (currentScrollY > 100) {
-                nav.style.background = 'rgba(255, 255, 255, 0.9)';
-                nav.style.borderBottom = '1px solid rgba(0, 0, 0, 0.12)';
-            } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.8)';
-                nav.style.borderBottom = '1px solid rgba(0, 0, 0, 0.08)';
-            }
-    
-            if (currentScrollY > lastScrollY && currentScrollY > 200) {
-                nav.style.transform = 'translateY(-100%)';
-            } else {
-                nav.style.transform = 'translateY(0)';
-            }
-    
-            lastScrollY = currentScrollY;
-        });
-    
-        // Intersection Observer for stats animation
+
+        // Scroll reveal animation with random rotations
         const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px 0px -100px 0px'
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
-    
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                        animateCounter(entry.target.querySelector('.stat-number'));
-                    }, index * 200);
+                    const randomRotation = randomRotations[Math.floor(Math.random() * randomRotations.length)];
+                    entry.target.style.setProperty('--random-rotation', randomRotation);
+                    entry.target.classList.add('revealed');
                 }
             });
         }, observerOptions);
-    
-        document.querySelectorAll('.stat-item').forEach(item => {
-            statsObserver.observe(item);
+
+        // Observe all elements with reveal class
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
         });
-    
-    //     // Counter animation function
-    //     function animateCounter(element) {
-    //         const text = element.textContent;
-    //         const hasPercent = text.includes('%');
-    //         const hasDollar = text.includes('
-    // );
-    //         const hasPlus = text.includes('+');
-    
-    //         let target = parseInt(text.replace(/\D/g, ''));
-    
-    //         if (text.includes('23%')) target = 23;
-    //         else if (text.includes('$500K+')) target = 500;
-    //         else if (text.includes('15+')) target = 15;
-    //         else if (text.includes('4.8')) target = 48;
-    
-    //         const duration = 2000;
-    //         const step = target / (duration / 16);
-    //         let current = 0;
-    
-    //         const timer = setInterval(() => {
-    //             current += step;
-    //             if (current >= target) {
-    //                 if (text.includes('23%')) element.textContent = '23%';
-    //                 else if (text.includes('$500K+')) element.textContent = '$500K+';
-    //                 else if (text.includes('15+')) element.textContent = '15+';
-    //                 else if (text.includes('4.8')) element.textContent = '4.8';
-    //                 else element.textContent = target;
-    //                 clearInterval(timer);
-    //             } else {
-    //                 let displayValue = Math.floor(current);
-    //                 if (text.includes('4.8')) displayValue = (current / 10).toFixed(1);
-    //                 else if (hasDollar) displayValue = '
-    //  + displayValue + 'K';
-    //                 else if (hasPercent) displayValue = displayValue + '%';
-    //                 else if (hasPlus && current >= target - 1) displayValue = displayValue + '+';
-    
-    //                 element.textContent = displayValue;
-    //             }
-    //         }, 16);
-    //     }
-    
-        // General intersection observer for fade-in animations
-        const fadeObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
+
+        // Add sketch-style interactions
+        document.querySelectorAll('.work-card, .about-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = card.style.transform.replace(/rotate\([^)]*\)/, '') + ' rotate(0deg)';
             });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-    
-        document.querySelectorAll('.project-card, .experience-card').forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(30px)';
-            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            fadeObserver.observe(item);
-        });
-    
-        // Hide scroll indicator after scrolling
-        window.addEventListener('scroll', () => {
-            const scrollIndicator = document.querySelector('.scroll-indicator');
-            if (window.scrollY > 100 && scrollIndicator) {
-                scrollIndicator.style.opacity = '0';
-            }
-        });
-    
-        // Project card hover scale effect
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', function () {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
-            });
-    
-            card.addEventListener('mouseleave', function () {
-                this.style.transform = 'translateY(0) scale(1)';
+            
+            card.addEventListener('mouseleave', () => {
+                const originalTransform = card.classList.contains('work-card') ? 
+                    (card.parentNode.children[Array.prototype.indexOf.call(card.parentNode.children, card)] % 2 === 0 ? 
+                        'rotate(0.5deg)' : 'rotate(-0.5deg)') : 
+                    (card.parentNode.children[Array.prototype.indexOf.call(card.parentNode.children, card)] % 2 === 0 ? 
+                        'rotate(0.5deg)' : 'rotate(-0.5deg)');
+                card.style.transform = card.style.transform.replace(/rotate\([^)]*\)/, '') + ' ' + originalTransform;
             });
         });
     
-        // Page load effect
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '1';
-        });
-    
-        // Preload fonts
-        const preloadLink = document.createElement('link');
-        preloadLink.rel = 'preload';
-        preloadLink.href = 'https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@100;200;300;400;500;600;700;800;900&family=SF+Pro+Text:wght@300;400;500;600&display=swap';
-        preloadLink.as = 'style';
-        document.head.appendChild(preloadLink);
-    
-        // Optional: Page performance log
-        if ('performance' in window) {
-            window.addEventListener('load', () => {
-                setTimeout(() => {
-                    const perfData = performance.getEntriesByType('navigation')[0];
-                    console.log('Page Load Time:', perfData.loadEventEnd - perfData.loadEventStart);
-                }, 0);
-            });
-        }
+        // Fun console message in sketch style
+        console.log(`
+    ╭─────────────────────────────────────╮
+    │  📝 Welcome to Nikhil's Sketchbook! │
+    │                                     │
+    │  Thanks for peeking at the code!    │
+    │  Want to collaborate? Drop me a     │
+    │  line: sharmanikhiljiit@gmail.com   │
+    │                                     │
+    │  ~ Sketched with ❤️ and lots of ☕   │
+    ╰─────────────────────────────────────╯
+        `);
     </script>
-
-
 </body>
 </html>
